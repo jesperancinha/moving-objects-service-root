@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE")
+    }
+}
+
+plugins {
+    id 'nebula.optional-base' version '3.0.3'
+    id 'nebula.provided-base' version '3.0.3'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'nebula.provided-base'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'destination-finder-client'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 12
+targetCompatibility = 12
+
+dependencies {
+    implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.8.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly('org.projectlombok:lombok:1.18.10')
+    annotationProcessor('org.projectlombok:lombok:1.18.10')
+    testCompile('junit:junit')
+}

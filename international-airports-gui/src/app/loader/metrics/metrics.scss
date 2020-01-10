@@ -1,0 +1,55 @@
+.card {
+  align-content: center;
+}
+
+input {
+  margin: 8px;
+}
+
+.filters {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+}
+
+// We need to use ::ng-deep to overcome view encapsulation
+::ng-deep {
+  .custom-slider .ng5-slider .ng5-slider-bar {
+    background: #0095ff;
+    height: 2px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    width: 32px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 2px;
+    background-color: #0095ff;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+    color: #0095ff;
+  }
+}

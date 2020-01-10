@@ -1,0 +1,54 @@
+<div class="container">
+    <div>
+        <table>
+            <tr>
+                <td>Error Code</td>
+                <td>
+                    <label>
+                        <nb-card-body>
+                            <nb-select placeholder="{{option}}" [size]="'tiny'" fullWidth
+                                       [(ngModel)]="option"
+                                       [(selected)]="option"
+                                       (selectedChange)="changeErrorCode($event)">
+                                <nb-option [value]="errorOption"
+                                           *ngFor="let errorOption of options">{{ errorOption.tag }}</nb-option>
+                            </nb-select>
+                        </nb-card-body>
+                    </label>
+                </td>
+            </tr>
+            <tr *ngIf="statistics">
+                <td>Measurements</td>
+                <td>
+                    <label *ngIf="statistics">
+                        <nb-card-body>
+                            Call count:
+                            <nb-select-label>
+                                {{statCount}}
+                            </nb-select-label>
+                            Average time:
+                            <nb-select-label>
+                                {{statAvg}}
+                            </nb-select-label>
+                            Maximum time:
+                            <nb-select-label>
+                                {{statMax}}
+                            </nb-select-label>
+                            Minimum time:
+                            <nb-select-label>
+                                {{statMin}}
+                            </nb-select-label>
+                            Total time:
+                            <nb-select-label>
+                                {{statTotal}}
+                            </nb-select-label>
+                        </nb-card-body>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td *ngIf="countLoaders > 0">Loading...</td>
+            </tr>
+        </table>
+    </div>
+</div>

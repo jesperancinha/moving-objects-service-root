@@ -1,0 +1,23 @@
+{
+  "/travel/fares": {
+    "target": "http://localhost:9000",
+    "secure": false,
+    "pathRewrite": {
+      "^/travel/fares": "/travel/fares"
+    }
+  },
+  "/travel/locations": {
+    "target": "http://localhost:9000",
+    "secure": false,
+    "pathRewrite": {
+      "^/travel/locations": "/travel/locations"
+    }
+  },
+  "/travel/actuator": {
+    "target": "http://localhost:9000",
+    "secure": false,
+    "pathRewrite": {
+      "^/travel/actuator": "/travel/actuator"
+    }
+  }
+}

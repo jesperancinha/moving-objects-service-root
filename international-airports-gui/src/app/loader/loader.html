@@ -1,0 +1,35 @@
+<div class="container">
+    <nb-card accent="info">
+        <div class="container">
+            <nb-card-body>
+                <div class="card">
+                    <div>Please select an option from below</div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card accent="info">
+        <div class="container">
+            <nb-card-body>
+                <nb-tabset (changeTab)="tabChanged($event, faresComponent, metricsComponent, airportsComponent)">
+                    <nb-tab  tabTitle="Fares" tabId="fares" responsive>
+                        <fares #faresComponent></fares>
+                    </nb-tab>
+                    <nb-tab tabTitle="Metrics" tabId="metrics"  responsive>
+                        <metrics #metricsComponent></metrics>
+                    </nb-tab>
+                    <nb-tab tabTitle="Airports" tabId="airports" responsive>
+                        <airports #airportsComponent></airports>
+                    </nb-tab>
+                </nb-tabset>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card>
+        <div class="container center">Copyright 2019 @ João Esperancinha (<a
+                href="http://www.joaofilipesabinoesperancinha.nl">jesperancinha</a>)
+        </div>
+    </nb-card>
+</div>

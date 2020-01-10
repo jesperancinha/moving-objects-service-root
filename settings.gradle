@@ -1,0 +1,9 @@
+rootProject.name = 'international-airports-service-root'
+include 'international-airports-rest:international-airports-service-api'
+include 'international-airports-rest:international-airports-rest-api'
+include 'international-airports-rest:international-airports-rest-service'
+include 'international-airports-rest:international-airports-data'
+include 'international-airports-sst:international-airports-sst-wiremock'
+include 'international-airports-sst:international-airports-sst-live'
+include 'international-airports-rest:international-airports-model'
+

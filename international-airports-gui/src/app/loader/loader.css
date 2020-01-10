@@ -1,0 +1,45 @@
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: aqua;
+}
+
+button {
+    margin: 10px;
+}
+
+
+.container {
+    margin: 10px;
+}
+
+.card {
+    align-content: center;
+}
+
+input {
+    margin: 8px;
+}
+
+.filters {
+    float: right;
+}
+
+.image {
+    max-width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.spinner {
+    min-height: 50px;
+}
