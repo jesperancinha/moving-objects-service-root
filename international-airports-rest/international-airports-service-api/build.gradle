@@ -33,6 +33,4 @@ dependencies {
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.2.2.RELEASE')
-
-    testCompile group: 'junit', name: 'junit', version: '4.12'
 }

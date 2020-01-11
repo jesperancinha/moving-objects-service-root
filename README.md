@@ -5,7 +5,7 @@ International Airports Service
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a57b110faf0844739a274888b38e0f6e)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/international-airports-service-root&amp;utm_campaign=Badge_Grade)
-[![CircleCI](https://circleci.com/gh/jesperancinha/international-airports-service-root.svg?style=svg)](https://circleci.com/gh/jesperancinha/international-airports-service-root)
+[![CircleCI](https://circleci.com/bb/jesperancinha/international-airports-service-root.svg?style=svg)](https://circleci.com/bb/jesperancinha/international-airports-service-root)
 [![Build Status](https://travis-ci.com/jesperancinha/international-airports-service-root.svg?branch=master)](https://travis-ci.com/jesperancinha/international-airports-service-root)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/international-airports-service-root?branch=master)](https://bettercodehub.com/results/jesperancinha/international-airports-service-root?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/eka55ffpbjkxq55p?svg=true)](https://ci.appveyor.com/project/jesperancinha/international-airports-service-root)
@@ -54,6 +54,8 @@ cd ..
 
 # References
 
+-   [Travel Web Cams](https://rapidapi.com/webcams.travel/api/webcams-travel)
+-   [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
 -   [RapidAPI](https://rapidapi.com/)  
 -   [Postman OAuth 2.0](https://learning.getpostman.com/docs/postman/sending-api-requests/authorization/#oauth-20)
 
