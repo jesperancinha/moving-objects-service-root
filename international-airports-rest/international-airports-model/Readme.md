@@ -1,4 +1,4 @@
-# international-airports-rest-service
+# international-airports-model
 
 ## About me
 

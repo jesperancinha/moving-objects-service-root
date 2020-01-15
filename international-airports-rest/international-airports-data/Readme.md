@@ -1,4 +1,4 @@
-# international-airports-rest-service
+# international-airports-data
 
 ## About me
 
