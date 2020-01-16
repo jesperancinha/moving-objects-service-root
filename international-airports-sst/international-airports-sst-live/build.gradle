@@ -36,9 +36,9 @@ dependencies {
     implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.8.RELEASE'
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation('org.springframework.boot:spring-boot-starter-webflux')
-    implementation('org.jesperancinha.airports:international-airports-sst-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-sst-client-airports:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-sst-client-webcam:1.0.0')
+    implementation('org.jesperancinha.airports:international-airports-sst-data:1.0.0')
     implementation('com.squareup.okhttp:okhttp:2.7.5')
     implementation('com.google.code.gson:gson:2.8.5')
     compileOnly 'org.projectlombok:lombok:1.18.10'
