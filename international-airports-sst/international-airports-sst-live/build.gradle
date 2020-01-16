@@ -1,3 +1,8 @@
+dependencies {
+    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-airports')
+    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-webcam')
+}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -27,6 +32,8 @@ repositories {
     mavenLocal()
     mavenCentral()
 }
+
+preBuild.dependsOn ":foo:build"
 
 sourceCompatibility = 12
 targetCompatibility = 12
