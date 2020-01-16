@@ -1,14 +1,24 @@
-plugins {
-    id 'java'
-    id 'maven'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
 }
 
 version '1.0.0'
 group 'org.jesperancinha.airports'
 
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 sourceCompatibility = 12
 targetCompatibility = 12
-
 repositories {
     mavenLocal()
     mavenCentral()
