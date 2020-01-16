@@ -13,7 +13,7 @@ import java.net.URI;
 public class AirportRepositoryImpl implements AirportsRepository {
 
     @Value("${org.jesperancinha.airport.airports:http://localhost:8080/airports}")
-    private String endpointAirports;
+    private String airportEndpoint;
 
     private final WebClient webClient;
 
@@ -23,14 +23,14 @@ public class AirportRepositoryImpl implements AirportsRepository {
 
     public Mono<Airport> findAirportById(final String codeId) {
         return webClient.get()
-                .uri(endpointAirports + "/{codeId}", codeId)
+                .uri(airportEndpoint + "/{codeId}", codeId)
                 .retrieve()
                 .bodyToMono(Airport.class);
     }
 
     public Flux<Airport> findAllLocatioms() {
         return webClient.get().uri(URI
-                .create(endpointAirports))
+                .create(airportEndpoint))
                 .retrieve().bodyToFlux(Airport.class);
     }
 
@@ -55,7 +55,7 @@ public class AirportRepositoryImpl implements AirportsRepository {
 
     private Flux<Airport> findAirportByUrlAndParams(String paramsUrl, Object... params) {
         return webClient.get()
-                .uri(endpointAirports + paramsUrl, params)
+                .uri(airportEndpoint + paramsUrl, params)
                 .retrieve().bodyToFlux(Airport.class);
     }
 }

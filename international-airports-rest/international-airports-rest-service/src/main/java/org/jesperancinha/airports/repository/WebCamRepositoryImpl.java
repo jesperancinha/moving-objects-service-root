@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 @Repository
 public class WebCamRepositoryImpl implements WebCamRepository {
 
-    @Value("${org.jesperancinha.airport.fares:http://localhost:8080/fares}")
+    @Value("${org.jesperancinha.airport.webcams:http://localhost:8080/webcams}")
     private String endpointFares;
 
     private final WebClient webClient;

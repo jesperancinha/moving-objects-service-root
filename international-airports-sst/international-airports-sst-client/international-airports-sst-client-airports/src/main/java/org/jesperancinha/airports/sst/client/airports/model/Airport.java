@@ -2,12 +2,14 @@ package org.jesperancinha.airports.sst.client.airports.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @AllArgsConstructor
+@Getter
 public class Airport {
     private String airportId;
 

@@ -12,7 +12,7 @@ public class WebCamsSSTClientConfiguration {
 
     @Bean
     public WebCamsSSTClient webClient(
-            @Value("${org.jesperancinha.airports.sst.client.url}") URL url,
+            @Value("${org.jesperancinha.airports.sst.client.webcams.url}") URL url,
             @Value("${org.jesperancinha.airports.sst.client.webcams.x.rapidapi.host}") String xRapidAPIHost,
             @Value("${org.jesperancinha.airports.sst.client.webcams.x.rapidapi.key}") String xRapidAPIKey) {
         return WebCamsSSTClient.builder().url(url)

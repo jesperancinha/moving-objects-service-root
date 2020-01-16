@@ -1,5 +1,19 @@
 # international-airports-sst-live
 
+## Params
+
+```text
+--rapidapi.airports.key=yourpersonalkey
+--rapidapi.webcams.key=yourpersonalkey
+```
+
+Example:
+
+```text
+--rapidapi.airports.key=ksdnfklsnknsdpnskdnvslkdnkslnnvskdnvlsnklnksvdvdkn
+--rapidapi.webcams.key=34j98ru390j3934jr93r9i3rj3ig90jjbndn90jb3099949j3t
+```
+
 ## About me
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/joaofse?label=João%20Esperancinha&style=social)](https://twitter.com/joaofse)
