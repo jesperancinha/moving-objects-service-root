@@ -7,6 +7,7 @@ International Airports Service
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a57b110faf0844739a274888b38e0f6e)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/international-airports-service-root&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/bb/jesperancinha/international-airports-service-root.svg?style=svg)](https://circleci.com/bb/jesperancinha/international-airports-service-root)
 [![Build status](https://ci.appveyor.com/api/projects/status/lfauvt61j0nw5xkg?svg=true)](https://ci.appveyor.com/project/jesperancinha/international-airports-service-root)
+[![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/international-airports-service-root/master)](https://bitbucket.org/jesperancinha/international-airports-service-root/addon/pipelines/home)
 
 # Introduction
 
