@@ -35,11 +35,13 @@ jobs:
       - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam
       - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports
       - run: gradle build install -p international-airports-sst/international-airports-sst-data
+      - run: gradle build install -p international-airports-sst/international-airports-sst-wiremock
+      - run: gradle build install -p international-airports-sst/international-airports-sst-live
       - run: gradle build install -p international-airports-rest/international-airports-data
       - run: gradle build install -p international-airports-rest/international-airports-model
       - run: gradle build install -p international-airports-rest/international-airports-service-api
       - run: gradle build install -p international-airports-rest/international-airports-rest-api
-      - run: gradle build install
+      - run: gradle build install -p international-airports-rest/international-airports-service-api
 
       - save_cache:
           paths:
