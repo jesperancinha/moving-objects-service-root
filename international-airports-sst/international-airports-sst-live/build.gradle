@@ -28,9 +28,6 @@ repositories {
     mavenCentral()
 }
 
-evaluationDependsOn(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-webcam')
-evaluationDependsOn(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-airports')
-
 sourceCompatibility = 12
 targetCompatibility = 12
 

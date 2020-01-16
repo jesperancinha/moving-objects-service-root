@@ -1,1 +1,3 @@
 rootProject.name = 'international-airports-sst-live'
+includeBuild '../international-airports-sst-client/international-airports-sst-client-airports'
+includeBuild '../international-airports-sst-client/international-airports-sst-client-webcam'
