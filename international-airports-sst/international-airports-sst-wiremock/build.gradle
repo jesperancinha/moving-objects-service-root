@@ -20,12 +20,8 @@ apply plugin: 'nebula.provided-base'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'maven'
 
-jar {
-    baseName = 'destination-finder-client'
-    version = '0.1.0'
-}
-
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
