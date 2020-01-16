@@ -32,6 +32,8 @@ jobs:
             - v1-dependencies-
 
       - run: gradle dependencies
+      - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam
+      - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports
       - run: gradle install build
 
       - save_cache:
