@@ -9,7 +9,11 @@ International Airports Service
 [![Build status](https://ci.appveyor.com/api/projects/status/lfauvt61j0nw5xkg?svg=true)](https://ci.appveyor.com/project/jesperancinha/international-airports-service-root)
 [![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/international-airports-service-root/master)](https://bitbucket.org/jesperancinha/international-airports-service-root/addon/pipelines/home)
 
-# Introduction
+## Status
+
+Under construction...
+
+## Introduction
 
 The goal of this mini-project is to introduce you to two important monitoring tools in the software landscape
 These are prometheus and grafana.
@@ -23,13 +27,13 @@ This application consists of an option to calculate the distance between airport
 These applications are implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
 We will use as base the [RapidAPI](https://rapidapi.com/) end points and convert them to our proprietary format.
 
-# How to build
+## How to build
 
 To start and build the spring boot process:
 
 `./gradlew bootRun`
 
-# How to run
+## How to run
 
 Please make the front end is build before anything:
 
@@ -41,7 +45,7 @@ npm run build
 cd ..
 ./gradlew bootRun
 ```
-# Endpoint list
+## Endpoint list
 
 -   [Actuator](http://localhost:9000/travel/actuator)
 -   [Actuator Updates for Spring Boot 2](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2.0-M3-Release-Notes#actuator-http-trace-and-auditing-are-disabled-by-default)
@@ -50,7 +54,7 @@ cd ..
 -   [Ok Requests 400](http://localhost:9000/travel/actuator/metrics/http.server.requests?tag=status:400)
 -   [Ok Requests 500](http://localhost:9000/travel/actuator/metrics/http.server.requests?tag=status:500)
 
-# References
+## References
 
 -   [Travel Web Cams](https://rapidapi.com/webcams.travel/api/webcams-travel)
 -   [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
