@@ -10,4 +10,6 @@ include 'international-airports-sst:international-airports-sst-client:internatio
 include 'international-airports-sst:international-airports-sst-client:international-airports-sst-client-airports'
 include 'international-airports-sst:international-airports-sst-wiremock'
 include 'international-airports-sst:international-airports-sst-live'
+include 'international-airports-sst:international-airports-sst-client:international-airports-sst-client-common'
+findProject(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-common')?.name = 'international-airports-sst-client-common'
 

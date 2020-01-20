@@ -1,22 +1,8 @@
 package org.jesperancinha.airports.sst.client.webcams;
 
-import com.squareup.okhttp.OkHttpClient;
-import lombok.Builder;
+import org.jesperancinha.airports.sst.client.webcams.model.WebCamResponse;
+import reactor.core.publisher.Mono;
 
-import java.net.URL;
-
-@Builder
-public class WebCamsSSTClient extends OkHttpClient {
-
-    private final URL url;
-
-    private final String xRapidAPIHost;
-
-    private final String xRapidAPIKey;
-
-    public WebCamsSSTClient(URL url, String xRapidAPIHost, String xRapidAPIKey) {
-        this.url = url;
-        this.xRapidAPIHost = xRapidAPIHost;
-        this.xRapidAPIKey = xRapidAPIKey;
-    }
+public interface WebCamsSSTClient {
+    Mono<WebCamResponse> findWebCamsByPageSizeAndOffset(int pageSize, int pageOffSet);
 }

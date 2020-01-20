@@ -1,8 +1,4 @@
-# international-airports-sst-client-airports
-
-## References
-
--   [Airport info](https://rapidapi.com/Active-api/api/airport-info/endpoints)
+# international-airports-sst-client-common
 
 ## About me
 

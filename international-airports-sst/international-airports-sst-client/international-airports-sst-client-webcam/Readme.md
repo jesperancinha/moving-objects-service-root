@@ -1,5 +1,9 @@
 # international-airports-sst-client-webcam
 
+## References
+
+-   [webcams.travel API Documentation](https://rapidapi.com/webcams.travel/api/webcams-travel)
+
 ## About me
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/joaofse?label=João%20Esperancinha&style=social)](https://twitter.com/joaofse)
