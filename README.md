@@ -56,6 +56,8 @@ cd ..
 
 ## References
 
+-   [Prometheus.IO](https://prometheus.io/)
+-   [Prometheus parameter examples](https://github.com/prometheus/prometheus/blob/release-2.15/config/testdata/conf.good.yml)
 -   [Travel Web Cams](https://rapidapi.com/webcams.travel/api/webcams-travel)
 -   [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
 -   [RapidAPI](https://rapidapi.com/)  

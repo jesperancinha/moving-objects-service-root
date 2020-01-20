@@ -1,0 +1,25 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 30s
+
+scrape_configs:
+  - job_name: airports-gui
+    honor_timestamps: true
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - localhost:8083
+
+  - job_name: airports-rest
+    honor_timestamps: true
+    metrics_path: /federate
+    static_configs:
+      - targets:
+          - localhost:8082
+
+  - job_name: airports-sst
+    honor_timestamps: true
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - localhost:8081
