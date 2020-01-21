@@ -11,7 +11,7 @@ International Airports Service
 
 ## Status
 
-Under construction...
+[Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md)
 
 ## Introduction
 
@@ -23,9 +23,41 @@ This application consists of an option to calculate the distance between airport
 -   The distance between airports
 -   The price you are paying per ticked
 -   A filtered table that provides you with all airport details
+-   A list of the webcams nearby
 
 These applications are implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
 We will use as base the [RapidAPI](https://rapidapi.com/) end points and convert them to our proprietary format.
+
+## Settings
+
+### international-airports-sst-live
+This service is fixed to work as the main single source service.
+
+Login system is OAuth2.
+
+Metric end points are completely open.
+
+-   Port: 8081
+
+### international-airports-sst-mock
+This service is fixed to work as the alternative to the main single source service.
+
+Login system is OAuth2
+
+Metric end points are completely open.
+
+-   Port: 8081
+
+### international-airports-rest-service
+This is the service which will serve the user and the front end.
+
+There is no login service. It is completely anonymous
+
+Metric end points are completely open.
+
+-   Port: 8082
+
+
 
 ## How to build
 
@@ -47,12 +79,12 @@ cd ..
 ```
 ## Endpoint list
 
--   [Actuator](http://localhost:9000/travel/actuator)
+-   [Actuator](http://localhost:8082/travel/actuator)
 -   [Actuator Updates for Spring Boot 2](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2.0-M3-Release-Notes#actuator-http-trace-and-auditing-are-disabled-by-default)
--   [All Requests](http://localhost:9000/travel/actuator/metrics/http.server.requests)
--   [Ok Requests 200](http://localhost:9000/travel/actuator/metrics/http.server.requests?tag=status:200)
--   [Ok Requests 400](http://localhost:9000/travel/actuator/metrics/http.server.requests?tag=status:400)
--   [Ok Requests 500](http://localhost:9000/travel/actuator/metrics/http.server.requests?tag=status:500)
+-   [All Requests](http://localhost:8082/travel/actuator/metrics/http.server.requests)
+-   [Ok Requests 200](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:200)
+-   [Ok Requests 400](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:400)
+-   [Ok Requests 500](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:500)
 
 ## References
 

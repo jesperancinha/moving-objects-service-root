@@ -1,4 +1,4 @@
-# international-airports-wiremock
+# international-airports-mock
 
 This is ther service to use if for any reason the live service doesn't work anymore or is discontinued.
 
