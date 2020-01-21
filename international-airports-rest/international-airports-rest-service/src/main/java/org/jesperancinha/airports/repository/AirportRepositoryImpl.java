@@ -7,8 +7,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
-
 @Repository
 public class AirportRepositoryImpl implements AirportsRepository {
 
@@ -23,39 +21,16 @@ public class AirportRepositoryImpl implements AirportsRepository {
 
     public Mono<Airport> findAirportById(final String codeId) {
         return webClient.get()
-                .uri(airportEndpoint + "/{codeId}", codeId)
+                .uri(airportEndpoint + "/code/{codeId}", codeId)
                 .retrieve()
                 .bodyToMono(Airport.class);
     }
 
-    public Flux<Airport> findAllLocatioms() {
-        return webClient.get().uri(URI
-                .create(airportEndpoint))
-                .retrieve().bodyToFlux(Airport.class);
-    }
-
-    public Flux<Airport> finaAirportBySizeAndPageAndLangAndTerm(int size, int page, String lang, String term) {
-        return findAirportByUrlAndParams("?size={size}&page={page}&lang={lang}&term={term}", size, page, lang, term);
-    }
-
-    @Override
-    public Flux<Airport> finaAirportBySizeAndPageAndLangAndTerm(int size, int page, String lang) {
-        return findAirportByUrlAndParams("?size={size}&page={page}&lang={lang}", size, page, lang);
-    }
-
-    @Override
-    public Flux<Airport> finaAirportBySizeAndPageAndLangAndTerm(int size, int page) {
-        return findAirportByUrlAndParams("?size={size}&page={page}", size, page);
-    }
-
-    @Override
-    public Flux<Airport> finaAirportBySizeAndPageAndLangAndTerm(int size) {
-        return findAirportByUrlAndParams("?size={size}", size);
-    }
-
-    private Flux<Airport> findAirportByUrlAndParams(String paramsUrl, Object... params) {
+    public Flux<Airport> finaAirportByTerm(final String searchTerm) {
         return webClient.get()
-                .uri(airportEndpoint + paramsUrl, params)
-                .retrieve().bodyToFlux(Airport.class);
+                .uri(airportEndpoint + "/search/{codeId}", searchTerm)
+                .retrieve()
+                .bodyToFlux(Airport.class);
     }
+
 }

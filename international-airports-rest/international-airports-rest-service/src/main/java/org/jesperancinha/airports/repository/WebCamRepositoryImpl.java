@@ -22,7 +22,7 @@ public class WebCamRepositoryImpl implements WebCamRepository {
 
     public Flux<WebCam> findCamsByPageSizeAndPageOffset(int pageSize, int pageOffSet) {
         return webClient.get()
-                .uri(endpointWebCams + "/{originCode}/{destinationCode}", pageSize, pageOffSet)
+                .uri(endpointWebCams + "/page/{originCode}/{destinationCode}", pageSize, pageOffSet)
                 .retrieve()
                 .bodyToFlux(WebCam.class);
     }
@@ -30,7 +30,7 @@ public class WebCamRepositoryImpl implements WebCamRepository {
 
     public Flux<WebCam> findCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, long radius) {
         return webClient.get()
-                .uri(endpointWebCams + "/{latitude}/{longitude}/{radius}", latitude, longitude, radius)
+                .uri(endpointWebCams + "/location/{latitude}/{longitude}/{radius}", latitude, longitude, radius)
                 .retrieve()
                 .bodyToFlux(WebCam.class);
     }

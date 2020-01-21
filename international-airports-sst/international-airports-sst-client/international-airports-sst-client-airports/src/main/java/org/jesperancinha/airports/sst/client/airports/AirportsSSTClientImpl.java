@@ -1,7 +1,6 @@
 package org.jesperancinha.airports.sst.client.airports;
 
 import com.google.gson.Gson;
-import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -12,7 +11,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.Locale;
 
 @Builder
 @AllArgsConstructor
@@ -27,26 +26,34 @@ public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTCl
     @Builder.Default
     private final Gson gson = new Gson();
 
-    public Flux<Airport> findAllAiportsBySearchWord(final String searchWord) {
+    public Flux<Airport> findAiportsBySearchWord(final String searchWord) {
         return Mono.fromCallable(() -> {
-            final Response response = this.newCall(getBuild(searchWord)).execute();
+            final Response response = this.newCall(callAirportsBySearchWord(searchWord)).execute();
             return gson.fromJson(response.body().string(), Airport[].class);
         }).flatMapMany(Flux::fromArray);
     }
 
-    private Request getBuild(String append) throws MalformedURLException {
+    public Mono<Airport> findAirportByCode(final String code) {
+        return Mono.fromCallable(() -> {
+            final Response response = this.newCall(callAirportByCode(code)).execute();
+            return gson.fromJson(response.body().string(), Airport[].class)[0];
+        });
+    }
+
+    private Request callAirportsBySearchWord(String searchWord) throws MalformedURLException {
+        return getBuild(this.url.concat("/by-text?text=%s"), searchWord);
+    }
+
+    private Request callAirportByCode(String code) throws MalformedURLException {
+        return getBuild(this.url.concat("/by-code?code=%s"), code);
+    }
+
+    private Request getBuild(String url, Object... properties) {
         return new Request.Builder()
-                .url(getFullQueryTextUrl(append))
+                .url(String.format(Locale.US, url, properties))
                 .get()
                 .addHeader("x-rapidapi-host", xRapidAPIHost)
                 .addHeader("x-rapidapi-key", xRapidAPIKey)
                 .build();
-    }
-
-    private URL getFullQueryTextUrl(String append) {
-        return HttpUrl.parse(url)
-                .newBuilder()
-                .addEncodedQueryParameter("text", append)
-                .build().url();
     }
 }

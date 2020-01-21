@@ -4,6 +4,7 @@ import org.jesperancinha.airports.sst.client.airports.AirportsSSTClient;
 import org.jesperancinha.airports.sst.client.airports.model.Airport;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Repository
 public class AirportsRepoImpl implements AirportsRepo {
@@ -14,7 +15,10 @@ public class AirportsRepoImpl implements AirportsRepo {
         this.airportsSSTClient = airportsSSTClient;
     }
 
-    public Flux<Airport> findAllAirportsByCitySearchWord(final String searchWord){
-        return airportsSSTClient.findAllAiportsBySearchWord(searchWord);
+    public Flux<Airport> findAirportsByCitySearchWord(final String searchWord){
+        return airportsSSTClient.findAiportsBySearchWord(searchWord);
+    }
+    public Mono<Airport> findAirportByCode(final String code){
+        return airportsSSTClient.findAirportByCode(code);
     }
 }

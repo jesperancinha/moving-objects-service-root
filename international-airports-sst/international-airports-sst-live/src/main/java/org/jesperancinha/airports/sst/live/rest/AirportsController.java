@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/live/airports")
-public class AirportsController{
+public class AirportsController {
 
     private final AirportsService airportsService;
 
@@ -18,9 +19,15 @@ public class AirportsController{
         this.airportsService = airportsService;
     }
 
-    @GetMapping(value = "/{searchWord}")
-    public Flux<AirportDto> getAirportsBySearchWord(@PathVariable String searchWord){
-        return airportsService.getAllAirportsBySearchWord(searchWord);
+    @GetMapping(value = "/search/{searchWord}")
+    public Flux<AirportDto> getAirportsBySearchWord(@PathVariable String searchWord) {
+        return airportsService.getAirportsBySearchWord(searchWord);
+    }
+
+
+    @GetMapping(value = "/code/{code}")
+    public Mono<AirportDto> getAirportsByCode(@PathVariable String code) {
+        return airportsService.getAirportByCode(code);
 
 
     }

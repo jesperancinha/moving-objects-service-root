@@ -4,6 +4,7 @@ import org.jesperancinha.airports.sst.data.AirportDto;
 import org.jesperancinha.airports.sst.live.repo.AirportsRepo;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class AirportsServiceImpl implements AirportsService {
@@ -14,8 +15,14 @@ public class AirportsServiceImpl implements AirportsService {
         this.airportsRepo = airportsRepo;
     }
 
-    public Flux<AirportDto> getAllAirportsBySearchWord(final String searchWord){
-        return airportsRepo.findAllAirportsByCitySearchWord(searchWord)
+    public Flux<AirportDto> getAirportsBySearchWord(final String searchWord) {
+        return airportsRepo.findAirportsByCitySearchWord(searchWord)
+                .map(AirportConverter::toAirportDto);
+    }
+
+    @Override
+    public Mono<AirportDto> getAirportByCode(String code) {
+        return airportsRepo.findAirportByCode(code)
                 .map(AirportConverter::toAirportDto);
     }
 }

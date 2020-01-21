@@ -20,14 +20,12 @@ public class WebCamController {
         this.webCamService = webCamService;
     }
 
-    @GetMapping(value = "/{pageSize}/{pageOffset}")
+    @GetMapping(value = "/page/{pageSize}/{pageOffset}")
     public Flux<WebCamDto> getCamsByPageSizeAndPageOffse(@PathVariable int pageSize, @PathVariable int pageOffset) {
         return webCamService.getCamsByPageSizeAndPageOffset(pageSize, pageOffset);
-
-
     }
 
-    @GetMapping(value = "/{latitude}/{longitude}/{radius}")
+    @GetMapping(value = "/location/{latitude}/{longitude}/{radius}")
     public Flux<WebCamDto> getCamsByPageSizeAndPageOffse(
             @PathVariable BigDecimal latitude,
             @PathVariable BigDecimal longitude,

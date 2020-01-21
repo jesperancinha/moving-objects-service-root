@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Repository
-public class CustomTraceRepository implements HttpTraceRepository {
+public class CustomTraceRepositoryImpl implements HttpTraceRepository {
 
     private AtomicReference<List<HttpTrace>> lastTrace = new AtomicReference<>(new ArrayList<>());
 
