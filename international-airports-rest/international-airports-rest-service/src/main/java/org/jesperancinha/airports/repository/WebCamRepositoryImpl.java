@@ -6,11 +6,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+import java.math.BigDecimal;
+
 @Repository
 public class WebCamRepositoryImpl implements WebCamRepository {
 
     @Value("${org.jesperancinha.airport.webcams:http://localhost:8080/webcams}")
-    private String endpointFares;
+    private String endpointWebCams;
 
     private final WebClient webClient;
 
@@ -18,10 +20,17 @@ public class WebCamRepositoryImpl implements WebCamRepository {
         this.webClient = webClient;
     }
 
-    @Override
-    public Flux<WebCam> findFare(String originCode, String destinationCode) {
+    public Flux<WebCam> findCamsByPageSizeAndPageOffset(int pageSize, int pageOffSet) {
         return webClient.get()
-                .uri(endpointFares + "/{originCode}/{destinationCode}", originCode, destinationCode)
+                .uri(endpointWebCams + "/{originCode}/{destinationCode}", pageSize, pageOffSet)
+                .retrieve()
+                .bodyToFlux(WebCam.class);
+    }
+
+
+    public Flux<WebCam> findCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, long radius) {
+        return webClient.get()
+                .uri(endpointWebCams + "/{latitude}/{longitude}/{radius}", latitude, longitude, radius)
                 .retrieve()
                 .bodyToFlux(WebCam.class);
     }

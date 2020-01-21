@@ -20,7 +20,7 @@ public class WebCamConverter {
                 .title(webCam.getTitle())
                 .webCamImage(toWebCamImageDto(webCam.getImage()))
                 .wikiInfo(wikipedia)
-                .coordinateDto(toCoordinateDto(location))
+                .coordinate(toCoordinateDto(location))
                 .build();
     }
 

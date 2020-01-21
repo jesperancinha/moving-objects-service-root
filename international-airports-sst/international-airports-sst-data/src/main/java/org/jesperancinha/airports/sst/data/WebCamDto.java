@@ -14,7 +14,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class WebCamDto {
     private String title;
-    private CoordinateDto coordinateDto;
+    private CoordinateDto coordinate;
     private String wikiInfo;
     private boolean active;
     private WebCamImageDto webCamImage;

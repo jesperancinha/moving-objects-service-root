@@ -88,6 +88,7 @@ cd ..
 
 ## References
 
+-   [How to Configure an OAuth2 Authentication With Spring Security (Part 1)](https://dzone.com/articles/how-to-configure-an-oauth2-authentication-with-spr)
 -   [Grafana Installing using Docker](https://grafana.com/docs/grafana/latest/installation/docker/)
 -   [Prometheus.IO](https://prometheus.io/)
 -   [Prometheus parameter examples](https://github.com/prometheus/prometheus/blob/release-2.15/config/testdata/conf.good.yml)

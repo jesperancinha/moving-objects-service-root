@@ -4,7 +4,9 @@ import org.jesperancinha.airports.data.WebCamDto;
 import org.jesperancinha.airports.service.WebCamService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
+
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("webcams")
@@ -16,7 +18,11 @@ public class WebCamControllerImpl implements WebCamController {
         this.webCamService = webCamService;
     }
 
-    public Mono<WebCamDto> getFare(String originCode, String destinationCode) {
-        return webCamService.getFare(originCode, destinationCode);
+    public Flux<WebCamDto> getCamsByPageSizeAndPageOffset(int pageSize, int pageOffset) {
+        return webCamService.getCamsByPageSizeAndPageOffset(pageSize, pageOffset);
+    }
+
+    public Flux<WebCamDto> getCamsByLocationAndRadius(BigDecimal longitude, BigDecimal latitude, long kilometers) {
+        return webCamService.getCamsByLocationAndRadius(longitude, latitude, kilometers);
     }
 }

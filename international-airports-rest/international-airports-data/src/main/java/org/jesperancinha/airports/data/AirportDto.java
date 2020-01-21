@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @Builder
@@ -16,4 +18,6 @@ public class AirportDto {
     private String name;
 
     private CoordinateDto coordinates;
+
+    private List<WebCamDto> webCamDtoList;
 }
