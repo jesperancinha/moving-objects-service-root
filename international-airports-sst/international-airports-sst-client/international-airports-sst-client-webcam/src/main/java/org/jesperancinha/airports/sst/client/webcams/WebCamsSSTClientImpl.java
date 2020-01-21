@@ -9,7 +9,9 @@ import lombok.Builder;
 import org.jesperancinha.airports.sst.client.webcams.model.WebCamResponse;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
+import java.util.Locale;
 
 @Builder
 @AllArgsConstructor
@@ -25,10 +27,21 @@ public class WebCamsSSTClientImpl extends OkHttpClient implements WebCamsSSTClie
     private final Gson gson = new Gson();
 
     public Mono<WebCamResponse> findWebCamsByPageSizeAndOffset(int pageSize, int pageOffSet) {
-        return Mono.from(Mono.fromCallable(() -> {
+        return Mono.fromCallable(() -> {
             final Response response = this.newCall(callWebCamsByPageSizeAndOffset(pageSize, pageOffSet)).execute();
             return gson.fromJson(response.body().string(), WebCamResponse.class);
-        }));
+        });
+    }
+
+    public Mono<WebCamResponse> findWebCampsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, Long kilometers) {
+        return Mono.fromCallable(() -> {
+            final Response response = this.newCall(callWebCamsByLocationAndRadius(latitude, longitude, kilometers)).execute();
+            return gson.fromJson(response.body().string(), WebCamResponse.class);
+        });
+    }
+
+    private Request callWebCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, Long kilometers) throws MalformedURLException {
+        return getBuild(this.url.concat("/list/nearby=%s,%s,%d"), latitude, longitude, kilometers);
     }
 
     private Request callWebCamsByPageSizeAndOffset(int pageSize, int pageOffSet) throws MalformedURLException {
@@ -38,7 +51,7 @@ public class WebCamsSSTClientImpl extends OkHttpClient implements WebCamsSSTClie
 
     private Request getBuild(String url, Object... properties) throws MalformedURLException {
         return new Request.Builder()
-                .url(String.format(url, properties).concat("?lang=en&show=webcams:image,location"))
+                .url(String.format(Locale.US, url, properties).concat("?lang=en&show=webcams:image,location"))
                 .get()
                 .addHeader("x-rapidapi-host", xRapidAPIHost)
                 .addHeader("x-rapidapi-key", xRapidAPIKey)

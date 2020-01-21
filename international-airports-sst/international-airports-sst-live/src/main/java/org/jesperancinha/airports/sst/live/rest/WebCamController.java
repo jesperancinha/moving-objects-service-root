@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/live/webcams")
 public class WebCamController {
@@ -19,9 +21,17 @@ public class WebCamController {
     }
 
     @GetMapping(value = "/{pageSize}/{pageOffset}")
-    public Flux<WebCamDto> getCamsByPageSizeAndPageOffse(@PathVariable int pageSize, @PathVariable int pageOffset){
-        return webCamService.getCamsByPageSizeAndPageOffse(pageSize, pageOffset);
+    public Flux<WebCamDto> getCamsByPageSizeAndPageOffse(@PathVariable int pageSize, @PathVariable int pageOffset) {
+        return webCamService.getCamsByPageSizeAndPageOffset(pageSize, pageOffset);
 
 
+    }
+
+    @GetMapping(value = "/{latitude}/{longitude}/{radius}")
+    public Flux<WebCamDto> getCamsByPageSizeAndPageOffse(
+            @PathVariable BigDecimal latitude,
+            @PathVariable BigDecimal longitude,
+            @PathVariable long radius) {
+        return webCamService.getCamsByLocationAndRadius(latitude, longitude, radius);
     }
 }
