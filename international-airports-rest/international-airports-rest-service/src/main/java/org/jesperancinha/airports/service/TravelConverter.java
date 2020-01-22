@@ -38,7 +38,7 @@ public class TravelConverter {
                 .code(airport.getCode())
                 .name(airport.getName())
                 .coordinates(toCoordinatesDto(airport.getCoordinates()))
-                .webCamDtoList(toWebCamDtoList(airport.getWebCams()))
+                .webCams(toWebCamDtoList(airport.getWebCams()))
                 .build();
     }
 

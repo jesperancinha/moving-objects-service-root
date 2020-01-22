@@ -21,5 +21,5 @@ public class AirportDto {
     private CoordinateDto coordinates;
 
     @Setter
-    private List<WebCamDto> webCamDtoList;
+    private List<WebCamDto> webCams;
 }
