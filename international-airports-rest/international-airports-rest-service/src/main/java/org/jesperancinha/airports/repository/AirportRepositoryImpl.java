@@ -27,6 +27,7 @@ public class AirportRepositoryImpl implements AirportsRepository {
     }
 
     public Flux<Airport> finaAirportByTerm(final String searchTerm) {
+
         return webClient.get()
                 .uri(airportEndpoint + "/search/{codeId}", searchTerm)
                 .retrieve()

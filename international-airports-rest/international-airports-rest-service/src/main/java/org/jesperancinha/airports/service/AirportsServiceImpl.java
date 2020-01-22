@@ -1,6 +1,6 @@
 package org.jesperancinha.airports.service;
 
-import org.jesperancinha.airports.model.Airport;
+import org.jesperancinha.airports.data.AirportDto;
 import org.jesperancinha.airports.repository.AirportsRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -16,12 +16,14 @@ public class AirportsServiceImpl implements AirportsService {
     }
 
     @Override
-    public Flux<Airport> getAirportsByTerm(String searchTerm) {
-        return airportsRepository.finaAirportByTerm(searchTerm);
+    public Flux<AirportDto> getAirportsByTerm(String searchTerm) {
+        return airportsRepository.finaAirportByTerm(searchTerm)
+                .map(TravelConverter::toAirportDto);
     }
 
     @Override
-    public Mono<Airport> getAirportByCode(String code) {
-        return airportsRepository.findAirportById(code);
+    public Mono<AirportDto> getAirportByCode(String code) {
+        return airportsRepository.findAirportById(code)
+                .map(TravelConverter::toAirportDto);
     }
 }

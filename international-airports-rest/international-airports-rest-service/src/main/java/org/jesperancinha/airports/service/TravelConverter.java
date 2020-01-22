@@ -9,6 +9,9 @@ import org.jesperancinha.airports.model.Coordinate;
 import org.jesperancinha.airports.model.WebCam;
 import org.jesperancinha.airports.model.WebCamImage;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class TravelConverter {
 
     public static WebCamDto toWebCamDto(final WebCam webCam) {
@@ -30,12 +33,17 @@ public class TravelConverter {
                 .build();
     }
 
-    public static AirportDto toAirportDto(final Airport location) {
+    public static AirportDto toAirportDto(final Airport airport) {
         return AirportDto.builder()
-                .code(location.getCode())
-                .name(location.getName())
-                .coordinates(toCoordinatesDto(location.getCoordinates()))
+                .code(airport.getCode())
+                .name(airport.getName())
+                .coordinates(toCoordinatesDto(airport.getCoordinates()))
+                .webCamDtoList(toWebCamDtoList(airport.getWebCams()))
                 .build();
+    }
+
+    private static List<WebCamDto> toWebCamDtoList(List<WebCam> webCams) {
+        return webCams.stream().map(TravelConverter::toWebCamDto).collect(Collectors.toList());
     }
 
     private static CoordinateDto toCoordinatesDto(final Coordinate coordinate) {

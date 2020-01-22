@@ -24,11 +24,8 @@ public class AirportsController {
         return airportsService.getAirportsBySearchWord(searchWord);
     }
 
-
     @GetMapping(value = "/code/{code}")
     public Mono<AirportDto> getAirportsByCode(@PathVariable String code) {
         return airportsService.getAirportByCode(code);
-
-
     }
 }

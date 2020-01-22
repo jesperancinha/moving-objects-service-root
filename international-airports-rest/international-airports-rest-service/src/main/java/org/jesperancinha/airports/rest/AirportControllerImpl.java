@@ -1,5 +1,6 @@
 package org.jesperancinha.airports.rest;
 
+import org.jesperancinha.airports.data.AirportDto;
 import org.jesperancinha.airports.model.Airport;
 import org.jesperancinha.airports.service.AirportsService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +19,12 @@ public class AirportControllerImpl implements AirportController {
     }
 
     @Override
-    public Flux<Airport> getAirportsBySearchTerm(String term) {
+    public Flux<AirportDto> getAirportsBySearchTerm(String term) {
         return airportsService.getAirportsByTerm(term);
     }
 
     @Override
-    public Mono<Airport> getAirportByCode(String code) {
+    public Mono<AirportDto> getAirportByCode(String code) {
         return airportsService.getAirportByCode(code);
     }
 }
