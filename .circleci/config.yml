@@ -31,6 +31,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run: ./gradlew wrapper --gradle-version=6.1 --distribution-type=bin
+      - run: ./gradlew
       - run: gradle dependencies
       - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam
       - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports
