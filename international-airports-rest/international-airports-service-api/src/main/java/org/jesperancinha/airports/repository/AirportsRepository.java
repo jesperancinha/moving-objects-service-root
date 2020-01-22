@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface AirportsRepository {
     Mono<Airport> findAirportById(String codeId);
-    
+
     Flux<Airport> finaAirportByTerm(String term);
 
 }

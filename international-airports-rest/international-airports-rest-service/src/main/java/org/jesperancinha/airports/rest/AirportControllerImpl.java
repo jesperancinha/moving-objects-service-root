@@ -1,7 +1,6 @@
 package org.jesperancinha.airports.rest;
 
 import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.model.Airport;
 import org.jesperancinha.airports.service.AirportsService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

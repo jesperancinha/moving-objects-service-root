@@ -5,7 +5,6 @@ import org.jesperancinha.airports.data.AirportDto;
 import org.jesperancinha.airports.data.CoordinateDto;
 import org.jesperancinha.airports.service.AirportsService;
 import org.jesperancinha.airports.service.WebCamService;
-import org.springframework.data.util.Pair;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;

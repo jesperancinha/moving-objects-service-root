@@ -25,7 +25,7 @@ public class WebCamConverter {
     }
 
     private static CoordinateDto toCoordinateDto(WebCamLocation location) {
-        if(Objects.isNull(location)){
+        if (Objects.isNull(location)) {
             return CoordinateDto.builder().build();
         }
         return CoordinateDto.builder()

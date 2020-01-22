@@ -15,10 +15,11 @@ public class AirportsRepoImpl implements AirportsRepo {
         this.airportsSSTClient = airportsSSTClient;
     }
 
-    public Flux<Airport> findAirportsByCitySearchWord(final String searchWord){
+    public Flux<Airport> findAirportsByCitySearchWord(final String searchWord) {
         return airportsSSTClient.findAiportsBySearchWord(searchWord);
     }
-    public Mono<Airport> findAirportByCode(final String code){
+
+    public Mono<Airport> findAirportByCode(final String code) {
         return airportsSSTClient.findAirportByCode(code);
     }
 }
