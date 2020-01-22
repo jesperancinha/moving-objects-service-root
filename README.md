@@ -71,7 +71,7 @@ Please make the front end is build before anything:
 
 ```bash
 sdk use java 12.0.2.hs-adpt
-cd travel-gui
+cd international-airports-gui
 npm install
 npm run build
 cd ..
@@ -79,12 +79,12 @@ cd ..
 ```
 ## Endpoint list
 
--   [Actuator](http://localhost:8082/travel/actuator)
+-   [Actuator](http://localhost:8082/iairports/actuator)
 -   [Actuator Updates for Spring Boot 2](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2.0-M3-Release-Notes#actuator-http-trace-and-auditing-are-disabled-by-default)
--   [All Requests](http://localhost:8082/travel/actuator/metrics/http.server.requests)
--   [Ok Requests 200](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:200)
--   [Ok Requests 400](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:400)
--   [Ok Requests 500](http://localhost:8082/travel/actuator/metrics/http.server.requests?tag=status:500)
+-   [All Requests](http://localhost:8082/iairports/actuator/metrics/http.server.requests)
+-   [Ok Requests 200](http://localhost:8082/iairports/actuator/metrics/http.server.requests?tag=status:200)
+-   [Ok Requests 400](http://localhost:8082/iairports/actuator/metrics/http.server.requests?tag=status:400)
+-   [Ok Requests 500](http://localhost:8082/iairports/actuator/metrics/http.server.requests?tag=status:500)
 
 ## References
 

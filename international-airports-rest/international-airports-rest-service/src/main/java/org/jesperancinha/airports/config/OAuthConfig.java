@@ -16,7 +16,7 @@ public class OAuthConfig extends WebSecurityConfigurerAdapter {
     public WebClient webClient(ClientRegistrationRepository clientRegistrationRepository, OAuth2AuthorizedClientRepository oAuth2AuthorizedClientRepository) {
         ServletOAuth2AuthorizedClientExchangeFilterFunction oauth =
                 new ServletOAuth2AuthorizedClientExchangeFilterFunction(clientRegistrationRepository, oAuth2AuthorizedClientRepository);
-        oauth.setDefaultClientRegistrationId("travel");
+        oauth.setDefaultClientRegistrationId("iairports");
         return WebClient.builder()
                 .filter(oauth)
                 .build();
