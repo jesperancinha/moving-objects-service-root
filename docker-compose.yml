@@ -17,3 +17,10 @@ services:
       context: docker/prometheus/.
     ports:
       - "9090:9090"
+
+  grafana:
+    hostname: grafana
+    build:
+      context: docker/grafana/.
+    ports:
+      - "3000:3000"
