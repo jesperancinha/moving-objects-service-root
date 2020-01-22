@@ -3,23 +3,23 @@ global:
   evaluation_interval: 30s
 
 scrape_configs:
-  - job_name: airports-gui
-    honor_timestamps: true
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-          - localhost:8083
+#  - job_name: airports-gui
+#    honor_timestamps: true
+#    metrics_path: /metrics
+#    static_configs:
+#      - targets:
+#          - localhost:8083
 
   - job_name: airports-rest
     honor_timestamps: true
-    metrics_path: /federate
+    metrics_path: /iairports/actuator/prometheus
     static_configs:
       - targets:
           - localhost:8082
 
   - job_name: airports-sst
     honor_timestamps: true
-    metrics_path: /metrics
+    metrics_path: /international/airports/actuator/prometheus
     static_configs:
       - targets:
           - localhost:8081
