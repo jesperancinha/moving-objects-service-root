@@ -1,23 +1,23 @@
 {
-  "/travel/fares": {
+  "/iairports/fares": {
     "target": "http://localhost:9000",
     "secure": false,
     "pathRewrite": {
-      "^/travel/fares": "/travel/fares"
+      "^/iairports/fares": "/iairports/fares"
     }
   },
-  "/travel/locations": {
+  "/iairports/locations": {
     "target": "http://localhost:9000",
     "secure": false,
     "pathRewrite": {
-      "^/travel/locations": "/travel/locations"
+      "^/iairports/locations": "/iairports/locations"
     }
   },
-  "/travel/actuator": {
+  "/iairports/actuator": {
     "target": "http://localhost:9000",
     "secure": false,
     "pathRewrite": {
-      "^/travel/actuator": "/travel/actuator"
+      "^/iairports/actuator": "/iairports/actuator"
     }
   }
 }

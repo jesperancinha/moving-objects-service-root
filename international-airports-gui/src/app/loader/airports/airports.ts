@@ -83,7 +83,7 @@ export class AirportComponent implements OnInit {
     }
 
     populateControls() {
-        let url = '/travel/locations';
+        let url = '/iairports/locations';
         if (this.pageSize) {
             url += '/' + this.pageSize;
             if (this.currentPage) {

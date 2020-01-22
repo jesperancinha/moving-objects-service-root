@@ -37,7 +37,7 @@ export class FaresComponent implements OnInit {
     changeFare($event: Location[]) {
         if (this.origin && this.destination) {
             this.loading = true;
-            this.httpClient.get<Fare>('/travel/fares/' + this.origin.code + '/' + this.destination.code, {headers: this.headers}).toPromise()
+            this.httpClient.get<Fare>('/iairports/fares/' + this.origin.code + '/' + this.destination.code, {headers: this.headers}).toPromise()
                 .then(value => {
                     console.log("async-task-"+ uuid.v4());
                     this.fare = value;
@@ -51,7 +51,7 @@ export class FaresComponent implements OnInit {
     }
 
     populateControls() {
-        this.httpClient.get<Location[]>('/travel/locations', {headers: this.headers}).toPromise()
+        this.httpClient.get<Location[]>('/iairports/locations', {headers: this.headers}).toPromise()
             .then(value => {
                 console.log("async-task-"+ uuid.v4());
                 this.origins =[];

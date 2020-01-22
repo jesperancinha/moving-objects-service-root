@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  airports:
+    env_file:
+      - .env
+    hostname: airports
+    build:
+      context: .
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8080:80"
+
+  prometheus:
+    hostname: prometheus
+    build:
+      context: docker/prometheus/.
+    ports:
+      - "9090:9090"

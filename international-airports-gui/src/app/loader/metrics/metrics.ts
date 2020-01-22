@@ -36,7 +36,7 @@ export class MetricsComponent implements OnInit {
     }
 
     public populateControls() {
-        this.httpClient.get<Metrics>('/travel/actuator/metrics/http.server.requests', {headers: this.headers}).toPromise()
+        this.httpClient.get<Metrics>('/iairports/actuator/metrics/http.server.requests', {headers: this.headers}).toPromise()
             .then(value => {
                 this.options = [];
                 this.options.push(MetricsComponent.METRIC_TAG_ALL);
@@ -59,7 +59,7 @@ export class MetricsComponent implements OnInit {
 
     private loadSelectedErrorMetrics() {
         if (this.option) {
-            var url = '/travel/actuator/metrics/http.server.requests';
+            var url = '/iairports/actuator/metrics/http.server.requests';
             if (this.option.value) {
                 url += "?tag=status:" + this.option.value;
             }
@@ -82,7 +82,7 @@ export class MetricsComponent implements OnInit {
                     this.countLoaders--;
                 });
 
-            this.httpClient.get<Traces>("/travel/actuator/httptrace", {headers: this.headers}).toPromise()
+            this.httpClient.get<Traces>("/iairports/actuator/httptrace", {headers: this.headers}).toPromise()
                 .then(value => {
                     this.statMin = value.traces.map(trace => trace.timeTaken)
                         .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0].valueOf() / 1000;

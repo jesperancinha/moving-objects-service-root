@@ -1,5 +1,5 @@
-International Airports Service
-=================
+# International Airports Service
+
 
 [![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=International%20Airports&color=informational)](https://bitbucket.org/jesperancinha/international-airports-service-root) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -57,26 +57,36 @@ Metric end points are completely open.
 
 -   Port: 8082
 
+## How to build and run the Spring boot services:
 
+To start and build a spring boot process, just go to the root of that project and run:
 
-## How to build
-
-To start and build the spring boot process:
+`sdk use java 12.0.2.hs-adpt`
 
 `./gradlew bootRun`
 
-## How to run
+## How to build and run the Front End service:
 
-Please make the front end is build before anything:
+`npm install`
 
-```bash
-sdk use java 12.0.2.hs-adpt
-cd international-airports-gui
-npm install
-npm run build
-cd ..
-./gradlew bootRun
-```
+`npm run build`
+
+## How to run everything with Docker compose in one go:
+
+Make a copy of the [.env-template](.env-template) file to [.env](.env) in the same folder.
+
+Replace those variables with your keys from your [RapidAPI](https://rapidapi.com/) account.
+The keys you will need come from these two applications:
+
+-   AIRPORTS_KEY - [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
+-   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel)
+
+If you run the following script you are expected to have a docker-machine installed with the name dev.
+
+Please read the installation manual for docker if you have any questions on how to run.
+
+`./build.sh`
+
 ## Endpoint list
 
 -   [Actuator](http://localhost:8082/iairports/actuator)
@@ -88,6 +98,7 @@ cd ..
 
 ## References
 
+-   [Micrometer Prometheus](https://micrometer.io/docs/registry/prometheus)
 -   [How to Configure an OAuth2 Authentication With Spring Security (Part 1)](https://dzone.com/articles/how-to-configure-an-oauth2-authentication-with-spr)
 -   [Grafana Installing using Docker](https://grafana.com/docs/grafana/latest/installation/docker/)
 -   [Prometheus.IO](https://prometheus.io/)

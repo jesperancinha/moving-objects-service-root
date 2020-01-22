@@ -38,3 +38,6 @@ build
 /devnet-core-ui/src/client/public
 /src/main/resources/public
 /src/main/resources/static
+
+# Docker
+.env

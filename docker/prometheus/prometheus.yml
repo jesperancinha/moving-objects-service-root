@@ -15,11 +15,11 @@ scrape_configs:
     metrics_path: /iairports/actuator/prometheus
     static_configs:
       - targets:
-          - localhost:8082
+          - airports:8082
 
   - job_name: airports-sst
     honor_timestamps: true
     metrics_path: /international/airports/actuator/prometheus
     static_configs:
       - targets:
-          - localhost:8081
+          - airports:8081
