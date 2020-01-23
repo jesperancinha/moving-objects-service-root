@@ -12,6 +12,9 @@ plugins {
     id 'nebula.provided-base' version '3.0.3'
 }
 
+version '1.0.0'
+group 'org.jesperancinha.airports'
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'

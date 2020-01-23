@@ -1,0 +1,12 @@
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '1.0'
+}
+
+

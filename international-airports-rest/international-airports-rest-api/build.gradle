@@ -10,7 +10,6 @@ buildscript {
 plugins {
     id 'java'
     id 'maven'
-
 }
 
 version '1.0.0'
