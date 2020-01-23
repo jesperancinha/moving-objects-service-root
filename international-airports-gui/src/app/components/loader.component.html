@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card>
+        <div class="card">
+            <div>Please select an option from below</div>
+        </div>
+    </mat-card>
+
+    <mat-card style="height:500px">
+        <mat-tab-group (selectedTabChange)="tabChanged($event, webCamsComponent, metricsComponent, airportsComponent)">
+            <mat-tab label="WebCams Listings">
+                <webcams-selector #webCamsComponent></webcams-selector>
+            </mat-tab>
+            <mat-tab label="Airports Info">
+                <airports-selector #airportsComponent></airports-selector>
+            </mat-tab>
+            <mat-tab label="Metrics">
+                <metrics-selector #metricsComponent></metrics-selector>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+
+    <mat-card>
+        <div class="container center">Copyright 2019 @ João Esperancinha (<a
+                href="http://www.joaofilipesabinoesperancinha.nl">jesperancinha</a>)
+        </div>
+    </mat-card>
+</mat-card>

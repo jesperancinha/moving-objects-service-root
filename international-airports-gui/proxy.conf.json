@@ -1,20 +1,27 @@
 {
-  "/iairports/fares": {
-    "target": "http://localhost:9000",
+  "/iairports/webcams": {
+    "target": "http://localhost:8082",
     "secure": false,
     "pathRewrite": {
-      "^/iairports/fares": "/iairports/fares"
+      "^/iairports/webcams": "/iairports/webcams"
     }
   },
-  "/iairports/locations": {
-    "target": "http://localhost:9000",
+  "/iairports/airports": {
+    "target": "http://localhost:8082",
     "secure": false,
     "pathRewrite": {
-      "^/iairports/locations": "/iairports/locations"
+      "^/iairports/airports": "/iairports/locations"
+    }
+  },
+  "/iairports/airportwebcams": {
+    "target": "http://localhost:8082",
+    "secure": false,
+    "pathRewrite": {
+      "^/iairports/airportwebcams": "/iairports/airportwebcams"
     }
   },
   "/iairports/actuator": {
-    "target": "http://localhost:9000",
+    "target": "http://localhost:8082",
     "secure": false,
     "pathRewrite": {
       "^/iairports/actuator": "/iairports/actuator"

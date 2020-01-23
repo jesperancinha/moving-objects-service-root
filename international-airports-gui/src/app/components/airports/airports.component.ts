@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import * as uuid from 'uuid';
 import {Airport} from "../../model/airport";
 
 @Component({
@@ -28,41 +27,7 @@ export class AirportsComponent implements OnInit {
         this.populateControls();
     }
 
-    private static getCompareFn() {
-        return (item1, item2) => item1.description.localeCompare(item2.description);
-    }
+    private populateControls() {
 
-    changeFare($event: Airport[]) {
-        if (this.origin && this.destination) {
-            this.loading = true;
-            this.httpClient.get<Fare>('/iairports/fares/' + this.origin.code + '/' + this.destination.code, {headers: this.headers}).toPromise()
-                .then(value => {
-                    console.log("async-task-" + uuid.v4());
-                    this.fare = value;
-                })
-                .catch(fail => {
-                    console.log(fail);
-                    this.errorText = fail;
-                })
-                .finally(() => this.loading = false);
-        }
-    }
-
-    populateControls() {
-        this.httpClient.get<Airport[]>('/iairports/locations', {headers: this.headers}).toPromise()
-            .then(value => {
-                console.log("async-task-" + uuid.v4());
-                this.origins = [];
-                this.destinations = [];
-                this.origin = null;
-                this.destination = null;
-                this.fare = null;
-                value.sort(FaresComponent.getCompareFn()).forEach(item => this.origins.push(item));
-                value.sort(FaresComponent.getCompareFn()).forEach(item => this.destinations.push(item));
-            })
-            .catch(fail => {
-                console.log(fail);
-                this.errorText = fail;
-            });
     }
 }

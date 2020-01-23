@@ -5,7 +5,6 @@ import {Observable, of} from 'rxjs';
 import {Airport} from "../model/airport";
 import {AirportServiceInterface} from "../interface/airport.service.interface";
 
-
 @Injectable({
     providedIn: 'root'
 })

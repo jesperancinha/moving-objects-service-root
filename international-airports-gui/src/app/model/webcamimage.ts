@@ -1,4 +1,4 @@
-export class Webcamimage {
+export class WebCamImage {
     public iconUrl: String;
     public thumbnailUrl: String;
     public previewUrl: String;

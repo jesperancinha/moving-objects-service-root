@@ -5,15 +5,14 @@
                 <td>Error Code</td>
                 <td>
                     <label>
-                        <nb-card-body>
-                            <nb-select placeholder="{{option}}" [size]="'tiny'" fullWidth
-                                       [(ngModel)]="option"
-                                       [(selected)]="option"
-                                       (selectedChange)="changeErrorCode($event)">
-                                <nb-option [value]="errorOption"
-                                           *ngFor="let errorOption of options">{{ errorOption.tag }}</nb-option>
-                            </nb-select>
-                        </nb-card-body>
+                        <mat-form-field>
+                            <mat-label>Error code Metrics</mat-label>
+                            <mat-select (selectionChange)="changeErrorCode()" [(value)]="option">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                    {{option.tag}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </label>
                 </td>
             </tr>
@@ -21,28 +20,28 @@
                 <td>Measurements</td>
                 <td>
                     <label *ngIf="statistics">
-                        <nb-card-body>
+                        <mat-card>
                             Call count:
-                            <nb-select-label>
+                            <mat-label>
                                 {{statCount}}
-                            </nb-select-label>
+                            </mat-label>
                             Average time:
-                            <nb-select-label>
+                            <mat-label>
                                 {{statAvg}}
-                            </nb-select-label>
+                            </mat-label>
                             Maximum time:
-                            <nb-select-label>
+                            <mat-label>
                                 {{statMax}}
-                            </nb-select-label>
+                            </mat-label>
                             Minimum time:
-                            <nb-select-label>
+                            <mat-label>
                                 {{statMin}}
-                            </nb-select-label>
+                            </mat-label>
                             Total time:
-                            <nb-select-label>
+                            <mat-label>
                                 {{statTotal}}
-                            </nb-select-label>
-                        </nb-card-body>
+                            </mat-label>
+                        </mat-card>
                     </label>
                 </td>
             </tr>
@@ -50,5 +49,8 @@
                 <td *ngIf="countLoaders > 0">Loading...</td>
             </tr>
         </table>
+        <mat-card *ngIf="countLoaders <= 0">
+            <mat-button-toggle (click)="changeErrorCode()">Refresh</mat-button-toggle>
+        </mat-card>
     </div>
 </div>

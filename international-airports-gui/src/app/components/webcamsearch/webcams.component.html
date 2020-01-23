@@ -1,61 +1,9 @@
 <div class="container">
-    <nb-card>
-        <nb-card-body>
-            <label for="search">Search:</label>
-            <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input" [value]="term"
-                   [(ngModel)]="term" (change)="changeTerm($event)">
-            <label for="page-size">Page Size:</label>
-            <input nbInput type="text" id="page-size" [value]="pageSize" [(ngModel)]="pageSize"
-                   (change)="changePageSize($event)">
-            <label for="language">Page Language:</label>
-            <nb-select placeholder="{{language}}"
-                       [(ngModel)]="language"
-                       [(selected)]="language"
-                       (selectedChange)="changeLanguage($event)"
-                       id="language">
-                <nb-option [value]="languageOption"
-                           *ngFor="let languageOption of languageOptions">{{ languageOption }}</nb-option>
-            </nb-select>
-            <label for="current-page">Current page:</label>
-            <input nbInput type="text" id="current-page" [value]="currentPage" [(ngModel)]="currentPage" disabled>
-            <button nbButton hero outline status="primary" class="btn btn-success btn-s"
-                    (click)="backward()"
-                    [disabled]="currentPage<=1"
-                    [nbSpinner]="loading" nbSpinnerStatus="info">
-                Previous Page
-            </button>
-            <button nbButton hero outline status="primary" class="btn btn-success btn-s"
-                    (click)="forward()"
-                    [nbSpinner]="loading" nbSpinnerStatus="info">
-                Next Page
-            </button>
-            <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
-
-                <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-                <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-
-                <ng-container [nbTreeGridColumnDef]="customColumn">
-                    <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-                        {{customColumn}}
-                    </th>
-                    <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                        {{row.data[customColumn]}}
-                    </td>
-                </ng-container>
-
-                <ng-container *ngFor="let column of defaultColumns; let index = index"
-                              [nbTreeGridColumnDef]="column"
-                              [showOn]="getShowOn(index)">
-                    <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-                        {{column}}
-                    </th>
-                    <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
-                </ng-container>
-
-            </table>
+    <div>
+        <table>
             <tr>
                 <td *ngIf="loading">Loading...</td>
             </tr>
-        </nb-card-body>
-    </nb-card>
+        </table>
+    </div>
 </div>
