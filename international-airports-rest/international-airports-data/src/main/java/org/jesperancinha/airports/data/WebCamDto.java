@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WebCamDto {
     private String title;
-    private CoordinateDto coordinate;
+    private CoordinatesDto coordinates;
     private String wikiInfo;
     private boolean active;
     private WebCamImageDto webCamImage;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Location} from "../../command-types/location";
-import {Fare} from "../../command-types/fare";
+import {Airport} from "../../model/location";
+import {Fare} from "../../model/fare";
 import * as uuid from 'uuid';
 
 @Component({
@@ -12,14 +12,14 @@ import * as uuid from 'uuid';
 export class FaresComponent implements OnInit {
 
     public loading: boolean;
-    public origins: Location[] = [];
-    public destinations: Location[] = [];
+    public origins: Airport[] = [];
+    public destinations: Airport[] = [];
 
     private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     private errorText: string;
-    public origin: Location;
-    public destination: Location;
+    public origin: Airport;
+    public destination: Airport;
     public fare: Fare;
 
     constructor(private httpClient: HttpClient) {
@@ -34,7 +34,7 @@ export class FaresComponent implements OnInit {
         return (item1, item2) => item1.description.localeCompare(item2.description);
     }
 
-    changeFare($event: Location[]) {
+    changeFare($event: Airport[]) {
         if (this.origin && this.destination) {
             this.loading = true;
             this.httpClient.get<Fare>('/iairports/fares/' + this.origin.code + '/' + this.destination.code, {headers: this.headers}).toPromise()
@@ -51,7 +51,7 @@ export class FaresComponent implements OnInit {
     }
 
     populateControls() {
-        this.httpClient.get<Location[]>('/iairports/locations', {headers: this.headers}).toPromise()
+        this.httpClient.get<Airport[]>('/iairports/locations', {headers: this.headers}).toPromise()
             .then(value => {
                 console.log("async-task-"+ uuid.v4());
                 this.origins =[];

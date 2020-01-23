@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Metrics} from "../../command-types/metrics";
+import {Metrics} from "../../model/metrics";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {MetricTag} from "../../command-types/metrics-tag";
-import {Statistic} from "../../command-types/statistic";
-import {Traces} from "../../command-types/traces";
+import {MetricTag} from "../../model/metrics-tag";
+import {Statistic} from "../../model/statistic";
+import {Traces} from "../../model/traces";
 import * as uuid from 'uuid';
 
 @Component({

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class CoordinateDto {
+public class CoordinatesDto {
 
     private BigDecimal latitude;
 

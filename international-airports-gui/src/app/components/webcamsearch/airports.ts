@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from "@nebular/theme";
-import {Location} from "../../command-types/location";
+import {Airport} from "../../model/location";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import * as uuid from 'uuid';
 
@@ -18,8 +17,8 @@ interface TreeNode<T> {
 export class AirportComponent implements OnInit {
 
     public loading: boolean;
-    public dataSource: NbTreeGridDataSource<Location>;
-    private data: TreeNode<Location>[];
+    public dataSource: NbTreeGridDataSource<Airport>;
+    private data: TreeNode<Airport>[];
     private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
     private errorText: String;
     public customColumn = 'code';
@@ -33,7 +32,7 @@ export class AirportComponent implements OnInit {
     private sortColumn: String;
     private sortDirection: NbSortDirection;
 
-    constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Location>, private httpClient: HttpClient) {
+    constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Airport>, private httpClient: HttpClient) {
         this.loading = false;
     }
 
@@ -99,7 +98,7 @@ export class AirportComponent implements OnInit {
             }
         }
         this.loading = true;
-        this.httpClient.get<Location[]>(url, {headers: this.headers}).toPromise()
+        this.httpClient.get<Airport[]>(url, {headers: this.headers}).toPromise()
             .then(value => {
                 console.log("async-task-" + uuid.v4());
                 this.data = [];

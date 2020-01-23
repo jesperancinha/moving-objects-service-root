@@ -2,7 +2,7 @@ package org.jesperancinha.airports.rest;
 
 import lombok.AllArgsConstructor;
 import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.data.CoordinateDto;
+import org.jesperancinha.airports.data.CoordinatesDto;
 import org.jesperancinha.airports.service.AirportsService;
 import org.jesperancinha.airports.service.WebCamService;
 import org.springframework.data.util.Pair;
@@ -23,7 +23,7 @@ public class AirportWebCamsControllerImpl implements AirportController {
     public Flux<AirportDto> getAirportsBySearchTerm(String term) {
         return airportsService.getAirportsByTerm(term)
                 .map(airportDto -> {
-                    CoordinateDto coordinates = airportDto.getCoordinates();
+                    CoordinatesDto coordinates = airportDto.getCoordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), 100)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
@@ -38,7 +38,7 @@ public class AirportWebCamsControllerImpl implements AirportController {
     public Mono<AirportDto> getAirportByCode(String code) {
         return Mono.from(airportsService.getAirportByCode(code)
                 .map(airportDto -> {
-                    CoordinateDto coordinates = airportDto.getCoordinates();
+                    CoordinatesDto coordinates = airportDto.getCoordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), 100)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })

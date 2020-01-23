@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NbTabComponent} from "@nebular/theme";
 import {MetricsComponent} from "./metrics/metrics";
-import {AirportComponent} from "./airports/airports";
-import {FaresComponent} from "./fares/fares";
+import {AirportComponent} from "./webcamsearch/airports";
+import {FaresComponent} from "./airports/fares";
 
 @Component({
     selector: 'loader',

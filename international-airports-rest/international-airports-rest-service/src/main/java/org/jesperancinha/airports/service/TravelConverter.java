@@ -1,7 +1,7 @@
 package org.jesperancinha.airports.service;
 
 import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.data.CoordinateDto;
+import org.jesperancinha.airports.data.CoordinatesDto;
 import org.jesperancinha.airports.data.WebCamDto;
 import org.jesperancinha.airports.data.WebCamImageDto;
 import org.jesperancinha.airports.model.Airport;
@@ -17,7 +17,7 @@ public class TravelConverter {
     public static WebCamDto toWebCamDto(final WebCam webCam) {
         return WebCamDto.builder()
                 .active(webCam.isActive())
-                .coordinate(toCoordinatesDto(webCam.getCoordinate()))
+                .coordinates(toCoordinatesDto(webCam.getCoordinate()))
                 .title(webCam.getTitle())
                 .webCamImage(toWebCamImageDto(webCam.getWebCamImage()))
                 .wikiInfo(webCam.getWikiInfo())
@@ -46,8 +46,8 @@ public class TravelConverter {
         return webCams.stream().map(TravelConverter::toWebCamDto).collect(Collectors.toList());
     }
 
-    private static CoordinateDto toCoordinatesDto(final Coordinate coordinate) {
-        return CoordinateDto.builder()
+    private static CoordinatesDto toCoordinatesDto(final Coordinate coordinate) {
+        return CoordinatesDto.builder()
                 .latitude(coordinate.getLatitude())
                 .longitude(coordinate.getLongitude())
                 .build();
