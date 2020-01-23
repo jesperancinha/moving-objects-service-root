@@ -19,9 +19,12 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
+
         <br/>
 
         <mat-card *ngIf="selectedAirport" class="double-card">
+            <mat-label>{{selectedAirport.name}} - {{selectedAirport.code}}</mat-label>
+            <br/>
             <mat-list>
                 <mat-list-item *ngFor="let webCam of selectedAirport.webCams">
                     <button mat-icon-button (click)="selectWebCam(webCam)">
@@ -35,7 +38,7 @@
         <mat-card *ngIf="selectedCam" class="double-card">
             <img src="{{selectedCam.webCamImage.previewUrl}}"/>
         </mat-card>
-        
+
         <table>
             <tr>
                 <td *ngIf="loading">Loading...</td>

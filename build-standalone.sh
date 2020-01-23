@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+docker-machine start dev
+
+docker-machine env dev
+
+eval $(docker-machine env dev)
+
+docker stop app-ia
+
+docker rm app-ia
+
 gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam
 gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports
 gradle build install -p international-airports-sst/international-airports-sst-data
@@ -15,16 +25,6 @@ cd international-airports-gui
 npm clean-install
 npm run build
 cd ..
-
-docker-machine start dev
-
-docker-machine env dev
-
-eval $(docker-machine env dev)
-
-docker stop app-ia
-
-docker rm app-ia
 
 echo "Building with --build-arg AIRPORTS_KEY=$1 --build-arg WEBCAMS_KEY=$2 -t app-ia-image"
 

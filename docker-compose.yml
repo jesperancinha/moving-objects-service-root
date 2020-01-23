@@ -7,16 +7,16 @@ services:
     build:
       context: .
     ports:
-      - "8081:8081"
-      - "8082:8082"
+#      - "8081:8081"
+#      - "8082:8082"
       - "8080:80"
 
   prometheus:
     hostname: prometheus
     build:
       context: docker/prometheus/.
-    ports:
-      - "9090:9090"
+#    ports:
+#      - "9090:9090"
 
   grafana:
     hostname: grafana
