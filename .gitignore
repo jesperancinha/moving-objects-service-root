@@ -13,6 +13,7 @@
 *.zip
 gradle
 build
+dist
 
 # Eclipse files
 *.classpath

@@ -87,6 +87,40 @@ Please read the installation manual for docker if you have any questions on how 
 
 `./build.sh`
 
+## How to test the main image
+
+There is a script called [build-standalone.sh](./build-standalone.sh).
+
+This script ensures that that only the container for the application services is run.
+
+Just run:
+
+`build-standalone.sh ${AIRPORTS_KEY} ${WEBCAMS_KEY}`
+
+Please replace the variables with the matching keys. For this script, it is necessary to pass on the keys as arguments.
+
+Here is an example:
+
+`build-standalone.sh ksdnfklsnknsdpnskdnvslkdnkslnnvskdnvlsnklnksvdvdkn 34j98ru390j3934jr93r9i3rj3ig90jjbndn90jb3099949j3t`
+
+## Url Example List:
+
+It's important to notice that `localhost` may change depending on the environment or if docker compose is being used.
+
+>http://localhost:8082/iairports/airportwebcams/term/Amsterdam
+>
+>http://localhost:8082/iairports/airportwebcams/code/AMS
+>
+>http://localhost:8082/iairports/airports/term/Amsterdam
+>
+>http://localhost:8082/iairports/airports/code/AMS
+>
+>http://localhost:8082/iairports/airports/code/AMS
+>
+>http://localhost:8082/iairports/webcams/location/52.376610/4.892629/10
+>
+>http://localhost:8082/iairports/webcams/page/0/50
+
 ## Endpoint list
 
 -   [Actuator](http://localhost:8082/iairports/actuator)
