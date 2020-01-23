@@ -6,11 +6,10 @@ import {Airport} from "../model/airport";
 import {AirportServiceInterface} from "../interface/airport.service.interface";
 
 
-
 @Injectable({
     providedIn: 'root'
 })
-export class AirportService implements AirportServiceInterface{
+export class AirportService implements AirportServiceInterface {
 
     constructor(private http: HttpClient) {
     }

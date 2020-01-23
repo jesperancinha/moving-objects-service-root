@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NbTabComponent} from "@nebular/theme";
 import {MetricsComponent} from "./metrics/metrics";
 import {AirportComponent} from "./webcamsearch/airports";
 import {FaresComponent} from "./airports/fares";

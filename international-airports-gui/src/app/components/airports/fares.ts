@@ -27,7 +27,7 @@ export class FaresComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-       this.populateControls();
+        this.populateControls();
     }
 
     private static getCompareFn() {
@@ -39,7 +39,7 @@ export class FaresComponent implements OnInit {
             this.loading = true;
             this.httpClient.get<Fare>('/iairports/fares/' + this.origin.code + '/' + this.destination.code, {headers: this.headers}).toPromise()
                 .then(value => {
-                    console.log("async-task-"+ uuid.v4());
+                    console.log("async-task-" + uuid.v4());
                     this.fare = value;
                 })
                 .catch(fail => {
@@ -53,9 +53,9 @@ export class FaresComponent implements OnInit {
     populateControls() {
         this.httpClient.get<Airport[]>('/iairports/locations', {headers: this.headers}).toPromise()
             .then(value => {
-                console.log("async-task-"+ uuid.v4());
-                this.origins =[];
-                this.destinations =[];
+                console.log("async-task-" + uuid.v4());
+                this.origins = [];
+                this.destinations = [];
                 this.origin = null;
                 this.destination = null;
                 this.fare = null;
