@@ -141,7 +141,16 @@ It's important to notice that `localhost` may change depending on the environmen
 -   [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
 -   [RapidAPI](https://rapidapi.com/)  
 -   [Postman OAuth 2.0](https://learning.getpostman.com/docs/postman/sending-api-requests/authorization/#oauth-20)
+-   [How do you rename a Git tag?](https://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag)
+## Tools & Tips
 
+```bash
+git tag new-tag old-tag
+git tag -d old-tag
+git push origin :refs/tags/old-tag
+git push --tags
+git pull --prune --tags
+```
 ## About me
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/joaofse?label=João%20Esperancinha&style=social)](https://twitter.com/joaofse)
