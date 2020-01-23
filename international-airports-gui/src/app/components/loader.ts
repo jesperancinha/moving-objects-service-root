@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MetricsComponent} from "./metrics/metrics";
-import {AirportComponent} from "./webcamsearch/airports";
-import {FaresComponent} from "./airports/fares";
+import {MetricsComponent} from "./metrics/metrics.component";
+import {AirportComponent} from "./webcamsearch/webcams.component";
+
 
 @Component({
     selector: 'loader',
@@ -12,7 +12,7 @@ export class LoaderComponent implements OnInit {
     private currentTab: NbTabComponent;
     private metricsComponent: MetricsComponent;
     private airportComponent: AirportComponent;
-    private faresComponent: FaresComponent;
+    private faresComponent: WebCamComponent;
 
     public ngOnInit(): void {
     }

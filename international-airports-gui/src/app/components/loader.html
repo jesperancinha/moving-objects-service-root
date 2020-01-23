@@ -9,23 +9,11 @@
         </div>
     </nb-card>
 
-    <nb-card accent="info">
-        <div class="container">
-            <nb-card-body>
-                <nb-tabset (changeTab)="tabChanged($event, faresComponent, metricsComponent, airportsComponent)">
-                    <nb-tab tabTitle="Fares" tabId="fares" responsive>
-                        <airports-selector #faresComponent></airports-selector>
-                    </nb-tab>
-                    <nb-tab tabTitle="Metrics" tabId="metrics" responsive>
-                        <metrics-selector #metricsComponent></metrics-selector>
-                    </nb-tab>
-                    <nb-tab tabTitle="Airports" tabId="airports" responsive>
-                        <airports-selector #airportsComponent></airports-selector>
-                    </nb-tab>
-                </nb-tabset>
-            </nb-card-body>
-        </div>
-    </nb-card>
+    <mat-tab-group (selectedTabChange)="tabChanged($event, webCamsComponent, metricsComponent, airportsComponent)">
+        <mat-tab label="First"><airports-selector #airportsComponent></airports-selector></mat-tab>
+        <mat-tab label="Second"><metrics-selector #metricsComponent></metrics-selector></mat-tab>
+        <mat-tab label="Third"><webcams-selector #webCamsComponent></webcams-selector></mat-tab>
+    </mat-tab-group>
 
     <nb-card>
         <div class="container center">Copyright 2019 @ João Esperancinha (<a

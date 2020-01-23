@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Airport} from "../../model/location";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import * as uuid from 'uuid';
+import {Airport} from "../../model/airport";
 
 interface TreeNode<T> {
     data: T;
@@ -14,7 +14,7 @@ interface TreeNode<T> {
     styleUrls: ['./webcams.component.scss'],
     templateUrl: './webcams.component.html',
 })
-export class AirportComponent implements OnInit {
+export class WebCamsComponent implements OnInit {
 
     public loading: boolean;
     public dataSource: NbTreeGridDataSource<Airport>;

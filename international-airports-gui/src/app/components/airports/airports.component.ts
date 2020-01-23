@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Airport} from "../../model/location";
-import {Fare} from "../../model/fare";
 import * as uuid from 'uuid';
+import {Airport} from "../../model/airport";
 
 @Component({
     selector: 'airports-selector',
@@ -20,7 +19,6 @@ export class AirportsComponent implements OnInit {
     private errorText: string;
     public origin: Airport;
     public destination: Airport;
-    public fare: Fare;
 
     constructor(private httpClient: HttpClient) {
         this.loading = false;
