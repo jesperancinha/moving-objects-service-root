@@ -1,11 +1,14 @@
 package org.jesperancinha.airports.model;
 
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Getter
-@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class WebCam {
     private String title;
     private Coordinate coordinate;
