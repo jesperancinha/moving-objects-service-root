@@ -8,12 +8,12 @@ import reactor.core.publisher.Mono;
 
 public interface AirportController {
 
-    @GetMapping("/term/{term}")
-    Flux<AirportDto> getAirportsBySearchTerm(@PathVariable final String term);
+    @GetMapping("/term/{term}/{radius}")
+    Flux<AirportDto> getAirportsBySearchTerm(@PathVariable final String term, @PathVariable(required = false) final Long radius);
 
 
-    @GetMapping("/code/{code}")
-    Mono<AirportDto> getAirportByCode(@PathVariable final String code);
+    @GetMapping("/code/{code}/{radius}")
+    Flux<AirportDto> getAirportByCode(@PathVariable final String code, @PathVariable(required = false) final Long radius);
 
 
 }

@@ -20,32 +20,32 @@ public class AirportWebCamsControllerImpl implements AirportController {
 
     private final WebCamService webCamService;
 
-    public Flux<AirportDto> getAirportsBySearchTerm(String term) {
+    public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
         return airportsService.getAirportsByTerm(term)
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), 100)
+                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
                 .flatMap(Flux::share)
                 .map(webCamDto -> {
                     webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
-                });
+                }).distinct();
 
     }
 
-    public Mono<AirportDto> getAirportByCode(String code) {
-        return Mono.from(airportsService.getAirportByCode(code)
+    public Flux<AirportDto> getAirportByCode(String code, Long radius) {
+        return Flux.from(airportsService.getAirportByCode(code))
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), 100)
+                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
-                .flatMapMany(Flux::from)
+                .flatMap(Flux::share)
                 .map(webCamDto -> {
                     webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
-                }));
+                }).distinct();
     }
 }

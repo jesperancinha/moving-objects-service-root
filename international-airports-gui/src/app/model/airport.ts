@@ -5,5 +5,5 @@ export class Airport {
     public code: string;
     public name: string;
     public coordinates: Coordinates;
-    public webcams: WebCam[];
+    public webCams: WebCam[];
 }

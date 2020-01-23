@@ -28,7 +28,7 @@ public class WebCamRepositoryImpl implements WebCamRepository {
     }
 
 
-    public Flux<WebCam> findCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, long radius) {
+    public Flux<WebCam> findCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, Long radius) {
         return webClient.get()
                 .uri(endpointWebCams + "/location/{latitude}/{longitude}/{radius}", latitude, longitude, radius)
                 .retrieve()

@@ -11,6 +11,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.MalformedURLException;
+import java.util.Collections;
 import java.util.Locale;
 
 @Builder
@@ -36,7 +37,11 @@ public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTCl
     public Mono<Airport> findAirportByCode(final String code) {
         return Mono.fromCallable(() -> {
             final Response response = this.newCall(callAirportByCode(code)).execute();
-            return gson.fromJson(response.body().string(), Airport[].class)[0];
+            final String string = response.body().string();
+            if(string.equals("[]")){
+                return null;
+            }
+            return gson.fromJson(string, Airport[].class)[0];
         });
     }
 

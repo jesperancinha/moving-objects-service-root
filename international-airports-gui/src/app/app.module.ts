@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
 import {LoaderComponent} from "./components/loader.component";
@@ -14,6 +14,10 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatCardModule} from "@angular/material/card";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
     bootstrap: [
@@ -42,6 +46,11 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
         MatCardModule,
         BrowserAnimationsModule,
         MatButtonToggleModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatListModule,
+        MatIconModule,
     ],
 })
 export class AppModule {

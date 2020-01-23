@@ -18,12 +18,12 @@ public class AirportControllerImpl implements AirportController {
     }
 
     @Override
-    public Flux<AirportDto> getAirportsBySearchTerm(String term) {
+    public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
         return airportsService.getAirportsByTerm(term);
     }
 
     @Override
-    public Mono<AirportDto> getAirportByCode(String code) {
-        return airportsService.getAirportByCode(code);
+    public Flux<AirportDto> getAirportByCode(String code, Long radius) {
+        return Flux.from(airportsService.getAirportByCode(code));
     }
 }

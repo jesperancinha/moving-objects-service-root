@@ -1,5 +1,41 @@
 <div class="container">
     <div>
+        <br/>
+        <mat-form-field>
+            <mat-label>Radius (Km)</mat-label>
+            <input #selectedRadiusControl matInput [value]="selectedRadius"
+                   (change)="radiusChanged(selectedRadiusControl.value)"/>
+            <mat-hint *ngIf="radiusAutoFilled">Autofilled!</mat-hint>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input type="text" placeholder="Pick one airport" aria-label="Number" matInput
+                   [formControl]="airportFormControl"
+                   [matAutocomplete]="auto" (ngModelChange)="searchTermChange($event)">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"
+                            (click)="setCurrentAirport(option)">
+                    {{option.name}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <br/>
+
+        <mat-card *ngIf="selectedAirport" class="double-card">
+            <mat-list>
+                <mat-list-item *ngFor="let webCam of selectedAirport.webCams">
+                    <button mat-icon-button (click)="selectWebCam(webCam)">
+                        <img src="{{webCam.webCamImage.iconUrl}}"/>
+                    </button>
+                    <mat-label>{{webCam.title}}</mat-label>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
+
+        <mat-card *ngIf="selectedCam" class="double-card">
+            <img src="{{selectedCam.webCamImage.previewUrl}}"/>
+        </mat-card>
+        
         <table>
             <tr>
                 <td *ngIf="loading">Loading...</td>

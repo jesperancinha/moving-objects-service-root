@@ -111,7 +111,7 @@ It's important to notice that `localhost` may change depending on the environmen
 >
 >http://localhost:8082/iairports/airportwebcams/code/AMS
 >
->http://localhost:8082/iairports/airports/term/Amsterdam
+>http://localhost:8082/iairports/airports/term/Amsterdam/100
 >
 >http://localhost:8082/iairports/airports/code/AMS
 >

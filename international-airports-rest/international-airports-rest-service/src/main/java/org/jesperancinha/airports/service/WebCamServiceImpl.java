@@ -14,7 +14,7 @@ public class WebCamServiceImpl implements WebCamService {
     private final WebCamRepository webCamRepository;
 
 
-    public WebCamServiceImpl(WebCamRepository webCamRepository, AirportsRepository airportsRepository) {
+    public WebCamServiceImpl(WebCamRepository webCamRepository) {
         this.webCamRepository = webCamRepository;
     }
 
@@ -23,7 +23,7 @@ public class WebCamServiceImpl implements WebCamService {
                 .map(TravelConverter::toWebCamDto);
     }
 
-    public Flux<WebCamDto> getCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, long radius) {
+    public Flux<WebCamDto> getCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, Long radius) {
         return webCamRepository.findCamsByLocationAndRadius(latitude, longitude, radius)
                 .map(TravelConverter::toWebCamDto);
     }
