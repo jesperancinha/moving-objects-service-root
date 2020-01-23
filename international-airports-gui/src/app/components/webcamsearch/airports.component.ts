@@ -10,9 +10,9 @@ interface TreeNode<T> {
 }
 
 @Component({
-    selector: 'airports',
-    styleUrls: ['./airports.scss'],
-    templateUrl: './airports.html',
+    selector: 'airports-selector',
+    styleUrls: ['./airports.component.scss'],
+    templateUrl: './airports.component.html',
 })
 export class AirportComponent implements OnInit {
 

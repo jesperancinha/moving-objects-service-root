@@ -7,9 +7,9 @@ import {Traces} from "../../model/traces";
 import * as uuid from 'uuid';
 
 @Component({
-    selector: 'metrics',
-    styleUrls: ['./metrics.scss'],
-    templateUrl: './metrics.html',
+    selector: 'metrics-selector',
+    styleUrls: ['./metrics.component.scss'],
+    templateUrl: './metrics.component.html',
 })
 export class MetricsComponent implements OnInit {
     public loading: boolean;

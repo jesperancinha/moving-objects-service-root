@@ -5,11 +5,11 @@ import {Fare} from "../../model/fare";
 import * as uuid from 'uuid';
 
 @Component({
-    selector: 'fares',
-    styleUrls: ['./fares.scss'],
-    templateUrl: './fares.html',
+    selector: 'airports-selector',
+    styleUrls: ['./airports.component.scss'],
+    templateUrl: './airports.component.html',
 })
-export class FaresComponent implements OnInit {
+export class AirportsComponent implements OnInit {
 
     public loading: boolean;
     public origins: Airport[] = [];

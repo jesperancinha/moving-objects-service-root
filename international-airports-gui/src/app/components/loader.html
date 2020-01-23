@@ -14,13 +14,13 @@
             <nb-card-body>
                 <nb-tabset (changeTab)="tabChanged($event, faresComponent, metricsComponent, airportsComponent)">
                     <nb-tab tabTitle="Fares" tabId="fares" responsive>
-                        <fares #faresComponent></fares>
+                        <airports-selector #faresComponent></airports-selector>
                     </nb-tab>
                     <nb-tab tabTitle="Metrics" tabId="metrics" responsive>
-                        <metrics #metricsComponent></metrics>
+                        <metrics-selector #metricsComponent></metrics-selector>
                     </nb-tab>
                     <nb-tab tabTitle="Airports" tabId="airports" responsive>
-                        <airports #airportsComponent></airports>
+                        <airports-selector #airportsComponent></airports-selector>
                     </nb-tab>
                 </nb-tabset>
             </nb-card-body>
