@@ -105,7 +105,7 @@ Here is an example:
 
 ## Docker images
 
-This tutorial makes of of the following docker images:
+This tutorial makes use of the following docker images:
 
 [![dockeri.co](https://dockeri.co/image/jesperancinha/java-exercise-docker)](https://hub.docker.com/r/jesperancinha/java-exercise-docker)
 [![dockeri.co](https://dockeri.co/image/grafana/grafana)](https://hub.docker.com/r/grafana/grafana)
