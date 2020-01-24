@@ -17,13 +17,15 @@ public class AirportControllerImpl implements AirportController {
         this.airportsService = airportsService;
     }
 
-    @Override
     public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
         return airportsService.getAirportsByTerm(term);
     }
 
-    @Override
     public Flux<AirportDto> getAirportByCode(String code, Long radius) {
         return Flux.from(airportsService.getAirportByCode(code));
+    }
+
+    public Flux<AirportDto> getAirportByCode(String code) {
+        return this.getAirportByCode(code, 0L);
     }
 }

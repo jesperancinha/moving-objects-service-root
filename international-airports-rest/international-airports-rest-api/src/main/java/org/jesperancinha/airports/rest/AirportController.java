@@ -16,4 +16,8 @@ public interface AirportController {
     Flux<AirportDto> getAirportByCode(@PathVariable final String code, @PathVariable(required = false) final Long radius);
 
 
+    @GetMapping("/code/{code}")
+    Flux<AirportDto> getAirportByCode(@PathVariable final String code);
+
+
 }

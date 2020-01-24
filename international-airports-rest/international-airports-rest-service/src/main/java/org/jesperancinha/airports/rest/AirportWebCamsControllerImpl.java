@@ -9,7 +9,6 @@ import org.springframework.data.util.Pair;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @AllArgsConstructor
 @RestController
@@ -47,5 +46,9 @@ public class AirportWebCamsControllerImpl implements AirportController {
                     webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
                 }).distinct();
+    }
+
+    public Flux<AirportDto> getAirportByCode(String code) {
+        return this.getAirportByCode(code, 0L);
     }
 }
