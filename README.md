@@ -142,8 +142,17 @@ It's important to notice that `localhost` may change depending on the environmen
 -   [RapidAPI](https://rapidapi.com/)  
 -   [Postman OAuth 2.0](https://learning.getpostman.com/docs/postman/sending-api-requests/authorization/#oauth-20)
 -   [How do you rename a Git tag?](https://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag)
+-   [The 10 Best Software Engineering Books in 2019](https://devconnected.com/the-10-best-software-engineering-books-in-2019/)
+
 ## Tools & Tips
 
+### InfluxDB
+
+```bash
+brew install influxdb
+```
+
+### Git tagging
 ```bash
 git tag new-tag old-tag
 git tag -d old-tag

@@ -1,2 +1,7 @@
-FROM prom/prometheus
-ADD prometheus.yml /etc/prometheus/
+FROM prom/prometheus:v2.15.2
+
+ARG PROMETHEUS_FILE
+
+ENV PROMETHEUS_FILE=${PROMETHEUS_FILE}
+
+ADD ${PROMETHEUS_FILE} /etc/prometheus/

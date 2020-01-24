@@ -24,3 +24,13 @@ services:
       context: docker/grafana/.
     ports:
       - "3000:3000"
+
+  influxdb:
+    env_file:
+      - .env-influx-db
+    hostname: influxdb
+    build:
+      context: docker/influxdb/.
+#    ports:
+#      - "8086:8086"
+

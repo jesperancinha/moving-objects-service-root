@@ -23,9 +23,3 @@ scrape_configs:
     static_configs:
       - targets:
           - airports:8081
-
-remote_write:
-  - url: "http://influxdb:8086/api/v1/prom/write?db=prometheus"
-
-remote_read:
-  - url: "http://influxdb:8086/api/v1/prom/read?db=prometheus"

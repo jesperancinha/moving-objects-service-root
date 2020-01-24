@@ -1,4 +1,4 @@
-FROM grafana/grafana
+FROM grafana/grafana:6.5.3-ubuntu
 
 COPY datasource.yml /etc/grafana/provisioning/datasources/
 
