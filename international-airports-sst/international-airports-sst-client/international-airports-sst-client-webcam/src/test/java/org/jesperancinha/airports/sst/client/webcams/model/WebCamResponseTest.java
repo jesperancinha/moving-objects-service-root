@@ -16,13 +16,13 @@ public class WebCamResponseTest {
 
     @Test
     public void testWebCamResponse_whenParse_ThenOkResult() throws IOException {
-        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/analysisTest1.json"), Charset.defaultCharset());
+        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/webcams-query-1.json"), Charset.defaultCharset());
 
         final WebCamResponse webCamResponse = gson.fromJson(analysisTest, WebCamResponse.class);
 
         WebCamPage result = webCamResponse.getResult();
         List<WebCam> webcams = result.getWebcams();
-        WebCam webCam0 = webcams.get(0);
+        final WebCam webCam0 = webcams.get(0);
         assertThat(webCam0).isNotNull();
         assertThat(webCam0.getLocation()).isNotNull();
         assertThat(webCam0.getImage()).isNotNull();
@@ -30,13 +30,13 @@ public class WebCamResponseTest {
 
     @Test
     public void testWebCamResponse_whenShortAnswerPars_ThenOkResult() throws IOException {
-        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/liveResponse.json"), Charset.defaultCharset());
+        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/webcams-no-extras.json"), Charset.defaultCharset());
 
         final WebCamResponse webCamResponse = gson.fromJson(analysisTest, WebCamResponse.class);
 
-        WebCamPage result = webCamResponse.getResult();
+        final WebCamPage result = webCamResponse.getResult();
         List<WebCam> webcams = result.getWebcams();
-        WebCam webCam0 = webcams.get(0);
+        final WebCam webCam0 = webcams.get(0);
         assertThat(webCam0).isNotNull();
         assertThat(webCam0.getLocation()).isNull();
         assertThat(webCam0.getImage()).isNull();

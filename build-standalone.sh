@@ -21,6 +21,8 @@ gradle build install -p international-airports-rest/international-airports-servi
 gradle build install -p international-airports-rest/international-airports-rest-api
 gradle build install -p international-airports-rest/international-airports-rest-service
 
+gradle test
+
 cd international-airports-gui
 npm clean-install
 npm run build
