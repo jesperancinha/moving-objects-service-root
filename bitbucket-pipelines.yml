@@ -23,3 +23,5 @@ pipelines:
           - gradle build install -p international-airports-rest/international-airports-service-api
           - gradle build install -p international-airports-rest/international-airports-rest-api
           - gradle build install -p international-airports-rest/international-airports-rest-service
+          - gradle test
+

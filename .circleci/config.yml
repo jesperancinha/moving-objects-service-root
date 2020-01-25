@@ -42,3 +42,5 @@ jobs:
       - run: gradle build install -p international-airports-rest/international-airports-service-api
       - run: gradle build install -p international-airports-rest/international-airports-rest-api
       - run: gradle build install -p international-airports-rest/international-airports-rest-service
+      - run: gradle test
+
