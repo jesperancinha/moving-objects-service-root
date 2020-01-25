@@ -3,8 +3,10 @@ package org.jesperancinha.airports.service;
 import org.jesperancinha.airports.data.AirportDto;
 import org.jesperancinha.airports.data.CoordinatesDto;
 import org.springframework.data.util.Pair;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
+@Service
 public class AirportAggregatorServiceImpl implements AirportsAggregatorService {
 
     private final AirportsService airportsService;

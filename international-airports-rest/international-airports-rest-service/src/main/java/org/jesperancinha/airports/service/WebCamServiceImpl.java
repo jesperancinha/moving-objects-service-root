@@ -1,7 +1,6 @@
 package org.jesperancinha.airports.service;
 
 import org.jesperancinha.airports.data.WebCamDto;
-import org.jesperancinha.airports.repository.AirportsRepository;
 import org.jesperancinha.airports.repository.WebCamRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
