@@ -1,0 +1,6 @@
+rootProject.name = 'international-airports-rest'
+include ':international-airports-data'
+include ':international-airports-model'
+include ':international-airports-service-api'
+include ':international-airports-rest-api'
+include ':international-airports-rest-service'

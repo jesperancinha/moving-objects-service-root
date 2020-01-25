@@ -18,10 +18,18 @@ plugins {
 version '1.0.0'
 group 'org.jesperancinha.airports'
 
+apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 
 repositories {
+    flatDir {
+        dirs 'libs', '../international-airports-model/build/libs'
+        dirs 'libs', '../international-airports-data/build/libs'
+        dirs 'libs', '../international-airports-rest-api/build/libs'
+        dirs 'libs', '../international-airports-service-api/build/libs'
+    }
     mavenLocal()
     mavenCentral()
 }
@@ -35,6 +43,8 @@ targetCompatibility = 12
 
 
 dependencies {
+    compile project(':international-airports-rest:international-airports-service-api')
+    compile project(':international-airports-rest:international-airports-rest-api')
     implementation('org.springframework.data:spring-data-commons:2.2.4.RELEASE')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')

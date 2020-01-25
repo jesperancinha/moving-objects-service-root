@@ -31,16 +31,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: gradle dependencies
-      - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam
-      - run: gradle build install -p international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports
-      - run: gradle build install -p international-airports-sst/international-airports-sst-data
-      - run: gradle build install -p international-airports-sst/international-airports-sst-mock
-      - run: gradle build install -p international-airports-sst/international-airports-sst-live
-      - run: gradle build install -p international-airports-rest/international-airports-data
-      - run: gradle build install -p international-airports-rest/international-airports-model
-      - run: gradle build install -p international-airports-rest/international-airports-service-api
-      - run: gradle build install -p international-airports-rest/international-airports-rest-api
-      - run: gradle build install -p international-airports-rest/international-airports-rest-service
-      - run: gradle test
+      - run: gradle clean build install test
+
 

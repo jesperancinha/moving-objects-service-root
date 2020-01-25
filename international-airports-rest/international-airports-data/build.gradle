@@ -6,9 +6,14 @@ plugins {
 version '1.0.0'
 group 'org.jesperancinha.airports'
 
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
 sourceCompatibility = 12
+targetCompatibility = 12
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 

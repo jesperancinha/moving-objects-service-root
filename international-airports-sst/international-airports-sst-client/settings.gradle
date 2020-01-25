@@ -1,0 +1,4 @@
+rootProject.name = 'international-airports-sst-client'
+include ':international-airports-sst-client-common'
+include ':international-airports-sst-client-webcam'
+include ':international-airports-sst-client-airports'

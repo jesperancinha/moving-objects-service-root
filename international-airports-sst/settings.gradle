@@ -1,0 +1,8 @@
+rootProject.name = 'international-airports-sst'
+include ':international-airports-sst-client'
+include ':international-airports-sst-client:international-airports-sst-client-common'
+include ':international-airports-sst-client:international-airports-sst-client-webcam'
+include ':international-airports-sst-client:international-airports-sst-client-airports'
+include ':international-airports-sst-data'
+include ':international-airports-sst-mock'
+include ':international-airports-sst-live'

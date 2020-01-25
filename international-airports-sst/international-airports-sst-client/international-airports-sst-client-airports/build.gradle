@@ -13,6 +13,10 @@ apply plugin: 'maven'
 apply plugin: 'eclipse'
 
 repositories {
+    flatDir {
+        dirs 'libs', '../build/libs'
+        dirs 'libs', '../international-airports-sst-client-common/build/libs'
+    }
     mavenLocal()
     mavenCentral()
 }
@@ -21,6 +25,8 @@ sourceCompatibility = 12
 targetCompatibility = 12
 
 dependencies {
+    compile project(':international-airports-sst:international-airports-sst-client')
+    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-common')
     implementation('org.springframework:spring-context:5.2.2.RELEASE')
     implementation('org.springframework:spring-web:5.2.2.RELEASE')
     implementation('org.springframework:spring-webflux:5.2.2.RELEASE')

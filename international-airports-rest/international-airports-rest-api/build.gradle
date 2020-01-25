@@ -16,13 +16,20 @@ version '1.0.0'
 group 'org.jesperancinha.airports'
 
 sourceCompatibility = 12
+targetCompatibility = 12
 
 repositories {
+    flatDir {
+        dirs 'libs', '../international-airports-model/build/libs'
+        dirs 'libs', '../international-airports-data/build/libs'
+    }
     mavenLocal()
     mavenCentral()
 }
 
 dependencies {
+    compile project(':international-airports-rest:international-airports-model')
+    compile project(':international-airports-rest:international-airports-data')
     implementation("org.springframework.boot:spring-boot-starter-web:2.2.2.RELEASE")
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
