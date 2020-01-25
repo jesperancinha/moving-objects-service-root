@@ -3,6 +3,7 @@ package org.jesperancinha.airports.rest;
 import lombok.AllArgsConstructor;
 import org.jesperancinha.airports.data.AirportDto;
 import org.jesperancinha.airports.data.CoordinatesDto;
+import org.jesperancinha.airports.service.AirportsAggregatorService;
 import org.jesperancinha.airports.service.AirportsService;
 import org.jesperancinha.airports.service.WebCamService;
 import org.springframework.data.util.Pair;
@@ -15,37 +16,15 @@ import reactor.core.publisher.Flux;
 @RequestMapping("airportwebcams")
 public class AirportWebCamsControllerImpl implements AirportController {
 
-    private final AirportsService airportsService;
+    private final AirportsAggregatorService airportsAggregatorService;
 
-    private final WebCamService webCamService;
 
     public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
-        return airportsService.getAirportsByTerm(term)
-                .map(airportDto -> {
-                    CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
-                            .map(webCamDto -> Pair.of(airportDto, webCamDto));
-                })
-                .flatMap(Flux::share)
-                .map(webCamDto -> {
-                    webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
-                    return webCamDto.getFirst();
-                }).distinct();
-
+        return airportsAggregatorService.getAirportsBySearchTerm(term, radius);
     }
 
     public Flux<AirportDto> getAirportByCode(String code, Long radius) {
-        return Flux.from(airportsService.getAirportByCode(code))
-                .map(airportDto -> {
-                    CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
-                            .map(webCamDto -> Pair.of(airportDto, webCamDto));
-                })
-                .flatMap(Flux::share)
-                .map(webCamDto -> {
-                    webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
-                    return webCamDto.getFirst();
-                }).distinct();
+        return airportsAggregatorService.getAirportByCode(code, radius);
     }
 
     public Flux<AirportDto> getAirportByCode(String code) {
