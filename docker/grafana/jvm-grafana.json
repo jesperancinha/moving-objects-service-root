@@ -511,53 +511,44 @@
       }
     },
     {
-      "aliasColors": {
-        "prometheus": "#C15C17",
-        "{instance=\"localhost:9090\",job=\"prometheus\"}": "#CCA300"
-      },
-      "bars": true,
       "cacheTimeout": null,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "Prometheus",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
       "gridPos": {
         "h": 6,
         "w": 7,
         "x": 0,
         "y": 6
       },
-      "hiddenSeries": false,
       "id": 3,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 3,
       "links": [],
-      "nullPointMode": "null as zero",
       "options": {
-        "dataLinks": []
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
-      "percentage": true,
       "pluginVersion": "6.5.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
       "targets": [
         {
           "expr": "up",
@@ -572,44 +563,10 @@
           "step": 20
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
       "title": "Status",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "gauge"
     },
     {
       "cacheTimeout": null,
@@ -998,7 +955,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Prometheus 2.0 Stats",
+  "title": "Java Virtual Machines",
   "uid": "8QRrodsWk",
   "version": 1
 }
