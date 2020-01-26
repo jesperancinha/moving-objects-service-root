@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "panels": [
     {
@@ -420,7 +419,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -440,5 +439,5 @@
   "timezone": "",
   "title": "Node JS",
   "uid": "SF2G1asZk",
-  "version": 5
+  "version": 1
 }
