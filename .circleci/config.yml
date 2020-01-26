@@ -32,5 +32,8 @@ jobs:
             - v1-dependencies-
 
       - run: gradle clean build install test
-
+      - run: cd international-airports-gui
+      - run: yarn install --force
+      - run: yarn build
+      - run: cd ..
 

@@ -23,3 +23,10 @@ scrape_configs:
     static_configs:
       - targets:
           - airports:8081
+
+  - job_name: airports-gui
+    honor_timestamps: true
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - airports:4000

@@ -1,4 +1,4 @@
-FROM jesperancinha/java-exercise-docker:0.0.3
+FROM jesperancinha/java-exercise-docker:0.0.4
 
 ENV runningFolder /usr/local/bin/
 
@@ -14,7 +14,13 @@ COPY docker-files/default.conf /etc/nginx/conf.d/default.conf
 
 COPY docker-files/nginx.conf /etc/nginx/nginx.conf
 
-COPY international-airports-gui/dist /usr/share/nginx/html
+COPY international-airports-gui/dist ${runningFolder}/dist
+
+COPY international-airports-gui/node_modules ${runningFolder}/node_modules
+
+COPY international-airports-gui/server.js ${runningFolder}
+
+COPY international-airports-gui/package.json ${runningFolder}
 
 ARG AIRPORTS_KEY
 
@@ -31,3 +37,5 @@ ENTRYPOINT ["entrypoint.sh","${AIRPORTS_KEY}", "${WEBCAMS_KEY}"]
 EXPOSE 8081
 
 EXPOSE 8082
+
+EXPOSE 4000

@@ -14,5 +14,10 @@ pipelines:
           # You must commit the Gradle wrapper to your repository
           # https://docs.gradle.org/current/userguide/gradle_wrapper.html
           - gradle clean build install test
+          - cd international-airports-gui
+          - yarn install --force
+          - yarn build
+          - cd ..
+
 
 
