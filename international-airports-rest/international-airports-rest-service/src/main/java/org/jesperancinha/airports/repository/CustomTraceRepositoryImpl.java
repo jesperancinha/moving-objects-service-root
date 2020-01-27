@@ -5,23 +5,32 @@ import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Repository
 public class CustomTraceRepositoryImpl implements HttpTraceRepository {
 
-    private AtomicReference<List<HttpTrace>> lastTrace = new AtomicReference<>(new ArrayList<>());
+    private AtomicReference<Queue<HttpTrace>> lastTrace = new AtomicReference<>(new LinkedList<>());
+
 
     @Override
     public List<HttpTrace> findAll() {
-        return lastTrace.get();
+        return new ArrayList<>(lastTrace.get());
     }
 
     @Override
     public void add(HttpTrace trace) {
+        Queue<HttpTrace> httpTraces = lastTrace.get();
+        if (httpTraces.size() > 10) {
+            while (httpTraces.size() > 10) {
+                httpTraces.poll();
+            }
+        }
         if ("GET".equals(trace.getRequest().getMethod())) {
-            lastTrace.get().add(trace);
+            httpTraces.add(trace);
         }
     }
 
