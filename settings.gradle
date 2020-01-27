@@ -13,5 +13,3 @@ include ':international-airports-sst:international-airports-sst-client:internati
 include ':international-airports-sst:international-airports-sst-data'
 include ':international-airports-sst:international-airports-sst-mock'
 include ':international-airports-sst:international-airports-sst-live'
-
-

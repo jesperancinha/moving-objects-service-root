@@ -8,10 +8,7 @@ buildscript {
     }
 }
 
-
 plugins {
-    id 'maven'
-    id 'java'
     id 'org.springframework.boot' version '2.2.2.RELEASE'
 }
 
@@ -41,6 +38,9 @@ bootJar {
 sourceCompatibility = 12
 targetCompatibility = 12
 
+test {
+    useJUnitPlatform ()
+}
 
 dependencies {
     compile project(':international-airports-rest:international-airports-service-api')
@@ -59,6 +59,14 @@ dependencies {
     implementation('io.micrometer:micrometer-registry-prometheus:1.3.3')
     compileOnly('org.projectlombok:lombok:1.18.10')
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
-
-
+    testCompile('org.assertj:assertj-core:3.14.0')
+    testCompile('org.springframework:spring-test:5.2.3.RELEASE')
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.2.4.RELEASE')
+    testCompile('com.github.tomakehurst:wiremock:2.25.1')
+    testCompile('io.projectreactor.tools:blockhound-junit-platform:1.0.1.RELEASE')
+    testCompile('org.mockito:mockito-junit-jupiter:3.2.4')
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.6.0')
+    testCompile 'org.junit.platform:junit-platform-launcher:1.6.0'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+    testCompile 'org.junit.vintage:junit-vintage-engine:5.6.0'
 }

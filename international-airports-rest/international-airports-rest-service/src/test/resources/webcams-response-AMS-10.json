@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Haarlemmermeer: W Amsterdam",
+    "coordinate": {
+      "latitude": 52.308509,
+      "longitude": 4.76081
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Haarlemmermeer",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/58/1511301958/current/icon/1511301958.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/58/1511301958/current/thumbnail/1511301958.jpg",
+      "previewUrl": "https://images-webcams.windy.com/58/1511301958/current/preview/1511301958.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/58/1511301958/current/thumbnail/1511301958.jpg"
+    }
+  },
+  {
+    "title": "Haarlemmermeer: A Schipholtunnel Zuid",
+    "coordinate": {
+      "latitude": 52.310997,
+      "longitude": 4.749527
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Haarlemmermeer",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/11/1361527111/current/icon/1361527111.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/11/1361527111/current/thumbnail/1361527111.jpg",
+      "previewUrl": "https://images-webcams.windy.com/11/1361527111/current/preview/1361527111.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/11/1361527111/current/thumbnail/1361527111.jpg"
+    }
+  },
+  {
+    "title": "Werkhoven: De Hoek (A)",
+    "coordinate": {
+      "latitude": 52.293132,
+      "longitude": 4.731996
+    },
+    "wikiInfo": "",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/49/1419004549/current/icon/1419004549.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/49/1419004549/current/thumbnail/1419004549.jpg",
+      "previewUrl": "https://images-webcams.windy.com/49/1419004549/current/preview/1419004549.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/49/1419004549/current/thumbnail/1419004549.jpg"
+    }
+  },
+  {
+    "title": "Badhoevedorp: A/A",
+    "coordinate": {
+      "latitude": 52.328625,
+      "longitude": 4.795017
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Badhoevedorp",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/71/1368712471/current/icon/1368712471.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/71/1368712471/current/thumbnail/1368712471.jpg",
+      "previewUrl": "https://images-webcams.windy.com/71/1368712471/current/preview/1368712471.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/71/1368712471/current/thumbnail/1368712471.jpg"
+    }
+  },
+  {
+    "title": "Sloten: Amsterdam - A",
+    "coordinate": {
+      "latitude": 52.334932,
+      "longitude": 4.805703
+    },
+    "wikiInfo": "",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/34/1419004734/current/icon/1419004734.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/34/1419004734/current/thumbnail/1419004734.jpg",
+      "previewUrl": "https://images-webcams.windy.com/34/1419004734/current/preview/1419004734.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/34/1419004734/current/thumbnail/1419004734.jpg"
+    }
+  },
+  {
+    "title": "Amstelveen: A",
+    "coordinate": {
+      "latitude": 52.304544,
+      "longitude": 4.846628
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Amstelveen",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/98/1419004798/current/icon/1419004798.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/98/1419004798/current/thumbnail/1419004798.jpg",
+      "previewUrl": "https://images-webcams.windy.com/98/1419004798/current/preview/1419004798.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/98/1419004798/current/thumbnail/1419004798.jpg"
+    }
+  },
+  {
+    "title": "Aalsmeer › South-West: Westeinderplassen",
+    "coordinate": {
+      "latitude": 52.2549,
+      "longitude": 4.7575
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Aalsmeer",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/51/1533890051/current/icon/1533890051.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/51/1533890051/current/thumbnail/1533890051.jpg",
+      "previewUrl": "https://images-webcams.windy.com/51/1533890051/current/preview/1533890051.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/51/1533890051/current/thumbnail/1533890051.jpg"
+    }
+  },
+  {
+    "title": "Amsterdam: A/A De Nieuwe Meer",
+    "coordinate": {
+      "latitude": 52.338323,
+      "longitude": 4.840765
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Amsterdam (gemeente)",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/83/1368712583/current/icon/1368712583.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/83/1368712583/current/thumbnail/1368712583.jpg",
+      "previewUrl": "https://images-webcams.windy.com/83/1368712583/current/preview/1368712583.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/83/1368712583/current/thumbnail/1368712583.jpg"
+    }
+  },
+  {
+    "title": "Amstelveen: mscha.cam .",
+    "coordinate": {
+      "latitude": 52.283066,
+      "longitude": 4.863647
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Amstelveen",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/83/1250163683/current/icon/1250163683.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/83/1250163683/current/thumbnail/1250163683.jpg",
+      "previewUrl": "https://images-webcams.windy.com/83/1250163683/current/preview/1250163683.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/83/1250163683/current/thumbnail/1250163683.jpg"
+    }
+  },
+  {
+    "title": "Amsterdam: Oud-West",
+    "coordinate": {
+      "latitude": 52.363052,
+      "longitude": 4.860711
+    },
+    "wikiInfo": "https://nl.wikipedia.org/wiki/Amsterdam (gemeente)",
+    "active": true,
+    "webCamImage": {
+      "iconUrl": "https://images-webcams.windy.com/53/1383395553/current/icon/1383395553.jpg",
+      "thumbnailUrl": "https://images-webcams.windy.com/53/1383395553/current/thumbnail/1383395553.jpg",
+      "previewUrl": "https://images-webcams.windy.com/53/1383395553/current/preview/1383395553.jpg",
+      "toenailUrl": "https://images-webcams.windy.com/53/1383395553/current/thumbnail/1383395553.jpg"
+    }
+  }
+]

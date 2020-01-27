@@ -1,0 +1,16 @@
+{
+  "code": "AMS",
+  "name": "Amsterdam",
+  "city": "Amsterdam",
+  "themeList": [
+    "ROMANTIC"
+  ],
+  "coordinates": {
+    "latitude": 52.308056,
+    "longitude": 4.764167
+  },
+  "pointsOfSale": [
+    "NL"
+  ],
+  "webCams": []
+}

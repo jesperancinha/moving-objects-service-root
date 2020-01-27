@@ -3,7 +3,7 @@ package org.jesperancinha.airports.service;
 import org.jesperancinha.airports.data.AirportDto;
 import reactor.core.publisher.Flux;
 
-public interface AirportsAggregatorService {
+public interface AirportAggregatorService {
 
     Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius);
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
 @Service
-public class AirportAggregatorServiceImpl implements AirportsAggregatorService {
+public class AirportAggregatorServiceImpl implements AirportAggregatorService {
 
     private final AirportsService airportsService;
 
