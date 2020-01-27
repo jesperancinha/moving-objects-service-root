@@ -30,7 +30,6 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: sdk use java 12.0.2.hs-adpt
       - run: gradle clean build install test
       - run: cd international-airports-gui
       - run: yarn install --force
