@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: jesperancinha/java-exercise-docker:0.0.5
+image: jesperancinha/jesperancinha/je-all-build:0.0.1
 
 pipelines:
   default:
@@ -13,6 +13,7 @@ pipelines:
         script: # Modify the commands below to build your repository.
           # You must commit the Gradle wrapper to your repository
           # https://docs.gradle.org/current/userguide/gradle_wrapper.html
+          - sdk use java 12.0.2.hs-adpt
           - gradle clean build install test
           - cd international-airports-gui
           - yarn install --force

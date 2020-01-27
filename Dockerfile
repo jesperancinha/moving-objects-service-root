@@ -1,4 +1,4 @@
-FROM jesperancinha/java-exercise-docker:0.0.4
+FROM jesperancinha/je-all-build:0.0.1
 
 ENV runningFolder /usr/local/bin/
 
