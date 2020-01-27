@@ -16,11 +16,11 @@ COPY docker-files/nginx.conf /etc/nginx/nginx.conf
 
 COPY international-airports-gui/dist ${runningFolder}/dist
 
-COPY international-airports-gui/node_modules ${runningFolder}/node_modules
-
 COPY international-airports-gui/server.js ${runningFolder}
 
-COPY international-airports-gui/package.json ${runningFolder}
+COPY docker-files/package.json ${runningFolder}
+
+RUN yarn install
 
 ARG AIRPORTS_KEY
 
