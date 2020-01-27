@@ -31,8 +31,10 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: gradle clean build install test
-      - run: cd international-airports-gui
-      - run: yarn install --force
-      - run: yarn build
-      - run: cd ..
+      - run:
+          command: yarn install --force
+          working_directory: international-airports-gui
+      - run:
+          command: yarn build
+          working_directory: international-airports-gui
 
