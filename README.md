@@ -107,9 +107,12 @@ Here is an example:
 
 This tutorial makes use of the following docker images:
 
-[![dockeri.co](https://dockeri.co/image/jesperancinha/java-exercise-docker)](https://hub.docker.com/r/jesperancinha/java-exercise-docker)
+[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build-jdk-12)](https://hub.docker.com/r/jesperancinha/je-all-build-jdk-12)
+
 [![dockeri.co](https://dockeri.co/image/grafana/grafana)](https://hub.docker.com/r/grafana/grafana)
+
 [![dockeri.co](https://dockeri.co/image/influxdb)](https://hub.docker.com/r/influxdb)
+
 [![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
 
 
