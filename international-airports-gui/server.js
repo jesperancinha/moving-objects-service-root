@@ -3,7 +3,6 @@ exports.__esModule = true;
 require("es6-shim");
 require("reflect-metadata");
 var path = require("path");
-var bodyParser = require("body-parser");
 var moment = require("moment");
 var apiMetrics = require('prometheus-api-metrics');
 var express = require('express');
@@ -32,16 +31,9 @@ var Server = /** @class */ (function () {
                 res.sendFile(path.resolve('dist/index.html'));
             }
         });
-        this.app.use(bodyParser.json({ limit: '50mb' }));
-        this.app.use(bodyParser.raw({ limit: '50mb' }));
-        this.app.use(bodyParser.text({ limit: '50mb' }));
-        this.app.use(bodyParser.urlencoded({
-            limit: '50mb',
-            extended: true
-        }));
-        this.app.listen(this.port, function () { return console.log("http is started " + _this.port); });
+        this.app.listen(this.port, function () { return console.log("Express http is started " + _this.port); });
         this.app.on('error', function (error) {
-            console.error(moment().format(), 'ERROR', error);
+            console.error(moment().format(), 'An error has ocurred!', error);
         });
         process.on('uncaughtException', function (error) {
             console.log(moment().format(), error);

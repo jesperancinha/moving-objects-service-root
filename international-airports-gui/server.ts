@@ -2,7 +2,6 @@ import 'es6-shim';
 import 'reflect-metadata';
 import { Request, Response } from 'express-serve-static-core';
 import * as path from 'path';
-import * as bodyParser from 'body-parser';
 import * as moment from 'moment';
 
 const apiMetrics = require('prometheus-api-metrics');
@@ -38,16 +37,9 @@ class Server {
                 res.sendFile(path.resolve('dist/index.html'));
             }
         });
-        this.app.use(bodyParser.json({ limit: '50mb' }));
-        this.app.use(bodyParser.raw({ limit: '50mb' }));
-        this.app.use(bodyParser.text({ limit: '50mb' }));
-        this.app.use(bodyParser.urlencoded({
-            limit: '50mb',
-            extended: true
-        }));
-        this.app.listen(this.port, () => console.log(`http is started ${this.port}`));
+        this.app.listen(this.port, () => console.log(`Express http is started ${this.port}`));
         this.app.on('error', (error: any) => {
-            console.error(moment().format(), 'ERROR', error);
+            console.error(moment().format(), 'An error has ocurred!', error);
         });
 
         process.on('uncaughtException', (error: any) => {

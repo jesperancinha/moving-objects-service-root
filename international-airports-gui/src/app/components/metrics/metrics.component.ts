@@ -14,7 +14,6 @@ import {finalize} from "rxjs/operators";
 export class MetricsComponent implements OnInit {
     public loading: boolean;
     public metrics: Metrics = new Metrics();
-    private errorText: String;
     public options: MetricTag[] = [];
     private static METRIC_TAG_ALL: MetricTag = {tag: "All", value: null};
     public option: MetricTag;

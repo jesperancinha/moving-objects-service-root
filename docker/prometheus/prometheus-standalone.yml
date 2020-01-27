@@ -3,12 +3,6 @@ global:
   evaluation_interval: 30s
 
 scrape_configs:
-#  - job_name: airports-gui
-#    honor_timestamps: true
-#    metrics_path: /metrics
-#    static_configs:
-#      - targets:
-#          - localhost:8083
 
   - job_name: airports-rest
     honor_timestamps: true
