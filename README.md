@@ -9,10 +9,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/lfauvt61j0nw5xkg?svg=true)](https://ci.appveyor.com/project/jesperancinha/international-airports-service-root)
 [![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/international-airports-service-root/master)](https://bitbucket.org/jesperancinha/international-airports-service-root/addon/pipelines/home)
 
-## Status
-
-[Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md)
-
 ## Introduction
 
 The goal of this mini-project is to introduce you to two important monitoring tools in the software landscape
