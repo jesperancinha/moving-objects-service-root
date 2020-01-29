@@ -1,4 +1,4 @@
-# international-airports-service-api
+# international-airports-sst-client
 
 ## About me
 

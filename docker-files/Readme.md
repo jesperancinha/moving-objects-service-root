@@ -1,4 +1,4 @@
-# international-airports-service-api
+# international-airports-gui-server
 
 ## About me
 

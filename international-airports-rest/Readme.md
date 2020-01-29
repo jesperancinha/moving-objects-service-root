@@ -1,4 +1,4 @@
-# international-airports-service-api
+# international-airports-rest
 
 ## About me
 
