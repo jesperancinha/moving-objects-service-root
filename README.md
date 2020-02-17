@@ -1,6 +1,5 @@
 # International Airports Service
 
-
 [![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=International%20Airports&color=informational)](https://bitbucket.org/jesperancinha/international-airports-service-root) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -23,6 +22,10 @@ This application consists of an option to calculate the distance between airport
 
 These applications are implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
 We will use as base the [RapidAPI](https://rapidapi.com/) end points and convert them to our proprietary format.
+
+This project is also the official support project of my article on medium:
+
+[Monitoring with Grafana, Prometheus and InfluxDB — An airport webcams example](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
 
 ## Settings
 
