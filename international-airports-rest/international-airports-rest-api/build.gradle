@@ -15,8 +15,8 @@ plugins {
 version '1.0.0'
 group 'org.jesperancinha.airports'
 
-sourceCompatibility = 12
-targetCompatibility = 12
+sourceCompatibility = 14
+targetCompatibility = 14
 
 repositories {
     flatDir {

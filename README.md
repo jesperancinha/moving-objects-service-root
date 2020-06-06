@@ -1,5 +1,19 @@
 # International Airports Service
 
+---
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/docker-50.png "Docker")](https://www.docker.com/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/docker-compose-50.png "Docker Compose")](https://docs.docker.com/compose/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/spring-50.png "Spring")](https://spring.io/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/spring-boot-50.png "Spring Boot")](https://spring.io/projects/spring-boot)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/postgres-50.png "Postgres")](https://www.postgresql.org/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/java-50.png "Java")](https://en.wikipedia.org/wiki/Java_(programming_language))
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/nodejs-50.png "NodeJS")](https://nodejs.org/en/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/bash-50.png "Bash")](https://www.gnu.org/software/bash/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/npm-50.png "NPM")](https://www.npmjs.com/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/yarn-50.png "Yarn")](https://yarnpkg.com/)
+
+---
+
 [![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=International%20Airports&color=informational)](https://bitbucket.org/jesperancinha/international-airports-service-root) 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -16,16 +30,39 @@ In this project you will find implementations using micrometer and a store for m
 This application consists of an option to calculate the distance between airports. It calculates:
 
 -   The distance between airports
--   The price you are paying per ticked
+-   The price you are paying per ticket
 -   A filtered table that provides you with all airport details
 -   A list of the webcams nearby
 
-These applications are implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
-We will use as base the [RapidAPI](https://rapidapi.com/) end points and convert them to our proprietary format.
+These applications have been implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
+And that's awesome!
+We will use the free restservices provided by the [RapidAPI](https://rapidapi.com/) end points and then convert them to our proprietary format.
 
 This project is also the official support project of my article on medium:
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6) [Monitoring with Grafana, Prometheus and InfluxDB — An airport webcams example](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
+
+## Setup
+
+In order to run this project we need to fulfill some requirements:
+
+1. Have an IDE
+2. Have JDK4 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
+3. Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
+
+We do not need a special machine to do that. 
+In the old days, we used to have something called docker-machine that we had to use directly.
+With docker-desktop, this isn't necessary anymore for local usage.
+
+Upgrade gradle:
+
+```bash
+brew upgrade gradle
+
+sdk install java 14.0.1.hs-adpt
+
+sdk install gradle 6.5
+```
 
 ## Settings
 
@@ -80,12 +117,6 @@ The keys you will need come from these two applications:
 -   AIRPORTS_KEY - [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
 -   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel)
 
-If you run the following script you are expected to have a docker-machine installed with the name dev.
-
-Please read the installation manual for docker if you have any questions on how to run.
-
-`./build.sh`
-
 ## How to test the main image
 
 There is a script called [build-standalone.sh](./build-standalone.sh).
@@ -106,7 +137,7 @@ Here is an example:
 
 This tutorial makes use of the following docker images:
 
-[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build-jdk-12)](https://hub.docker.com/r/jesperancinha/je-all-build-jdk-12)
+[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build-jdk-14)](https://hub.docker.com/r/jesperancinha/je-all-build-jdk-14)
 
 [![dockeri.co](https://dockeri.co/image/grafana/grafana)](https://hub.docker.com/r/grafana/grafana)
 

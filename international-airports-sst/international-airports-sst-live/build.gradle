@@ -31,8 +31,8 @@ bootJar {
     mainClassName = 'org.jesperancinha.airports.sst.live.AirportsSSTLiveLauncher'
 }
 
-sourceCompatibility = 12
-targetCompatibility = 12
+sourceCompatibility = 14
+targetCompatibility = 14
 
 repositories {
     flatDir {
