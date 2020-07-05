@@ -145,8 +145,6 @@ This tutorial makes use of the following docker images:
 [![dockeri.co](https://dockeri.co/image/influxdb)](https://hub.docker.com/r/influxdb)
 
 [![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
-
-
 ## Url Example List:
 
 It's important to notice that `localhost` may change depending on the environment or if docker compose is being used.
