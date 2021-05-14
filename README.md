@@ -47,9 +47,9 @@ This project is also the official support project of my article on medium:
 
 In order to run this project we need to fulfill some requirements:
 
-1. Have an IDE
-2. Have JDK4 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
-3. Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
+1.  Have an IDE
+2.  Have JDK4 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
+3.  Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
 We do not need a special machine to do that. 
 In the old days, we used to have something called docker-machine that we had to use directly.
@@ -94,7 +94,7 @@ Metric end points are completely open.
 
 -   Port: 8082
 
-## How to build and run the Spring boot services:
+## How to build and run the Spring boot services
 
 To start and build a spring boot process, just go to the root of that project and run:
 
@@ -102,13 +102,13 @@ To start and build a spring boot process, just go to the root of that project an
 
 `./gradlew bootRun`
 
-## How to build and run the Front End service:
+## How to build and run the Front End service
 
 `npm install`
 
 `npm run build`
 
-## How to run everything with Docker compose in one go:
+## How to run everything with Docker compose in one go
 
 Make a copy of the [.env-template](.env-template) file to [.env](.env) in the same folder.
 
@@ -145,7 +145,7 @@ This tutorial makes use of the following docker images:
 [![dockeri.co](https://dockeri.co/image/influxdb)](https://hub.docker.com/r/influxdb)
 
 [![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
-## Url Example List:
+## Url Example List
 
 It's important to notice that `localhost` may change depending on the environment or if docker compose is being used.
 
