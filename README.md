@@ -13,6 +13,8 @@
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/bash-50.png "Bash")](https://www.gnu.org/software/bash/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/npm-50.png "NPM")](https://www.npmjs.com/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/yarn-50.png "Yarn")](https://yarnpkg.com/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/javascript-50.png "Javascript")](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/typescript-50.png "Javascript")](https://www.typescriptlang.org/)
 ---
 
 [![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=International%20Airports&color=informational)](https://bitbucket.org/jesperancinha/international-airports-service-root) 
