@@ -9,9 +9,7 @@
 
 # Packages
 *.jar
-!gradle/wrapper/gradle-wrapper.jar
 *.zip
-gradle
 build
 dist
 
