@@ -18,5 +18,5 @@ jobs:
         - .autoconf
       script:
         - gradle wrapper
-        - ./gradlew wrapper --gradle-version=7.0.2 --distribution-type=bin
+        - ./gradlew wrapper --gradle-version=6.7.1 --distribution-type=bin
         - ./gradlew build
