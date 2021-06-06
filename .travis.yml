@@ -1,4 +1,3 @@
-
 jobs:
   include:
     - language: java
@@ -18,4 +17,5 @@ jobs:
         - .autoconf
       script:
         - gradle wrapper
+        - ./gradlew wrapper --gradle-version=6.7.1
         - ./gradlew build
