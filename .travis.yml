@@ -12,10 +12,3 @@ jobs:
       stage: International Airport Service
       jdk:
         - openjdk14
-      cache:
-        directories:
-        - .autoconf
-      script:
-        - gradle wrapper
-        - ./gradlew wrapper --gradle-version=6.7.1
-        - ./gradlew build
