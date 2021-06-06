@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![CircleCI](https://circleci.com/bb/jesperancinha/international-airports-service-root.svg?style=svg)](https://circleci.com/bb/jesperancinha/international-airports-service-root)
-[![Build Status](https://www.travis-ci.com/jesperancinha/international-airports-service-root.svg?branch=master)](https://www.travis-ci.com/jesperancinha/international-airports-service-root)
+[![Build Status](https://www.travis-ci.com/jesperancinha/international-airports-service-root.svg?branch=master)](https://www.travis-ci.com/bitbucket/jesperancinha/international-airports-service-root)
 [![Build status](https://ci.appveyor.com/api/projects/status/lfauvt61j0nw5xkg?svg=true)](https://ci.appveyor.com/project/jesperancinha/international-airports-service-root)
 [![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/international-airports-service-root/master)](https://bitbucket.org/jesperancinha/international-airports-service-root/addon/pipelines/home)
 

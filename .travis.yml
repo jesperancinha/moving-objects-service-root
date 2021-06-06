@@ -17,4 +17,5 @@ jobs:
         directories:
         - .autoconf
       script:
+        -  gradle wrapper
         - ./gradlew build
