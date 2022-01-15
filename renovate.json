@@ -1,3 +1,7 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "repositories": ["jesperancinha/international-airports-service-root"],
+  "platform": "bitbucket",
+  "extends": ["docker:disable"],
+  "username": "jesperancinha"
 }
