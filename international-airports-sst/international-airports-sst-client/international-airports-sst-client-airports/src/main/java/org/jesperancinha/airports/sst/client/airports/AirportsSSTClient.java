@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface AirportsSSTClient {
-    Flux<Airport> findAiportsBySearchWord(final String searchWord);
+    Flux<Airport> findAirportsBySearchWord(final String searchWord);
 
     Mono<Airport> findAirportByCode(final String code);
 }

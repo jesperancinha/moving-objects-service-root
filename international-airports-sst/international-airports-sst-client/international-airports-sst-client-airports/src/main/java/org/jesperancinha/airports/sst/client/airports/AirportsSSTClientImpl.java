@@ -30,7 +30,7 @@ public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTCl
     @Default
     private final Gson gson = new Gson();
 
-    public Flux<Airport> findAiportsBySearchWord(final String searchWord) {
+    public Flux<Airport> findAirportsBySearchWord(final String searchWord) {
         return Mono.fromCallable(() -> {
             final Response response = this.newCall(callAirportsBySearchWord(searchWord)).execute();
             final String textResponse = response.body().string();
