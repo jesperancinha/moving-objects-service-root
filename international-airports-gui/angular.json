@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "7b89573f-e4ba-4397-af9d-ca3e0ab9ae50"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "java-exercise-fe": {
+    "international-airports-gui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,7 +25,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
