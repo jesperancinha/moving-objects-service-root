@@ -24,7 +24,7 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: gradle clean build install test
+      - run: make buildw
       - run:
           command: yarn install --force
           working_directory: international-airports-gui

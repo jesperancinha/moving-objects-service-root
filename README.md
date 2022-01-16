@@ -74,9 +74,11 @@ Upgrade gradle:
 ```bash
 brew upgrade gradle
 
-sdk install java 14.0.1.hs-adpt
+sdk install java 17-open
 
-sdk install gradle 6.5
+sdk use java 17-open
+
+sdk install gradle 7.3.3
 ```
 
 ## Settings
@@ -112,7 +114,7 @@ Metric end points are completely open.
 
 To start and build a spring boot process, just go to the root of that project and run:
 
-`sdk use java 12.0.2.hs-adpt`
+`sdk use java 17-open`
 
 `./gradlew bootRun`
 

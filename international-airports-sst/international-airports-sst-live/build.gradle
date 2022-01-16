@@ -10,6 +10,7 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'application'
     id 'nebula.optional-base' version '7.0.0'
     id 'nebula.provided-base' version '7.0.0'
     id 'org.springframework.boot' version '2.6.2'
@@ -24,15 +25,15 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'nebula.provided-base'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 
 bootJar {
     mainClassName = 'org.jesperancinha.airports.sst.live.AirportsSSTLiveLauncher'
 }
 
-sourceCompatibility = 14
-targetCompatibility = 14
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     flatDir {
@@ -47,11 +48,22 @@ repositories {
 
 ext['kotlin-coroutines.version'] = '1.3.2'
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 dependencies {
-    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-common')
-    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-airports')
-    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-webcam')
-    compile project(':international-airports-sst:international-airports-sst-data')
+    implementation('org.jesperancinha.airports:international-airports-sst-client-common:1.0.0')
+    implementation('org.jesperancinha.airports:international-airports-sst-client-airports:1.0.0')
+    implementation('org.jesperancinha.airports:international-airports-sst-client-webcam:1.0.0')
+    implementation('org.jesperancinha.airports:international-airports-sst-data:1.0.0')
     implementation('org.springframework.security.oauth:spring-security-oauth2:2.5.1.RELEASE')
     implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.2')
     implementation("org.springframework.boot:spring-boot-starter-web")

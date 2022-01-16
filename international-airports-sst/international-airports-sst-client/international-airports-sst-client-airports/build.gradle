@@ -9,7 +9,7 @@ group 'org.jesperancinha.airports'
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 
 repositories {
@@ -21,12 +21,22 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 14
-targetCompatibility = 14
+sourceCompatibility = 17
+targetCompatibility = 17
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
 
 dependencies {
-    compile project(':international-airports-sst:international-airports-sst-client')
-    compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-common')
+    implementation('org.jesperancinha.airports:international-airports-sst-client-common:1.0.0')
     implementation('org.springframework:spring-context:5.3.15')
     implementation('org.springframework:spring-web:5.3.15')
     implementation('org.springframework:spring-webflux:5.3.15')

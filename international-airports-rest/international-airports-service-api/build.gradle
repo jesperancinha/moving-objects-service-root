@@ -9,7 +9,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'maven'
+    id 'maven-publish'
 }
 
 version '1.0.0'
@@ -21,8 +21,8 @@ apply plugin: 'eclipse'
 
 version '1.0.0'
 
-sourceCompatibility = 14
-targetCompatibility = 14
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     flatDir {
@@ -33,9 +33,18 @@ repositories {
     mavenCentral()
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 dependencies {
-    compile project(':international-airports-rest:international-airports-model')
-    compile project(':international-airports-rest:international-airports-data')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.2')

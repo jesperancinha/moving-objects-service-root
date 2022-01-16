@@ -10,7 +10,7 @@ group 'org.jesperancinha.airports'
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenLocal()
@@ -24,9 +24,20 @@ buildscript {
     }
 }
 
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 subprojects {
     apply plugin: "java"
-    apply plugin: 'maven'
     apply plugin: 'maven-publish'
     version = '1.0.0'
 }
