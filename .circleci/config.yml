@@ -32,7 +32,7 @@ jobs:
           command: yarn build
           working_directory: international-airports-gui
 
- build-yarn:
+  build-yarn:
     docker:
       - image:cimg/node:17.3.1
 
