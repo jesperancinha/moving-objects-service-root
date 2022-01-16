@@ -134,6 +134,12 @@ The keys you will need come from these two applications:
 -   AIRPORTS_KEY - [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
 -   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel)
 
+Then run:
+
+```shell
+docker-compose up
+```
+
 ## How to test the main image
 
 There is a script called [build-standalone.sh](./build-standalone.sh).
