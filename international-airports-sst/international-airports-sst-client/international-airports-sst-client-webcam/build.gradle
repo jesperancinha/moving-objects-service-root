@@ -36,8 +36,8 @@ dependencies {
     implementation('org.springframework:spring-webflux:5.2.2.RELEASE')
     implementation('com.squareup.okhttp:okhttp:2.7.5')
     implementation('com.google.code.gson:gson:2.8.9')
-    compileOnly 'org.projectlombok:lombok:1.18.10'
-    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.14.0'
     testImplementation group: 'commons-io', name: 'commons-io', version: '2.6'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
