@@ -6,9 +6,9 @@
     "body-parser": "1.19.1",
     "es6-shim": "0.35.6",
     "express": "4.17.2",
-    "moment": "2.24.0",
+    "moment": "2.29.1",
     "prom-client": "14.0.1",
-    "prometheus-api-metrics": "2.2.7",
+    "prometheus-api-metrics": "3.2.0",
     "reflect-metadata": "0.1.13"
   }
 }
