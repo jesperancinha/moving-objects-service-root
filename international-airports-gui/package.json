@@ -33,7 +33,7 @@
     "rxjs": "6.4.0",
     "tslib": "1.9.3",
     "yarn": "1.21.1",
-    "zone.js": "0.9.1"
+    "zone.js": "0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1102.0",
