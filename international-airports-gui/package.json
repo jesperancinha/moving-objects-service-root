@@ -17,7 +17,7 @@
     "@angular/common": "13.1.2",
     "@angular/compiler": "13.1.2",
     "@angular/core": "13.1.2",
-    "@angular/forms": "8.2.14",
+    "@angular/forms": "13.1.2",
     "@angular/material": "13.1.2",
     "@angular/platform-browser": "8.2.14",
     "@angular/platform-browser-dynamic": "8.2.14",
