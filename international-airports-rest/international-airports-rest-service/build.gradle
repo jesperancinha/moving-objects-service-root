@@ -64,7 +64,7 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test:2.6.2')
     testCompile('com.github.tomakehurst:wiremock:2.27.2')
     testCompile('io.projectreactor.tools:blockhound-junit-platform:1.0.6.RELEASE')
-    testCompile('org.mockito:mockito-junit-jupiter:3.12.4')
+    testCompile('org.mockito:mockito-junit-jupiter:4.2.0')
     testCompile('org.junit.jupiter:junit-jupiter-api:5.8.2')
     testCompile 'org.junit.platform:junit-platform-launcher:1.8.2'
     testCompile 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
