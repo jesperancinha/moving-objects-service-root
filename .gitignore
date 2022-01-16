@@ -44,6 +44,7 @@ dist
 
 # Node
 node_modules
+.angular
 
 # MacOS
 .DS_store
