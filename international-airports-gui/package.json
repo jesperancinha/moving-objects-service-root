@@ -21,7 +21,7 @@
     "@angular/material": "8.2.3",
     "@angular/platform-browser": "8.0.1",
     "@angular/platform-browser-dynamic": "8.0.1",
-    "@angular/router": "8.0.1",
+    "@angular/router": "8.2.14",
     "core-js": "3.6.4",
     "es6-shim": "0.35.6",
     "express-serve-static-core": "0.1.1",
