@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE")
+         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.2")
     }
 }
 
@@ -45,28 +45,28 @@ test {
 dependencies {
     compile project(':international-airports-rest:international-airports-service-api')
     compile project(':international-airports-rest:international-airports-rest-api')
-    implementation('org.springframework.data:spring-data-commons:2.2.4.RELEASE')
+    implementation('org.springframework.data:spring-data-commons:2.6.1')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
-    implementation("org.springframework.boot:spring-boot-starter-web:2.2.2.RELEASE")
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.2.2.RELEASE')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.2.2.RELEASE')
-    implementation('org.springframework.security:spring-security-config:5.2.1.RELEASE')
-    implementation("org.springframework.security:spring-security-oauth2-client:5.2.1.RELEASE")
-    implementation('io.micrometer:micrometer-core:1.3.3')
-    implementation('io.micrometer:micrometer-registry-prometheus:1.3.3')
+    implementation("org.springframework.boot:spring-boot-starter-web:2.6.2")
+    implementation('org.springframework.boot:spring-boot-starter-actuator:2.6.2')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.2')
+    implementation('org.springframework.security:spring-security-config:5.6.1')
+    implementation("org.springframework.security:spring-security-oauth2-client:5.6.1")
+    implementation('io.micrometer:micrometer-core:1.8.2')
+    implementation('io.micrometer:micrometer-registry-prometheus:1.8.2')
     compileOnly('org.projectlombok:lombok:1.18.22')
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testCompile('org.assertj:assertj-core:3.14.0')
-    testCompile('org.springframework:spring-test:5.2.3.RELEASE')
-    testCompile('org.springframework.boot:spring-boot-starter-test:2.2.4.RELEASE')
-    testCompile('com.github.tomakehurst:wiremock:2.25.1')
+    testCompile('org.assertj:assertj-core:3.22.0')
+    testCompile('org.springframework:spring-test:5.3.15')
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.6.2')
+    testCompile('com.github.tomakehurst:wiremock:2.27.2')
     testCompile('io.projectreactor.tools:blockhound-junit-platform:1.0.6.RELEASE')
-    testCompile('org.mockito:mockito-junit-jupiter:3.2.4')
-    testCompile('org.junit.jupiter:junit-jupiter-api:5.6.0')
-    testCompile 'org.junit.platform:junit-platform-launcher:1.6.0'
-    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
-    testCompile 'org.junit.vintage:junit-vintage-engine:5.6.0'
+    testCompile('org.mockito:mockito-junit-jupiter:3.12.4')
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.8.2')
+    testCompile 'org.junit.platform:junit-platform-launcher:1.8.2'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testCompile 'org.junit.vintage:junit-vintage-engine:5.8.2'
 }
