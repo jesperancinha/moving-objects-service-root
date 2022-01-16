@@ -45,7 +45,7 @@ test {
 dependencies {
     compile project(':international-airports-rest:international-airports-service-api')
     compile project(':international-airports-rest:international-airports-rest-api')
-    implementation('org.springframework.data:spring-data-commons:2.2.4.RELEASE')
+    implementation('org.springframework.data:spring-data-commons:2.6.1')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
