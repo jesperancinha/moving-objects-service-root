@@ -8,7 +8,7 @@
     "express": "4.17.2",
     "moment": "2.29.1",
     "prom-client": "11.5.3",
-    "prometheus-api-metrics": "2.2.7",
+    "prometheus-api-metrics": "3.2.0",
     "reflect-metadata": "0.1.13"
   }
 }
