@@ -28,7 +28,7 @@ dependencies {
     compile project(':international-airports-sst:international-airports-sst-client')
     compile project(':international-airports-sst:international-airports-sst-client:international-airports-sst-client-common')
     implementation('org.springframework:spring-context:5.3.15')
-    implementation('org.springframework:spring-web:5.2.2.RELEASE')
+    implementation('org.springframework:spring-web:5.3.15')
     implementation('org.springframework:spring-webflux:5.2.2.RELEASE')
     implementation('com.squareup.okhttp:okhttp:2.7.5')
     implementation('com.google.code.gson:gson:2.8.9')
