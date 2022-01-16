@@ -6,6 +6,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.extern.slf4j.Slf4j;
 import org.jesperancinha.airports.sst.client.airports.model.Airport;
 import reactor.core.publisher.Flux;
@@ -26,13 +27,15 @@ public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTCl
 
     private final String xRapidAPIKey;
 
-    @Builder.Default
+    @Default
     private final Gson gson = new Gson();
 
     public Flux<Airport> findAiportsBySearchWord(final String searchWord) {
         return Mono.fromCallable(() -> {
             final Response response = this.newCall(callAirportsBySearchWord(searchWord)).execute();
-            return gson.fromJson(response.body().string(), Airport[].class);
+            final String textResponse = response.body().string();
+            log.info(textResponse);
+            return gson.fromJson(textResponse, Airport[].class);
         }).flatMapMany(Flux::fromArray);
     }
 

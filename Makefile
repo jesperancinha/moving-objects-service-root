@@ -1,6 +1,6 @@
 wrapper:
 	gradle wrapper
-buildw-app:
+build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
 	cd international-airports-rest/international-airports-model && gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
