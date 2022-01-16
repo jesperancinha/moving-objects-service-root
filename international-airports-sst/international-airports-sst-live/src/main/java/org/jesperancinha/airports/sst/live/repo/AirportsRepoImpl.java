@@ -16,7 +16,7 @@ public class AirportsRepoImpl implements AirportsRepo {
     }
 
     public Flux<Airport> findAirportsByCitySearchWord(final String searchWord) {
-        return airportsSSTClient.findAiportsBySearchWord(searchWord);
+        return airportsSSTClient.findAirportsBySearchWord(searchWord);
     }
 
     public Mono<Airport> findAirportByCode(final String code) {
