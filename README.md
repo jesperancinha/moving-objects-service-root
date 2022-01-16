@@ -132,7 +132,7 @@ Replace those variables with your keys from your [RapidAPI](https://rapidapi.com
 The keys you will need come from these two applications:
 
 -   AIRPORTS_KEY - [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
--   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel)
+-   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel) (This API has been discontinued on the 31st December 2020. This means that I will have to change something's to this project in order to make it runnable again. Please feel free to check the code anyway)
 
 Then run:
 
@@ -159,8 +159,6 @@ Here is an example:
 ## Docker images
 
 This tutorial makes use of the following docker images:
-
-[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build-jdk-14)](https://hub.docker.com/r/jesperancinha/je-all-build-jdk-14)
 
 [![dockeri.co](https://dockeri.co/image/grafana/grafana)](https://hub.docker.com/r/grafana/grafana)
 
