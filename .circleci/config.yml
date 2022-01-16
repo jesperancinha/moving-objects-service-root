@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  build-maven:
     docker:
       - image: cimg/openjdk:17.0.1
 
@@ -25,6 +25,30 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: make buildw
+      - run:
+          command: yarn install --force
+          working_directory: international-airports-gui
+      - run:
+          command: yarn build
+          working_directory: international-airports-gui
+
+ build-yarn:
+    docker:
+      - image:cimg/node:17.3.1
+
+    working_directory: ~/repo
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-
       - run:
           command: yarn install --force
           working_directory: international-airports-gui
