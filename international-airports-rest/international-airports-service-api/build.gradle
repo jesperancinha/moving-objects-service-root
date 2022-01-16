@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.2")
     }
 }
 
@@ -38,5 +38,5 @@ dependencies {
     compile project(':international-airports-rest:international-airports-data')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.2.2.RELEASE')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.2')
 }
