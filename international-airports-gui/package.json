@@ -19,7 +19,7 @@
     "@angular/core": "13.1.2",
     "@angular/forms": "13.1.2",
     "@angular/material": "13.1.2",
-    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser": "13.1.2",
     "@angular/platform-browser-dynamic": "8.2.14",
     "@angular/router": "8.2.14",
     "core-js": "3.20.3",
