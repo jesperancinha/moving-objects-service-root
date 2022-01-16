@@ -15,3 +15,17 @@ upgrade:
 upgrade-mac-os:
 	brew upgrade gradle
 	sdk install gradle
+stop:
+	docker-compose down --remove-orphans
+docker-delete: stop
+	docker ps -a --format '{{.ID}}' -q --filter="name=ias_" | xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' -q --filter="name=ias_vma_" | xargs -I {}  docker rm {}
+docker:
+	docker-compose down -v
+	docker-compose rm -svf
+	docker-compose up -d --build --remove-orphans
+prune-all: docker-delete
+	docker network prune
+	docker system prune --all
+	docker builder prune
+	docker system prune --all --volumes

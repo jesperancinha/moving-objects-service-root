@@ -6,15 +6,18 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 import org.jesperancinha.airports.sst.client.airports.model.Airport;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.MalformedURLException;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 @Builder
 @AllArgsConstructor
+@Slf4j
 public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTClient {
 
     private final String url;

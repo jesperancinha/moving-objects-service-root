@@ -4,34 +4,70 @@ services:
     env_file:
       - .env
     hostname: airports
+    container_name: ias-airports
     build:
       context: .
     ports:
-#      - "8081:8081"
-#      - "8082:8082"
+     - "8081:8081"
+     - "8082:8082"
 #      - "4000:4000"
-      - "8080:80"
+#      - "8080:80"
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_AIRPORTS_IP}
 
   prometheus:
     hostname: prometheus
+    container_name: ias-prometheus
     build:
-      context: docker/prometheus/.
+      context: docker-files/prometheus/.
 #    ports:
 #      - "9090:9090"
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_PROMETHEUS_IP}
 
   grafana:
     hostname: grafana
+    container_name: ias-grafana
     build:
-      context: docker/grafana/.
+      context: docker-files/grafana/.
     ports:
       - "3000:3000"
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_GRAFANA_IP}
 
   influxdb:
     env_file:
       - .env-influx-db
     hostname: influxdb
+    container_name: ias-influxdb
     build:
-      context: docker/influxdb/.
+      context: docker-files/influxdb/.
 #    ports:
 #      - "8086:8086"
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_INFLUX_IP}
+
+  nginx:
+    hostname: nginx
+    container_name: ias-nginx
+    build:
+      context: ./international-airports-gui/.
+    ports:
+      - "8080:80"
+    restart: on-failure
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_NGINX_IP}
+
+networks:
+  ias_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${NETWORK_SUBNET}
 

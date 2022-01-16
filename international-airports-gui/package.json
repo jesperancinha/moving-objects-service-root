@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve  --proxy-config=proxy.conf.json",
-    "build": "tsc server.ts && ng build",
+    "build": "tsc metrics-server/server.ts && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "tsc server.ts  && node server.js"
+    "server": "tsc metrics-server/server.ts  && node server.js"
   },
   "private": true,
   "dependencies": {
