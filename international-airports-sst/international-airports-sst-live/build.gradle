@@ -12,7 +12,7 @@ plugins {
     id 'java'
     id 'nebula.optional-base' version '3.3.0'
     id 'nebula.provided-base' version '3.3.0'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.6.2'
 }
 
 version '1.0.0'
