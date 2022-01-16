@@ -1,5 +1,5 @@
-import {Coordinates} from "./coordinates";
-import {WebCam} from "./webcam";
+import {Coordinates} from './coordinates';
+import {WebCam} from './webcam';
 
 export class Airport {
     public code: string;

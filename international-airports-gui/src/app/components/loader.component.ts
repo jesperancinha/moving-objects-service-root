@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {MetricsComponent} from "./metrics/metrics.component";
-import {WebCamsComponent} from "./webcamsearch/webcams.component";
-import {AirportsComponent} from "./airports/airports.component";
-import {MatTabChangeEvent} from "@angular/material/tabs";
+import {MetricsComponent} from './metrics/metrics.component';
+import {WebCamsComponent} from './webcamsearch/webcams.component';
+import {AirportsComponent} from './airports/airports.component';
+import {MatTabChangeEvent} from '@angular/material/tabs';
 
 
 @Component({
-    selector: 'loader-selector',
+    selector: 'app-loader-selector',
     styleUrls: ['./loader.component.css'],
     templateUrl: './loader.component.html',
 })
@@ -21,8 +21,8 @@ export class LoaderComponent implements OnInit {
     public tabChanged(
         $event: MatTabChangeEvent,
         faresComponent: WebCamsComponent,
-        metricsComponent: MetricsComponent
-        , airportComponent: AirportsComponent): void {
+        metricsComponent: MetricsComponent,
+        airportComponent: AirportsComponent): void {
         this.webCamComponent = faresComponent;
         this.metricsComponent = metricsComponent;
         this.airportComponent = airportComponent;

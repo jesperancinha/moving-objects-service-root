@@ -1,4 +1,4 @@
 export class Statistic {
-    public statistic: String;
-    public value: Number;
+    public statistic: string;
+    public value: number;
 }

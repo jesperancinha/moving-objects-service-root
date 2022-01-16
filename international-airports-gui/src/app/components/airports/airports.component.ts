@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Airport} from "../../model/airport";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Airport} from '../../model/airport';
 
 @Component({
-    selector: 'airports-selector',
+    selector: 'app-airports-selector',
     styleUrls: ['./airports.component.scss'],
     templateUrl: './airports.component.html',
 })

@@ -1,9 +1,9 @@
 export class MetricsTag {
-    public tag: String;
-    public values: String[];
+    public tag: string;
+    public values: string[];
 }
 
 export class MetricTag {
-    public tag: String;
-    public value: String;
+    public tag: string;
+    public value: string;
 }

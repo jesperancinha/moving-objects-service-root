@@ -1,5 +1,5 @@
 export class Trace {
-    public timeTaken: Number;
+    public timeTaken: number;
 }
 
 export class Traces {

@@ -1,33 +1,33 @@
 import {Component, OnInit} from '@angular/core';
-import {Metrics} from "../../model/metrics";
-import {MetricTag} from "../../model/metrics-tag";
-import {Statistic} from "../../model/statistic";
+import {Metrics} from '../../model/metrics';
+import {MetricTag} from '../../model/metrics-tag';
+import {Statistic} from '../../model/statistic';
 import * as uuid from 'uuid';
-import {MetricsService} from "../../service/metrics.service";
-import {finalize} from "rxjs/operators";
+import {MetricsService} from '../../service/metrics.service';
+import {finalize} from 'rxjs/operators';
 
 @Component({
-    selector: 'metrics-selector',
+    selector: 'app-metrics-selector',
     styleUrls: ['./metrics.component.scss'],
     templateUrl: './metrics.component.html',
 })
 export class MetricsComponent implements OnInit {
-    public loading: boolean;
-    public metrics: Metrics = new Metrics();
-    public options: MetricTag[] = [];
-    private static METRIC_TAG_ALL: MetricTag = {tag: "All", value: null};
-    public option: MetricTag;
-    public statistics: Statistic[];
-    public statMax: Number;
-    public statMin: Number;
-    public statCount: Number;
-    public statTotal: Number;
-    public statAvg: Number;
-    public countLoaders: number;
 
     constructor(private metricService: MetricsService) {
         this.loading = false;
     }
+    private static METRIC_TAG_ALL: MetricTag = {tag: 'All', value: null};
+    public loading: boolean;
+    public metrics: Metrics = new Metrics();
+    public options: MetricTag[] = [];
+    public option: MetricTag;
+    public statistics: Statistic[];
+    public statMax: number;
+    public statMin: number;
+    public statCount: number;
+    public statTotal: number;
+    public statAvg: number;
+    public countLoaders: number;
 
     public ngOnInit(): void {
         this.populateControls();
@@ -45,7 +45,7 @@ export class MetricsComponent implements OnInit {
                     value: name
                 })));
                 this.loadSelectedErrorMetrics();
-            })
+            });
     }
 
     changeErrorCode() {
@@ -59,12 +59,12 @@ export class MetricsComponent implements OnInit {
             .getSystemMetrics(this.option)
             .pipe(finalize(() => this.countLoaders--))
             .subscribe(value => {
-                console.log("async-task-" + uuid.v4());
+                console.log('async-task-' + uuid.v4());
                 this.statistics = value.measurements;
-                this.statMax = value.measurements.find(stat => stat.statistic == 'MAX').value;
-                this.statCount = value.measurements.find(stat => stat.statistic == 'COUNT').value;
-                this.statTotal = value.measurements.find(stat => stat.statistic == 'TOTAL_TIME').value;
-                this.statAvg = value.measurements.find(stat => stat.statistic == 'TOTAL_TIME').value.valueOf() / this.statCount.valueOf();
+                this.statMax = value.measurements.find(stat => stat.statistic === 'MAX').value;
+                this.statCount = value.measurements.find(stat => stat.statistic === 'COUNT').value;
+                this.statTotal = value.measurements.find(stat => stat.statistic === 'TOTAL_TIME').value;
+                this.statAvg = value.measurements.find(stat => stat.statistic === 'TOTAL_TIME').value.valueOf() / this.statCount.valueOf();
             });
         this.metricService
             .getHttpTraces()
@@ -72,7 +72,7 @@ export class MetricsComponent implements OnInit {
             .subscribe(value => {
                 this.statMin = value.traces.map(trace => trace.timeTaken)
                     .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0].valueOf() / 1000;
-            })
+            });
 
     }
 }

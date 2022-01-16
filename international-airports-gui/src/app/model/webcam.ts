@@ -1,10 +1,11 @@
-import {WebCamImage} from "./webcamimage";
+import {WebCamImage} from './webcamimage';
+import {Coordinates} from './coordinates';
 
 export class WebCam {
 
-    public title: String;
+    public title: string;
     public coordinates: Coordinates[];
-    public wikiInfo: String;
+    public wikiInfo: string;
     public active: boolean;
     public webCamImage: WebCamImage;
 }

@@ -1,5 +1,5 @@
-import {MetricsTag} from "./metrics-tag";
-import {Statistic} from "./statistic";
+import {MetricsTag} from './metrics-tag';
+import {Statistic} from './statistic';
 
 export class Metrics {
     public measurements: Statistic[];

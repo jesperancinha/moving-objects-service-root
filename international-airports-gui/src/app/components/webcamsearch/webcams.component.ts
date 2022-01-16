@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Airport} from "../../model/airport";
-import {AirportCompleteService} from "../../service/airport.complete.service";
-import {FormControl} from "@angular/forms";
-import {Observable, of} from "rxjs";
-import {WebCam} from "../../model/webcam";
-import {map} from "rxjs/operators";
+import {Airport} from '../../model/airport';
+import {AirportCompleteService} from '../../service/airport.complete.service';
+import {FormControl} from '@angular/forms';
+import {WebCam} from '../../model/webcam';
+import {Observable, of, map} from 'rxjs';
 
 interface TreeNode<T> {
     data: T;
@@ -13,7 +12,7 @@ interface TreeNode<T> {
 }
 
 @Component({
-    selector: 'webcams-selector',
+    selector: 'app-webcams-selector',
     styleUrls: ['./webcams.component.scss'],
     templateUrl: './webcams.component.html',
 })
@@ -21,10 +20,10 @@ export class WebCamsComponent implements OnInit {
 
     public loading: boolean;
     radiusAutoFilled: boolean;
-    selectedRadius: String = "10";
+    selectedRadius = '10';
     selectedAirport: Airport;
     airportFormControl = new FormControl();
-    searchTerm: String;
+    searchTerm: string;
     filteredOptions: Observable<Airport[]>;
     selectedCam: WebCam;
 
@@ -44,12 +43,13 @@ export class WebCamsComponent implements OnInit {
         this.selectedRadius = radius;
         this.filteredOptions = this.validateAndRunLiveFilter();
         this.loading = true;
-        if (this.selectedAirport)
+        if (this.selectedAirport) {
             this.airportService.getAirportPerCode(this.selectedAirport.code, this.selectedRadius)
                 .subscribe(airport => {
                     this.selectedAirport.webCams = airport.webCams;
                     this.loading = false;
-                })
+                });
+        }
     }
 
     private validateAndRunLiveFilter(): Observable<Airport[]> {
@@ -77,7 +77,7 @@ export class WebCamsComponent implements OnInit {
         this.selectedAirport = airport;
     }
 
-    searchTermChange(searchTerm: String) {
+    searchTermChange(searchTerm: string) {
         this.searchTerm = searchTerm;
         this.loading = true;
         this.filteredOptions = this.validateAndRunLiveFilter();

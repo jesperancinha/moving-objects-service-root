@@ -1,11 +1,10 @@
-import {Metrics} from "../model/metrics";
-import {Traces} from "../model/traces";
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, of} from "rxjs";
-import {catchError, retry} from "rxjs/internal/operators";
-import {MetricServiceInterface} from "../interface/metrics.service.interface";
-import {MetricTag} from "../model/metrics-tag";
+import {Metrics} from '../model/metrics';
+import {Traces} from '../model/traces';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {MetricServiceInterface} from '../interface/metrics.service.interface';
+import {MetricTag} from '../model/metrics-tag';
+import {catchError, Observable, of, retry} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +25,7 @@ export class MetricsService implements MetricServiceInterface {
     }
 
     public getHttpTraces(): Observable<Traces> {
-        return this.httpClient.get<Traces>("/iairports/actuator/httptrace", {headers: this.headers}).pipe(
+        return this.httpClient.get<Traces>('/iairports/actuator/httptrace', {headers: this.headers}).pipe(
             retry(3), catchError(this.handleError<Traces>()));
     }
 
