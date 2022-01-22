@@ -38,7 +38,7 @@ test {
 }
 
 jacocoTestReport {
-    dependsOn test
+    dependsOn test, subprojects.test
     reports {
         xml.required = true
         csv.required = true
