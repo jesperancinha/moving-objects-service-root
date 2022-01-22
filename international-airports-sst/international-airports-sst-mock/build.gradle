@@ -10,6 +10,8 @@ buildscript {
 plugins {
     id 'nebula.optional-base' version '7.0.0'
     id 'nebula.provided-base' version '7.0.0'
+    id 'jacoco'
+
 }
 
 version '1.0.0'
@@ -40,6 +42,17 @@ configurations {
     testCompile
 }
 
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+}
 dependencies {
     implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.2')
     implementation('org.springframework.boot:spring-boot-starter-web')

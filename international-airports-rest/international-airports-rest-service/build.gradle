@@ -21,6 +21,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'jacoco'
 
 applicationDefaultJvmArgs =["-XX:+AllowRedefinitionToAddDeleteMethods"]
 
@@ -50,10 +51,18 @@ java {
 }
 
 test {
+    finalizedBy jacocoTestReport
     useJUnitPlatform ()
     jvmArgs '-XX:+AllowRedefinitionToAddDeleteMethods'
 }
 
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+}
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')

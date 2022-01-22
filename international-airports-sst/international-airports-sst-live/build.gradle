@@ -14,6 +14,8 @@ plugins {
     id 'nebula.optional-base' version '7.0.0'
     id 'nebula.provided-base' version '7.0.0'
     id 'org.springframework.boot' version '2.6.2'
+    id 'jacoco'
+
 }
 
 version '1.0.0'
@@ -62,9 +64,17 @@ publishing {
 }
 
 test {
+    finalizedBy jacocoTestReport
     useJUnitPlatform()
 }
 
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+}
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-sst-client-common:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-sst-client-airports:1.0.0')

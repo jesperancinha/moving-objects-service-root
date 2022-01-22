@@ -11,6 +11,7 @@ group 'org.jesperancinha.airports'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
+apply plugin: 'jacoco'
 
 buildscript {
     repositories {
@@ -23,6 +24,18 @@ repositories {
     mavenCentral()
 }
 
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+}
 
 subprojects {
     apply plugin: "java"

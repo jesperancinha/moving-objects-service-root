@@ -9,6 +9,7 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'jacoco'
     id 'maven-publish'
 }
 
@@ -28,6 +29,18 @@ repositories {
     }
     mavenLocal()
     mavenCentral()
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+    }
 }
 
 dependencies {
