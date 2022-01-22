@@ -12,6 +12,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/bb/jesperancinha/international-airports-service-root/dashboard?utm_source=jesperancinha@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/international-airports-service-root&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/026c30c3-4376-4542-969e-04e87b90b498)](https://codebeat.co/projects/bitbucket-org-jesperancinha-international-airports-service-root-master)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/bb/jesperancinha/international-airports-service-root/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/international-airports-service-root&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/bitbucket/jesperancinha/international-airports-service-root/badge.svg?branch=master)](https://coveralls.io/bitbucket/jesperancinha/international-airports-service-root?branch=master)
 [![codecov](https://codecov.io/bb/jesperancinha/international-airports-service-root/branch/master/graph/badge.svg?token=RSKR33004G)](https://codecov.io/bb/jesperancinha/international-airports-service-root)
 
