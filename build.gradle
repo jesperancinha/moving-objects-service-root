@@ -1,3 +1,17 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+}
+
+plugins {
+    id("java")
+    id("idea")
+    id("maven-publish")
+    id("jacoco")
+    id( "org.jesperancinha.plugins.omni") version "0.0.1"
+}
+
 allprojects {
     repositories {
         mavenLocal()
@@ -7,17 +21,6 @@ allprojects {
 
 version '1.0.0'
 group 'org.jesperancinha.airports'
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'maven-publish'
-apply plugin: 'jacoco'
-
-buildscript {
-    repositories {
-        mavenLocal()
-    }
-}
 
 repositories {
     mavenLocal()
