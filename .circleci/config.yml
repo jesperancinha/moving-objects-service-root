@@ -19,7 +19,7 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: make buildw
+      - run: make buildw && gradle -i
 
   build-yarn:
     docker:
