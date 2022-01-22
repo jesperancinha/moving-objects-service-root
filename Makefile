@@ -9,7 +9,7 @@ buildw:
 	cd international-airports-sst/international-airports-sst-client/international-airports-sst-client-common && gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
 	cd international-airports-sst/international-airports-sst-client/international-airports-sst-client-airports && gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
 	cd international-airports-sst/international-airports-sst-client/international-airports-sst-client-webcam && gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
-	gradle clean build test publishToMavenLocal
+	gradle clean build test publishToMavenLocal -i
 upgrade:
 	gradle wrapper --gradle-version 7.4
 upgrade-mac-os:
