@@ -7,7 +7,7 @@ pipelines:
           caches:
             - gradle
           script:
-            - gradle clean build install test
+            - make buildw
   custom:
       renovate:
         - step:
