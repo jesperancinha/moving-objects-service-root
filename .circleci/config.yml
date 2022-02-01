@@ -61,7 +61,7 @@ jobs:
       - run: sudo apt install npm
       - run: sudo npm i -g yarn
       - run: sudo npm install -g n
-      - run: n stable
+      - run: sudo n stable
       - run: cd international-airports-gui && yarn && npm run coverage
       - run: make buildw && gradle -i
 
