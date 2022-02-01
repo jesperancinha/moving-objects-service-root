@@ -1,12 +1,13 @@
 image: jesperancinha/je-all-build-jdk-14:0.0.2
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - gradle
-        script:
-          - gradle clean build install test
+  branches:
+    master:
+      - step:
+          caches:
+            - gradle
+          script:
+            - gradle clean build install test
   custom:
       renovate:
         - step:

@@ -37,6 +37,7 @@ jobs:
       - run:
           command: yarn install --force
           working_directory: international-airports-gui
+
       - run:
           command: yarn build
           working_directory: international-airports-gui

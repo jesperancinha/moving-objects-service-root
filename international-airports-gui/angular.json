@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "java-exercise-fe:build"
+            "browserTarget": "international-airports-gui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "java-exercise-fe:build:production"
+              "browserTarget": "international-airports-gui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "java-exercise-fe:build"
+            "browserTarget": "international-airports-gui:build"
           }
         },
         "test": {
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "java-exercise-fe:serve"
+            "devServerTarget": "international-airports-gui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "java-exercise-fe:serve:production"
+              "devServerTarget": "international-airports-gui:serve:production"
             }
           }
         }

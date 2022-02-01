@@ -2,22 +2,22 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, of, retry} from 'rxjs';
 import {WebCam} from '../model/webcam';
-import {WebcamServiceInterface} from '../interface/webcam.service.interface';
+import {WebcamServiceInterface} from "../interface/webcam.service.interface";
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root"
 })
 export class WebcamService implements WebcamServiceInterface {
 
     constructor(private http: HttpClient) {
     }
 
-    getWebCampsPerPageSizeAndOffSet(pageSize: number, pageOffSet: number): Observable<WebCam[]> {
+    public getWebCampsPerPageSizeAndOffSet(pageSize: number, pageOffSet: number): Observable<WebCam[]> {
         return this.http.get<WebCam[]>(`/iairports/webcams/page/${pageSize}/${pageOffSet}`).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
 
-    getWebCampsPerCoordinatesAndRadius(latitude: number, longitude: number, radius: number): Observable<WebCam[]> {
+    public getWebCampsPerCoordinatesAndRadius(latitude: number, longitude: number, radius: number): Observable<WebCam[]> {
         return this.http.get<WebCam[]>(`/iairports/webcams/location/${latitude}/${longitude}/${radius}`).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
