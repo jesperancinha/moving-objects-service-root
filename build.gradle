@@ -9,7 +9,12 @@ plugins {
     id("idea")
     id("maven-publish")
     id("jacoco")
-    id( "org.jesperancinha.plugins.omni") version "0.0.2"
+    id( "org.jesperancinha.plugins.omni") version "0.1.0"
+}
+
+omniConfig {
+    extraSourceFolders =  [new File("$rootDir/international-airports-gui")]
+    extraReportFolders = [new File("$rootDir/international-airports-gui/coverage")]
 }
 
 allprojects {

@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 }
@@ -24,11 +25,6 @@ java {
     }
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 test {
     finalizedBy jacocoTestReport
 }
@@ -38,6 +34,17 @@ jacocoTestReport {
     reports {
         xml.required = true
         csv.required = true
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
     }
 }
 

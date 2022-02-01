@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
@@ -43,13 +44,24 @@ jacocoTestReport {
     }
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
-    implementation("org.springframework.boot:spring-boot-starter-web:2.6.2")
+    implementation('org.springframework.boot:spring-boot-starter-web:2.6.3')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.2')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.3')
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }

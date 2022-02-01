@@ -11,6 +11,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
+apply plugin: 'jacoco'
 
 repositories {
     flatDir {
@@ -35,6 +36,18 @@ publishing {
     }
     repositories {
         mavenLocal()
+    }
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
     }
 }
 
