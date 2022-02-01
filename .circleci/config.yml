@@ -57,7 +57,7 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: apt install npm
+      - run: sudo apt install npm
       - run: cd international-airports-gui && yarn && npm run coverage
       - run: make buildw && gradle -i
 
