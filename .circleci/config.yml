@@ -59,6 +59,7 @@ jobs:
             - v1-dependencies-
       - run: sudo apt update
       - run: sudo apt install npm
+      - run: npm i -g yarn
       - run: cd international-airports-gui && yarn && npm run coverage
       - run: make buildw && gradle -i
 
