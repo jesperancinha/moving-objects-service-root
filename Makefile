@@ -36,6 +36,6 @@ install-update-snyk: install-update
 	npm i -g snyk
 install-update:
 	npm install -g npm-check-updates
-	cd international-airports-gui && ncu -u && yarn
+	cd international-airports-gui && npx browserslist && ncu -u && yarn
 audit:
 	cd international-airports-gui && npm audit fix && yarn

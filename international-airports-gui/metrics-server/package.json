@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "body-parser": "1.19.1",
+    "body-parser": "1.19.2",
     "es6-shim": "0.35.6",
     "express": "4.17.3",
     "moment": "2.29.1",
