@@ -5,6 +5,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -12,11 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class WebCamResponseTest {
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @Test
     public void testWebCamResponse_whenParse_ThenOkResult() throws IOException {
-        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/webcams-query-1.json"), Charset.defaultCharset());
+        final InputStream resourceAsStream = getClass().getResourceAsStream("/webcams-query-1.json");
+        assertThat(resourceAsStream).isNotNull();
+        final String analysisTest = IOUtils.toString(resourceAsStream, Charset.defaultCharset());
 
         final WebCamResponse webCamResponse = gson.fromJson(analysisTest, WebCamResponse.class);
 
@@ -30,7 +33,9 @@ public class WebCamResponseTest {
 
     @Test
     public void testWebCamResponse_whenShortAnswerPars_ThenOkResult() throws IOException {
-        final String analysisTest = IOUtils.toString(getClass().getResourceAsStream("/webcams-no-extras.json"), Charset.defaultCharset());
+        final InputStream resourceAsStream = getClass().getResourceAsStream("/webcams-no-extras.json");
+        assertThat(resourceAsStream).isNotNull();
+        final String analysisTest = IOUtils.toString(resourceAsStream, Charset.defaultCharset());
 
         final WebCamResponse webCamResponse = gson.fromJson(analysisTest, WebCamResponse.class);
 
