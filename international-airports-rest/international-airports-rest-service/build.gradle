@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.2")
+         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.4")
     }
 }
 
@@ -66,26 +66,26 @@ jacocoTestReport {
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
-    implementation('org.springframework.data:spring-data-commons:2.6.1')
+    implementation('org.springframework.data:spring-data-commons:2.6.2')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
-    implementation('org.springframework.boot:spring-boot-starter-web:2.6.3')
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.6.3')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.3')
-    implementation('org.springframework.security:spring-security-config:5.6.1')
+    implementation('org.springframework.boot:spring-boot-starter-web:2.6.4')
+    implementation('org.springframework.boot:spring-boot-starter-actuator:2.6.4')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.4')
+    implementation('org.springframework.security:spring-security-config:5.6.2')
     implementation("org.springframework.security:spring-security-oauth2-client:5.6.2")
-    implementation('io.micrometer:micrometer-core:1.8.2')
-    implementation('io.micrometer:micrometer-registry-prometheus:1.8.2')
+    implementation('io.micrometer:micrometer-core:1.8.3')
+    implementation('io.micrometer:micrometer-registry-prometheus:1.8.3')
     compileOnly('org.projectlombok:lombok:1.18.22')
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation('org.assertj:assertj-core:3.22.0')
-    testImplementation('org.springframework:spring-test:5.3.15')
-    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.3')
+    testImplementation('org.springframework:spring-test:5.3.16')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.4')
     testImplementation('com.github.tomakehurst:wiremock:2.27.2')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.6.RELEASE')
-    testImplementation('org.mockito:mockito-junit-jupiter:4.2.0')
+    testImplementation('org.mockito:mockito-junit-jupiter:4.3.1')
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.2')
     testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
