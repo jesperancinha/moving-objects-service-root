@@ -95,5 +95,5 @@ dependencies {
     implementation('io.micrometer:micrometer-registry-prometheus:1.8.3')
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.2')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.4')
 }
