@@ -75,7 +75,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-actuator:2.6.4')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.6.4')
     implementation('org.springframework.security:spring-security-config:5.6.2')
-    implementation("org.springframework.security:spring-security-oauth2-client:5.6.1")
+    implementation("org.springframework.security:spring-security-oauth2-client:5.6.2")
     implementation('io.micrometer:micrometer-core:1.8.3')
     implementation('io.micrometer:micrometer-registry-prometheus:1.8.3')
     compileOnly('org.projectlombok:lombok:1.18.22')
