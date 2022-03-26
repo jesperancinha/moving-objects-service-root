@@ -66,7 +66,7 @@ jacocoTestReport {
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
-    implementation('org.springframework.data:spring-data-commons:2.6.1')
+    implementation('org.springframework.data:spring-data-commons:2.6.2')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
