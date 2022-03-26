@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class WebCamResponseTest {
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @Test
     public void testWebCamResponse_whenParse_ThenOkResult() throws IOException {
