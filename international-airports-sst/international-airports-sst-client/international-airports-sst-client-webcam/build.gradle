@@ -59,13 +59,13 @@ dependencies {
     implementation('org.jesperancinha.airports:international-airports-sst-client-common:1.0.0')
     implementation('org.springframework:spring-context:5.3.16')
     implementation('org.springframework:spring-web:5.3.16')
-    implementation('org.springframework:spring-webflux:5.3.15')
+    implementation('org.springframework:spring-webflux:5.3.16')
     implementation('com.squareup.okhttp:okhttp:2.7.5')
     implementation('com.google.code.gson:gson:2.9.0')
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.22.0'
-    testImplementation group: 'commons-io', name: 'commons-io', version: '20030203.000550'
+    testImplementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
