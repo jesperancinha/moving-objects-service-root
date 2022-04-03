@@ -3,5 +3,11 @@
   "repositories": ["jesperancinha/international-airports-service-root"],
   "platform": "bitbucket",
   "extends": ["docker:disable"],
-  "username": "jesperancinha"
+  "username": "jesperancinha",
+  "packageRules": [
+    {
+      "matchPackageNames": ["commons-io:commons-io"],
+      "allowedVersions": "!/20030203.000550$/"
+    }
+  ]
 }
