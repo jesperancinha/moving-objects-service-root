@@ -32,7 +32,7 @@ prune-all: docker-delete
 	docker system prune --all
 	docker builder prune
 	docker system prune --all --volumes
-update-snyk: install-update
+update-snyk: update
 	npm i -g snyk
 update:
 	npm install -g npm-check-updates
