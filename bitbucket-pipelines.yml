@@ -1,4 +1,4 @@
-image: cimg/openjdk:17.0.1
+image: cimg/openjdk:17.0.2
 
 pipelines:
   branches:
