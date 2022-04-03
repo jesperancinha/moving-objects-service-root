@@ -32,9 +32,9 @@ prune-all: docker-delete
 	docker system prune --all
 	docker builder prune
 	docker system prune --all --volumes
-install-update-snyk: install-update
+update-snyk: install-update
 	npm i -g snyk
-install-update:
+update:
 	npm install -g npm-check-updates
 	cd international-airports-gui && npx browserslist && ncu -u && yarn
 audit:
