@@ -1,13 +1,36 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "repositories": ["jesperancinha/international-airports-service-root"],
+  "repositories": [
+    "jesperancinha/international-airports-service-root"
+  ],
   "platform": "bitbucket",
-  "extends": ["docker:disable"],
+  "extends": [
+    "docker:disable"
+  ],
   "username": "jesperancinha",
   "packageRules": [
     {
-      "matchPackageNames": ["commons-io:commons-io"],
-      "allowedVersions": "!/20030203.000550$/"
+      "matchPackageNames": [
+        "commons-io:commons-io"
+      ],
+      "allowedVersions": "!/20030203.000550$/",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    },
+    {
+      "groupName": "Angular Group",
+      "matchPackagePrefixes": [
+        "@angular/"
+      ],
+      "automerge": true
     }
   ]
 }
