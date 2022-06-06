@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.7")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.0")
     }
 }
 
@@ -13,7 +13,7 @@ plugins {
     id 'application'
     id 'nebula.optional-base' version '7.0.0'
     id 'nebula.provided-base' version '7.0.0'
-    id 'org.springframework.boot' version '2.6.7'
+    id 'org.springframework.boot' version '2.7.0'
     id 'jacoco'
 
 }
@@ -80,8 +80,8 @@ dependencies {
     implementation('org.jesperancinha.airports:international-airports-sst-client-airports:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-sst-client-webcam:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-sst-data:1.0.0')
-    implementation('org.springframework.security.oauth:spring-security-oauth2:2.5.1.RELEASE')
-    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.3')
+    implementation('org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE')
+    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.8')
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     implementation('org.springframework.boot:spring-boot-starter-security')
@@ -95,5 +95,5 @@ dependencies {
     implementation('io.micrometer:micrometer-registry-prometheus:1.8.5')
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.7')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.7.0')
 }
