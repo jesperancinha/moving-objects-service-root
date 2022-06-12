@@ -45,6 +45,13 @@
         "org.springframework"
       ],
       "automerge": true
+    },
+    {
+      "groupName": "Micrometer Group",
+      "matchPackagePrefixes": [
+        "io.micrometer"
+      ],
+      "automerge": true
     }
   ]
 }
