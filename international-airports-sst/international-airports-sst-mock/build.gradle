@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.7")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.0")
     }
 }
 
@@ -54,7 +54,7 @@ jacocoTestReport {
     }
 }
 dependencies {
-    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.3')
+    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.8')
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-actuator')
     implementation('io.micrometer:micrometer-core:1.9.0')
