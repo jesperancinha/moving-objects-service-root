@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+git pull
 git fetch -p
 git fetch --all
 
