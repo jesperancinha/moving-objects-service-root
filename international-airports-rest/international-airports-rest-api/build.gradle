@@ -62,6 +62,6 @@ dependencies {
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.0')
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
