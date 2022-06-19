@@ -52,6 +52,13 @@
         "io.micrometer"
       ],
       "automerge": true
+    },
+    {
+      "groupName": "AssertJ Group",
+      "matchPackagePrefixes": [
+        "org.assertj"
+      ],
+      "automerge": true
     }
   ]
 }
