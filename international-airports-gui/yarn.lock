@@ -146,6 +146,17 @@
     rxjs "6.6.7"
     source-map "0.7.3"
 
+"@angular-devkit/core@14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-14.0.0.tgz#33e56337257fdda3e429b36548820814d9fafbc2"
+  integrity sha512-xQXpNbIeBjnbY68OFkrpFm6v7xlmTLFk6zGPIkI4T/hrqT2kNmg0y1/FcN6yMBgCEC9WVWR8SHGaPWrc5VVZMw==
+  dependencies:
+    ajv "8.11.0"
+    ajv-formats "2.1.1"
+    jsonc-parser "3.0.0"
+    rxjs "6.6.7"
+    source-map "0.7.3"
+
 "@angular-devkit/schematics@14.0.0":
   version "14.0.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-14.0.0.tgz#b66c5fccd6ecadc90df24cb0f1e68979f3998f92"
@@ -2803,7 +2814,7 @@ cacache@16.0.7, cacache@^16.0.2:
     tar "^6.1.11"
     unique-filename "^1.1.1"
 
-cacache@^15.0.5, cacache@^15.2.0:
+cacache@^15.0.5, cacache@^15.0.5, cacache@^15.2.0:
   version "15.3.0"
   resolved "https://registry.npmjs.org/cacache/-/cacache-15.3.0.tgz"
   integrity sha512-VVdYzXEn+cnbXpFgWs5hTT7OScegHVmLhJIR8Ufqk3iFD6A6j5iSX1KuBTfNEv4tdJWE2PzA6IVFtcLC7fN9wQ==
