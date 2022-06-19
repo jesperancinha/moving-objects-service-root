@@ -28,7 +28,8 @@
     {
       "groupName": "Angular Group",
       "matchPackagePrefixes": [
-        "@angular/"
+        "@angular/",
+        "@angular-devkit/"
       ],
       "automerge": true
     },
