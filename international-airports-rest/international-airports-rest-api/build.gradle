@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.0")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.1")
     }
 }
 
@@ -58,10 +58,10 @@ publishing {
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
-    implementation('org.springframework.boot:spring-boot-starter-web:2.7.0')
+    implementation('org.springframework.boot:spring-boot-starter-web:2.7.1')
     implementation('org.jesperancinha.airports:international-airports-data:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-model:1.0.0')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.0')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.1')
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
