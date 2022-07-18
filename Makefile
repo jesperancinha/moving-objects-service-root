@@ -1,11 +1,11 @@
-b: buildw
+b: buildw build-app
 wrapper:
 	gradle wrapper
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
-	cd international-airports-rest/international-airports-model && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
-	cd international-airports-rest/international-airports-data && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
+	cd international-airports-rest/international-airports-model && gradle wrapper && ./gradlew clean build && gradle assemble jar test jacocoTestReport publishToMavenLocal
+	cd international-airports-rest/international-airports-data && gradle wrapper && ./gradlew clean build && gradle assemble jar test jacocoTestReport publishToMavenLocal
 	cd international-airports-rest/international-airports-rest-api && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	cd international-airports-rest/international-airports-service-api && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	cd international-airports-sst/international-airports-sst-data && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
@@ -40,3 +40,13 @@ update:
 	cd international-airports-gui && npx browserslist && ncu -u && yarn
 audit:
 	cd international-airports-gui && npm audit fix && yarn
+cypress-open:
+	cd e2e && yarn && npm run cypress
+cypress-electron:
+	cd e2e && make cypress-electron
+cypress-chrome:
+	cd e2e && make cypress-chrome
+cypress-firefox:
+	cd e2e && make cypress-firefox
+cypress-edge:
+	cd e2e && make cypress-edge

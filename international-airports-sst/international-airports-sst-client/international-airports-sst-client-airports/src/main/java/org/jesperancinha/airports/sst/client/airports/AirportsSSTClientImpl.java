@@ -18,7 +18,7 @@ import java.util.Locale;
 @Builder
 @AllArgsConstructor
 @Slf4j
-public class AirportsSSTClientImpl extends OkHttpClient implements AirportsSSTClient {
+public class AirportsSSTClientImpl extends OkHttpClient {
 
     private final String url;
 
