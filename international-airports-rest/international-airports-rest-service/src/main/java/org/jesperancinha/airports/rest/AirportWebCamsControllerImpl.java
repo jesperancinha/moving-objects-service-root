@@ -1,8 +1,8 @@
 package org.jesperancinha.airports.rest;
 
 import lombok.AllArgsConstructor;
-import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.service.AirportAggregatorService;
+import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.service.ObjectsAggregatorService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -10,19 +10,30 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 @RestController
 @RequestMapping("airportwebcams")
-public class AirportWebCamsControllerImpl implements AirportController {
+public class AirportWebCamsControllerImpl {
 
-    private final AirportAggregatorService airportAggregatorService;
+    private final ObjectsAggregatorService objectsAggregatorService;
 
-    public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
-        return airportAggregatorService.getAirportsBySearchTerm(term, radius);
+    @org.springframework.web.bind.annotation.GetMapping("/term/{term}/{radius}")
+    public Flux<AirportDto> getAirportsBySearchTerm(
+            @org.springframework.web.bind.annotation.PathVariable
+            String term, @org.springframework.web.bind.annotation.PathVariable(required = false)
+            Long radius) {
+        return objectsAggregatorService.getAirportsBySearchTerm(term, radius);
     }
 
-    public Flux<AirportDto> getAirportByCode(String code, Long radius) {
-        return airportAggregatorService.getAirportByCode(code, radius);
+    @org.springframework.web.bind.annotation.GetMapping("/code/{code}/{radius}")
+    public Flux<AirportDto> getAirportByCode(
+            @org.springframework.web.bind.annotation.PathVariable
+            String code, @org.springframework.web.bind.annotation.PathVariable(required = false)
+            Long radius) {
+        return objectsAggregatorService.getAirportByCode(code, radius);
     }
 
-    public Flux<AirportDto> getAirportByCode(String code) {
+    @org.springframework.web.bind.annotation.GetMapping("/code/{code}")
+    public Flux<AirportDto> getAirportByCode(
+            @org.springframework.web.bind.annotation.PathVariable
+            String code) {
         return this.getAirportByCode(code, 0L);
     }
 }

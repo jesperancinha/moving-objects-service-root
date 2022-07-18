@@ -1,13 +1,12 @@
-b: buildw build-app
+b: buildw build-app build-npm
+build-npm:
+	cd international-airports-gui && yarn
 wrapper:
 	gradle wrapper
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
-	cd international-airports-rest/international-airports-model && gradle wrapper && ./gradlew clean build && gradle assemble jar test jacocoTestReport publishToMavenLocal
-	cd international-airports-rest/international-airports-data && gradle wrapper && ./gradlew clean build && gradle assemble jar test jacocoTestReport publishToMavenLocal
-	cd international-airports-rest/international-airports-rest-api && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
-	cd international-airports-rest/international-airports-service-api && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
+	cd international-airports-rest/international-airports-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
 upgrade:
@@ -46,8 +45,3 @@ cypress-firefox:
 	cd e2e && make cypress-firefox
 cypress-edge:
 	cd e2e && make cypress-edge
-env:
-	cp .env-template .env
-	sed "s/airportKey/${AIRPORTS_KEY}/g" .env-template > .env-airports
-	sed "s/webcamsKey/${WEBCAMS_KEY}/g" .env-airports > .env
-	rm .env-airports

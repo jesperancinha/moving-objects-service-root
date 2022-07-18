@@ -1,9 +1,9 @@
 package org.jesperancinha.airports.service;
 
-import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.data.CoordinatesDto;
-import org.jesperancinha.airports.data.WebCamDto;
-import org.jesperancinha.airports.data.WebCamImageDto;
+import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.dto.CoordinatesDto;
+import org.jesperancinha.airports.dto.WebCamDto;
+import org.jesperancinha.airports.dto.WebCamImageDto;
 import org.jesperancinha.airports.model.Airport;
 import org.jesperancinha.airports.model.Coordinate;
 import org.jesperancinha.airports.model.WebCam;

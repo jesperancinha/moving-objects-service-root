@@ -1,30 +1,45 @@
 package org.jesperancinha.airports.rest;
 
-import org.jesperancinha.airports.data.AirportDto;
-import org.jesperancinha.airports.service.AirportsService;
+import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.service.ObjectsService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 @RestController
 @RequestMapping("airports")
-public class AirportControllerImpl implements AirportController {
+public class AirportControllerImpl {
 
-    private final AirportsService airportsService;
+    private final ObjectsService objectsService;
 
-    public AirportControllerImpl(AirportsService airportsService) {
-        this.airportsService = airportsService;
+    public AirportControllerImpl(ObjectsService objectsService) {
+        this.objectsService = objectsService;
     }
 
-    public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
-        return airportsService.getAirportsByTerm(term);
+    @GetMapping("/term/{term}/{radius}")
+    public Flux<AirportDto> getAirportsBySearchTerm(
+            @PathVariable
+            String term,
+            @PathVariable(required = false)
+            Long radius) {
+        return objectsService.getAirportsByTerm(term);
     }
 
-    public Flux<AirportDto> getAirportByCode(String code, Long radius) {
-        return Flux.from(airportsService.getAirportByCode(code));
+    @GetMapping("/code/{code}/{radius}")
+    public Flux<AirportDto> getAirportByCode(
+            @PathVariable
+            String code,
+            @PathVariable(required = false)
+            Long radius) {
+        return Flux.from(objectsService.getAirportByCode(code));
     }
 
-    public Flux<AirportDto> getAirportByCode(String code) {
+    @GetMapping("/code/{code}")
+    public Flux<AirportDto> getAirportByCode(
+            @PathVariable
+            String code) {
         return this.getAirportByCode(code, 0L);
     }
 }
