@@ -63,104 +63,31 @@ This project is also the official support project of my article on medium:
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6) [Monitoring with Grafana, Prometheus and InfluxDB — An airport webcams example](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
 
+> Please read the first paragraph to be up-to-date with the complete changes this repo is undergoing
+
 ## Setup
 
 In order to run this project we need to fulfill some requirements:
 
 1.  Have an IDE
-2.  Have JDK4 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
+2.  Have JDK17 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
 3.  Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
-We do not need a special machine to do that. 
-In the old days, we used to have something called docker-machine that we had to use directly.
-With docker-desktop, this isn't necessary anymore for local usage.
-
-Upgrade gradle:
 
 ```bash
 brew upgrade gradle
-
 sdk install java 17-open
-
 sdk use java 17-open
-
 sdk install gradle 7.3.3
 ```
 
 ## Settings
-
-### international-airports-sst-live
-This service is fixed to work as the main single source service.
-
-Login system is OAuth2.
-
-Metric end points are completely open.
-
--   Port: 8081
-
-### international-airports-sst-mock
-This service is fixed to work as the alternative to the main single source service.
-
-Login system is OAuth2
-
-Metric end points are completely open.
-
--   Port: 8081
-
-### international-airports-rest-service
-This is the service which will serve the user and the front end.
-
-There is no login service. It is completely anonymous
-
-Metric end points are completely open.
-
--   Port: 8082
-
-## How to build and run the Spring boot services
-
-To start and build a spring boot process, just go to the root of that project and run:
-
-`sdk use java 17-open`
-
-`./gradlew bootRun`
 
 ## How to build and run the Front End service
 
 `npm install`
 
 `npm run build`
-
-## How to run everything with Docker compose in one go
-
-Make a copy of the [.env-template](.env-template) file to [.env](.env) in the same folder.
-
-Replace those variables with your keys from your [RapidAPI](https://rapidapi.com/) account.
-The keys you will need come from these two applications:
-
--   AIRPORTS_KEY - [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
--   WEBCAMS_KEY - [WebCam Travel](https://rapidapi.com/webcams.travel/api/webcams-travel) (This API has been discontinued on the 31st December 2020. This means that I will have to change something's to this project in order to make it runnable again. Please feel free to check the code anyway)
-
-Then run:
-
-```shell
-docker-compose up
-```
-
-## How to test the main image
-
-There is a script called [build-standalone.sh](./build-standalone.sh).
-
-This script ensures that that only the container for the application services is run.
-
-Just run:
-
-`build-standalone.sh ${AIRPORTS_KEY} ${WEBCAMS_KEY}`
-
-Please replace the variables with the matching keys. For this script, it is necessary to pass on the keys as arguments.
-
-Here is an example:
-
-`build-standalone.sh ksdnfklsnknsdpnskdnvslkdnkslnnvskdnvlsnklnksvdvdkn 34j98ru390j3934jr93r9i3rj3ig90jjbndn90jb3099949j3t`
 
 ## Docker images
 
@@ -171,23 +98,6 @@ This tutorial makes use of the following docker images:
 [![dockeri.co](https://dockeri.co/image/influxdb)](https://hub.docker.com/r/influxdb)
 
 [![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
-## Url Example List
-
-It's important to notice that `localhost` may change depending on the environment or if docker compose is being used.
-
->http://localhost:8082/iairports/airportwebcams/term/Amsterdam
->
->http://localhost:8082/iairports/airportwebcams/code/AMS
->
->http://localhost:8082/iairports/airports/term/Amsterdam/100
->
->http://localhost:8082/iairports/airports/code/AMS
->
->http://localhost:8082/iairports/airports/code/AMS
->
->http://localhost:8082/iairports/webcams/location/52.376610/4.892629/10
->
->http://localhost:8082/iairports/webcams/page/0/50
 
 ## Endpoint list
 
