@@ -1,8 +1,9 @@
-# Maven generated files
+# Gradle generated files
 **/target
 **/build
 **/.gradle
 /MANIFEST.MF
+out
 
 # Compiled files
 *.class
