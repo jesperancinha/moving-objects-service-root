@@ -2,7 +2,7 @@
 
 ---
 
-[![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=Moving%20Objects%20Service%20💎&color=informational)](https://bitbucket.org/jesperancinha/moving-objects-cams-service)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://bitbucket.org/jesperancinha/moving-objects-cams-service)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![CircleCI](https://circleci.com/bb/jesperancinha/moving-objects-cams-service.svg?style=svg)](https://circleci.com/bb/jesperancinha/moving-objects-cams-service)
