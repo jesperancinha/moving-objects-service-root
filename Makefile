@@ -50,3 +50,8 @@ cypress-firefox:
 	cd e2e && make cypress-firefox
 cypress-edge:
 	cd e2e && make cypress-edge
+env:
+	cp .env-template .env
+	sed "s/airportKey/${AIRPORTS_KEY}/g" .env-template > .env-airports
+	sed "s/webcamsKey/${WEBCAMS_KEY}/g" .env-airports > .env
+	rm .env-airports
