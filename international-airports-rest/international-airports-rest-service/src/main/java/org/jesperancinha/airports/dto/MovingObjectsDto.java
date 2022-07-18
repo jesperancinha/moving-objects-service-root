@@ -5,9 +5,9 @@ import lombok.Builder;
 
 import java.util.List;
 
-public record AirportDto(String code, String name, CoordinatesDto coordinates, List<WebCamDto> webCams) {
+public record MovingObjectsDto(String code, String name, CoordinatesDto coordinates, List<WebCamDto> webCams) {
     @JsonbCreator
     @Builder
-    public AirportDto {
+    public MovingObjectsDto {
     }
 }

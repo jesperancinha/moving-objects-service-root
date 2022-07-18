@@ -1,6 +1,6 @@
 package org.jesperancinha.airports.service;
 
-import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.dto.MovingObjectsDto;
 import org.jesperancinha.airports.dto.CoordinatesDto;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class ObjectsAggregatorService {
         this.webCamService = webCamService;
     }
 
-    public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
+    public Flux<MovingObjectsDto> getAirportsBySearchTerm(String term, Long radius) {
         return objectsService.getAirportsByTerm(term)
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
@@ -33,7 +33,7 @@ public class ObjectsAggregatorService {
 
     }
 
-    public Flux<AirportDto> getAirportByCode(String code, Long radius) {
+    public Flux<MovingObjectsDto> getAirportByCode(String code, Long radius) {
         return Flux.from(objectsService.getAirportByCode(code))
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();

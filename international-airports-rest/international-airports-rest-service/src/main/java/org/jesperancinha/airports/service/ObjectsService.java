@@ -1,6 +1,6 @@
 package org.jesperancinha.airports.service;
 
-import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.dto.MovingObjectsDto;
 import org.jesperancinha.airports.repository.ObjectsRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -15,12 +15,12 @@ public class ObjectsService {
         this.airportsRepository = airportsRepository;
     }
 
-    public Flux<AirportDto> getAirportsByTerm(String searchTerm) {
+    public Flux<MovingObjectsDto> getAirportsByTerm(String searchTerm) {
         return airportsRepository.finaAirportByTerm(searchTerm)
                 .map(TravelConverter::toAirportDto);
     }
 
-    public Mono<AirportDto> getAirportByCode(String code) {
+    public Mono<MovingObjectsDto> getAirportByCode(String code) {
         return airportsRepository.findAirportById(code)
                 .map(TravelConverter::toAirportDto);
     }

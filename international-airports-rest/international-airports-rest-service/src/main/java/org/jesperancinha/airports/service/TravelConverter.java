@@ -1,6 +1,6 @@
 package org.jesperancinha.airports.service;
 
-import org.jesperancinha.airports.dto.AirportDto;
+import org.jesperancinha.airports.dto.MovingObjectsDto;
 import org.jesperancinha.airports.dto.CoordinatesDto;
 import org.jesperancinha.airports.dto.WebCamDto;
 import org.jesperancinha.airports.dto.WebCamImageDto;
@@ -33,8 +33,8 @@ public class TravelConverter {
                 .build();
     }
 
-    public static AirportDto toAirportDto(final Airport airport) {
-        return AirportDto.builder()
+    public static MovingObjectsDto toAirportDto(final Airport airport) {
+        return MovingObjectsDto.builder()
                 .code(airport.getCode())
                 .name(airport.getName())
                 .coordinates(toCoordinatesDto(airport.getCoordinates()))
