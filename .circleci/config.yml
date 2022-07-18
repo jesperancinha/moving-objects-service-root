@@ -3,12 +3,10 @@ jobs:
   build-gradle:
     docker:
       - image: cimg/openjdk:17.0.1
-
     working_directory: ~/repo
 
     steps:
       - checkout
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
@@ -18,12 +16,9 @@ jobs:
   build-yarn:
     docker:
       - image: cimg/node:17.3.1
-
     working_directory: ~/repo
-
     steps:
       - checkout
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
@@ -31,7 +26,6 @@ jobs:
       - run:
           command: yarn install --force
           working_directory: international-airports-gui
-
       - run:
           command: yarn
           working_directory: international-airports-gui
@@ -39,12 +33,9 @@ jobs:
   report-all:
     docker:
       - image: cimg/openjdk:17.0.1
-
     working_directory: ~/repo
-
     steps:
       - checkout
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
