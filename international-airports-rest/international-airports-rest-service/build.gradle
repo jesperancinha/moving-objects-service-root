@@ -63,6 +63,12 @@ jacocoTestReport {
         csv.required = true
     }
 }
+
+compileJava {
+    options.annotationProcessorPath = configurations.annotationProcessor
+}
+
+
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
@@ -76,10 +82,15 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.1')
     implementation('org.springframework.security:spring-security-config:5.7.2')
     implementation("org.springframework.security:spring-security-oauth2-client:5.7.2")
+    implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation('io.micrometer:micrometer-core:1.9.1')
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.1')
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompile('org.projectlombok:lombok:1.18.24')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
+    testImplementation('org.projectlombok:lombok:1.18.24')
+    testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.23.1')
     testImplementation('org.springframework:spring-test:5.3.21')
     testImplementation('org.springframework.boot:spring-boot-starter-test:2.7.1')

@@ -1,25 +1,13 @@
 package org.jesperancinha.airports.dto;
 
-import lombok.AllArgsConstructor;
+import jakarta.json.bind.annotation.JsonbCreator;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@NoArgsConstructor
-@Builder
-@AllArgsConstructor
-public class AirportDto {
-
-    private String code;
-
-    private String name;
-
-    private CoordinatesDto coordinates;
-
-    @Setter
-    private List<WebCamDto> webCams;
+public record AirportDto(String code, String name, CoordinatesDto coordinates, List<WebCamDto> webCams) {
+    @JsonbCreator
+    @Builder
+    public AirportDto {
+    }
 }

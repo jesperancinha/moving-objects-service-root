@@ -1,5 +1,6 @@
 package org.jesperancinha.airports.repository;
 
+import lombok.val;
 import org.springframework.boot.actuate.trace.http.HttpTrace;
 import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Repository
 public class CustomTraceRepository implements HttpTraceRepository {
 
-    private AtomicReference<Queue<HttpTrace>> lastTrace = new AtomicReference<>(new LinkedList<>());
+    private final AtomicReference<Queue<HttpTrace>> lastTrace = new AtomicReference<>(new LinkedList<>());
 
 
     @Override
@@ -23,7 +24,7 @@ public class CustomTraceRepository implements HttpTraceRepository {
 
     @Override
     public void add(HttpTrace trace) {
-        Queue<HttpTrace> httpTraces = lastTrace.get();
+        val httpTraces = lastTrace.get();
         if (httpTraces.size() > 10) {
             while (httpTraces.size() > 10) {
                 httpTraces.poll();

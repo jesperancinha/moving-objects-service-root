@@ -1,21 +1,14 @@
 package org.jesperancinha.airports.dto;
 
 
-import lombok.AllArgsConstructor;
+import jakarta.json.bind.annotation.JsonbCreator;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Getter
-@NoArgsConstructor
-@Builder
-@AllArgsConstructor
-public class CoordinatesDto {
-
-    private BigDecimal latitude;
-
-    private BigDecimal longitude;
-
+public record CoordinatesDto(BigDecimal latitude, BigDecimal longitude) {
+    @JsonbCreator
+    @Builder
+    public CoordinatesDto {
+    }
 }

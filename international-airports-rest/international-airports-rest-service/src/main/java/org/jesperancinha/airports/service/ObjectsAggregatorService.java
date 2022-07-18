@@ -21,13 +21,13 @@ public class ObjectsAggregatorService {
     public Flux<AirportDto> getAirportsBySearchTerm(String term, Long radius) {
         return objectsService.getAirportsByTerm(term)
                 .map(airportDto -> {
-                    CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
+                    CoordinatesDto coordinates = airportDto.coordinates();
+                    return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
                 .flatMap(Flux::share)
                 .map(webCamDto -> {
-                    webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
+                    webCamDto.getFirst().webCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
                 }).distinct();
 
@@ -36,13 +36,13 @@ public class ObjectsAggregatorService {
     public Flux<AirportDto> getAirportByCode(String code, Long radius) {
         return Flux.from(objectsService.getAirportByCode(code))
                 .map(airportDto -> {
-                    CoordinatesDto coordinates = airportDto.getCoordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.getLatitude(), coordinates.getLongitude(), radius)
+                    CoordinatesDto coordinates = airportDto.coordinates();
+                    return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
                 .flatMap(Flux::share)
                 .map(webCamDto -> {
-                    webCamDto.getFirst().getWebCams().add(webCamDto.getSecond());
+                    webCamDto.getFirst().webCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
                 }).distinct();
     }

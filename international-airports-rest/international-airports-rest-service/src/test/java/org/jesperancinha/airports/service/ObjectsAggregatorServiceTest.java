@@ -1,6 +1,7 @@
 package org.jesperancinha.airports.service;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import lombok.val;
 import org.apache.commons.io.IOUtils;
 import org.jesperancinha.airports.config.OAuthConfigTest;
 import org.jesperancinha.airports.dto.AirportDto;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.blockhound.BlockHound;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
@@ -69,31 +69,27 @@ public class ObjectsAggregatorServiceTest {
 
     @Test
     public void testGetAirportByCode_whenCode_Get10Cameras() {
-        final String testCode = "AMS";
-        final Long testRadius = 10L;
-
-        final Flux<AirportDto> airportByCode = objectsAggregatorService.getAirportByCode(testCode, testRadius);
-
-        final Iterable<AirportDto> airportDtos = airportByCode.toIterable();
+        val testCode = "AMS";
+        val testRadius = 10L;
+        val airportByCode = objectsAggregatorService.getAirportByCode(testCode, testRadius);
+        val airportDtos = airportByCode.toIterable();
         assertThat(airportDtos).isNotNull();
         assertThat(airportDtos).isNotEmpty();
-        final List<AirportDto> airportDtoList = StreamSupport.stream(airportDtos.spliterator(), false).collect(Collectors.toList());
-        assertThat(airportDtoList).hasSize(1);
-        final List<WebCamDto> webCams = airportDtoList.get(0).getWebCams();
+        val airportDtoList = StreamSupport.stream(airportDtos.spliterator(), false).collect(Collectors.toList());
+        assertThat(airportDtoList).hasSize(10);
+        val webCams = (airportDtoList.get(0).webCams());
         assertThat(webCams).isNotEmpty();
         assertThat(webCams).hasSize(10);
     }
 
     @Test
     public void testGetAirportByCode_whenMonoCode_Get1Camera() {
-        final String testCode = "AMS";
-        final Long testRadius = 10L;
-
-        final Mono<AirportDto> airportByCode = Mono.from(objectsAggregatorService.getAirportByCode(testCode, testRadius));
-
-        final AirportDto airportDto = airportByCode.block();
+        val testCode = "AMS";
+        val testRadius = 10L;
+        val airportByCode = Mono.from(objectsAggregatorService.getAirportByCode(testCode, testRadius));
+        val airportDto = airportByCode.block();
         assertThat(airportDto).isNotNull();
-        final List<WebCamDto> webCams = airportDto.getWebCams();
+        val webCams = airportDto.webCams();
         assertThat(webCams).isNotEmpty();
         assertThat(webCams).hasSize(1);
     }

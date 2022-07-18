@@ -1,4 +1,5 @@
 b: buildw build-app build-npm
+build-gradle: buildw
 build-npm:
 	cd international-airports-gui && yarn
 wrapper:

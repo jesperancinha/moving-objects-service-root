@@ -1,28 +1,19 @@
 package org.jesperancinha.airports.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.experimental.FieldDefaults;
+import jakarta.json.bind.annotation.JsonbCreator;
 
 import java.util.List;
 
-@Getter
-@AllArgsConstructor
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Airport {
+public record Airport(String code,
+                      String name,
+                      String city,
+                      List<String> themeList,
+                      Coordinate coordinates,
+                      List<String> pointsOfSale,
+                      List<WebCam> webCams
 
-    private String code;
-
-    private String name;
-
-    private String city;
-
-    private List<String> themeList;
-
-    private Coordinate coordinates;
-
-    private List<String> pointsOfSale;
-
-    private List<WebCam> webCams;
+) {
+    @JsonbCreator
+    public Airport {
+    }
 }
