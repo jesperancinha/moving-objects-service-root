@@ -17,3 +17,9 @@ pipelines:
             script:
               - export RENOVATE_CONFIG=$(< renovate.json)
               - renovate
+      master:
+        - step:
+            caches:
+              - gradle
+            script:
+              - make buildw

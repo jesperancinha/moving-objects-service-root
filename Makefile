@@ -1,3 +1,4 @@
+b: buildw
 wrapper:
 	gradle wrapper
 build-app:
