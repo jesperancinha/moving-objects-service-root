@@ -4,8 +4,6 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.val;
 import org.apache.commons.io.IOUtils;
 import org.jesperancinha.airports.config.OAuthConfigTest;
-import org.jesperancinha.airports.dto.AirportDto;
-import org.jesperancinha.airports.dto.WebCamDto;
 import org.jesperancinha.airports.repository.ObjectsRepository;
 import org.jesperancinha.airports.repository.WebCamRepository;
 import org.junit.jupiter.api.AfterAll;
@@ -19,7 +17,6 @@ import reactor.blockhound.BlockHound;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -41,7 +38,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
         })
 @ExtendWith(SpringExtension.class)
-public class ObjectsAggregatorServiceTest {
+public class MovingObjectsAggregatorServiceTest {
 
     @Autowired
     private ObjectsAggregatorService objectsAggregatorService;
@@ -55,12 +52,12 @@ public class ObjectsAggregatorServiceTest {
         configureFor("127.0.0.1", 8081);
         stubFor(get(urlEqualTo("/international/airports/live/airports/code/AMS"))
                 .willReturn(aResponse()
-                        .withBody(IOUtils.toString(ObjectsAggregatorServiceTest.class.getResourceAsStream("/airport-response-AMS.json")))
+                        .withBody(IOUtils.toString(MovingObjectsAggregatorServiceTest.class.getResourceAsStream("/airport-response-AMS.json")))
                         .withHeader("Content-Type", "application/json")
                 ));
         stubFor(get(urlEqualTo("/international/airports/live/webcams/location/52.308056/4.764167/10"))
                 .willReturn(aResponse()
-                        .withBody(IOUtils.toString(ObjectsAggregatorServiceTest.class.getResourceAsStream("/webcams-response-AMS-10.json")))
+                        .withBody(IOUtils.toString(MovingObjectsAggregatorServiceTest.class.getResourceAsStream("/webcams-response-AMS-10.json")))
                         .withHeader("Content-Type", "application/json")
                 ));
         BlockHound.install();

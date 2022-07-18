@@ -4,8 +4,8 @@ import jakarta.json.bind.annotation.JsonbCreator;
 
 import java.util.List;
 
-public record Airports(List<Airport> airports) {
+public record MovingObjects(List<MovingObject> movingObjects) {
     @JsonbCreator
-    public Airports {
+    public MovingObjects {
     }
 }
