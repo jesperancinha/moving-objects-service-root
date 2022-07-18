@@ -1,8 +1,8 @@
 image: cimg/openjdk:18.0.1
 
 pipelines:
-  branches:
-    master:
+  pull-requests:
+    '**': #this runs as default for any branch not elsewhere defined
       - step:
           caches:
             - gradle
