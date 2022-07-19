@@ -19,14 +19,14 @@ public class ObjectsRepository {
         this.webClient = webClient;
     }
 
-    public Mono<Airport> findAirportById(final String codeId) {
+    public Mono<Airport> findObjectsByCode(final String codeId) {
         return webClient.get()
                 .uri(airportEndpoint + "/code/{codeId}", codeId)
                 .retrieve()
                 .bodyToMono(Airport.class);
     }
 
-    public Flux<Airport> finaAirportByTerm(final String searchTerm) {
+    public Flux<Airport> findObjectsBySearchTerm(final String searchTerm) {
 
         return webClient.get()
                 .uri(airportEndpoint + "/search/{codeId}", searchTerm)

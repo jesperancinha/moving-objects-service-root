@@ -19,7 +19,7 @@ public class ObjectsAggregatorService {
     }
 
     public Flux<MovingObjectsDto> getAirportsBySearchTerm(String term, Long radius) {
-        return objectsService.getAirportsByTerm(term)
+        return objectsService.getObjectsByTerm(term)
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)
@@ -34,7 +34,7 @@ public class ObjectsAggregatorService {
     }
 
     public Flux<MovingObjectsDto> getAirportByCode(String code, Long radius) {
-        return Flux.from(objectsService.getAirportByCode(code))
+        return Flux.from(objectsService.getObjectsByCode(code))
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)

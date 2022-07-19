@@ -15,13 +15,13 @@ public class ObjectsService {
         this.airportsRepository = airportsRepository;
     }
 
-    public Flux<MovingObjectsDto> getAirportsByTerm(String searchTerm) {
-        return airportsRepository.finaAirportByTerm(searchTerm)
+    public Flux<MovingObjectsDto> getObjectsByTerm(String searchTerm) {
+        return airportsRepository.findObjectsBySearchTerm(searchTerm)
                 .map(TravelConverter::toAirportDto);
     }
 
-    public Mono<MovingObjectsDto> getAirportByCode(String code) {
-        return airportsRepository.findAirportById(code)
+    public Mono<MovingObjectsDto> getObjectsByCode(String code) {
+        return airportsRepository.findObjectsByCode(code)
                 .map(TravelConverter::toAirportDto);
     }
 }

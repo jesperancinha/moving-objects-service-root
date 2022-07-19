@@ -24,7 +24,7 @@ public class TravelConverter {
                 .build();
     }
 
-    private static WebCamImageDto toWebCamImageDto(WebCamImage webCamImage) {
+    private static WebCamImageDto toWebCamImageDto(final WebCamImage webCamImage) {
         return WebCamImageDto.builder()
                 .iconUrl(webCamImage.getIconUrl())
                 .previewUrl(webCamImage.getPreviewUrl())
@@ -42,7 +42,7 @@ public class TravelConverter {
                 .build();
     }
 
-    private static List<WebCamDto> toWebCamDtoList(List<WebCam> webCams) {
+    private static List<WebCamDto> toWebCamDtoList(final List<WebCam> webCams) {
         return webCams.stream().map(TravelConverter::toWebCamDto).collect(Collectors.toList());
     }
 

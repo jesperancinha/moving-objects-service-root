@@ -20,31 +20,19 @@ public class MovingObjectsControllerImpl {
         this.objectsService = objectsService;
     }
 
-    @GetMapping("/term/{term}/{radius}")
-    public Flux<MovingObjectsDto> getAirportsBySearchTerm(
+    @GetMapping("/term/{term}")
+    public Flux<MovingObjectsDto> getMovingObjectsBySearchTerm(
             @PathVariable
-            final String term,
-            @PathVariable(required = false)
-            final Long radius
+            final String term
     ) {
-        return objectsService.getAirportsByTerm(term);
-    }
-
-    @GetMapping("/code/{code}/{radius}")
-    public Flux<MovingObjectsDto> getAirportByCode(
-            @PathVariable
-            final String code,
-            @PathVariable(required = false)
-            final Long radius
-    ) {
-        return from(objectsService.getAirportByCode(code));
+        return objectsService.getObjectsByTerm(term);
     }
 
     @GetMapping("/code/{code}")
-    public Flux<MovingObjectsDto> getAirportByCode(
+    public Flux<MovingObjectsDto> getObjectsByCode(
             @PathVariable
             final String code
     ) {
-        return this.getAirportByCode(code, 0L);
+        return from(objectsService.getObjectsByCode(code));
     }
 }
