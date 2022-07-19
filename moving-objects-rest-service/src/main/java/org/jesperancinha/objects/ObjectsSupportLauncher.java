@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AiportsSupportLauncher {
+public class ObjectsSupportLauncher {
 
     public static void main(String[] args) {
-        SpringApplication.run(AiportsSupportLauncher.class, args);
+        SpringApplication.run(ObjectsSupportLauncher.class, args);
     }
 
 }

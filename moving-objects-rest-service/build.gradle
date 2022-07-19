@@ -30,18 +30,12 @@ configurations {
 }
 
 repositories {
-    flatDir {
-        dirs 'libs', '../international-airports-model/build/libs'
-        dirs 'libs', '../international-airports-data/build/libs'
-        dirs 'libs', '../international-airports-rest-api/build/libs'
-        dirs 'libs', '../international-airports-service-api/build/libs'
-    }
     mavenLocal()
     mavenCentral()
 }
 
 bootJar {
-    mainClassName = 'org.jesperancinha.airports.AiportsSupportLauncher'
+    mainClassName = 'org.jesperancinha.objects.ObjectsSupportLauncher'
 }
 
 java {
