@@ -142,6 +142,10 @@ git push --tags
 git pull --prune --tags
 ```
 
+## Swagger tests
+
+1. http://localhost:8082/objects/webjars/swagger-ui/index.html (/objects/v3/api-docs)
+
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
