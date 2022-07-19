@@ -1,12 +1,23 @@
 version: "3.7"
 services:
-  airports:
+  moving-objects-oauth-service:
     env_file:
       - .env
-    hostname: airports
-    container_name: ias-airports
+    hostname: moving-objects-oauth-service
+    container_name: moving-objects-oauth-service
     build:
-      context: .
+      context: moving-objects-oauth-service/.
+    networks:
+      ias_net:
+        ipv4_address: ${IAS_AIRPORTS_IP}
+
+  moving-objects-rest-service:
+    env_file:
+      - .env
+    hostname: moving-objects-rest-service
+    container_name: moving-objects-rest-service
+    build:
+      context: moving-objects-rest-service/.
     networks:
       ias_net:
         ipv4_address: ${IAS_AIRPORTS_IP}
@@ -30,8 +41,6 @@ services:
         ipv4_address: ${IAS_GRAFANA_IP}
 
   influxdb:
-    env_file:
-      - .env-influx-db
     hostname: influxdb
     container_name: ias-influxdb
     build:
@@ -42,7 +51,7 @@ services:
 
   nginx:
     hostname: nginx
-    container_name: ias-nginx
+    container_name: nginx
     build:
       context: ./international-airports-gui/.
     ports:

@@ -68,6 +68,7 @@ compileJava {
     options.annotationProcessorPath = configurations.annotationProcessor
 }
 
+jar.archiveFileName = project.name + ".jar"
 
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
@@ -81,6 +82,7 @@ dependencies {
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation('io.micrometer:micrometer-core:1.9.1')
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.1')
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.9")
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompile('org.projectlombok:lombok:1.18.24')
