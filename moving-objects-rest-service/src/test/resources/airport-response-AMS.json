@@ -6,11 +6,11 @@
     "ROMANTIC"
   ],
   "coordinates": {
-    "latitude": 52.308056,
-    "longitude": 4.764167
+    "x": 52.308056,
+    "y": 4.764167
   },
   "pointsOfSale": [
     "NL"
   ],
-  "webCams": []
+  "webCamSources": []
 }

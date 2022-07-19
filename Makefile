@@ -7,6 +7,7 @@ wrapper:
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
+	cd moving-objects-oauth-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal

@@ -2,8 +2,8 @@
   {
     "title": "Haarlemmermeer: W Amsterdam",
     "coordinate": {
-      "latitude": 52.308509,
-      "longitude": 4.76081
+      "x": 52.308509,
+      "y": 4.76081
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Haarlemmermeer",
     "active": true,
@@ -17,8 +17,8 @@
   {
     "title": "Haarlemmermeer: A Schipholtunnel Zuid",
     "coordinate": {
-      "latitude": 52.310997,
-      "longitude": 4.749527
+      "x": 52.310997,
+      "y": 4.749527
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Haarlemmermeer",
     "active": true,
@@ -32,8 +32,8 @@
   {
     "title": "Werkhoven: De Hoek (A)",
     "coordinate": {
-      "latitude": 52.293132,
-      "longitude": 4.731996
+      "x": 52.293132,
+      "y": 4.731996
     },
     "wikiInfo": "",
     "active": true,
@@ -47,8 +47,8 @@
   {
     "title": "Badhoevedorp: A/A",
     "coordinate": {
-      "latitude": 52.328625,
-      "longitude": 4.795017
+      "x": 52.328625,
+      "y": 4.795017
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Badhoevedorp",
     "active": true,
@@ -62,8 +62,8 @@
   {
     "title": "Sloten: Amsterdam - A",
     "coordinate": {
-      "latitude": 52.334932,
-      "longitude": 4.805703
+      "x": 52.334932,
+      "y": 4.805703
     },
     "wikiInfo": "",
     "active": true,
@@ -77,8 +77,8 @@
   {
     "title": "Amstelveen: A",
     "coordinate": {
-      "latitude": 52.304544,
-      "longitude": 4.846628
+      "x": 52.304544,
+      "y": 4.846628
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Amstelveen",
     "active": true,
@@ -92,8 +92,8 @@
   {
     "title": "Aalsmeer › South-West: Westeinderplassen",
     "coordinate": {
-      "latitude": 52.2549,
-      "longitude": 4.7575
+      "x": 52.2549,
+      "y": 4.7575
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Aalsmeer",
     "active": true,
@@ -107,8 +107,8 @@
   {
     "title": "Amsterdam: A/A De Nieuwe Meer",
     "coordinate": {
-      "latitude": 52.338323,
-      "longitude": 4.840765
+      "x": 52.338323,
+      "y": 4.840765
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Amsterdam (gemeente)",
     "active": true,
@@ -122,8 +122,8 @@
   {
     "title": "Amstelveen: mscha.cam .",
     "coordinate": {
-      "latitude": 52.283066,
-      "longitude": 4.863647
+      "x": 52.283066,
+      "y": 4.863647
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Amstelveen",
     "active": true,
@@ -137,8 +137,8 @@
   {
     "title": "Amsterdam: Oud-West",
     "coordinate": {
-      "latitude": 52.363052,
-      "longitude": 4.860711
+      "x": 52.363052,
+      "y": 4.860711
     },
     "wikiInfo": "https://nl.wikipedia.org/wiki/Amsterdam (gemeente)",
     "active": true,
