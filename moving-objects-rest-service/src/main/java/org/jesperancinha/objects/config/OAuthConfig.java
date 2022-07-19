@@ -10,7 +10,9 @@ import org.springframework.security.oauth2.client.web.reactive.function.client.S
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-public class OAuthConfig extends WebSecurityConfigurerAdapter {
+public class OAuthConfig
+//        extends WebSecurityConfigurerAdapter
+{
 
     @Bean
     public WebClient webClient(ClientRegistrationRepository clientRegistrationRepository, OAuth2AuthorizedClientRepository oAuth2AuthorizedClientRepository) {
@@ -22,7 +24,7 @@ public class OAuthConfig extends WebSecurityConfigurerAdapter {
                 .build();
     }
 
-    @Override
+//    @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/**").permitAll();

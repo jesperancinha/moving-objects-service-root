@@ -7,14 +7,17 @@ plugins {
     kotlin("plugin.spring") version "1.6.21"
     id("jacoco")
     id("maven-publish")
+    id("org.springdoc.openapi-gradle-plugin") version "1.3.4"
 }
 
 group = "org.jesperancinha"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
-tasks.jar {
-    archiveFileName.set("${project.name}.jar")
+tasks {
+    bootJar {
+        archiveFileName.set("${project.name}.jar")
+    }
 }
 
 repositories {

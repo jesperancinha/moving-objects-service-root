@@ -11,6 +11,9 @@ buildw:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
+no-test:
+	cd moving-objects-rest-service && ./gradlew clean build -x test
+	cd moving-objects-oauth-service && ./gradlew clean build -x test
 upgrade:
 	gradle wrapper --gradle-version 7.4
 upgrade-mac-os:

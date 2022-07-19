@@ -62,13 +62,14 @@ compileJava {
     options.annotationProcessorPath = configurations.annotationProcessor
 }
 
-jar.archiveFileName = project.name + ".jar"
+bootJar {
+    archiveFileName = project.name + '.jar'
+}
 
 dependencies {
     implementation('org.jesperancinha.airports:international-airports-service-api:1.0.0')
     implementation('org.jesperancinha.airports:international-airports-rest-api:1.0.0')
     implementation('org.springframework.data:spring-data-commons:2.7.1')
-    implementation('org.springframework.boot:spring-boot-starter-web:2.7.1')
     implementation('org.springframework.boot:spring-boot-starter-actuator:2.7.1')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.1')
     implementation('org.springframework.security:spring-security-config:5.7.2')
