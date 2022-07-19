@@ -1,13 +1,13 @@
 b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
-	cd international-airports-gui && yarn
+	cd moving-objects-gui && yarn
 wrapper:
 	gradle wrapper
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
-	cd international-airports-rest/international-airports-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
 upgrade:
@@ -18,8 +18,8 @@ upgrade-mac-os:
 stop:
 	docker-compose down --remove-orphans
 docker-delete: stop
-	docker ps -a --format '{{.ID}}' -q --filter="name=ias_" | xargs -I {}  docker stop {}
-	docker ps -a --format '{{.ID}}' -q --filter="name=ias_vma_" | xargs -I {}  docker rm {}
+	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
 docker:
 	docker-compose down -v
 	docker-compose rm -svf
@@ -33,9 +33,9 @@ update-snyk: update
 	npm i -g snyk
 update:
 	npm install -g npm-check-updates
-	cd international-airports-gui && npx browserslist && ncu -u && yarn
+	cd moving-objects-gui && npx browserslist && ncu -u && yarn
 audit:
-	cd international-airports-gui && npm audit fix && yarn
+	cd moving-objects-gui && npm audit fix && yarn
 cypress-open:
 	cd e2e && yarn && npm run cypress
 cypress-electron:

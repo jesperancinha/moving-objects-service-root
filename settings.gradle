@@ -6,6 +6,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'international-airports-service-root'
-include ':international-airports-rest'
-include ':international-airports-rest:international-airports-rest-service'
+rootProject.name = 'moving-objects-service-root'
+include ':moving-objects-rest-service'
