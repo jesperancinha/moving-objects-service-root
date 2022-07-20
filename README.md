@@ -81,14 +81,6 @@ sdk use java 17-open
 sdk install gradle 7.3.3
 ```
 
-## Settings
-
-## How to build and run the Front End service
-
-`npm install`
-
-`npm run build`
-
 ## Docker images
 
 This tutorial makes use of the following docker images:
@@ -108,6 +100,10 @@ This tutorial makes use of the following docker images:
 -   [Ok Requests 400](http://localhost:8082/iairports/actuator/metrics/http.server.requests?tag=status:400)
 -   [Ok Requests 500](http://localhost:8082/iairports/actuator/metrics/http.server.requests?tag=status:500)
 
+## Swagger tests
+
+1. http://localhost:8082/objects/webjars/swagger-ui/index.html (/objects/v3/api-docs)
+
 ## References
 
 -   [Micrometer Prometheus](https://micrometer.io/docs/registry/prometheus)
@@ -117,34 +113,13 @@ This tutorial makes use of the following docker images:
 -   [Prometheus parameter examples](https://github.com/prometheus/prometheus/blob/release-2.15/config/testdata/conf.good.yml)
 -   [Travel Web Cams](https://rapidapi.com/webcams.travel/api/webcams-travel)
 -   [Airport Finder](https://rapidapi.com/cometari/api/airportsfinder)
--   [RapidAPI](https://rapidapi.com/)  
+-   [RapidAPI](https://rapidapi.com/)
 -   [Postman OAuth 2.0](https://learning.getpostman.com/docs/postman/sending-api-requests/authorization/#oauth-20)
 -   [How do you rename a Git tag?](https://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag)
 -   [The 10 Best Software Engineering Books in 2019](https://devconnected.com/the-10-best-software-engineering-books-in-2019/)
 -   [Using Prometheus with InfluxDB for metrics storage](https://www.percona.com/live/e17/sites/default/files/slides/Using%20Prometheus%20with%20InfluxDB%20for%20Metrics%20Storage%20-%20FileId%20-%20115469.pdf)
 -   [Data exploration using InfluxQL](https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/)
 -   [Monitoring nginx with Prometheus and Grafana by Dimitri](https://dimitr.im/monitoring-nginx-with-prometheus-and-grafana)
-
-## Tools & Tips
-
-### InfluxDB
-
-```bash
-brew install influxdb
-```
-
-### Git tagging
-```bash
-git tag new-tag old-tag
-git tag -d old-tag
-git push origin :refs/tags/old-tag
-git push --tags
-git pull --prune --tags
-```
-
-## Swagger tests
-
-1. http://localhost:8082/objects/webjars/swagger-ui/index.html (/objects/v3/api-docs)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

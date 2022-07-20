@@ -8,7 +8,7 @@ services:
     build:
       context: moving-objects-oauth-service/.
     networks:
-      ias_net:
+      mos_net:
         ipv4_address: ${IAS_AIRPORTS_IP}
 
   moving-objects-rest-service:
@@ -19,7 +19,7 @@ services:
     build:
       context: moving-objects-rest-service/.
     networks:
-      ias_net:
+      mos_net:
         ipv4_address: ${IAS_AIRPORTS_IP}
 
   prometheus:
@@ -28,7 +28,7 @@ services:
     build:
       context: docker-files/prometheus/.
     networks:
-      ias_net:
+      mos_net:
         ipv4_address: ${IAS_PROMETHEUS_IP}
 
   grafana:
@@ -37,7 +37,7 @@ services:
     build:
       context: docker-files/grafana/.
     networks:
-      ias_net:
+      mos_net:
         ipv4_address: ${IAS_GRAFANA_IP}
 
   influxdb:
@@ -46,23 +46,23 @@ services:
     build:
       context: docker-files/influxdb/.
     networks:
-      ias_net:
+      mos_net:
         ipv4_address: ${IAS_INFLUX_IP}
 
   nginx:
     hostname: nginx
     container_name: nginx
     build:
-      context: ./international-airports-gui/.
+      context: ./moving-objects-gui/.
     ports:
       - "8080:80"
     restart: on-failure
     networks:
-      ias_net:
-        ipv4_address: ${IAS_NGINX_IP}
+      mos_net:
+        ipv4_address: ${MOS_NGINX_IP}
 
 networks:
-  ias_net:
+  mos_net:
     driver: bridge
     ipam:
       driver: default

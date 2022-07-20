@@ -21,6 +21,8 @@ upgrade-mac-os:
 	sdk install gradle
 stop:
 	docker-compose down --remove-orphans
+docker-clean:
+	docker-compose rm -svf
 docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
@@ -50,3 +52,8 @@ cypress-firefox:
 	cd e2e && make cypress-firefox
 cypress-edge:
 	cd e2e && make cypress-edge
+objects-wait:
+	bash objects_wait.sh
+dcd:
+	docker-compose down --remove-orphans
+dcup: dcd docker-clean docker objects-wait
