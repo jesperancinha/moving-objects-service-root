@@ -40,9 +40,6 @@ dist
 /src/main/resources/public
 /src/main/resources/static
 
-# Docker
-.env
-
 # Node
 node_modules
 .angular
