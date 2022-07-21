@@ -4,7 +4,7 @@ ENV runningFolder /usr/local/bin/
 
 WORKDIR ${runningFolder}
 
-COPY build/libs/international-airports-rest-service-1.0.0.jar ${runningFolder}
+COPY build/libs/moving-objects-oauth-service.jar ${runningFolder}
 
 COPY entrypoint.sh ${runningFolder}
 
