@@ -57,3 +57,4 @@ objects-wait:
 dcd:
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
+dcup-full-action: dcup objects-wait
