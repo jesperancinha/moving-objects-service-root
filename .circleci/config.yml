@@ -34,6 +34,7 @@ jobs:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
+      - checkout
       - run: make dcup-full-action
       - run: make cypress-electron
 
@@ -41,6 +42,7 @@ jobs:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
+      - checkout
       - run: make dcup-full-action
       - run: make cypress-chrome
 
@@ -48,6 +50,7 @@ jobs:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
+      - checkout
       - run: make dcup-full-action
       - run: make cypress-firefox
 
@@ -55,6 +58,7 @@ jobs:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
+      - checkout
       - run: make dcup-full-action
       - run: make cypress-edge
 
