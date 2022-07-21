@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
