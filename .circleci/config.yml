@@ -83,3 +83,7 @@ workflows:
       - build-gradle
       - build-yarn
       - report-all
+      - e2e-electron
+      - e2e-chrome
+      - e2e-firefox
+      - e2e-edge
