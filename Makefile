@@ -60,6 +60,7 @@ cypress-edge:
 objects-wait:
 	bash objects_wait.sh
 dcd:
+	pwd
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm-docker docker objects-wait
