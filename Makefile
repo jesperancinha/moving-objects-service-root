@@ -2,6 +2,8 @@ b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
 	cd moving-objects-gui && yarn
+build-npm-dist: build-npm
+	cd moving-objects-gui && npm run build
 wrapper:
 	gradle wrapper
 build-app:
@@ -57,4 +59,4 @@ objects-wait:
 dcd:
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
-dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
+dcup-full-action: dcd docker-clean no-test build-npm-dist docker objects-wait
