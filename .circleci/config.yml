@@ -25,10 +25,10 @@ jobs:
             - v1-dependencies-
       - run:
           command: yarn install --force
-          working_directory: international-airports-gui
+          working_directory: moving-objects-gui
       - run:
           command: yarn
-          working_directory: international-airports-gui
+          working_directory: moving-objects-gui
 
   e2e-electron:
     machine:
@@ -77,7 +77,7 @@ jobs:
       - run: sudo npm i -g yarn
       - run: sudo npm install -g n
       - run: sudo n stable
-      - run: cd international-airports-gui && yarn && yarn add jest && npm run coverage
+      - run: cd moving-objects-gui && yarn && yarn add jest && npm run coverage
       - run: make buildw && gradle -i
 
 workflows:
