@@ -6,7 +6,7 @@ build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
 	docker build . -t moving-objects-gui-image
-	docker run --name moving-objects-gui-build -v moving-objects-gui:/root/moving-objects-gui -v moving-objects-gui/dist:/root/moving-objects-gui/dist moving-objects-gui-image -c 'cd /root/moving-objects-gui && npm run build'
+	docker run --name moving-objects-gui-build -v moving-objects-gui/dist:moving-objects-gui/dist moving-objects-gui-image -c 'cd moving-objects-gui && npm run build'
 wrapper:
 	gradle wrapper
 build-app:
