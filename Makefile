@@ -4,6 +4,8 @@ build-npm:
 	cd moving-objects-gui && yarn
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
+build-npm-docker:
+	docker run --name moving-objects-gui-build -d -v moving-objects-gui/dist:moving-objects-gui/dist
 wrapper:
 	gradle wrapper
 build-app:
@@ -59,4 +61,4 @@ objects-wait:
 dcd:
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
-dcup-full-action: dcd docker-clean no-test build-npm-dist docker objects-wait
+dcup-full-action: dcd docker-clean no-test build-npm-docker docker objects-wait
