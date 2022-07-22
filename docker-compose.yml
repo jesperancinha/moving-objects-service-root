@@ -84,8 +84,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./docker-images/docker-psql:/docker-entrypoint-initdb.d
-      - ./docker-images/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple0
+      - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
+      - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple0
     expose:
       - 5432
     networks:
