@@ -8,7 +8,7 @@ build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
 	docker build . -t moving-objects-gui-image
-	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/dist:/opt/moving-objects-gui/dist --user 1000:1000 --entrypoint '/bin/sh' moving-objects-gui-image -c 'cd /opt/moving-objects-gui && npm install typescript -g && npm run build'
+	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/dist:/opt/moving-objects-gui/dist --user 1000:1000 --entrypoint '/bin/sh' moving-objects-gui-image -c 'cd /opt/moving-objects-gui && sudo npm install typescript -g && npm run build'
 wrapper:
 	gradle wrapper
 build-app:
