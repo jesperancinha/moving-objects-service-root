@@ -10,6 +10,7 @@ build-npm-docker:
 	cd moving-objects-gui && mkdir node_modules
 	cd moving-objects-gui && sudo chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
+	mkdir moving-objects-gui/dist
 	sudo chmod 777 moving-objects-gui
 	sudo chmod 777 moving-objects-gui/yarn.lock
 	sudo chmod 777 moving-objects-gui/dist
