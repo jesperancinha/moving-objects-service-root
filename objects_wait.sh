@@ -9,6 +9,7 @@ function checkServiceByNameAndMessage() {
     while [[ "$string" != *"$message"* ]]
     do
       printf "."
+      printf "$string"
       docker logs "$name" &> "logs"
       string=$(cat logs)
       sleep 1
