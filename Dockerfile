@@ -6,4 +6,4 @@ RUN npm install typescript -g
 
 RUN npm install -g @angular/cli
 
-RUN cd moving-objects-cams-gui && mkdir node_modules
+RUN cd moving-objects-gui && mkdir node_modules
