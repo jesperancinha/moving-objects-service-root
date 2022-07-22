@@ -3,14 +3,13 @@
 function checkServiceByNameAndMessage() {
     name=$1
     message=$2
-    docker logs "$name" &> "logs"
+    docker-compose logs "$name" &> "logs"
     string=$(cat logs)
     counter=0
     while [[ "$string" != *"$message"* ]]
     do
       printf "."
-      printf "$string"
-      docker logs "$name" &> "logs"
+      docker-compose logs "$name" &> "logs"
       string=$(cat logs)
       sleep 1
       counter=$((counter+1))
@@ -23,5 +22,5 @@ function checkServiceByNameAndMessage() {
     echo "Succeeded $name Service after $counter tries!"
 }
 
-checkServiceByNameAndMessage jofisaes_vma_backend_img_1 'Netty started on port'
-checkServiceByNameAndMessage jofisaes_vma_backend_img_2 'Netty started on port'
+checkServiceByNameAndMessage moving-objects-oauth-service 'Netty started on port'
+checkServiceByNameAndMessage moving-objects-rest-service 'Netty started on port'
