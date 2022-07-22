@@ -9,7 +9,7 @@ services:
       context: moving-objects-oauth-service/.
     networks:
       mos_net:
-        ipv4_address: ${IAS_AIRPORTS_IP}
+        ipv4_address: ${MOS_AIRPORTS_OAUTH_IP}
 
   moving-objects-rest-service:
     env_file:
@@ -20,7 +20,7 @@ services:
       context: moving-objects-rest-service/.
     networks:
       mos_net:
-        ipv4_address: ${IAS_AIRPORTS_IP}
+        ipv4_address: ${MOS_AIRPORTS_IP}
 
   prometheus:
     hostname: prometheus
@@ -29,7 +29,7 @@ services:
       context: docker-files/prometheus/.
     networks:
       mos_net:
-        ipv4_address: ${IAS_PROMETHEUS_IP}
+        ipv4_address: ${MOS_PROMETHEUS_IP}
 
   grafana:
     hostname: grafana
@@ -38,7 +38,7 @@ services:
       context: docker-files/grafana/.
     networks:
       mos_net:
-        ipv4_address: ${IAS_GRAFANA_IP}
+        ipv4_address: ${MOS_GRAFANA_IP}
 
   influxdb:
     hostname: influxdb
@@ -47,7 +47,7 @@ services:
       context: docker-files/influxdb/.
     networks:
       mos_net:
-        ipv4_address: ${IAS_INFLUX_IP}
+        ipv4_address: ${MOS_INFLUX_IP}
 
   nginx:
     hostname: nginx
@@ -84,7 +84,7 @@ services:
       - 5432
     networks:
       mos_net:
-        ipv4_address: ${MOS_NGINX_IP}
+        ipv4_address: ${MOS_DB_IP}
 
 networks:
   mos_net:
