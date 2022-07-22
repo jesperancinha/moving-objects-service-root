@@ -71,7 +71,6 @@ services:
     image: postgres:14.2
     command: postgres -c listen_addresses='*'
     environment:
-      POSTGRES_DB: mos
       POSTGRES_USER: posgres
       POSTGRES_PASSWORD: admin
       POSTGRES_MULTIPLE_DATABASES: mos
