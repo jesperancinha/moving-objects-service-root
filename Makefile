@@ -8,6 +8,7 @@ build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
 	cd moving-objects-gui && mkdir node_modules
+	cd moving-objects-gui && sudo chmod 777 node_modules
 	docker build . -t moving-objects-gui-image
 	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules -v "$(shell pwd)"/moving-objects-gui/dist:/opt/moving-objects-gui/dist --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker'
 wrapper:
