@@ -70,7 +70,7 @@ services:
       POSTGRES_DB: mos
       POSTGRES_USER: posgres
       POSTGRES_PASSWORD: admin
-      POSTGRES_MULTIPLE_DATABASES: yucca
+      POSTGRES_MULTIPLE_DATABASES: mos
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 30s
