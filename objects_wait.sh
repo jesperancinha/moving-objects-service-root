@@ -23,5 +23,6 @@ function checkServiceByNameAndMessage() {
     echo "Succeeded $name Service after $counter tries!"
 }
 
+checkServiceByNameAndMessage mos-db 'database system is ready to accept connections'
 checkServiceByNameAndMessage moving-objects-oauth-service 'Netty started on port'
 checkServiceByNameAndMessage moving-objects-rest-service 'Netty started on port'
