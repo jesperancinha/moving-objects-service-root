@@ -12,6 +12,7 @@ build-npm-docker:
 	touch moving-objects-gui/yarn.lock
 	sudo chmod 777 moving-objects-gui
 	sudo chmod 777 moving-objects-gui/yarn.lock
+	sudo chmod 777 moving-objects-gui/dist
 	docker build . -t moving-objects-gui-image
 	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules -v "$(shell pwd)"/moving-objects-gui/dist:/opt/moving-objects-gui/dist --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker'
 wrapper:
