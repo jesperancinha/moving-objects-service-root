@@ -24,6 +24,6 @@ services:
     ports:
       - "8080:80"
 
-  mos-db:
+  mosdb:
     ports:
       - "5432:5432"
