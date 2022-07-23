@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-java -Dpostgres.host=${MOS_DB_IP} -jar moving-objects-oauth-service.jar --spring.profiles.active=docker
+java -jar -Dpostgres.host=${MOS_DB_IP} --spring.profiles.active=docker moving-objects-oauth-service.jar
