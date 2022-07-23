@@ -75,7 +75,7 @@ services:
       - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
       - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple
     environment:
-      POSTGRES_USER: posgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
       POSTGRES_MULTIPLE_DATABASES: mos
     expose:
