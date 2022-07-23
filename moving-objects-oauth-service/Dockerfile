@@ -8,15 +8,7 @@ COPY build/libs/moving-objects-oauth-service.jar ${runningFolder}
 
 COPY entrypoint.sh ${runningFolder}
 
-ARG AIRPORTS_KEY
-
-ARG WEBCAMS_KEY
-
-ENV AIRPORTS_KEY=${AIRPORTS_KEY}
-
-ENV WEBCAMS_KEY=${WEBCAMS_KEY}
-
-ENTRYPOINT ["entrypoint.sh","${AIRPORTS_KEY}", "${WEBCAMS_KEY}"]
+ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 8081
 
