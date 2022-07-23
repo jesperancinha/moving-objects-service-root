@@ -9,11 +9,16 @@ build-npm-dist: build-npm
 build-npm-docker:
 	cd moving-objects-gui && mkdir node_modules
 	cd moving-objects-gui && sudo chmod 777 node_modules
+	cd e2e && mkdir node_modules
+	cd e2e && sudo chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
 	sudo chmod 777 moving-objects-gui
 	sudo chmod 777 moving-objects-gui/yarn.lock
+	touch e2e/yarn.lock
+	sudo chmod 777 e2e
+	sudo chmod 777 e2e/yarn.lock
 	docker build . -t moving-objects-gui-image
-	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker'
+	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarn'
 wrapper:
 	gradle wrapper
 build-app:
