@@ -3,12 +3,14 @@ services:
   moving-objects-oauth-service:
     env_file:
       - .env
+    environment:
+      - MOS_DB_IP=${MOS_DB_IP}
     hostname: moving-objects-oauth-service
     container_name: moving-objects-oauth-service
     build:
       context: moving-objects-oauth-service/.
     depends_on:
-      - mos-db
+      - mosdb
     networks:
       mos_net:
         ipv4_address: ${MOS_AIRPORTS_OAUTH_IP}
@@ -21,7 +23,7 @@ services:
     build:
       context: moving-objects-rest-service/.
     depends_on:
-      - mos-db
+      - mosdb
     networks:
       mos_net:
         ipv4_address: ${MOS_AIRPORTS_IP}
@@ -65,32 +67,28 @@ services:
       mos_net:
         ipv4_address: ${MOS_NGINX_IP}
 
-  mos-db:
-    hostname: mos-db
-    container_name: mos-db
-    image: postgres:14.2
-    command: postgres -c listen_addresses='*'
+  mosdb:
+    hostname: mosdb
+    container_name: mosdb
+    image: postgres:14.1
+    volumes:
+      - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
+      - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple
     environment:
       POSTGRES_USER: posgres
       POSTGRES_PASSWORD: admin
       POSTGRES_MULTIPLE_DATABASES: mos
+    expose:
+      - "5432"
+    networks:
+      staco_net:
+        ipv4_address: ${MOS_DB_IP}
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 30s
       timeout: 30s
       retries: 10
       start_period: 0s
-    restart: on-failure
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
-      - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple
-    expose:
-      - 5432
-    networks:
-      mos_net:
-        ipv4_address: ${MOS_DB_IP}
 
 networks:
   mos_net:
