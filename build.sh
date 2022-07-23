@@ -8,7 +8,7 @@ docker rm app-ia
 
 gradle clean build install test
 
-cd international-airports-gui || exit
+cd moving-objects-gui || exit
 yarn install --force
 yarn build
 cd ..

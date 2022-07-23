@@ -13,8 +13,8 @@ plugins {
 }
 
 omniConfig {
-    extraSourceFolders =  [new File("$rootDir/international-airports-gui")]
-    extraReportFolders = [new File("$rootDir/international-airports-gui/coverage")]
+    extraSourceFolders =  [new File("$rootDir/moving-objects-gui")]
+    extraReportFolders = [new File("$rootDir/moving-objects-gui/coverage")]
 }
 
 allprojects {
