@@ -52,8 +52,10 @@ build:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make no-test
+    - make build-npm-docker
 
 qa:
   image: gradle:7.5.0-jdk17
@@ -63,6 +65,7 @@ qa:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - gradle test
   needs:
@@ -81,6 +84,7 @@ mos-electron-e2e:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   allow_failure: true
   timeout: 10m
 
@@ -97,6 +101,7 @@ mos-chrome-e2e:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-firefox-e2e:
   image: node:18
@@ -111,6 +116,7 @@ mos-firefox-e2e:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-edge-e2e:
   image: node:18
@@ -125,6 +131,7 @@ mos-edge-e2e:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 coverage:
   image: gradle:7.5.0-jdk17
@@ -134,6 +141,7 @@ coverage:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - ./gradlew clean build test jacocoTestReport -i
   only:
@@ -149,6 +157,7 @@ reporting:
       paths:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - mvn omni-coveragereporter:report
   only:
