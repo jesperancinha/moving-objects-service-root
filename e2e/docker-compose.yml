@@ -4,7 +4,7 @@ services:
     build:
       context: .
     working_dir: /e2e
-    command: "npx cypress run --browser electron --env host=nginx"
+    entrypoint: ["npx","cypress", "run", "--browser", "electron", "--env", "host=nginx"]
     volumes:
       - ../e2e:/e2e
 
