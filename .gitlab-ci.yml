@@ -64,7 +64,7 @@ qa:
         - moving-objects-oauth-service/target/
         - moving-objects-rest-service/target/
   script:
-    - mvn test
+    - gradle test
   needs:
     - build
       
