@@ -1,33 +1,29 @@
 version: '3.7'
 services:
   e2e-electron:
-    build:
-      context: .
+    image: "cypress/included:10.3.0"
     working_dir: /e2e
-    entrypoint: ["npx","cypress", "run", "--browser", "electron", "--env", "host=nginx"]
+    command: "--browser electron --env host=nginx"
     volumes:
       - ../e2e:/e2e
 
   e2e-chrome:
-    build:
-      context: .
+    image: "cypress/included:10.3.0"
     working_dir: /e2e
-    entrypoint: ["npx","cypress", "run", "--browser", "chrome", "--env", "host=nginx"]
+    command: "--browser chrome --env host=nginx"
     volumes:
       - ../e2e:/e2e
 
   e2e-firefox:
-    build:
-      context: .
+    image: "cypress/included:10.3.0"
     working_dir: /e2e
-    entrypoint: ["npx","cypress", "run", "--browser", "firefox", "--env", "host=nginx"]
+    command: "--browser firefox --env host=nginx"
     volumes:
       - ../e2e:/e2e
 
   e2e-edge:
-    build:
-      context: .
+    image: "cypress/included:10.3.0"
     working_dir: /e2e
-    entrypoint: ["npx","cypress", "run", "--browser", "edge", "--env", "host=nginx"]
+    command: "--browser edge --env host=nginx"
     volumes:
       - ../e2e:/e2e
