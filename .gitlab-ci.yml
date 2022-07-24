@@ -135,7 +135,7 @@ coverage:
         - moving-objects-oauth-service/build/
         - moving-objects-rest-service/build/
   script:
-    - mvn jacoco:prepare-agent package jacoco:report
+    - ./gradlew clean build test jacocoTestReport -i
   only:
     - main
   needs:
