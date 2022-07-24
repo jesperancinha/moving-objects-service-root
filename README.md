@@ -2,19 +2,19 @@
 
 ---
 
-[![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://bitbucket.org/jesperancinha/moving-objects-cams-service)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=BitBucket&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://gitlab.com/jesperancinha/moving-objects-cams-service)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[![CircleCI](https://circleci.com/bb/jesperancinha/moving-objects-cams-service.svg?style=svg)](https://circleci.com/bb/jesperancinha/moving-objects-cams-service)
+[![CircleCI](https://circleci.com/gl/jesperancinha/moving-objects-cams-service.svg?style=svg)](https://circleci.com/gl/jesperancinha/moving-objects-cams-service)
 [![Build status](https://ci.appveyor.com/api/projects/status/lfauvt61j0nw5xkg?svg=true)](https://ci.appveyor.com/project/jesperancinha/moving-objects-cams-service)
-[![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/moving-objects-cams-service/master)](https://bitbucket.org/jesperancinha/moving-objects-cams-service/addon/pipelines/home)
+[![Bitbucket Pipelines branch](https://img.shields.io/bitbucket/pipelines/jesperancinha/moving-objects-cams-service/master)](https://gitlab.com/jesperancinha/moving-objects-cams-service/addon/pipelines/home)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/bb/jesperancinha/moving-objects-cams-service/dashboard?utm_source=jesperancinha@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-cams-service&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/gl/jesperancinha/moving-objects-cams-service/dashboard?utm_source=jesperancinha@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-cams-service&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/026c30c3-4376-4542-969e-04e87b90b498)](https://codebeat.co/projects/bitbucket-org-jesperancinha-moving-objects-cams-service-master)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/bb/jesperancinha/moving-objects-cams-service/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/moving-objects-cams-service&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/gl/jesperancinha/moving-objects-cams-service/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/moving-objects-cams-service&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/bitbucket/jesperancinha/moving-objects-cams-service/badge.svg?branch=master)](https://coveralls.io/bitbucket/jesperancinha/moving-objects-cams-service?branch=master)
-[![codecov](https://codecov.io/bb/jesperancinha/moving-objects-cams-service/branch/master/graph/badge.svg?token=RSKR33004G)](https://codecov.io/bb/jesperancinha/moving-objects-cams-service)
+[![codecov](https://codecov.io/gl/jesperancinha/moving-objects-cams-service/branch/master/graph/badge.svg?token=RSKR33004G)](https://codecov.io/gl/jesperancinha/moving-objects-cams-service)
 
 ---
 
