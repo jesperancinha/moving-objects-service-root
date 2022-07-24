@@ -50,8 +50,8 @@ build:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
   script:
     - make no-test
 
@@ -61,8 +61,8 @@ qa:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
   script:
     - gradle test
   needs:
@@ -79,8 +79,8 @@ mos-electron-e2e:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
   allow_failure: true
   timeout: 10m
 
@@ -95,8 +95,8 @@ mos-chrome-e2e:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
 
 mos-firefox-e2e:
   image: node:18
@@ -109,8 +109,8 @@ mos-firefox-e2e:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
 
 mos-edge-e2e:
   image: node:18
@@ -123,8 +123,8 @@ mos-edge-e2e:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
 
 coverage:
   image: gradle:7.5.0-jdk17
@@ -132,8 +132,8 @@ coverage:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
   script:
     - mvn jacoco:prepare-agent package jacoco:report
   only:
@@ -147,8 +147,8 @@ reporting:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
   script:
     - mvn omni-coveragereporter:report
   only:
