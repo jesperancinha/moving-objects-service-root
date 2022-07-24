@@ -1,0 +1,173 @@
+services:
+  - docker:dind
+stages:
+  - build
+  - qa
+  - e2e
+  - coverage
+  - reporting
+  - verify
+  - test
+  - docker-compose
+  - update
+
+variables:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  CODECOV_TOKEN: $CODECOV_TOKEN
+  COVERALLS_REPO_TOKEN: $COVERALLS_REPO_TOKEN
+  CODACY_PROJECT_TOKEN: $CODACY_PROJECT_TOKEN
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
+
+image: maven:3-openjdk-17
+
+cache:
+  paths:
+    - .m2/repository/
+
+.verify: &verify
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS verify'
+  except:
+    - master
+verify:
+  <<: *verify
+  before_script:
+    - ''
+
+before_script:
+  - apt-get update -y
+  - apt-get upgrade -y
+  - apt-get install build-essential -y
+  - bash latest-compose.sh
+
+build:
+  image: maven:3.8-openjdk-17-slim
+  stage: build
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+  script:
+    - make no-test
+
+qa:
+  image: maven:3.8-openjdk-17-slim
+  stage: build
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+  script:
+    - mvn test
+  needs:
+    - build
+      
+mos-electron-e2e:
+  image: node:18
+  stage: e2e
+  script:
+    - make dcup-full-action
+    - make cypress-electron
+  needs:
+    - qa
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+  allow_failure: true
+  timeout: 10m
+
+mos-chrome-e2e:
+  image: node:18
+  stage: e2e
+  script:
+    - make dcup-full-action
+    - make cypress-chrome
+  needs:
+    - qa
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+
+mos-firefox-e2e:
+  image: node:18
+  stage: e2e
+  script:
+    - make dcup-full-action
+    - make cypress-firefox
+  needs:
+    - qa
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+
+mos-edge-e2e:
+  image: node:18
+  stage: e2e
+  script:
+    - make dcup-full-action
+    - make cypress-edge
+  needs:
+    - qa
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+
+coverage:
+  image: maven:3.8-openjdk-17-slim
+  stage: coverage
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+  script:
+    - mvn jacoco:prepare-agent package jacoco:report
+  only:
+    - master
+  needs:
+    - build
+
+reporting:
+  image: maven:3.8-openjdk-17-slim
+  stage: reporting
+  cache:
+    - key: MAVEN
+      paths:
+        - moving-objects-oauth-service/target/
+        - moving-objects-rest-service/target/
+  script:
+    - mvn omni-coveragereporter:report
+  only:
+    - master
+  needs:
+    - coverage
+    - mos-edge-e2e
+    - mos-chrome-e2e
+    - mos-firefox-e2e
+    - mos-electron-e2e
+
+update-dependencies:
+  image: renovate/renovate
+  stage: update
+  before_script:
+    - ''
+  script:
+    - export RENOVATE_CONFIG=$(< renovate.json)
+    - renovate
+  only:
+    - master
+  needs: []

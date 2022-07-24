@@ -9,4 +9,4 @@ cypress-firefox: build
 cypress-edge: build
 	docker-compose -f ../docker-compose.yml -f docker-compose.yml up --exit-code-from e2e-edge e2e-edge
 build:
-	docker-compose build --no-cache
+	yarn
