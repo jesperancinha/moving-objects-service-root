@@ -35,9 +35,15 @@ jobs:
       image: ubuntu-2204:2022.04.2
     steps:
       - checkout
-      - run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb i965-va-driver -y
-      - run: make dcup-full-action
-      - run: make cypress-electron
+      - run:
+          name: Cypress Dependencies Installation
+          command: sudo apt-get update -y && sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb i965-va-driver -y
+      - run:
+          name: Build and start main containers
+          command: make dcup-full-action
+      - run:
+          name: Run Cypress tests
+          command: make cypress-electron
 
   e2e-chrome:
     machine:
