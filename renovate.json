@@ -1,12 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "repositories": [
-    "jesperancinha/international-airports-service-root"
+    "jesperancinha/moving-objects-service-root"
   ],
-  "platform": "bitbucket",
-  "extends": [
-    "docker:disable"
-  ],
+  "platform": "gitlab",
   "username": "jesperancinha",
   "packageRules": [
     {
