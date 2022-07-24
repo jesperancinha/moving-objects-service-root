@@ -21,7 +21,7 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_DRIVER: overlay2
 
-image: maven:3-openjdk-17
+image: gradle:7.5.0-jdk17
 
 cache:
   paths:
@@ -45,7 +45,7 @@ before_script:
   - bash latest-compose.sh
 
 build:
-  image: maven:3.8-openjdk-17-slim
+  image: gradle:7.5.0-jdk17
   stage: build
   cache:
     - key: MAVEN
@@ -56,7 +56,7 @@ build:
     - make no-test
 
 qa:
-  image: maven:3.8-openjdk-17-slim
+  image: gradle:7.5.0-jdk17
   stage: build
   cache:
     - key: MAVEN
@@ -127,7 +127,7 @@ mos-edge-e2e:
         - moving-objects-rest-service/target/
 
 coverage:
-  image: maven:3.8-openjdk-17-slim
+  image: gradle:7.5.0-jdk17
   stage: coverage
   cache:
     - key: MAVEN
@@ -142,7 +142,7 @@ coverage:
     - build
 
 reporting:
-  image: maven:3.8-openjdk-17-slim
+  image: gradle:7.5.0-jdk17
   stage: reporting
   cache:
     - key: MAVEN
