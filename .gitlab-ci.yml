@@ -72,7 +72,7 @@ mos-electron-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-electron
   needs:
     - qa
@@ -88,7 +88,7 @@ mos-chrome-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-chrome
   needs:
     - qa
@@ -102,7 +102,7 @@ mos-firefox-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-firefox
   needs:
     - qa
@@ -116,7 +116,7 @@ mos-edge-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-edge
   needs:
     - qa
