@@ -30,45 +30,6 @@ jobs:
           command: yarn
           working_directory: moving-objects-gui
 
-  e2e-electron:
-    machine:
-      image: ubuntu-2004:2022.04.2
-    steps:
-      - checkout
-      - run:
-          name: Cypress Dependencies Installation
-          command: sudo apt install autoconf libtool libdrm-dev xorg xorg-dev openbox libx11-dev libgl1-mesa-glx libgl1-mesa-dev && sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
-      - run:
-          name: Build and start main containers
-          command: make dcup-full-action
-      - run:
-          name: Run Cypress tests
-          command: make cypress-electron
-
-  e2e-chrome:
-    machine:
-      image: ubuntu-2204:2022.04.2
-    steps:
-      - checkout
-      - run: make dcup-full-action
-      - run: make cypress-chrome
-
-  e2e-firefox:
-    machine:
-      image: ubuntu-2204:2022.04.2
-    steps:
-      - checkout
-      - run: make dcup-full-action
-      - run: make cypress-firefox
-
-  e2e-edge:
-    machine:
-      image: ubuntu-2204:2022.04.2
-    steps:
-      - checkout
-      - run: make dcup-full-action
-      - run: make cypress-edge
-
   report-all:
     docker:
       - image: cimg/openjdk:17.0.1
