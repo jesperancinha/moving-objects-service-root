@@ -2,7 +2,7 @@
 
 ---
 
-[![Generic badge](https://img.shields.io/static/v1.svg?label=GitLab&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://gitlab.com/jesperancinha/moving-objects-cams-service)
+[![Generic badge](https://gitlab.com/jesperancinha/moving-objects-service-root)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![Gitlab pipeline status (branch)](https://img.shields.io/gitlab/pipeline/jesperancinha/video-series-app/master)](https://gitlab.com/jesperancinha/video-series-app/-/pipelines)
