@@ -160,7 +160,7 @@ reporting:
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
   script:
-    - mvn omni-coveragereporter:report
+    - make report
   only:
     - main
   needs:

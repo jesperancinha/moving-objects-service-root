@@ -77,3 +77,11 @@ dcd:
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm-docker docker objects-wait
 dcup-action: dcd docker objects-wait
+report:
+	apt update
+	apt install npm
+	npm i -g yarn
+	npm install -g n
+	n stable
+	cd moving-objects-gui && yarn && yarn add jest && npm run coverage
+	make buildw && gradle -i
