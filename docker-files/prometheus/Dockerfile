@@ -1,4 +1,4 @@
-FROM prom/prometheus:v2.15.2
+FROM prom/prometheus:v2.37.0
 
 ARG PROMETHEUS_FILE
 
