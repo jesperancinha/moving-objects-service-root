@@ -1,5 +1,6 @@
 services:
   - docker:dind
+
 stages:
   - build
   - qa
@@ -27,17 +28,6 @@ cache:
   paths:
     - .m2/repository/
 
-.verify: &verify
-  stage: test
-  script:
-    - 'mvn $MAVEN_CLI_OPTS verify'
-  except:
-    - master
-verify:
-  <<: *verify
-  before_script:
-    - ''
-
 before_script:
   - apt-get update -y
   - apt-get upgrade -y
@@ -50,10 +40,12 @@ build:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make no-test
+    - make build-npm-docker
 
 qa:
   image: gradle:7.5.0-jdk17
@@ -61,10 +53,11 @@ qa:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
-    - mvn test
+    - gradle test
   needs:
     - build
       
@@ -72,15 +65,16 @@ mos-electron-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-electron
   needs:
     - qa
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   allow_failure: true
   timeout: 10m
 
@@ -88,43 +82,46 @@ mos-chrome-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-chrome
   needs:
     - qa
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-firefox-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-firefox
   needs:
     - qa
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-edge-e2e:
   image: node:18
   stage: e2e
   script:
-    - make dcup-full-action
+    - make dcup-action
     - make cypress-edge
   needs:
     - qa
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 coverage:
   image: gradle:7.5.0-jdk17
@@ -132,10 +129,11 @@ coverage:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
-    - mvn jacoco:prepare-agent package jacoco:report
+    - ./gradlew clean build test jacocoTestReport -i
   only:
     - main
   needs:
@@ -147,10 +145,11 @@ reporting:
   cache:
     - key: MAVEN
       paths:
-        - moving-objects-oauth-service/target/
-        - moving-objects-rest-service/target/
+        - moving-objects-oauth-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
-    - mvn omni-coveragereporter:report
+    - make report
   only:
     - main
   needs:

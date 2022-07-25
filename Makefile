@@ -7,18 +7,18 @@ build-npm:
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
-	cd moving-objects-gui && mkdir node_modules
-	cd moving-objects-gui && sudo chmod 777 node_modules
-	cd e2e && mkdir node_modules
-	cd e2e && sudo chmod 777 node_modules
+	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
+	cd moving-objects-gui && chmod 777 node_modules
+	cd e2e && [ -d node_modules ] || mkdir node_modules
+	cd e2e && chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
-	sudo chmod 777 moving-objects-gui
-	sudo chmod 777 moving-objects-gui/yarn.lock
+	chmod 777 moving-objects-gui
+	chmod 777 moving-objects-gui/yarn.lock
 	touch e2e/yarn.lock
-	sudo chmod 777 e2e
-	sudo chmod 777 e2e/yarn.lock
-	docker build . -t moving-objects-gui-image
-	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/e2e:/opt/e2e -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules -v "$(shell pwd)"/e2e/node_modules:/opt/e2e/node_modules --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarn'
+	chmod 777 e2e
+	chmod 777 e2e/yarn.lock
+	docker-compose build gui-builder
+	docker-compose up gui-builder
 wrapper:
 	gradle wrapper
 build-app:
@@ -76,3 +76,12 @@ dcd:
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm-docker docker objects-wait
+dcup-action: dcd docker objects-wait
+report:
+	apt update -y
+	apt install npm -y
+	npm i -g yarn
+	npm install -g n
+	n stable
+	cd moving-objects-gui && yarn && yarn add jest && npm run coverage
+	make buildw && gradle -i

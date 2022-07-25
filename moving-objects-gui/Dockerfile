@@ -26,7 +26,7 @@ ENV WEBCAMS_KEY=${WEBCAMS_KEY}
 
 RUN nginx -t
 
-ENTRYPOINT ["entrypoint.sh","${AIRPORTS_KEY}", "${WEBCAMS_KEY}"]
+ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 8081
 

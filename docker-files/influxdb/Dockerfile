@@ -1,3 +1,3 @@
-FROM influxdb:1.7.9-alpine
+FROM influxdb:2.3.0-alpine
 
 EXPOSE 8086

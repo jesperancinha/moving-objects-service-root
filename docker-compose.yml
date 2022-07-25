@@ -70,7 +70,7 @@ services:
   mosdb:
     hostname: mosdb
     container_name: mosdb
-    image: postgres:14.1
+    image: postgres:14.4
     volumes:
       - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
       - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple
@@ -89,6 +89,19 @@ services:
       timeout: 30s
       retries: 10
       start_period: 0s
+
+  gui-builder:
+    container_name: moving-objects-gui-build
+    build:
+      context: .
+    volumes:
+      - ./moving-objects-gui:/opt/moving-objects-gui
+      - ./e2e:/opt/e2e
+      - ./moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
+      - ./e2e/node_modules:/opt/e2e/node_modules
+    user: "1000:1000"
+    networks:
+      - mos_net
 
 networks:
   mos_net:
