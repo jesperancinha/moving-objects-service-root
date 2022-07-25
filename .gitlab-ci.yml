@@ -1,5 +1,7 @@
 services:
   - docker:dind
+  - docker:20.10.16-dind
+
 stages:
   - build
   - qa
@@ -43,7 +45,6 @@ before_script:
   - apt-get upgrade -y
   - apt-get install build-essential -y
   - bash latest-compose.sh
-  - apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 build:
   image: gradle:7.5.0-jdk17
