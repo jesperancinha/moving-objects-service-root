@@ -27,11 +27,6 @@ image: gradle:7.5.0-jdk17
 cache:
   paths:
     - .m2/repository/
-    - key: MAVEN
-      paths:
-        - moving-objects-oauth-service/build/
-        - moving-objects-rest-service/build/
-        - moving-objects-gui/dist/
 
 .verify: &verify
   stage: test
