@@ -9,9 +9,9 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7ab2df0b62f74416ab97d2da2bf31013)](https://www.codacy.com/gl/jesperancinha/moving-objects-service-root/dashboard?utm_source=gitlab.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-service-root&amp;utm_campaign=Badge_Grade)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/914a88bd76324a05a67a63f72ae67055)](https://www.codacy.com/gl/jesperancinha/moving-objects-cams-service/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/moving-objects-cams-service&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/7ab2df0b62f74416ab97d2da2bf31013)](https://www.codacy.com/gl/jesperancinha/moving-objects-service-root/dashboard?utm_source=gitlab.com&utm_medium=referral&utm_content=jesperancinha/moving-objects-service-root&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/gitlab/jesperancinha/moving-objects-service-root/badge.svg?branch=main)](https://coveralls.io/gitlab/jesperancinha/moving-objects-service-root?branch=main)
-[![codecov](https://codecov.io/gl/jesperancinha/moving-objects-cams-service/branch/master/graph/badge.svg?token=RSKR33004G)](https://codecov.io/gl/jesperancinha/moving-objects-cams-service)
+[![codecov](https://codecov.io/gl/jesperancinha/moving-objects-service-root/branch/main/graph/badge.svg?token=6XDAT2GXGI)](https://codecov.io/gl/jesperancinha/moving-objects-service-root)
 
 ---
 
