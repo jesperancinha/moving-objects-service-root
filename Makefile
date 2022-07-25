@@ -7,9 +7,9 @@ build-npm:
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
-	cd moving-objects-gui && mkdir node_modules
+	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
 	cd moving-objects-gui && chmod 777 node_modules
-	cd e2e && mkdir node_modules
+	cd e2e && [ -d node_modules ] || mkdir node_modules
 	cd e2e && chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
 	chmod 777 moving-objects-gui
