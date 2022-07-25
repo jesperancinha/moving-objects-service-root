@@ -1,6 +1,5 @@
 services:
   - docker:dind
-  - docker:20.10.16-dind
 
 stages:
   - build

@@ -17,8 +17,7 @@ build-npm-docker:
 	touch e2e/yarn.lock
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
-	docker build . -t moving-objects-gui-image
-	docker run --name moving-objects-gui-build -v "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui -v "$(shell pwd)"/e2e:/opt/e2e -v "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules -v "$(shell pwd)"/e2e/node_modules:/opt/e2e/node_modules --entrypoint '/bin/sh' --user 1000:1000 moving-objects-gui-image -c 'cd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarn'
+	docker-compose up -d gui-builder
 wrapper:
 	gradle wrapper
 build-app:

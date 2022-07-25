@@ -90,6 +90,21 @@ services:
       retries: 10
       start_period: 0s
 
+  gui-builder:
+    container_name: moving-objects-gui-build
+    build:
+      context: .
+    volumes:
+      - "$(shell pwd)"/moving-objects-gui:/opt/moving-objects-gui
+      - "$(shell pwd)"/e2e:/opt/e2e
+      - "$(shell pwd)"/moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
+      - "$(shell pwd)"/e2e/node_modules:/opt/e2e/node_modules
+    user: "1000:1000"
+    command:
+      - "cd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarncd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarn"
+    networks:
+      - mos_net
+
 networks:
   mos_net:
     driver: bridge
