@@ -78,8 +78,8 @@ dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm-docker docker objects-wait
 dcup-action: dcd docker objects-wait
 report:
-	apt update
-	apt install npm
+	apt update -y
+	apt install npm -y
 	npm i -g yarn
 	npm install -g n
 	n stable
