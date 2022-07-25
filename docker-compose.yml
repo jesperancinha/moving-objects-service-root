@@ -100,8 +100,7 @@ services:
       - ./moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
       - ./e2e/node_modules:/opt/e2e/node_modules
     user: "1000:1000"
-    command:
-      - "cd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarncd /opt/moving-objects-gui && yarn && npm run build-docker && cd ../e2e && yarn"
+    entrypoint: ["cd", "/opt/moving-objects-gui", "&&", "yarn", "&&", "npm", "run", "build-docker", "&&", "cd", "../e2e", "&&", "yarn"]
     networks:
       - mos_net
 
