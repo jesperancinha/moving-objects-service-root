@@ -1,18 +1,8 @@
-# international-airports-rest-service
+# moving-objects-oauth-service
 
-## Build
+## References
 
-1. With OAuth:
-
-```shell
-gradle -Pprod build
-```
-
-2. Without OAutg:
-
-```shell
-gradle build
-```
+- [Implementing OAuth 2.0 access token validation with Spring Security](https://wkrzywiec.medium.com/implementing-oauth-2-0-access-token-validation-with-spring-security-64c797b42b36)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

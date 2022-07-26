@@ -9,6 +9,7 @@ import org.jesperancinha.objects.repository.ObjectsRepository;
 import org.jesperancinha.objects.repository.WebCamRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
         })
 @ExtendWith(SpringExtension.class)
+@Disabled
 public class MovingObjectsAggregatorServiceTestSource {
 
     @Autowired
@@ -66,6 +68,7 @@ public class MovingObjectsAggregatorServiceTestSource {
     }
 
     @Test
+    @Disabled
     public void testGetAirportByCode_whenCode_Get10Cameras() {
         val testCode = "AMS";
         val testRadius = 10L;
@@ -81,6 +84,7 @@ public class MovingObjectsAggregatorServiceTestSource {
     }
 
     @Test
+    @Disabled
     public void testGetAirportByCode_whenMonoCode_Get1Camera() {
         val testCode = "AMS";
         val testRadius = 10L;
