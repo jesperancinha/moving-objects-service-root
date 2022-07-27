@@ -13,13 +13,14 @@ import org.springframework.security.config.web.server.ServerHttpSecurity
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService
 import org.springframework.security.core.userdetails.User
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.oauth2.jwt.JwtEncoder
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder
 import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder
 import org.springframework.security.oauth2.server.resource.web.access.server.BearerTokenServerAccessDeniedHandler
 import org.springframework.security.oauth2.server.resource.web.server.BearerTokenServerAuthenticationEntryPoint
-import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.server.SecurityWebFilterChain
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository
 import java.security.interfaces.RSAPrivateKey
@@ -30,7 +31,7 @@ import java.security.interfaces.RSAPublicKey
  * Created by jofisaes on 27/07/2022
  */
 @Configuration
-class SecurityConfiguration (
+class SecurityConfiguration(
     @Value("\${objects.jwt.public.key}")
     var rsaPublicKey: RSAPublicKey,
 
@@ -57,20 +58,11 @@ class SecurityConfiguration (
 
             }.build()
 
-
     @Bean
-    fun userDetailsService(): MapReactiveUserDetailsService {
-        val user = User.withUsername("user")
-            .password("password")
-            .roles("USER")
-            .build()
-        return MapReactiveUserDetailsService(user)
+    fun authenticationManager(): ReactiveAuthenticationManager {
+        return UserDetailsRepositoryReactiveAuthenticationManager(userDetailsService())
     }
 
-    @Bean
-    fun authenticationManager(userDetailsService: MapReactiveUserDetailsService): ReactiveAuthenticationManager? {
-        return UserDetailsRepositoryReactiveAuthenticationManager(userDetailsService)
-    }
     @Bean
     fun jwtDecoder(): ReactiveJwtDecoder = NimbusReactiveJwtDecoder.withPublicKey(rsaPublicKey).build()
 
@@ -78,4 +70,18 @@ class SecurityConfiguration (
     fun jwtEncoder(): JwtEncoder =
         NimbusJwtEncoder(ImmutableJWKSet(JWKSet(RSAKey.Builder(rsaPublicKey).privateKey(rsaPrivateKey).build())))
 
+    @Bean
+    fun passwordEncoder(): PasswordEncoder{
+        return BCryptPasswordEncoder()
+    }
+
+    @Bean
+    fun userDetailsService(): MapReactiveUserDetailsService? {
+        val user = User.withDefaultPasswordEncoder()
+            .username("user")
+            .password("password")
+            .roles("USER")
+            .build()
+        return MapReactiveUserDetailsService(user)
+    }
 }
