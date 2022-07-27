@@ -50,3 +50,8 @@ node_modules
 
 # Logs
 logs
+
+# Security
+*.pem
+objects.private.key
+objects.public.key

@@ -7,6 +7,7 @@ build-npm:
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
+	bash generateCredentials.sh
 	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
 	cd moving-objects-gui && chmod 777 node_modules
 	cd e2e && [ -d node_modules ] || mkdir node_modules
@@ -24,13 +25,13 @@ wrapper:
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
-	cd moving-objects-oauth-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
 no-test:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
-	cd moving-objects-oauth-service && gradle wrapper && ./gradlew clean build -x test
+	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 upgrade:
 	gradle wrapper --gradle-version 7.4
 upgrade-mac-os:

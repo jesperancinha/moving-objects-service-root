@@ -2,13 +2,13 @@
 
 ## Build
 
-1. With OAuth:
+1. With OAuth2.0:
 
 ```shell
 gradle -Pprod build
 ```
 
-2. Without OAutg:
+2. Without OAuth2.0:
 
 ```shell
 gradle build

@@ -1,14 +1,14 @@
 version: "3.7"
 services:
-  moving-objects-oauth-service:
+  moving-objects-jwt-service:
     env_file:
       - .env
     environment:
       - MOS_DB_IP=${MOS_DB_IP}
-    hostname: moving-objects-oauth-service
-    container_name: moving-objects-oauth-service
+    hostname: moving-objects-jwt-service
+    container_name: moving-objects-jwt-service
     build:
-      context: moving-objects-oauth-service/.
+      context: moving-objects-jwt-service/.
     depends_on:
       - mosdb
     networks:

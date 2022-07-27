@@ -8,4 +8,4 @@ pluginManagement {
 
 rootProject.name = 'moving-objects-service-root'
 include ':moving-objects-rest-service'
-include ':moving-objects-oauth-service'
+include ':moving-objects-jwt-service'

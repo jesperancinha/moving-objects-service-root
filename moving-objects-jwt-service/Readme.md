@@ -1,4 +1,4 @@
-# moving-objects-oauth-service
+# moving-objects-jwt-service
 
 ## References
 

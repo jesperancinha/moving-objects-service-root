@@ -23,5 +23,5 @@ function checkServiceByNameAndMessage() {
 }
 
 checkServiceByNameAndMessage mosdb 'database system is ready to accept connections'
-checkServiceByNameAndMessage moving-objects-oauth-service 'Netty started on port'
+checkServiceByNameAndMessage moving-objects-jwt-service 'Netty started on port'
 checkServiceByNameAndMessage moving-objects-rest-service 'Netty started on port'
