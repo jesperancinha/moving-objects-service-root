@@ -18,11 +18,3 @@ class MovingObjectsJWTServiceApplication
 fun main(args: Array<String>) {
 	runApplication<MovingObjectsJWTServiceApplication>(*args)
 }
-
-
-@RestController
-@RequestMapping
-class Controller {
-	@GetMapping("/")
-	fun getWhat() = "what"
-}

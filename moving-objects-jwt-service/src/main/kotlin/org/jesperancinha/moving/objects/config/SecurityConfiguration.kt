@@ -45,6 +45,8 @@ class SecurityConfiguration(
             authorize
                 .pathMatchers("/objects/webjars/**")
                 .permitAll()
+                .pathMatchers("/objects/jwt/open/**")
+                .permitAll()
                 .anyExchange()
                 .authenticated()
         }

@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.oauth2.jwt.JwtClaimsSet
 import org.springframework.security.oauth2.jwt.JwtEncoder
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import java.time.Instant
@@ -35,4 +36,9 @@ class TokenController(
             .build()
         return encoder.encode(JwtEncoderParameters.from(claims)).tokenValue
     }
+
+    @GetMapping("/objects/jwt/open")
+    fun getWelcome() = "Welcome to the Objects Cameras Service Exercise!"
+    @GetMapping("/objects/jwt")
+    fun getProtectedTest() = "This should be protected!"
 }
