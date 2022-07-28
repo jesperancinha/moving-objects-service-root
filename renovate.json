@@ -26,7 +26,8 @@
       "groupName": "Angular Group",
       "matchPackagePrefixes": [
         "@angular/",
-        "@angular-devkit/"
+        "@angular-devkit/",
+        "ngx-markdown"
       ],
       "automerge": true
     },
