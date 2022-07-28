@@ -29,7 +29,7 @@ buildw:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
-no-test:
+no-test: objects-wait
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 upgrade:
@@ -75,9 +75,9 @@ objects-wait:
 dcd:
 	pwd
 	docker-compose down --remove-orphans
-dcup: dcd docker-clean docker objects-wait
-dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
-dcup-action: dcd docker objects-wait
+dcup: dcd docker-clean docker
+dcup-full-action: dcd docker-clean no-test build-npm docker
+dcup-action: dcd docker
 report:
 	apt update -y
 	apt install npm -y
