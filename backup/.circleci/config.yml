@@ -15,7 +15,7 @@ jobs:
 
   build-yarn:
     docker:
-      - image: cimg/node:18.4.0
+      - image: cimg/node:18.7.0
     working_directory: ~/repo
     steps:
       - checkout
