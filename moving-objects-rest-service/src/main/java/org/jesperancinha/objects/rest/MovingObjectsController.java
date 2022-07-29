@@ -12,11 +12,11 @@ import static reactor.core.publisher.Flux.from;
 
 @RestController
 @RequestMapping("airports")
-public class MovingObjectsControllerImpl {
+public class MovingObjectsController {
 
     private final ObjectsService objectsService;
 
-    public MovingObjectsControllerImpl(ObjectsService objectsService) {
+    public MovingObjectsController(ObjectsService objectsService) {
         this.objectsService = objectsService;
     }
 

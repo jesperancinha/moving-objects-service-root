@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("webcams")
-public class WebCamControllerImpl {
+public class InfoController {
 
     private final org.jesperancinha.objects.service.WebCamService webCamService;
 
-    public WebCamControllerImpl(WebCamService webCamService) {
+    public InfoController(WebCamService webCamService) {
         this.webCamService = webCamService;
     }
 
