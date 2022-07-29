@@ -4,7 +4,6 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
-import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -36,6 +35,7 @@ class MovingObjectService(
 ) {
 
 }
+
 @Service
 class InfoObjectService(
     val infoObjectRepository: InfoObjectRepository

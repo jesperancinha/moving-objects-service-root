@@ -78,6 +78,8 @@ dcd:
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
 dcup-action: dcd docker objects-wait
+dcup-light: dcd
+	docker-compose up -d mosdb
 report:
 	apt update -y
 	apt install npm -y

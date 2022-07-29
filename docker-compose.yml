@@ -30,7 +30,7 @@ services:
 
   prometheus:
     hostname: prometheus
-    container_name: ias-prometheus
+    container_name: prometheus
     build:
       context: docker-files/prometheus/.
     networks:
@@ -39,7 +39,7 @@ services:
 
   grafana:
     hostname: grafana
-    container_name: ias-grafana
+    container_name: grafana
     build:
       context: docker-files/grafana/.
     networks:
@@ -48,7 +48,7 @@ services:
 
   influxdb:
     hostname: influxdb
-    container_name: ias-influxdb
+    container_name: influxdb
     build:
       context: docker-files/influxdb/.
     networks:
