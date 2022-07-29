@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping
 class ObjectsController {
-    @GetMapping("/objects/jwt/open")
+    @GetMapping("/jwt/open")
     fun getWelcome() = "Welcome to the Objects Cameras Service Exercise!"
 
-    @GetMapping("/objects/jwt")
+    @GetMapping("/jwt")
     fun getProtectedTest() = "This should be protected!"
 }

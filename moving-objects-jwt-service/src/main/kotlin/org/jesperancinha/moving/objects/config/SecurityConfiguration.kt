@@ -43,9 +43,11 @@ class SecurityConfiguration(
     fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain =
         http.authorizeExchange { authorize ->
             authorize
-                .pathMatchers("/objects/webjars/**")
+                .pathMatchers("/webjars/**")
                 .permitAll()
-                .pathMatchers("/objects/jwt/open/**")
+                .pathMatchers("/jwt/open/**")
+                .permitAll()
+                .pathMatchers("/v3/**")
                 .permitAll()
                 .anyExchange()
                 .authenticated()
