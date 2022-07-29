@@ -13,6 +13,7 @@ data class MovingObject(
     @Column("name") val name: String,
     @Column("code") val code: String,
     @Column("folder") val folder: String,
+    @Column("url") val url: String,
     @Column("x") val x: Int,
     @Column("y") val y: Int
 )
@@ -33,6 +34,7 @@ interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String>
 class MovingObjectService(
     val movingObjectRepository: MovingObjectRepository
 ) {
+    fun getAll() = movingObjectRepository.findAll()
 
 }
 
