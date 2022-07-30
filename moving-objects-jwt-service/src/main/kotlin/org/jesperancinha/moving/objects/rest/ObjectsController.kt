@@ -1,9 +1,11 @@
 package org.jesperancinha.moving.objects.rest
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jesperancinha.moving.objects.domain.MovingObjectService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.MediaType
+import org.springframework.web.bind.annotation.*
+
 
 /**
  * Created by jofisaes on 29/07/2022
@@ -24,4 +26,17 @@ class ObjectsController(
 
     @GetMapping("/all")
     fun getAllProtected() = movingObjectsService.getAll()
+
+    @GetMapping(value = ["/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
+    @ResponseBody
+    suspend fun getImage(
+        @RequestParam("code")
+        code: String
+    ): ByteArray? {
+        return withContext(Dispatchers.IO) {
+            javaClass
+                .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+
+        }
+    }
 }
