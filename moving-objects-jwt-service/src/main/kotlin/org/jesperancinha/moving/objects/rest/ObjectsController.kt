@@ -30,7 +30,7 @@ class ObjectsController(
     @GetMapping(value = ["/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
     @ResponseBody
     suspend fun getImage(
-        @RequestParam("code")
+        @PathVariable("code")
         code: String
     ): ByteArray? {
         return withContext(Dispatchers.IO) {
