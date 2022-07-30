@@ -29,6 +29,18 @@ class ObjectsController(
 
     @GetMapping(value = ["/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
     @ResponseBody
+    suspend fun getImageProtected(
+        @PathVariable("code")
+        code: String
+    ): ByteArray? {
+        return withContext(Dispatchers.IO) {
+            javaClass
+                .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+
+        }
+    }
+    @GetMapping(value = ["/jwt/open//camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
+    @ResponseBody
     suspend fun getImage(
         @PathVariable("code")
         code: String
