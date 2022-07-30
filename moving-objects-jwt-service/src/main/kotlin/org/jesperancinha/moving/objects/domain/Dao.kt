@@ -5,10 +5,16 @@ import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Service
+import java.nio.file.Files
+import java.nio.file.Files.*
+import java.nio.file.Paths
 import java.time.LocalDateTime
 import java.util.*
 import kotlin.io.path.absolute
+import kotlin.io.path.absolutePathString
+import kotlin.io.path.name
 import kotlin.io.path.toPath
+import kotlin.math.absoluteValue
 
 @Table
 data class MovingObject(
@@ -45,15 +51,22 @@ class MovingObjectService(
         movingObjectRepository.findByCode(code)
             .let { mo ->
                 "/${mo.folder}"
-                    .let {
+                    .let { resourcePath ->
                         val root = javaClass.getResource("/")?.toURI()?.toPath()
+                        val resource = javaClass.getResource(resourcePath)
+                        print(resource)
                         val allImages =
-                            javaClass.getResource(it)?.toURI()?.toPath()?.filter { file -> file.endsWith("jpg") }
+                            walk(resource?.toURI()?.toPath()).use { paths ->
+                                val filter = paths
+                                    .sorted()
+                                    .filter { it.name.endsWith("jpg") }
+                                filter.toList()
+                            }
                         val countImages = allImages?.size ?: 0
-                        val delta = 60 / countImages
-                        val currentMinute = LocalDateTime.now().minute
-                        val index = currentMinute / delta
-                        root?.let { it1 -> allImages?.get(index)?.relativize(it1) }
+                        val delta = (10 / countImages.toDouble())
+                        val currentMinute = LocalDateTime.now().minute.toString().last().digitToInt()
+                        val index = (((currentMinute + 1) / delta).toInt()).absoluteValue - 1
+                        allImages?.get(index)?.let { "/${mo.folder}/${it.name}" }
                     }
             }
 }
