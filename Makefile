@@ -19,6 +19,8 @@ build-npm-docker:
 	chmod 777 e2e/yarn.lock
 	docker-compose build gui-builder
 	docker-compose up gui-builder
+test:
+	 ./gradlew test
 wrapper:
 	gradle wrapper
 build-app:
@@ -28,8 +30,9 @@ buildw:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
-no-test:
+generate-credentials:
 	bash generateCredentials.sh
+no-test: generate-credentials
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 upgrade:

@@ -57,7 +57,8 @@ qa:
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
   script:
-    - gradle test
+    - make generate-credentials
+    - make test
   needs:
     - build
       
