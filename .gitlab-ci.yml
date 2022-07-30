@@ -134,6 +134,7 @@ coverage:
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
   script:
+    - make generate-credentials
     - ./gradlew clean build test jacocoTestReport -i
   only:
     - main
