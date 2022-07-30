@@ -90,3 +90,5 @@ report:
 	n stable
 	cd moving-objects-gui && yarn && yarn add jest && npm run coverage
 	make buildw && gradle -i
+report-coverage:
+	 ./gradlew clean build test jacocoTestReport -i

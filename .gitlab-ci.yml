@@ -135,7 +135,7 @@ coverage:
         - moving-objects-gui/dist/
   script:
     - make generate-credentials
-    - ./gradlew clean build test jacocoTestReport -i
+    - make report-coverage
   only:
     - main
   needs:
