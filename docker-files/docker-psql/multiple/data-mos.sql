@@ -16,3 +16,20 @@ insert into mos.mos.moving_object (id, "name", code, folder, url,x,y)
 values (gen_random_uuid(), 'snail', 'SNA', 'snail', 'http://moving-objects-jwt-service:8080/objects/camera/sna',1,7);
 insert into mos.mos.moving_object (id, "name", code, folder, url,x,y)
 values (gen_random_uuid(), 'tomato', 'TOM', 'tomato', 'http://moving-objects-jwt-service:8080/objects/camera/tom',0,1);
+
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 2, 'white', 'GAR');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 4, 'green', 'LAU');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 2, 'lemon', 'LEM');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 4, 'gold', 'ONI');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 10, 'orange', 'PUM');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 5, 'purple', 'RED');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 1, 'brown', 'SNA');
+insert into mos.mos.info_object(id, size, color, code)
+values (gen_random_uuid(), 2, 'red','TOM');

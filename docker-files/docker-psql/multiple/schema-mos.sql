@@ -15,5 +15,6 @@ create table if not exists mos.info_object(
     id UUID,
     "size" INT,
     color VARCHAR ( 255 ) UNIQUE NOT NULL,
+    code VARCHAR ( 50 ) NOT NULL,
     PRIMARY KEY (id)
 );
