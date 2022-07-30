@@ -39,7 +39,7 @@ class ObjectsController(
 
         }
     }
-    @GetMapping(value = ["/jwt/open//camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
+    @GetMapping(value = ["/jwt/open/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
     @ResponseBody
     suspend fun getImage(
         @PathVariable("code")
