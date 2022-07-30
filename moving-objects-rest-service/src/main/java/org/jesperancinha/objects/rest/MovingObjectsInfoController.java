@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("airportwebcams")
+@RequestMapping("objectswebcams")
 public class MovingObjectsInfoController {
 
     private final ObjectsAggregatorService objectsAggregatorService;

@@ -2,6 +2,7 @@
 
 ## References
 
+- [Sprint JWT Example - GitHub](https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/jwt/login)
 - [Implementing OAuth 2.0 access token validation with Spring Security](https://wkrzywiec.medium.com/implementing-oauth-2-0-access-token-validation-with-spring-security-64c797b42b36)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈

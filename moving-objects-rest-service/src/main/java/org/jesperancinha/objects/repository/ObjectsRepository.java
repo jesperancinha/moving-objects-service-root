@@ -1,26 +1,26 @@
 package org.jesperancinha.objects.repository;
 
+import org.jesperancinha.objects.config.JwtClient;
 import org.jesperancinha.objects.domain.MovingObjectSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
 public class ObjectsRepository {
 
-    @Value("${org.jesperancinha.airport.airports:http://localhost:8080/airports}")
+    @Value("${org.jesperancinha.objects.moving}")
     private String airportEndpoint;
 
-    private final WebClient webClient;
+    private final JwtClient jwtClient;
 
-    public ObjectsRepository(WebClient webClient) {
-        this.webClient = webClient;
+    public ObjectsRepository(JwtClient jwtClient) {
+        this.jwtClient = jwtClient;
     }
 
     public Mono<MovingObjectSource> findObjectsByCode(final String codeId) {
-        return webClient.get()
+        return jwtClient.get()
                 .uri(airportEndpoint + "/code/{codeId}", codeId)
                 .retrieve()
                 .bodyToMono(MovingObjectSource.class);
@@ -28,7 +28,7 @@ public class ObjectsRepository {
 
     public Flux<MovingObjectSource> findObjectsBySearchTerm(final String searchTerm) {
 
-        return webClient.get()
+        return jwtClient.get()
                 .uri(airportEndpoint + "/search/{codeId}", searchTerm)
                 .retrieve()
                 .bodyToFlux(MovingObjectSource.class);

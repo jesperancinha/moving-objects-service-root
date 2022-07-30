@@ -1,38 +1,44 @@
 package org.jesperancinha.objects.rest;
 
-import org.jesperancinha.objects.dto.MovingObjectDto;
-import org.jesperancinha.objects.service.ObjectsService;
+import org.jesperancinha.objects.dto.WebCamDto;
+import org.jesperancinha.objects.service.WebCamService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
-import static reactor.core.publisher.Flux.from;
+import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("airports")
+@RequestMapping("webcams")
 public class MovingObjectsController {
 
-    private final ObjectsService objectsService;
+    private final WebCamService webCamService;
 
-    public MovingObjectsController(ObjectsService objectsService) {
-        this.objectsService = objectsService;
+    public MovingObjectsController(WebCamService webCamService) {
+        this.webCamService = webCamService;
     }
 
-    @GetMapping("/term/{term}")
-    public Flux<MovingObjectDto> getMovingObjectsBySearchTerm(
+    @GetMapping("/page/{pageSize}/{pageOffset}")
+    public Flux<WebCamDto> getCamsByPageSizeAndPageOffset(
             @PathVariable
-            final String term
+            final int pageSize,
+            @PathVariable
+            final int pageOffset
     ) {
-        return objectsService.getObjectsByTerm(term);
+        return webCamService.getCamsByPageSizeAndPageOffset(pageSize, pageOffset);
     }
 
-    @GetMapping("/code/{code}")
-    public Flux<MovingObjectDto> getObjectsByCode(
+    @GetMapping("/location/{x}/{y}/{radius}")
+    public Flux<WebCamDto> getCamsByLocationAndRadius(
             @PathVariable
-            final String code
+            final BigDecimal x,
+            @PathVariable
+            final BigDecimal y,
+            @PathVariable
+            final long radius
     ) {
-        return from(objectsService.getObjectsByCode(code));
+        return webCamService.getCamsByLocationAndRadius(x, y, radius);
     }
 }

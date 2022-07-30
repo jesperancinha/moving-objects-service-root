@@ -11,7 +11,7 @@ public class ObjectsAggregatorService {
 
     private final ObjectsService objectsService;
 
-    private final org.jesperancinha.objects.service.WebCamService webCamService;
+    private final WebCamService webCamService;
 
     public ObjectsAggregatorService(ObjectsService objectsService, WebCamService webCamService) {
         this.objectsService = objectsService;

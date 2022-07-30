@@ -47,7 +47,7 @@ class SecurityConfiguration(
                 .permitAll()
                 .pathMatchers("/info/jwt/open/**")
                 .permitAll()
-                .pathMatchers("/jwt/open/**")
+                .pathMatchers("/webcams/jwt/open/**")
                 .permitAll()
                 .pathMatchers("/v3/**")
                 .permitAll()

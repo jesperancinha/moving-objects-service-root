@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
  * Created by jofisaes on 29/07/2022
  */
 @RestController
-@RequestMapping
+@RequestMapping("/webcams")
 class ObjectsController(
     val movingObjectsService: MovingObjectService
 ) {

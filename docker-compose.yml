@@ -13,7 +13,7 @@ services:
       - mosdb
     networks:
       mos_net:
-        ipv4_address: ${MOS_AIRPORTS_OAUTH_IP}
+        ipv4_address: ${MOS_OBJECTS_JWT_IP}
 
   moving-objects-rest-service:
     env_file:
@@ -26,7 +26,7 @@ services:
       - mosdb
     networks:
       mos_net:
-        ipv4_address: ${MOS_AIRPORTS_IP}
+        ipv4_address: ${MOS_OBJECTS_IP}
 
   prometheus:
     hostname: prometheus
