@@ -45,6 +45,8 @@ class SecurityConfiguration(
             authorize
                 .pathMatchers("/webjars/**")
                 .permitAll()
+                .pathMatchers("/info/jwt/open/**")
+                .permitAll()
                 .pathMatchers("/jwt/open/**")
                 .permitAll()
                 .pathMatchers("/v3/**")

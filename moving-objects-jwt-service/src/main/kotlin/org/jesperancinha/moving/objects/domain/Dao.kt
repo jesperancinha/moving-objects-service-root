@@ -42,5 +42,5 @@ class MovingObjectService(
 class InfoObjectService(
     val infoObjectRepository: InfoObjectRepository
 ) {
-
+    fun getAll() = infoObjectRepository.findAll()
 }
