@@ -64,7 +64,9 @@ update:
 audit:
 	cd moving-objects-gui && npm audit fix && yarn
 cypress-open:
-	cd e2e && yarn && npm run cypress
+	cd e2e && make cypress-open
+cypress-open-docker:
+	cd e2e && make cypress-open-docker
 cypress-electron:
 	cd e2e && make cypress-electron
 cypress-chrome:
@@ -92,3 +94,5 @@ report:
 	make buildw && gradle -i
 report-coverage:
 	 ./gradlew clean build test jacocoTestReport -i
+docker-stats:
+	docker stats --all

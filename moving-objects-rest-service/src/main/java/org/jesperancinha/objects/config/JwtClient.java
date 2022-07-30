@@ -12,12 +12,10 @@ public class JwtClient {
     private String token;
 
     private final WebClient webClient;
-    private final String objectsTokenEndpoint;
 
     public JwtClient(
             @Value("${org.jesperancinha.objects.token}")
             String objectsTokenEndpoint) {
-        this.objectsTokenEndpoint = objectsTokenEndpoint;
         this.webClient = WebClient.builder()
                 .build();
         webClient.post()

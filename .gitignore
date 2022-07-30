@@ -55,3 +55,7 @@ logs
 *.pem
 objects.private.key
 objects.public.key
+
+# cypress
+videos
+screenshots

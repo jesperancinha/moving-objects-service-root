@@ -3,27 +3,59 @@ services:
   e2e-electron:
     image: "cypress/included:10.3.1"
     working_dir: /e2e
-    command: "--browser electron --env host=nginx"
+    command: "--browser electron --env host=192.168.0.15,port=80"
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M
     volumes:
       - ./e2e:/e2e
+    networks:
+      - mos_net
 
   e2e-chrome:
     image: "cypress/included:10.3.1"
     working_dir: /e2e
-    command: "--browser chrome --env host=nginx"
+    command: "--browser chrome --env host=192.168.0.15,port=80"
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M
     volumes:
       - ./e2e:/e2e
+    networks:
+      - mos_net
 
   e2e-firefox:
     image: "cypress/included:10.3.1"
     working_dir: /e2e
-    command: "--browser firefox --env host=nginx"
+    command: "--browser firefox --env host=192.168.0.15,port=80"
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M
     volumes:
       - ./e2e:/e2e
+    networks:
+      - mos_net
 
   e2e-edge:
     image: "cypress/included:10.3.1"
     working_dir: /e2e
-    command: "--browser edge --env host=nginx"
+    command: "--browser edge --env host=192.168.0.15,port=80"
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M
     volumes:
       - ./e2e:/e2e
+    networks:
+      - mos_net

@@ -4,7 +4,6 @@ import org.jesperancinha.objects.config.JwtClient;
 import org.jesperancinha.objects.domain.WebCamSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
 import java.math.BigDecimal;
@@ -13,7 +12,7 @@ import java.math.BigDecimal;
 public class WebCamRepository {
 
     @Value("${org.jesperancinha.objects.webcams}")
-    private String endpointWebCams;
+    private String webCamsEndpoint;
 
     public WebCamRepository(JwtClient jwtClient) {
         this.jwtClient = jwtClient;
@@ -23,15 +22,15 @@ public class WebCamRepository {
 
     public Flux<WebCamSource> findCamsByPageSizeAndPageOffset(int pageSize, int pageOffSet) {
         return jwtClient.get()
-                .uri(endpointWebCams + "/page/{originCode}/{destinationCode}", pageSize, pageOffSet)
+                .uri(webCamsEndpoint + "/page/{originCode}/{destinationCode}", pageSize, pageOffSet)
 
                 .retrieve()
                 .bodyToFlux(WebCamSource.class);
     }
 
-    public Flux<WebCamSource> findCamsByLocationAndRadius(BigDecimal latitude, BigDecimal longitude, Long radius) {
+    public Flux<WebCamSource> findCamsByLocationAndRadius(BigDecimal x, BigDecimal y, Long radius) {
         return jwtClient.get()
-                .uri(endpointWebCams + "/location/{latitude}/{longitude}/{radius}", latitude, longitude, radius)
+                .uri(webCamsEndpoint + "/location/{x}/{y}/{radius}", x, y, radius)
                 .retrieve()
                 .bodyToFlux(WebCamSource.class);
     }

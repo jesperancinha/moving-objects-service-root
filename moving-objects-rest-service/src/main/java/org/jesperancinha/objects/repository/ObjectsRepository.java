@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 public class ObjectsRepository {
 
     @Value("${org.jesperancinha.objects.moving}")
-    private String airportEndpoint;
+    private String movingObjectsEndpoint;
 
     private final JwtClient jwtClient;
 
@@ -21,7 +21,7 @@ public class ObjectsRepository {
 
     public Mono<MovingObjectSource> findObjectsByCode(final String codeId) {
         return jwtClient.get()
-                .uri(airportEndpoint + "/code/{codeId}", codeId)
+                .uri(movingObjectsEndpoint + "/code/{codeId}", codeId)
                 .retrieve()
                 .bodyToMono(MovingObjectSource.class);
     }
@@ -29,7 +29,7 @@ public class ObjectsRepository {
     public Flux<MovingObjectSource> findObjectsBySearchTerm(final String searchTerm) {
 
         return jwtClient.get()
-                .uri(airportEndpoint + "/search/{codeId}", searchTerm)
+                .uri(movingObjectsEndpoint + "/search/{codeId}", searchTerm)
                 .retrieve()
                 .bodyToFlux(MovingObjectSource.class);
     }
