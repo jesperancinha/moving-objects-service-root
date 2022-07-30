@@ -14,7 +14,7 @@ create table if not exists mos.moving_object(
 create table if not exists mos.info_object(
     id UUID,
     "size" INT,
-    color VARCHAR ( 255 ) UNIQUE NOT NULL,
+    color VARCHAR ( 255 ) NOT NULL,
     code VARCHAR ( 50 ) NOT NULL,
     PRIMARY KEY (id)
 );

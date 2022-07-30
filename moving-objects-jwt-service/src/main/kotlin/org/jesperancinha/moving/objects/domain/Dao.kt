@@ -23,7 +23,7 @@ data class InfoObject(
     @Id val id: UUID? = null,
     @Column("code") val code: String,
     @Column("size") val x: Int,
-    @Column("color") val y: Int
+    @Column("color") val color: String
 )
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String>
