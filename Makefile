@@ -50,6 +50,8 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
 docker:
 	docker-compose up -d --build --remove-orphans
+docker-action:
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d --build --remove-orphans
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
@@ -80,7 +82,7 @@ dcd:
 	docker-compose down --remove-orphans
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
-dcup-action: dcd docker objects-wait
+dcup-action: dcd docker-action objects-wait
 dcup-light: dcd
 	docker-compose up -d mosdb
 report:
