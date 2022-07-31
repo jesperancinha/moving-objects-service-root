@@ -22,7 +22,7 @@ public class ObjectsAggregatorService {
         return objectsService.getObjectsByTerm(term)
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)
+                    return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
                 .flatMap(Flux::share)
@@ -37,7 +37,7 @@ public class ObjectsAggregatorService {
         return Flux.from(objectsService.getObjectsByCode(code))
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
-                    return webCamService.getCamsByLocationAndRadius(coordinates.latitude(), coordinates.longitude(), radius)
+                    return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
                 .flatMap(Flux::share)

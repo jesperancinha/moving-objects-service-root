@@ -6,6 +6,7 @@ import org.jesperancinha.moving.objects.domain.MovingObject
 import org.jesperancinha.moving.objects.domain.MovingObjectService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 
 
 /**
@@ -34,8 +35,8 @@ class ObjectsController(
         @PathVariable("code")
         code: String
     ): ByteArray? = withContext(Dispatchers.IO) {
-            javaClass
-                .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+        javaClass
+            .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
     }
 
     @GetMapping(value = ["/jwt/open/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
@@ -44,16 +45,25 @@ class ObjectsController(
         @PathVariable("code")
         code: String
     ): ByteArray? = withContext(Dispatchers.IO) {
-            javaClass
-                .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+        javaClass
+            .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
     }
 
     @GetMapping("/page/{pageSize}/{pageOffSet}")
     @ResponseBody
-    suspend fun getPageBySizeAndOffSet(
+    fun getPageBySizeAndOffSetProtected(
         @PathVariable("pageSize")
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): MutableList<MovingObject> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Flux<MovingObject> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+
+    @GetMapping("/jwt/open/page/{pageSize}/{pageOffSet}")
+    @ResponseBody
+    fun getPageBySizeAndOffSet(
+        @PathVariable("pageSize")
+        pageSize: Int,
+        @PathVariable("pageOffSet")
+        pageOffSet: Int
+    ): Flux<MovingObject> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 }

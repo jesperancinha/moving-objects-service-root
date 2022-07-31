@@ -45,6 +45,10 @@ build:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
   script:
     - make no-test
     - make build-npm-docker
@@ -57,6 +61,8 @@ qa:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
   script:
     - make generate-credentials
     - make test
@@ -76,6 +82,8 @@ mos-electron-e2e:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
   allow_failure: true
   timeout: 10m
 
@@ -92,6 +100,8 @@ mos-chrome-e2e:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
 
 mos-firefox-e2e:
   image: node:18
@@ -106,6 +116,8 @@ mos-firefox-e2e:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
 
 mos-edge-e2e:
   image: node:18
@@ -120,6 +132,8 @@ mos-edge-e2e:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
 
 coverage:
   image: gradle:7.5.0-jdk17
@@ -129,6 +143,8 @@ coverage:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
   script:
     - make generate-credentials
     - make report-coverage
@@ -136,6 +152,10 @@ coverage:
     - main
   needs:
     - build
+    - mos-edge-e2e
+    - mos-chrome-e2e
+    - mos-firefox-e2e
+    - mos-electron-e2e
 
 reporting:
   image: gradle:7.5.0-jdk17
@@ -145,16 +165,14 @@ reporting:
         - moving-objects-jwt-service/build/
         - moving-objects-rest-service/build/
         - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
   script:
     - make report
   only:
     - main
   needs:
     - coverage
-    - mos-edge-e2e
-    - mos-chrome-e2e
-    - mos-firefox-e2e
-    - mos-electron-e2e
 
 update-dependencies:
   image: renovate/renovate

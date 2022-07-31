@@ -1,12 +1,13 @@
 package org.jesperancinha.moving.objects.domain
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Service
+import reactor.core.publisher.Flux
 import java.nio.file.Files.walk
 import java.time.LocalDateTime
 import java.util.*
@@ -35,7 +36,7 @@ data class InfoObject(
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String> {
     suspend fun findByCode(code: String): MovingObject
-    suspend fun findAll(pageable: Pageable): Page<MovingObject>
+    fun findAllBy(pageable: Pageable): Flux<MovingObject>
 }
 
 interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String>
@@ -69,10 +70,8 @@ class MovingObjectService(
                     }
             }
 
-    suspend fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): MutableList<MovingObject> {
-        val pageable = Pageable.ofSize(pageSize)
-        return movingObjectRepository.findAll(pageable = pageable).toList()
-    }
+    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<MovingObject> =
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize))
 }
 
 @Service

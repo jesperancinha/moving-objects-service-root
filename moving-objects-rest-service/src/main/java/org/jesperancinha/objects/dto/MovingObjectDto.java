@@ -5,7 +5,7 @@ import lombok.Builder;
 
 import java.util.List;
 
-public record MovingObjectDto(String code, String name, CoordinatesDto coordinates, List<WebCamDto> webCams) {
+public record MovingObjectDto(String name, String code, String color, Integer size, CoordinatesDto coordinates, List<WebCamDto> webCams) {
     @JsonbCreator
     @Builder
     public MovingObjectDto {

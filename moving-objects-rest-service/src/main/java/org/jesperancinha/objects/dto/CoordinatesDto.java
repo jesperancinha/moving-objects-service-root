@@ -6,7 +6,7 @@ import lombok.Builder;
 
 import java.math.BigDecimal;
 
-public record CoordinatesDto(BigDecimal latitude, BigDecimal longitude) {
+public record CoordinatesDto(BigDecimal x, BigDecimal y) {
     @JsonbCreator
     @Builder
     public CoordinatesDto {
