@@ -65,4 +65,13 @@ class ObjectsController(
         @PathVariable("pageOffSet")
         pageOffSet: Int
     ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+
+    @GetMapping("/jwt/open/page/coroutines/{pageSize}/{pageOffSet}")
+    @ResponseBody
+    fun getPageBySizeAndOffSetWithCoroutines(
+        @PathVariable("pageSize")
+        pageSize: Int,
+        @PathVariable("pageOffSet")
+        pageOffSet: Int
+    ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
 }

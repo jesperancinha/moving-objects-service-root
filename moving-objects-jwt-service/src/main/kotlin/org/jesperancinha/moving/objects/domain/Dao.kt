@@ -77,6 +77,8 @@ class MovingObjectService(
 
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+    fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Mono<Page> =
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 }
 
 @Service

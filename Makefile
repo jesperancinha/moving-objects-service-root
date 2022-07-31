@@ -50,8 +50,8 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
 docker:
 	docker-compose up -d --build --remove-orphans
-docker-action:
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d --build --remove-orphans
+docker-action: build-npm-docker
+	docker-compose -f docker-compose.yml up -d --build --remove-orphans
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
