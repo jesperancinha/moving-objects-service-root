@@ -63,7 +63,7 @@ qa:
         - moving-objects-gui/coverage/
   script:
     - make generate-credentials
-#    - make test
+    - make test
   needs:
     - build
 

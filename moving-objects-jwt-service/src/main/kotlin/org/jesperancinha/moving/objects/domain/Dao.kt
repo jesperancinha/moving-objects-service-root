@@ -21,7 +21,6 @@ import kotlin.math.absoluteValue
 @Table
 data class MovingObject(
     @Id val id: UUID? = null,
-    @Column("name") val name: String,
     @Column("code") val code: String,
     @Column("folder") val folder: String,
     @Column("url") val url: String,
@@ -34,8 +33,9 @@ data class MovingObject(
 @Table
 data class InfoObject(
     @Id val id: UUID? = null,
+    @Column("name") val name: String,
     @Column("code") val code: String,
-    @Column("size") val x: Int,
+    @Column("size") val size: Int,
     @Column("color") val color: String
 )
 
@@ -79,6 +79,7 @@ class MovingObjectService(
 
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+
     fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Mono<Page> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 }
@@ -88,9 +89,17 @@ class InfoObjectService(
     val infoObjectRepository: InfoObjectRepository
 ) {
     fun getAll() = infoObjectRepository.findAll()
-    suspend fun getByCodeId(codeId: String): MovingObjectSource  {
-        TODO()
-    }
+
+    suspend fun getByCodeId(codeId: String): MovingObjectSource =
+        infoObjectRepository.findByCode(codeId).let {
+            MovingObjectSource(
+                name = it.name,
+                code = codeId,
+                city = "Olhão",
+                size = it.size,
+                color = it.color
+            )
+        }
 }
 
 /**
@@ -133,7 +142,6 @@ suspend fun kotlinx.coroutines.flow.Flow<MovingObject>.toPage(pageSize: Int, pag
 val MovingObject.toMovingObjectSource
     get() = MovingObjectSource(
         code = this.code,
-        name = this.name,
         city = "Olhão",
         themeList = emptyList(),
         coordinates = CoordinateSource(
@@ -143,7 +151,6 @@ val MovingObject.toMovingObjectSource
         pointsOfSale = emptyList(),
         webCamSources = listOf(
             WebCamSource(
-                this.name,
                 coordinate = CoordinateSource(
                     x = this.x.toBigDecimal(),
                     y = this.y.toBigDecimal()

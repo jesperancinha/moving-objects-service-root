@@ -15,7 +15,7 @@ data class WebCamImageSource(
 )
 
 data class WebCamSource(
-    val title: String,
+    val title: String? = null,
     val coordinate: CoordinateSource,
     val wikiInfo: String,
     val active: Boolean,
@@ -24,12 +24,14 @@ data class WebCamSource(
 
 data class MovingObjectSource(
     val code: String,
-    val name: String,
+    val name: String? = null,
     val city: String,
-    val themeList: List<String>,
-    val coordinates: CoordinateSource,
-    val pointsOfSale: List<String>,
-    val webCamSources: List<WebCamSource>
+    val color: String? = null,
+    val size: Int = -1,
+    val themeList: List<String> = emptyList(),
+    val coordinates: CoordinateSource? = null,
+    val pointsOfSale: List<String> = emptyList(),
+    val webCamSources: List<WebCamSource> = emptyList()
 )
 
 data class MovingObjects(val movingObjects: MutableList<MovingObjectSource>)
