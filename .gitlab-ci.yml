@@ -47,8 +47,6 @@ build:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
-        - moving-objects-gui/node_modules/
-        - moving-objects-gui/coverage/
   script:
     - make no-test
     - make build-npm-docker

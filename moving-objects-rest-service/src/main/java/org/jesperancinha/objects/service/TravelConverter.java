@@ -48,8 +48,8 @@ public class TravelConverter {
 
     private static CoordinatesDto toCoordinatesDto(final CoordinateSource coordinateSource) {
         return CoordinatesDto.builder()
-                .latitude(coordinateSource.x())
-                .longitude(coordinateSource.y())
+                .x(coordinateSource.x())
+                .y(coordinateSource.y())
                 .build();
     }
 }
