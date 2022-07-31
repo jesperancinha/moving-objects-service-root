@@ -51,7 +51,7 @@ docker-delete: stop
 docker:
 	docker-compose up -d --build --remove-orphans
 docker-action: build-npm-docker
-	docker-compose -f docker-compose.yml up -d --build --remove-orphans
+	docker-compose -f docker-compose.yml up -d
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
@@ -80,9 +80,11 @@ objects-wait:
 	bash objects_wait.sh
 dcd:
 	docker-compose down --remove-orphans
+dcp:
+	docker-compose stop
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
-dcup-action: dcd docker-action objects-wait
+dcup-action: dcp docker-action objects-wait
 dcup-light: dcd
 	docker-compose up -d mosdb
 report:

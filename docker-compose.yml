@@ -96,11 +96,6 @@ services:
     networks:
       mos_net:
         ipv4_address: ${MOS_NGINX_IP}
-    volumes:
-      - ./moving-objects-gui:/opt/moving-objects-gui
-      - ./e2e:/opt/e2e
-      - ./moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
-      - ./e2e/node_modules:/opt/e2e/node_modules
     deploy:
       resources:
         limits:
