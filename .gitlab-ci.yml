@@ -64,6 +64,7 @@ qa:
   script:
     - make generate-credentials
     - make test
+    - make build-npm-docker
   needs:
     - build
 
