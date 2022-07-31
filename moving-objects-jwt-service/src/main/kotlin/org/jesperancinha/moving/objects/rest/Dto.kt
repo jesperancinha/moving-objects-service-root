@@ -32,12 +32,12 @@ data class MovingObjectSource(
     val webCamSources: List<WebCamSource>
 )
 
-data class MovingObjects(val movingObjects: List<MovingObjectSource>)
+data class MovingObjects(val movingObjects: MutableList<MovingObjectSource>)
 
 data class Page(
     val pageSize: Int,
     val totalElements: Int,
     val pageNumber: Int,
-    val totalPages: Int,
+    var totalPages: Int,
     val movingObjects: MovingObjects
 )

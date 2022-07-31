@@ -1,5 +1,6 @@
 package org.jesperancinha.moving.objects.domain
 
+import kotlinx.coroutines.flow.fold
 import org.jesperancinha.moving.objects.rest.*
 import org.springframework.data.annotation.Id
 import org.springframework.data.domain.PageRequest
@@ -85,6 +86,9 @@ class InfoObjectService(
     fun getAll() = infoObjectRepository.findAll()
 }
 
+/**
+ * Looks better and more immutable than Kotlin Coroutines
+ */
 fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
     collectSortedList().map {
         Page(
@@ -93,37 +97,59 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
             pageNumber = pageOffSet,
             totalPages = 10000,
             movingObjects = MovingObjects(
-                movingObjects = it.map { mo ->
-                    MovingObjectSource(
-                        code = mo.code,
-                        name = mo.name,
-                        city = "Olhão",
-                        themeList = emptyList(),
-                        coordinates = CoordinateSource(
-                            x = mo.x.toBigDecimal(),
-                            y = mo.y.toBigDecimal()
-                        ),
-                        pointsOfSale = emptyList(),
-                        webCamSources = listOf(
-                            WebCamSource(
-                                mo.name,
-                                coordinate = CoordinateSource(
-                                    x = mo.x.toBigDecimal(),
-                                    y = mo.y.toBigDecimal()
-                                ),
-                                wikiInfo = "",
-                                active = true,
-                                webCamImage = WebCamImageSource(
-                                    iconUrl = mo.url,
-                                    thumbnailUrl = mo.url,
-                                    previewUrl = mo.url,
-                                    toenailUrlString = mo.url
-                                )
-                            )
-                        )
-                    )
-                }
+                movingObjects = it.map { mo -> mo.toMovingObjectSource }.toMutableList()
             )
         )
 
     }
+
+/**
+ * I had to use mutable to support kotlin function fold. There doesn't see to be a better way to use kotlin coroutines to go from a reactive list to a mono / suspend object.
+ */
+suspend fun kotlinx.coroutines.flow.Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
+    fold(
+        Page(
+            pageSize = pageSize,
+            totalElements = 0,
+            pageNumber = pageOffSet,
+            totalPages = 10000,
+            movingObjects = MovingObjects(
+                movingObjects = mutableListOf()
+            )
+        )
+    ) { page, mo ->
+        page.totalPages++
+        page.movingObjects.movingObjects.add(mo.toMovingObjectSource)
+        page
+    }
+
+val MovingObject.toMovingObjectSource
+    get() = MovingObjectSource(
+        code = this.code,
+        name = this.name,
+        city = "Olhão",
+        themeList = emptyList(),
+        coordinates = CoordinateSource(
+            x = this.x.toBigDecimal(),
+            y = this.y.toBigDecimal()
+        ),
+        pointsOfSale = emptyList(),
+        webCamSources = listOf(
+            WebCamSource(
+                this.name,
+                coordinate = CoordinateSource(
+                    x = this.x.toBigDecimal(),
+                    y = this.y.toBigDecimal()
+                ),
+                wikiInfo = "",
+                active = true,
+                webCamImage = WebCamImageSource(
+                    iconUrl = this.url,
+                    thumbnailUrl = this.url,
+                    previewUrl = this.url,
+                    toenailUrlString = this.url
+                )
+            )
+        )
+    )
+
