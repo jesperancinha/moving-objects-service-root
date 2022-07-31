@@ -41,9 +41,10 @@ build:
   image: gradle:7.5.0-jdk17
   stage: build
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make no-test
     - make build-npm-docker
@@ -52,15 +53,16 @@ qa:
   image: gradle:7.5.0-jdk17
   stage: build
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make generate-credentials
     - make test
   needs:
     - build
-      
+
 mos-electron-e2e:
   image: node:18
   stage: e2e
@@ -70,9 +72,10 @@ mos-electron-e2e:
   needs:
     - qa
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   allow_failure: true
   timeout: 10m
 
@@ -85,9 +88,10 @@ mos-chrome-e2e:
   needs:
     - qa
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-firefox-e2e:
   image: node:18
@@ -98,9 +102,10 @@ mos-firefox-e2e:
   needs:
     - qa
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 mos-edge-e2e:
   image: node:18
@@ -111,17 +116,19 @@ mos-edge-e2e:
   needs:
     - qa
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
 
 coverage:
   image: gradle:7.5.0-jdk17
   stage: coverage
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make generate-credentials
     - make report-coverage
@@ -134,9 +141,10 @@ reporting:
   image: gradle:7.5.0-jdk17
   stage: reporting
   cache:
-    - moving-objects-jwt-service/build/
-    - moving-objects-rest-service/build/
-    - moving-objects-gui/dist/
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
   script:
     - make report
   only:
