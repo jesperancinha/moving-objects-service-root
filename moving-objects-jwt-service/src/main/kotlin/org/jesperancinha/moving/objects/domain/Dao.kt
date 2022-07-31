@@ -1,17 +1,15 @@
 package org.jesperancinha.moving.objects.domain
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Service
-import java.nio.file.Files
-import java.nio.file.Files.*
-import java.nio.file.Paths
+import java.nio.file.Files.walk
 import java.time.LocalDateTime
 import java.util.*
-import kotlin.io.path.absolute
-import kotlin.io.path.absolutePathString
 import kotlin.io.path.name
 import kotlin.io.path.toPath
 import kotlin.math.absoluteValue
@@ -37,6 +35,7 @@ data class InfoObject(
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String> {
     suspend fun findByCode(code: String): MovingObject
+    suspend fun findAll(pageable: Pageable): Page<MovingObject>
 }
 
 interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String>
@@ -69,6 +68,11 @@ class MovingObjectService(
                         allImages?.get(index)?.let { "/${mo.folder}/${it.name}" }
                     }
             }
+
+    suspend fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): MutableList<MovingObject> {
+        val pageable = Pageable.ofSize(pageSize)
+        return movingObjectRepository.findAll(pageable = pageable).toList()
+    }
 }
 
 @Service
