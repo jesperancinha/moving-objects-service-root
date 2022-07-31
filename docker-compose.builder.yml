@@ -16,3 +16,5 @@ services:
           memory: 400M
         reservations:
           memory: 400M
+    networks:
+      - mos_net

@@ -2,11 +2,10 @@ package org.jesperancinha.moving.objects.rest
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.jesperancinha.moving.objects.domain.MovingObject
 import org.jesperancinha.moving.objects.domain.MovingObjectService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
-import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 
 /**
@@ -56,7 +55,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Flux<MovingObject> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/jwt/open/page/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -65,5 +64,5 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Flux<MovingObject> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 }

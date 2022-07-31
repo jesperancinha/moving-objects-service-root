@@ -2,28 +2,42 @@ package org.jesperancinha.moving.objects.rest
 
 import java.math.BigDecimal
 
-class CoordinateSource(x: BigDecimal, y: BigDecimal);
+data class CoordinateSource(
+    val x: BigDecimal,
+    val y: BigDecimal
+);
 
-class WebCamImageSource(iconUrl: String, thumbnailUrl: String, previewUrl: String, toenailUrlString: String)
-
-class WebCamSource(
-    title: String,
-    coordinate: CoordinateSource,
-    wikiInfo: String,
-    active: Boolean,
-    webCamImage: WebCamImageSource
+data class WebCamImageSource(
+    val iconUrl: String,
+    val thumbnailUrl: String,
+    val previewUrl: String,
+    val toenailUrlString: String
 )
 
-class MovingObjectSource(
-    code: String,
-    name: String,
-    city: String,
-    themeList: List<String>,
-    coordinates: CoordinateSource,
-    pointsOfSale: List<String>,
-    webCamSources: List<WebCamSource>
+data class WebCamSource(
+    val title: String,
+    val coordinate: CoordinateSource,
+    val wikiInfo: String,
+    val active: Boolean,
+    val webCamImage: WebCamImageSource
 )
 
-class MovingObjects(movingObjects: List<MovingObjectSource>)
+data class MovingObjectSource(
+    val code: String,
+    val name: String,
+    val city: String,
+    val themeList: List<String>,
+    val coordinates: CoordinateSource,
+    val pointsOfSale: List<String>,
+    val webCamSources: List<WebCamSource>
+)
 
-class Page (pageSize: Int, totalElements: Int,pageNumber : Int, totalPages: Int, movingObjects: MovingObjects)
+data class MovingObjects(val movingObjects: List<MovingObjectSource>)
+
+data class Page(
+    val pageSize: Int,
+    val totalElements: Int,
+    val pageNumber: Int,
+    val totalPages: Int,
+    val movingObjects: MovingObjects
+)

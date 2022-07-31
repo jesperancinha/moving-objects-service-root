@@ -1,5 +1,6 @@
 package org.jesperancinha.moving.objects.domain
 
+import org.jesperancinha.moving.objects.rest.*
 import org.springframework.data.annotation.Id
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
@@ -8,6 +9,7 @@ import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 import java.nio.file.Files.walk
 import java.time.LocalDateTime
 import java.util.*
@@ -24,7 +26,9 @@ data class MovingObject(
     @Column("url") val url: String,
     @Column("x") val x: Int,
     @Column("y") val y: Int
-)
+) : Comparable<MovingObject> {
+    override fun compareTo(other: MovingObject): Int = id?.compareTo(other.id) ?: 0
+}
 
 @Table
 data class InfoObject(
@@ -70,8 +74,8 @@ class MovingObjectService(
                     }
             }
 
-    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<MovingObject> =
-        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize))
+    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 }
 
 @Service
@@ -80,3 +84,46 @@ class InfoObjectService(
 ) {
     fun getAll() = infoObjectRepository.findAll()
 }
+
+fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
+    collectSortedList().map {
+        Page(
+            pageSize = pageSize,
+            totalElements = it.size,
+            pageNumber = pageOffSet,
+            totalPages = 10000,
+            movingObjects = MovingObjects(
+                movingObjects = it.map { mo ->
+                    MovingObjectSource(
+                        code = mo.code,
+                        name = mo.name,
+                        city = "Olhão",
+                        themeList = emptyList(),
+                        coordinates = CoordinateSource(
+                            x = mo.x.toBigDecimal(),
+                            y = mo.y.toBigDecimal()
+                        ),
+                        pointsOfSale = emptyList(),
+                        webCamSources = listOf(
+                            WebCamSource(
+                                mo.name,
+                                coordinate = CoordinateSource(
+                                    x = mo.x.toBigDecimal(),
+                                    y = mo.y.toBigDecimal()
+                                ),
+                                wikiInfo = "",
+                                active = true,
+                                webCamImage = WebCamImageSource(
+                                    iconUrl = mo.url,
+                                    thumbnailUrl = mo.url,
+                                    previewUrl = mo.url,
+                                    toenailUrlString = mo.url
+                                )
+                            )
+                        )
+                    )
+                }
+            )
+        )
+
+    }
