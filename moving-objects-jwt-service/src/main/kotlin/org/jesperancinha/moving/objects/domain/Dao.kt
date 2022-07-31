@@ -44,7 +44,9 @@ interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String>
     fun findAllBy(pageable: Pageable): Flux<MovingObject>
 }
 
-interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String>
+interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String> {
+    suspend fun findByCode(code: String): InfoObject
+}
 
 @Service
 class MovingObjectService(
@@ -86,6 +88,9 @@ class InfoObjectService(
     val infoObjectRepository: InfoObjectRepository
 ) {
     fun getAll() = infoObjectRepository.findAll()
+    suspend fun getByCodeId(codeId: String): MovingObjectSource  {
+        TODO()
+    }
 }
 
 /**
