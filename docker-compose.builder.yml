@@ -10,11 +10,5 @@ services:
       - ./moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
       - ./e2e/node_modules:/opt/e2e/node_modules
     user: "1000:1000"
-    deploy:
-      resources:
-        limits:
-          memory: 400M
-        reservations:
-          memory: 400M
     networks:
       - mos_net
