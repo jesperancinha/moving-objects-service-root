@@ -17,8 +17,8 @@ build-npm-docker:
 	touch e2e/yarn.lock
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
-	docker-compose build gui-builder
-	docker-compose up gui-builder
+	docker-compose -f docker-compose.builder.yml build gui-builder
+	docker-compose -f docker-compose.builder.yml up gui-builder
 test:
 	 ./gradlew test
 wrapper:
