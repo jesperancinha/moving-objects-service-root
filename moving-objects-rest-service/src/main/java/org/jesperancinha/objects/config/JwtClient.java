@@ -14,13 +14,17 @@ public class JwtClient {
     private final WebClient webClient;
 
     public JwtClient(
-            @Value("${org.jesperancinha.objects.token}")
-            String objectsTokenEndpoint) {
+            @Value("${objects.jwt.token}")
+            String objectsTokenEndpoint,
+            @Value("${objects.jwt.username}")
+            String username,
+            @Value("${objects.jwt.password}")
+            String password) {
         this.webClient = WebClient.builder()
                 .build();
         webClient.post()
                 .uri(objectsTokenEndpoint)
-                .headers(headers -> headers.setBasicAuth("user", "password"))
+                .headers(headers -> headers.setBasicAuth(username, password))
                 .retrieve().bodyToMono(String.class).subscribe(token -> this.token = token);
     }
 

@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @Repository
 public class ObjectsRepository {
 
-    @Value("${org.jesperancinha.objects.moving}")
+    @Value("${objects.jwt.moving}")
     private String movingObjectsEndpoint;
 
     private final JwtClient jwtClient;

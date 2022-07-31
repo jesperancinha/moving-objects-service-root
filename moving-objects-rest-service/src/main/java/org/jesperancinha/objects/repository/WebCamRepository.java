@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Repository
 public class WebCamRepository {
 
-    @Value("${org.jesperancinha.objects.webcams}")
+    @Value("${objects.jwt.webcams}")
     private String webCamsEndpoint;
 
     public WebCamRepository(JwtClient jwtClient) {

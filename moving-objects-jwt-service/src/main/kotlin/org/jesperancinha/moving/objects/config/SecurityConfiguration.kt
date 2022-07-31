@@ -84,8 +84,8 @@ class SecurityConfiguration(
     @Bean
     fun userDetailsService(): MapReactiveUserDetailsService? {
         val user = User.withDefaultPasswordEncoder()
-            .username("user")
-            .password("password")
+            .username("admin")
+            .password("admin")
             .roles("USER")
             .build()
         return MapReactiveUserDetailsService(user)
