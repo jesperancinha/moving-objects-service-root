@@ -1,12 +1,15 @@
 package org.jesperancinha.objects.repository;
 
 import org.jesperancinha.objects.config.JwtClient;
+import org.jesperancinha.objects.domain.MovingObjects;
+import org.jesperancinha.objects.domain.Page;
 import org.jesperancinha.objects.domain.WebCamSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 import java.math.BigDecimal;
+import java.util.stream.Collectors;
 
 @Repository
 public class WebCamRepository {
@@ -22,7 +25,7 @@ public class WebCamRepository {
 
     public Flux<WebCamSource> findCamsByPageSizeAndPageOffset(int pageSize, int pageOffSet) {
         return jwtClient.get()
-                .uri(webCamsEndpoint + "/page/{pageSize}/{pageOffSet}", pageSize, pageOffSet)
+                .uri(webCamsEndpoint + "/webcams/{pageSize}/{pageOffSet}", pageSize, pageOffSet)
                 .retrieve()
                 .bodyToFlux(WebCamSource.class);
     }

@@ -14,6 +14,7 @@ import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import java.math.BigInteger
 import java.nio.file.Files.walk
 import java.time.LocalDateTime
 import java.util.*
@@ -39,7 +40,9 @@ data class InfoObject(
     @Column("name") val name: String,
     @Column("code") val code: String,
     @Column("size") val size: Int,
-    @Column("color") val color: String
+    @Column("color") val color: String,
+    @Column("x") val x: Int,
+    @Column("y") val y: Int
 )
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String> {
@@ -91,8 +94,15 @@ class MovingObjectService(
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 
+    fun getWebcamsPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<WebCamSource> =
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).map { it.toWebcamSource() }
+
     suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Page =
         movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+
+    fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSource> {
+        TODO()
+    }
 }
 
 @Service
@@ -153,7 +163,8 @@ private val InfoObject.toMovingObjectSource: MovingObjectSource
         code = code,
         city = "Olhão",
         size = size,
-        color = color
+        color = color,
+        coordinates = CoordinateSource(x.toBigDecimal(), y.toBigDecimal())
     )
 
 val MovingObject.toMovingObjectSource
@@ -166,21 +177,21 @@ val MovingObject.toMovingObjectSource
             y = this.y.toBigDecimal()
         ),
         pointsOfSale = emptyList(),
-        webCamSources = listOf(
-            WebCamSource(
-                coordinate = CoordinateSource(
-                    x = this.x.toBigDecimal(),
-                    y = this.y.toBigDecimal()
-                ),
-                wikiInfo = "",
-                active = true,
-                webCamImage = WebCamImageSource(
-                    iconUrl = this.url,
-                    thumbnailUrl = this.url,
-                    previewUrl = this.url,
-                    toenailUrlString = this.url
-                )
-            )
-        )
+        webCamSources = listOf(toWebcamSource())
     )
+
+private fun MovingObject.toWebcamSource() = WebCamSource(
+    coordinate = CoordinateSource(
+        x = this.x.toBigDecimal(),
+        y = this.y.toBigDecimal()
+    ),
+    wikiInfo = "",
+    active = true,
+    webCamImage = WebCamImageSource(
+        iconUrl = this.url,
+        thumbnailUrl = this.url,
+        previewUrl = this.url,
+        toenailUrlString = this.url
+    )
+)
 

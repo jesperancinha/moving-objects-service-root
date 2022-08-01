@@ -19,5 +19,7 @@ create table if not exists mos.info_object(
     "size" INT,
     color VARCHAR ( 255 ) NOT NULL,
     code VARCHAR ( 50 ) NOT NULL,
+    x INT,
+    y INT,
     PRIMARY KEY (id)
 );

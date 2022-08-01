@@ -17,7 +17,7 @@ public class TravelConverter {
     public static WebCamDto toWebCamDto(final WebCamSource webCam) {
         return WebCamDto.builder()
                 .active(webCam.active())
-                .coordinates(toCoordinatesDto(webCam.coordinate()))
+                .coordinates(toCoordinatesDto(webCam.coordinates()))
                 .title(webCam.title())
                 .webCamImage(toWebCamImageDto(webCam.webCamImage()))
                 .wikiInfo(webCam.wikiInfo())
@@ -46,10 +46,10 @@ public class TravelConverter {
         return webCamSources.stream().map(TravelConverter::toWebCamDto).collect(Collectors.toList());
     }
 
-    private static CoordinatesDto toCoordinatesDto(final CoordinateSource coordinateSource) {
+    private static CoordinatesDto toCoordinatesDto(final CoordinateSource coordinates) {
         return CoordinatesDto.builder()
-                .x(coordinateSource.x())
-                .y(coordinateSource.y())
+                .x(coordinates.x())
+                .y(coordinates.y())
                 .build();
     }
 }

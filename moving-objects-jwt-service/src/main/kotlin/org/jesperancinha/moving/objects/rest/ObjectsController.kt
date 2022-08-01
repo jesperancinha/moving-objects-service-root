@@ -1,11 +1,14 @@
 package org.jesperancinha.moving.objects.rest
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import org.jesperancinha.moving.objects.domain.MovingObjectService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import java.math.BigInteger
 
 
 /**
@@ -57,6 +60,15 @@ class ObjectsController(
         pageOffSet: Int
     ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
+    @GetMapping("/webcams/{pageSize}/{pageOffSet}")
+    @ResponseBody
+    fun getWebamsPageBySizeAndOffSetProtected(
+        @PathVariable("pageSize")
+        pageSize: Int,
+        @PathVariable("pageOffSet")
+        pageOffSet: Int
+    ): Flux<WebCamSource> = movingObjectsService.getWebcamsPageBySizeAndOffSet(pageSize, pageOffSet)
+
     @GetMapping("/jwt/open/page/{pageSize}/{pageOffSet}")
     @ResponseBody
     fun getPageBySizeAndOffSet(
@@ -74,4 +86,15 @@ class ObjectsController(
         @PathVariable("pageOffSet")
         pageOffSet: Int
     ): Page = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
+
+    @GetMapping("/location/{x}/{y}/{radius}")
+    fun getCamerasByLocation(
+        @PathVariable
+        x: BigInteger,
+        @PathVariable
+        y: BigInteger,
+        @PathVariable
+        radius: BigInteger
+    ): Flow<WebCamSource> = movingObjectsService.getCamerasByLocation(x,y, radius)
+
 }
