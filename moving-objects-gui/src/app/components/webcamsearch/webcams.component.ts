@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl} from "@angular/forms";
 import {map, Observable, of} from "rxjs";
-import {Airport} from "../../model/airport";
+import {MovingObject} from "../../model/movingObject";
 import {WebCam} from "../../model/webcam";
 import {ObjectsWebcamsService} from "../../service/objects.webcams.service";
 
@@ -21,10 +21,10 @@ export class WebCamsComponent implements OnInit {
     public loading: boolean;
     public radiusAutoFilled: boolean;
     public selectedRadius = "10";
-    public selectedAirport: Airport;
+    public selectedAirport: MovingObject;
     public airportFormControl = new FormControl();
     public searchTerm: string;
-    public filteredOptions: Observable<Airport[]>;
+    public filteredOptions: Observable<MovingObject[]>;
     public selectedCam: WebCam;
 
     constructor(private objectsWebcamsService: ObjectsWebcamsService) {
@@ -52,7 +52,7 @@ export class WebCamsComponent implements OnInit {
 
     }
 
-    public setCurrentAirport(airport: Airport) {
+    public setCurrentAirport(airport: MovingObject) {
         this.selectedAirport = airport;
     }
 
@@ -66,10 +66,10 @@ export class WebCamsComponent implements OnInit {
         this.loading = false;
     }
 
-    private validateAndRunLiveFilter(): Observable<Airport[]> {
+    private validateAndRunLiveFilter(): Observable<MovingObject[]> {
         if (this.validateAirportQuery()) {
             return this.objectsWebcamsService.getAirportsPerTerm(this.searchTerm, this.selectedRadius)
-                .pipe(map((airports: Airport[]) => {
+                .pipe(map((airports: MovingObject[]) => {
                     this.loading = false;
                     return airports;
                 }));

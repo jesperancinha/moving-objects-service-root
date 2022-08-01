@@ -9,7 +9,7 @@
         </mat-form-field>
         <br/>
         <mat-form-field>
-            <input type="text" placeholder="Pick one airport" aria-label="Number" matInput
+            <input type="text" placeholder="Select one object please" aria-label="Number" matInput
                    [formControl]="airportFormControl"
                    [matAutocomplete]="auto" (ngModelChange)="searchTermChange($event)">
             <mat-autocomplete #auto="matAutocomplete">

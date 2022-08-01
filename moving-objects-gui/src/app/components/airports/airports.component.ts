@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Airport} from '../../model/airport';
+import {MovingObject} from '../../model/movingObject';
 
 @Component({
     selector: 'app-airports-selector',
@@ -10,14 +10,14 @@ import {Airport} from '../../model/airport';
 export class AirportsComponent implements OnInit {
 
     public loading: boolean;
-    public origins: Airport[] = [];
-    public destinations: Airport[] = [];
+    public origins: MovingObject[] = [];
+    public destinations: MovingObject[] = [];
 
     private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     private errorText: string;
-    public origin: Airport;
-    public destination: Airport;
+    public origin: MovingObject;
+    public destination: MovingObject;
 
     constructor(private httpClient: HttpClient) {
         this.loading = false;

@@ -1,28 +1,28 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {catchError, map, Observable, of, retry} from 'rxjs';
-import {Airport} from '../model/airport';
-import {AirportServiceInterface} from '../interface/airport.service.interface';
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {catchError, map, Observable, of, retry} from "rxjs";
+import {MovingObject} from "../model/movingObject";
+import {AirportServiceInterface} from "../interface/airport.service.interface";
 
 const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root",
 })
 export class ObjectsWebcamsService implements AirportServiceInterface {
 
     constructor(private http: HttpClient) {
     }
 
-    getAirportsPerTerm(term: string, radius: string): Observable<Airport[]> {
-        return this.http.get<Airport[]>(`${objectsWebcamsRootPath}/term/${term}/${radius}`).pipe(
-            retry(3), catchError(this.handleError<Airport[]>()));
+    getAirportsPerTerm(term: string, radius: string): Observable<MovingObject[]> {
+        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term}/${radius}`).pipe(
+            retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
-    getAirportPerCode(code: string, radius: string): Observable<Airport> {
-        return this.http.get<Airport>(`${objectsWebcamsRootPath}/code/${code}/${radius}`)
-            .pipe(retry(3), catchError(this.handleError<Airport[]>()))
-            .pipe(map((airports: Airport[]) => airports[0]));
+    getAirportPerCode(code: string, radius: string): Observable<MovingObject> {
+        return this.http.get<MovingObject>(`${objectsWebcamsRootPath}/code/${code}/${radius}`)
+            .pipe(retry(3), catchError(this.handleError<MovingObject[]>()))
+            .pipe(map((airports: MovingObject[]) => airports[0]));
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

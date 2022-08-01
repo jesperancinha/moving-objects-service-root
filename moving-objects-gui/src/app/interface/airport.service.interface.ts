@@ -1,8 +1,8 @@
 import {Observable} from "rxjs";
-import {Airport} from "../model/airport";
+import {MovingObject} from "../model/movingObject";
 
 export interface AirportServiceInterface {
-    getAirportsPerTerm(term: String, radius: String): Observable<Airport[]>;
+    getAirportsPerTerm(term: String, radius: String): Observable<MovingObject[]>;
 
-    getAirportPerCode(code: String, radius:String): Observable<Airport>;
+    getAirportPerCode(code: String, radius:String): Observable<MovingObject>;
 }

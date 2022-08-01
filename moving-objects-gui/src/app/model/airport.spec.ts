@@ -1,6 +1,6 @@
-import {Airport} from './airport';
+import {MovingObject} from './movingObject';
 
-test('should create an airport', () => {
-    const airport = new Airport();
+test('should create an object', () => {
+    const airport = new MovingObject();
     expect(airport).not.toBeNull();
 });
