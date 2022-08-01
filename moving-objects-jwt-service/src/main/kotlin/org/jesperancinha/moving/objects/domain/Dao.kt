@@ -46,8 +46,13 @@ data class InfoObject(
 )
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String> {
+
     suspend fun findByCode(code: String): MovingObject
+
     fun findAllBy(pageable: Pageable): Flux<MovingObject>
+
+    @Query("select mos.* from moving_object as mos where sqrt(pow(mos.x-:x, 2) + pow(mos.y-:y, 2))< :radius")
+    fun findAllCamerasInRadiusFrom(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<MovingObject>
 }
 
 interface MovingObjectCoRepository : CoroutineCrudRepository<MovingObject, String> {
@@ -99,9 +104,8 @@ class MovingObjectService(
     suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Page =
         movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 
-    fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSource> {
-        TODO()
-    }
+    fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSource> =
+        movingObjectRepository.findAllCamerasInRadiusFrom(x, y, radius).map { it.toWebcamSource() }
 }
 
 @Service
