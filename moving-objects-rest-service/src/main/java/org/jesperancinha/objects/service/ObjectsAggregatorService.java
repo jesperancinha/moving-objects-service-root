@@ -20,27 +20,26 @@ public class ObjectsAggregatorService {
 
     public Flux<MovingObjectDto> getObjectsAndCamsBySearchTermAndRadius(String term, Long radius) {
         return objectsService.getObjectsByTerm(term)
-                .map(objectDto -> {
+                .flatMap(objectDto -> {
                     CoordinatesDto coordinates = objectDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
-                            .map(webCamDto -> Pair.of(objectDto, webCamDto));
+                            .collectList().map(webCamDto -> Pair.of(objectDto, webCamDto));
                 })
-                .flatMap(Flux::share)
-                .map(webCamDto -> {
-                    webCamDto.getFirst().webCams().add(webCamDto.getSecond());
-                    return webCamDto.getFirst();
+                .map(webCamDtoPackage -> {
+                    final MovingObjectDto movingObjectDto = webCamDtoPackage.getFirst();
+                    webCamDtoPackage.getSecond().forEach(webCam -> movingObjectDto.webCams().add(webCam));
+                    return movingObjectDto;
                 }).distinct();
 
     }
 
     public Flux<MovingObjectDto> getObjectsAndCamsByCodeAndRadius(String code, Long radius) {
         return Flux.from(objectsService.getObjectsByCode(code))
-                .map(airportDto -> {
+                .flatMap(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
                             .map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
-                .flatMap(Flux::share)
                 .map(webCamDto -> {
                     webCamDto.getFirst().webCams().add(webCamDto.getSecond());
                     return webCamDto.getFirst();
