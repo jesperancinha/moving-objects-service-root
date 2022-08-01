@@ -84,6 +84,7 @@ mos-electron-e2e:
         - moving-objects-gui/coverage/
   allow_failure: true
   timeout: 10m
+  retry: 2
 
 mos-chrome-e2e:
   image: node:18
@@ -100,6 +101,7 @@ mos-chrome-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
+  retry: 2
 
 mos-firefox-e2e:
   image: node:18
@@ -116,6 +118,7 @@ mos-firefox-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
+  retry: 2
 
 mos-edge-e2e:
   image: node:18
@@ -132,6 +135,7 @@ mos-edge-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
+  retry: 2
 
 coverage:
   image: gradle:7.5.0-jdk17
