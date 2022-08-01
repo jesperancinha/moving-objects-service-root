@@ -21,7 +21,7 @@ export class WebCamsComponent implements OnInit {
     public loading: boolean;
     public radiusAutoFilled: boolean;
     public selectedRadius = "10";
-    public selectedAirport: MovingObject;
+    public selectedObject: MovingObject;
     public airportFormControl = new FormControl();
     public searchTerm: string;
     public filteredOptions: Observable<MovingObject[]>;
@@ -35,13 +35,15 @@ export class WebCamsComponent implements OnInit {
     }
 
     public radiusChanged(radius: string) {
+        this.loading = true;
         this.selectedRadius = radius;
         this.filteredOptions = this.validateAndRunLiveFilter();
-        this.loading = true;
-        if (this.selectedAirport) {
-            this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedAirport.code, this.selectedRadius)
+        this.selectedObject.webCams.forEach((webCam) => webCam.webCamImage.iconUrl = null);
+        if (this.selectedObject) {
+            this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedObject.code, this.selectedRadius)
                 .subscribe((airport) => {
-                    this.selectedAirport.webCams = airport.webCams;
+                    this.selectedObject.webCams = airport.webCams;
+                    this.selectedObject.webCams.forEach((webCam) => webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`);
                     this.loading = false;
                 });
         }
@@ -53,7 +55,7 @@ export class WebCamsComponent implements OnInit {
     }
 
     public setCurrentAirport(airport: MovingObject) {
-        this.selectedAirport = airport;
+        this.selectedObject = airport;
     }
 
     public searchTermChange(searchTerm: string) {

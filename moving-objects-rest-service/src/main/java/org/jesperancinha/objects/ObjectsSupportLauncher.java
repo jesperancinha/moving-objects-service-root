@@ -9,8 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @OpenAPIDefinition(
         info = @Info(title = "OpenAPI definition"),
-        servers = {@Server(url = "${objects.okta.server.url}/aggregator", description = "Server URL")}
-        )
+        servers = {
+                @Server(url = "${objects.okta.server.url}/aggregator",
+                        description = "Server URL")
+        }
+)
 public class ObjectsSupportLauncher {
 
     public static void main(String[] args) {

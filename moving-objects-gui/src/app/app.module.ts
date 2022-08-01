@@ -2,6 +2,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -51,6 +52,7 @@ import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
         MatInputModule,
         MatListModule,
         MatIconModule,
+        MatButtonModule,
     ],
 })
 export class AppModule {

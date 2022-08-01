@@ -19,7 +19,11 @@ public class CustomTraceRepository implements HttpTraceRepository {
 
     @Override
     public List<HttpTrace> findAll() {
-        return new ArrayList<>(lastTrace.get());
+        try {
+            return new ArrayList<>(lastTrace.get());
+        } catch (Exception e) {
+            return List.of();
+        }
     }
 
     @Override

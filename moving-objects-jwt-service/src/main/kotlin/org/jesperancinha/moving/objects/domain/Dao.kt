@@ -91,9 +91,9 @@ class MovingObjectService(
                         if (allImages.size > 0) {
                             val countImages = allImages?.size ?: 0
                             val delta = (10 / countImages.toDouble())
-                            val currentMinute = LocalDateTime.now().minute.toString().last().digitToInt()
+                            val currentMinute = LocalDateTime.now().second.toString().last().digitToInt()
                             val index = (((currentMinute + 1) / delta).toInt()).absoluteValue - 1
-                            allImages?.get(index)?.let { "/${mo.folder}/${it.name}" }
+                            allImages?.get(if (index == -1) 0 else index)?.let { "/${mo.folder}/${it.name}" }
                         } else null
                     }
             }

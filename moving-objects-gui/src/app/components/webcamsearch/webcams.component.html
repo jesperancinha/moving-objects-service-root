@@ -22,13 +22,13 @@
 
         <br/>
 
-        <mat-card *ngIf="selectedAirport" class="double-card">
-            <mat-label>{{selectedAirport.name}} - {{selectedAirport.code}}</mat-label>
+        <mat-card *ngIf="selectedObject" class="double-card" style="width: 200px">
+            <mat-label>{{selectedObject.name}} - {{selectedObject.code}}</mat-label>
             <br/>
             <mat-list>
-                <mat-list-item *ngFor="let webCam of selectedAirport.webCams" style="height: 100%">
+                <mat-list-item *ngFor="let webCam of selectedObject.webCams" style="height: 100px">
                     <button mat-icon-button (click)="selectWebCam(webCam)">
-                        <img src="{{webCam.webCamImage.iconUrl}}" width="200"/>
+                        <img src="{{webCam.webCamImage.iconUrl}}" height="100" alt=""/>
                     </button>
                     <mat-label>{{webCam.title}}</mat-label>
                 </mat-list-item>
@@ -36,7 +36,7 @@
         </mat-card>
 
         <mat-card *ngIf="selectedCam" class="double-card">
-            <img src="{{selectedCam.webCamImage.previewUrl}}"/>
+            <img alt="" src="{{selectedCam.webCamImage.previewUrl}}" style="width: 100%"/>
         </mat-card>
 
         <table>
