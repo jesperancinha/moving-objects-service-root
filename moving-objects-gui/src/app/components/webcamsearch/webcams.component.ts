@@ -39,7 +39,7 @@ export class WebCamsComponent implements OnInit {
         this.filteredOptions = this.validateAndRunLiveFilter();
         this.loading = true;
         if (this.selectedAirport) {
-            this.objectsWebcamsService.getAirportPerCode(this.selectedAirport.code, this.selectedRadius)
+            this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedAirport.code, this.selectedRadius)
                 .subscribe((airport) => {
                     this.selectedAirport.webCams = airport.webCams;
                     this.loading = false;
@@ -68,7 +68,7 @@ export class WebCamsComponent implements OnInit {
 
     private validateAndRunLiveFilter(): Observable<MovingObject[]> {
         if (this.validateAirportQuery()) {
-            return this.objectsWebcamsService.getAirportsPerTerm(this.searchTerm, this.selectedRadius)
+            return this.objectsWebcamsService.getObjectsPerTermAndRadius(this.searchTerm, this.selectedRadius)
                 .pipe(map((airports: MovingObject[]) => {
                     this.loading = false;
                     return airports;

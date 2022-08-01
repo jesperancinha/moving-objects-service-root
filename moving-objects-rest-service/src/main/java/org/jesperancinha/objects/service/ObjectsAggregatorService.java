@@ -38,11 +38,11 @@ public class ObjectsAggregatorService {
                 .flatMap(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
-                            .map(webCamDto -> Pair.of(airportDto, webCamDto));
+                            .collectList().map(webCamDto -> Pair.of(airportDto, webCamDto));
                 })
-                .map(webCamDto -> {
-                    webCamDto.getFirst().webCams().add(webCamDto.getSecond());
-                    return webCamDto.getFirst();
+                .map(webCamDtoPackage -> {
+                    webCamDtoPackage.getSecond().forEach(webCam -> webCamDtoPackage.getFirst().webCams().add(webCam));
+                    return webCamDtoPackage.getFirst();
                 }).distinct();
     }
 

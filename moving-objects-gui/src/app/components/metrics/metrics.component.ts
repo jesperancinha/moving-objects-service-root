@@ -48,7 +48,7 @@ export class MetricsComponent implements OnInit {
             });
     }
 
-    changeErrorCode() {
+    public changeErrorCode() {
         this.loadSelectedErrorMetrics();
     }
 
@@ -58,7 +58,7 @@ export class MetricsComponent implements OnInit {
         this.metricService
             .getSystemMetrics(this.option)
             .pipe(finalize(() => this.countLoaders--))
-            .subscribe(value => {
+            .subscribe((value) => {
                 // tslint:disable-next-line:no-console
                 console.log("async-task-" + uuid.v4());
                 this.statistics = value.measurements;

@@ -14,12 +14,12 @@ export class ObjectsService implements ObjectsServiceInterface {
     constructor(private http: HttpClient) {
     }
 
-    public getAirportsPerTerm(term: string, radius: string): Observable<MovingObject[]> {
+    public getObjectsPerTermAndRadius(term: string, radius: string): Observable<MovingObject[]> {
         return this.http.get<MovingObject[]>(`${objectsRootPath}/code/${term}/${radius}`).pipe(
             retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
-    public getAirportPerCode(code: string, radius: string): Observable<MovingObject> {
+    public getAirportPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
         return this.http.get<MovingObject>(`${objectsRootPath}/${code}/${radius}`).pipe(
             retry(3), catchError(this.handleError<MovingObject>()));
     }

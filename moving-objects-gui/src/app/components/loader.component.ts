@@ -1,14 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {MetricsComponent} from './metrics/metrics.component';
-import {WebCamsComponent} from './webcamsearch/webcams.component';
-import {ObjectsComponent} from './airports/objects.component';
-import {MatTabChangeEvent} from '@angular/material/tabs';
-
+import {Component, OnInit} from "@angular/core";
+import {MatTabChangeEvent} from "@angular/material/tabs";
+import {MetricsComponent} from "./metrics/metrics.component";
+import {ObjectsComponent} from "./objects/objects.component";
+import {WebCamsComponent} from "./webcamsearch/webcams.component";
 
 @Component({
-    selector: 'app-loader-selector',
-    styleUrls: ['./loader.component.css'],
-    templateUrl: './loader.component.html',
+    selector: "app-loader-selector",
+    styleUrls: ["./loader.component.css"],
+    templateUrl: "./loader.component.html",
 })
 export class LoaderComponent implements OnInit {
     private metricsComponent: MetricsComponent;

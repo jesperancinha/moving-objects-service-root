@@ -3,7 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {MovingObject} from "../../model/moving.object";
 
 @Component({
-    selector: "app-airports-selector",
+    selector: "moving-objects-selector",
     styleUrls: ["./objects.component.scss"],
     templateUrl: "./objects.component.html",
 })
