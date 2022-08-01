@@ -1,4 +1,4 @@
-import {MovingObject} from "./movingObject";
+import {MovingObject} from "./moving.object";
 
 test("should create an object", () => {
     const airport = new MovingObject();

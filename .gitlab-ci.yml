@@ -66,6 +66,7 @@ qa:
     - make test
   needs:
     - build
+  retry: 2
 
 mos-electron-e2e:
   image: node:18

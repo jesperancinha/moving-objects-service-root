@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
-import {WebCam} from '../model/webcam';
+import {Observable} from "rxjs";
+import {WebCam} from "../model/webcam";
 
 export interface WebcamServiceInterface {
 

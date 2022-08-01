@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MetricsComponent} from './metrics/metrics.component';
 import {WebCamsComponent} from './webcamsearch/webcams.component';
-import {AirportsComponent} from './airports/airports.component';
+import {ObjectsComponent} from './airports/objects.component';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 
 
@@ -12,7 +12,7 @@ import {MatTabChangeEvent} from '@angular/material/tabs';
 })
 export class LoaderComponent implements OnInit {
     private metricsComponent: MetricsComponent;
-    private airportComponent: AirportsComponent;
+    private airportComponent: ObjectsComponent;
     private webCamComponent: WebCamsComponent;
 
     public ngOnInit(): void {
@@ -22,7 +22,7 @@ export class LoaderComponent implements OnInit {
         $event: MatTabChangeEvent,
         faresComponent: WebCamsComponent,
         metricsComponent: MetricsComponent,
-        airportComponent: AirportsComponent): void {
+        airportComponent: ObjectsComponent): void {
         this.webCamComponent = faresComponent;
         this.metricsComponent = metricsComponent;
         this.airportComponent = airportComponent;

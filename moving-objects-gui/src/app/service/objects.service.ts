@@ -1,15 +1,15 @@
-import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
 import {catchError, Observable, of, retry} from "rxjs";
-import {MovingObject} from "../model/movingObject";
-import {AirportServiceInterface} from "../interface/airport.service.interface";
+import {ObjectsServiceInterface} from "../interface/objects.service.interface";
+import {MovingObject} from "../model/moving.object";
 
 const objectsRootPath = `/aggregator/objects`;
 
 @Injectable({
-    providedIn: "root"
+    providedIn: "root",
 })
-export class ObjectsService implements AirportServiceInterface {
+export class ObjectsService implements ObjectsServiceInterface {
 
     constructor(private http: HttpClient) {
     }
@@ -26,7 +26,9 @@ export class ObjectsService implements AirportServiceInterface {
 
     private handleError<T>(operation = "operation", result?: T) {
         return (error: any): Observable<T> => {
+            // tslint:disable-next-line:no-console
             console.error(error);
+            // tslint:disable-next-line:no-console
             console.log(`${operation} failed: ${error.message}`);
 
             return of(result);

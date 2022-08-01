@@ -1,5 +1,5 @@
-import {WebCamImage} from './webcamimage';
-import {Coordinates} from './coordinates';
+import {Coordinates} from "./coordinates";
+import {WebCamImage} from "./webcamimage";
 
 export class WebCam {
 

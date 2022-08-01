@@ -1,7 +1,7 @@
 import {Observable} from "rxjs";
+import {MetricTag} from "../model/metric.tag";
 import {Metrics} from "../model/metrics";
 import {Traces} from "../model/traces";
-import {MetricTag} from "../model/metrics-tag";
 
 export interface MetricServiceInterface {
     getSystemMetrics(errorCode?: MetricTag): Observable<Metrics>;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl} from "@angular/forms";
 import {map, Observable, of} from "rxjs";
-import {MovingObject} from "../../model/movingObject";
+import {MovingObject} from "../../model/moving.object";
 import {WebCam} from "../../model/webcam";
 import {ObjectsWebcamsService} from "../../service/objects.webcams.service";
 

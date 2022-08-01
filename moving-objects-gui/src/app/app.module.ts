@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
 import {LoaderComponent} from "./components/loader.component";
-import {AirportsComponent} from "./components/airports/airports.component";
+import {ObjectsComponent} from "./components/airports/objects.component";
 import {MetricsComponent} from "./components/metrics/metrics.component";
 import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
 import {HttpClientModule} from "@angular/common/http";
@@ -27,9 +27,9 @@ import {MatIconModule} from "@angular/material/icon";
         AppComponent,
         LoaderComponent,
         MetricsComponent,
-        AirportsComponent,
+        ObjectsComponent,
         LoaderComponent,
-        AirportsComponent,
+        ObjectsComponent,
         WebCamsComponent,
     ],
     imports: [

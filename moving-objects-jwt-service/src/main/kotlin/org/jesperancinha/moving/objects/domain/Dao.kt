@@ -81,7 +81,6 @@ class MovingObjectService(
                 "/${mo.folder}"
                     .let { resourcePath ->
                         val resource = javaClass.getResource(resourcePath)
-                        print(resource)
                         val allImages =
                             walk(resource?.toURI()?.toPath()).use { paths ->
                                 val filter = paths
@@ -89,11 +88,13 @@ class MovingObjectService(
                                     .filter { it.name.endsWith("jpg") }
                                 filter.toList()
                             }
-                        val countImages = allImages?.size ?: 0
-                        val delta = (10 / countImages.toDouble())
-                        val currentMinute = LocalDateTime.now().minute.toString().last().digitToInt()
-                        val index = (((currentMinute + 1) / delta).toInt()).absoluteValue - 1
-                        allImages?.get(index)?.let { "/${mo.folder}/${it.name}" }
+                        if (allImages.size > 0) {
+                            val countImages = allImages?.size ?: 0
+                            val delta = (10 / countImages.toDouble())
+                            val currentMinute = LocalDateTime.now().minute.toString().last().digitToInt()
+                            val index = (((currentMinute + 1) / delta).toInt()).absoluteValue - 1
+                            allImages?.get(index)?.let { "/${mo.folder}/${it.name}" }
+                        } else null
                     }
             }
 

@@ -1,22 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Metrics} from '../../model/metrics';
-import {MetricTag} from '../../model/metrics-tag';
-import {Statistic} from '../../model/statistic';
-import * as uuid from 'uuid';
-import {MetricsService} from '../../service/metrics.service';
-import {finalize} from 'rxjs/operators';
+import {Component, OnInit} from "@angular/core";
+import {finalize} from "rxjs/operators";
+import * as uuid from "uuid";
+import {MetricTag} from "../../model/metric.tag";
+import {Metrics} from "../../model/metrics";
+import {Statistic} from "../../model/statistic";
+import {MetricsService} from "../../service/metrics.service";
 
 @Component({
-    selector: 'app-metrics-selector',
-    styleUrls: ['./metrics.component.scss'],
-    templateUrl: './metrics.component.html',
+    selector: "app-metrics-selector",
+    styleUrls: ["./metrics.component.scss"],
+    templateUrl: "./metrics.component.html",
 })
 export class MetricsComponent implements OnInit {
-
-    constructor(private metricService: MetricsService) {
-        this.loading = false;
-    }
-    private static METRIC_TAG_ALL: MetricTag = {tag: 'All', value: null};
+    private static METRIC_TAG_ALL: MetricTag = {tag: "All", value: null};
     public loading: boolean;
     public metrics: Metrics = new Metrics();
     public options: MetricTag[] = [];
@@ -29,6 +25,10 @@ export class MetricsComponent implements OnInit {
     public statAvg: number;
     public countLoaders: number;
 
+    constructor(private metricService: MetricsService) {
+        this.loading = false;
+    }
+
     public ngOnInit(): void {
         this.populateControls();
     }
@@ -36,11 +36,11 @@ export class MetricsComponent implements OnInit {
     public populateControls() {
         this.metricService
             .getSystemMetrics()
-            .subscribe(value => {
+            .subscribe((value) => {
                 this.options = [];
                 this.options.push(MetricsComponent.METRIC_TAG_ALL);
                 this.metrics = value;
-                this.metrics.availableTags.filter(tag => tag.tag === 'status').forEach(tag => tag.values.forEach(name => this.options.push({
+                this.metrics.availableTags.filter((tag) => tag.tag === "status").forEach((tag) => tag.values.forEach((name) => this.options.push({
                     tag: name,
                     value: name
                 })));
@@ -59,21 +59,21 @@ export class MetricsComponent implements OnInit {
             .getSystemMetrics(this.option)
             .pipe(finalize(() => this.countLoaders--))
             .subscribe(value => {
-                console.log('async-task-' + uuid.v4());
+                // tslint:disable-next-line:no-console
+                console.log("async-task-" + uuid.v4());
                 this.statistics = value.measurements;
-                this.statMax = value.measurements.find(stat => stat.statistic === 'MAX').value;
-                this.statCount = value.measurements.find(stat => stat.statistic === 'COUNT').value;
-                this.statTotal = value.measurements.find(stat => stat.statistic === 'TOTAL_TIME').value;
-                this.statAvg = value.measurements.find(stat => stat.statistic === 'TOTAL_TIME').value.valueOf() / this.statCount.valueOf();
+                this.statMax = value.measurements.find((stat) => stat.statistic === "MAX").value;
+                this.statCount = value.measurements.find((stat) => stat.statistic === "COUNT").value;
+                this.statTotal = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value;
+                this.statAvg = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value.valueOf() / this.statCount.valueOf();
             });
         this.metricService
             .getHttpTraces()
             .pipe(finalize(() => this.countLoaders--))
-            .subscribe(value => {
-                this.statMin = value.traces.map(trace => trace.timeTaken)
+            .subscribe((value) => {
+                this.statMin = value.traces.map((trace) => trace.timeTaken)
                     .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0].valueOf() / 1000;
             });
 
     }
 }
-
