@@ -4,6 +4,7 @@ import * as uuid from "uuid";
 import {MetricTag} from "../../model/metric.tag";
 import {Metrics} from "../../model/metrics";
 import {Statistic} from "../../model/statistic";
+import {Traces} from "../../model/traces";
 import {MetricsService} from "../../service/metrics.service";
 
 @Component({
@@ -75,9 +76,14 @@ export class MetricsComponent implements OnInit {
         this.metricService
             .getHttpTraces()
             .pipe(finalize(() => this.countLoaders--))
-            .subscribe((value) => {
-                this.statMin = value.traces.map((trace) => trace.timeTaken)
-                    .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0].valueOf() / 1000;
+            .subscribe((response?: Traces) => {
+                if (response) {
+                    this.statMin = response.traces
+                        .filter((trace) => trace)
+                        .map((trace) => trace.timeTaken ? 1000000 : trace.timeTaken)
+                        .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0]
+                        .valueOf() / 1000;
+                }
             });
 
     }

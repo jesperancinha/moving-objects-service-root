@@ -16,14 +16,6 @@ COPY metrics-server/server.js ${runningFolder}
 
 COPY metrics-server/package.json ${runningFolder}
 
-ARG AIRPORTS_KEY
-
-ARG WEBCAMS_KEY
-
-ENV AIRPORTS_KEY=${AIRPORTS_KEY}
-
-ENV WEBCAMS_KEY=${WEBCAMS_KEY}
-
 RUN nginx -t
 
 ENTRYPOINT ["entrypoint.sh"]

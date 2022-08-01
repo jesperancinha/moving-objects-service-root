@@ -14,7 +14,7 @@
                    [matAutocomplete]="auto" (ngModelChange)="searchTermChange($event)">
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"
-                            (click)="setCurrentAirport(option)">
+                            (click)="setCurrentMovingObject(option)">
                     {{option.name}}
                 </mat-option>
             </mat-autocomplete>
@@ -23,8 +23,8 @@
 
         <br/>
 
-        <mat-card>
-            <button mat-button (click)="refresh()">Refresh</button>
+        <mat-card *ngIf="searchTerm">
+            <mat-button-toggle (click)="refresh()">Refresh</mat-button-toggle>
         </mat-card>
 
         <mat-card *ngIf="selectedObject" class="double-card" style="width: 200px">

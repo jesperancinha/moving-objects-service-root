@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {MatTabChangeEvent} from "@angular/material/tabs";
 import {MetricsComponent} from "./metrics/metrics.component";
-import {ObjectsComponent} from "./objects/objects.component";
+// import {ObjectsComponent} from "./objects/objects.component";
 import {WebCamsComponent} from "./webcamsearch/webcams.component";
 
 @Component({
@@ -11,7 +11,7 @@ import {WebCamsComponent} from "./webcamsearch/webcams.component";
 })
 export class LoaderComponent implements OnInit {
     private metricsComponent: MetricsComponent;
-    private airportComponent: ObjectsComponent;
+    // private airportComponent: ObjectsComponent;
     private webCamComponent: WebCamsComponent;
 
     // tslint:disable-next-line:no-empty
@@ -22,10 +22,11 @@ export class LoaderComponent implements OnInit {
         $event: MatTabChangeEvent,
         faresComponent: WebCamsComponent,
         metricsComponent: MetricsComponent,
-        airportComponent: ObjectsComponent): void {
+        // airportComponent: ObjectsComponent
+    ): void {
         this.webCamComponent = faresComponent;
         this.metricsComponent = metricsComponent;
-        this.airportComponent = airportComponent;
+        // this.airportComponent = airportComponent;
     }
 
 }

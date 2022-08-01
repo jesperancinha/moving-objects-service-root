@@ -21,7 +21,7 @@ export class WebCamsComponent implements OnInit {
 
     public loading: boolean;
     public radiusAutoFilled: boolean;
-    public selectedRadius = "10";
+    public selectedRadius = "0";
     public selectedObject: MovingObject;
     public airportFormControl = new FormControl();
     public searchTerm: string;
@@ -40,14 +40,26 @@ export class WebCamsComponent implements OnInit {
         this.selectedRadius = radius;
         this.filteredOptions = this.validateAndRunLiveFilter();
         this.selectedObject.webCams.forEach((webCam) => webCam.webCamImage.iconUrl = null);
+        this.selectedCam = null;
         if (this.selectedObject) {
             this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedObject.code, this.selectedRadius)
-                .subscribe((airport) => {
-                    this.selectedObject.webCams = airport.webCams;
+                .subscribe((movingObject) => {
+                    this.selectedObject.webCams = movingObject.webCams;
                     this.selectedObject.webCams.forEach((webCam) => {
                         webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`;
                         webCam.webCamImage.previewUrl = `${webCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`;
                     });
+                    if (!this.selectedCam) {
+                        this.selectedCam = this.selectedObject.webCams[0];
+                    } else {
+                        const newWebCam = movingObject.webCams
+                            .filter((wc) => this.selectedCam.webCamImage.previewUrl
+                                .indexOf(wc.webCamImage.previewUrl) >= 0)[0];
+                        if (newWebCam) {
+                            this.selectedCam = newWebCam;
+                        }
+                    }
+                    this.selectedCam.webCamImage.previewUrl = `${this.selectedCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`;
                     this.loading = false;
                 });
         }
@@ -58,7 +70,7 @@ export class WebCamsComponent implements OnInit {
         this.selectedCam.webCamImage.previewUrl = `${this.selectedCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`;
     }
 
-    public setCurrentAirport(airport: MovingObject) {
+    public setCurrentMovingObject(airport: MovingObject) {
         this.selectedObject = airport;
     }
 
@@ -79,9 +91,9 @@ export class WebCamsComponent implements OnInit {
     private validateAndRunLiveFilter(): Observable<MovingObject[]> {
         if (this.validateAirportQuery()) {
             return this.objectsWebcamsService.getObjectsPerTermAndRadius(this.searchTerm, this.selectedRadius)
-                .pipe(map((airports: MovingObject[]) => {
+                .pipe(map((objects: MovingObject[]) => {
                     this.loading = false;
-                    return airports;
+                    return objects;
                 }));
         }
         return of([]);

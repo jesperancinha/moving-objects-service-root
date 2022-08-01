@@ -1,3 +1,3 @@
 export class Trace {
-    public timeTaken: number;
+    public timeTaken?: number;
 }

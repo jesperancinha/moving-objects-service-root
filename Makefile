@@ -3,7 +3,7 @@ SHELL=/bin/bash
 b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
-	cd moving-objects-gui && yarn
+	cd moving-objects-gui && yarn && npm run build-docker
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
@@ -99,3 +99,8 @@ report-coverage:
 	 ./gradlew clean build test jacocoTestReport -i
 docker-stats:
 	docker stats --all
+build-nginx: build-npm
+	docker-compose stop nginx
+	docker-compose rm nginx
+	docker-compose build --no-cache nginx
+	docker-compose up -d

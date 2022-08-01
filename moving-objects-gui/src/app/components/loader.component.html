@@ -6,13 +6,13 @@
     </mat-card>
 
     <mat-card style="height:1000px">
-        <mat-tab-group (selectedTabChange)="tabChanged($event, webCamsComponent, metricsComponent, airportsComponent)">
+        <mat-tab-group (selectedTabChange)="tabChanged($event, webCamsComponent, metricsComponent)">
             <mat-tab label="WebCams Listings">
                 <app-webcams-selector #webCamsComponent></app-webcams-selector>
             </mat-tab>
-            <mat-tab label="Objects Info">
-                <moving-objects-selector #airportsComponent></moving-objects-selector>
-            </mat-tab>
+<!--            <mat-tab label="Objects Info">-->
+<!--                <moving-objects-selector #airportsComponent></moving-objects-selector>-->
+<!--            </mat-tab>-->
             <mat-tab label="Metrics">
                 <app-metrics-selector #metricsComponent></app-metrics-selector>
             </mat-tab>
