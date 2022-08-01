@@ -26,9 +26,9 @@
             <mat-label>{{selectedAirport.name}} - {{selectedAirport.code}}</mat-label>
             <br/>
             <mat-list>
-                <mat-list-item *ngFor="let webCam of selectedAirport.webCams">
+                <mat-list-item *ngFor="let webCam of selectedAirport.webCams" style="height: 100%">
                     <button mat-icon-button (click)="selectWebCam(webCam)">
-                        <img src="{{webCam.webCamImage.iconUrl}}"/>
+                        <img src="{{webCam.webCamImage.iconUrl}}" width="200"/>
                     </button>
                     <mat-label>{{webCam.title}}</mat-label>
                 </mat-list-item>

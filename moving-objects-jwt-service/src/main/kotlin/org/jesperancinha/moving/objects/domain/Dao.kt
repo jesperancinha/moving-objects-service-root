@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.fold
 import kotlinx.coroutines.flow.map
 import org.jesperancinha.moving.objects.rest.*
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.data.annotation.Id
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
@@ -27,7 +28,7 @@ data class MovingObject(
     @Id val id: UUID? = null,
     @Column("code") val code: String,
     @Column("folder") val folder: String,
-    @Column("url") val url: String,
+    @Column("uri") val uri: String,
     @Column("x") val x: Int,
     @Column("y") val y: Int
 ) : Comparable<MovingObject> {
@@ -68,7 +69,9 @@ interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String> {
 @Service
 class MovingObjectService(
     val movingObjectRepository: MovingObjectRepository,
-    val movingObjectCoRepository: MovingObjectCoRepository
+    val movingObjectCoRepository: MovingObjectCoRepository,
+    @Value("\${objects.jwt.webcams.baseUrl}")
+    val baseUrl: String
 ) {
     fun getAll() = movingObjectRepository.findAll()
 
@@ -95,16 +98,16 @@ class MovingObjectService(
             }
 
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
-        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
     fun getWebcamsPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<WebCamSource> =
-        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).map { it.toWebcamSource() }
+        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).map { it.toWebcamSource(baseUrl) }
 
     suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Page =
-        movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+        movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
     fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSource> =
-        movingObjectRepository.findAllCamerasInRadiusFrom(x, y, radius).map { it.toWebcamSource() }
+        movingObjectRepository.findAllCamerasInRadiusFrom(x, y, radius).map { it.toWebcamSource(baseUrl) }
 }
 
 @Service
@@ -125,7 +128,7 @@ class InfoObjectService(
 /**
  * Looks better and more immutable than Kotlin Coroutines
  */
-fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
+fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     collectSortedList().map {
         Page(
             pageSize = pageSize,
@@ -133,7 +136,7 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
             pageNumber = pageOffSet,
             totalPages = 10000,
             movingObjects = MovingObjects(
-                movingObjects = it.map { mo -> mo.toMovingObjectSource }.toMutableList()
+                movingObjects = it.map { mo -> mo.toMovingObjectSource(baseUrl) }.toMutableList()
             )
         )
 
@@ -142,7 +145,7 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
 /**
  * I had to use mutable to support kotlin function fold. There doesn't see to be a better way to use kotlin coroutines to go from a reactive list to a mono / suspend object.
  */
-suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
+suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     fold(
         Page(
             pageSize = pageSize,
@@ -155,7 +158,7 @@ suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
         )
     ) { page, mo ->
         page.totalPages++
-        page.movingObjects.movingObjects.add(mo.toMovingObjectSource)
+        page.movingObjects.movingObjects.add(mo.toMovingObjectSource(baseUrl))
         page
     }
 
@@ -169,31 +172,32 @@ private val InfoObject.toMovingObjectSource: MovingObjectSource
         coordinates = CoordinateSource(x.toBigDecimal(), y.toBigDecimal())
     )
 
-val MovingObject.toMovingObjectSource
-    get() = MovingObjectSource(
-        code = this.code,
-        city = "Olhão",
-        themeList = emptyList(),
-        coordinates = CoordinateSource(
-            x = this.x.toBigDecimal(),
-            y = this.y.toBigDecimal()
-        ),
-        pointsOfSale = emptyList(),
-        webCamSources = listOf(toWebcamSource())
-    )
+fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSource(
+    code = this.code,
+    city = "Olhão",
+    themeList = emptyList(),
+    coordinates = CoordinateSource(
+        x = this.x.toBigDecimal(),
+        y = this.y.toBigDecimal()
+    ),
+    pointsOfSale = emptyList(),
+    webCamSources = listOf(toWebcamSource(baseUrl))
+)
 
-private fun MovingObject.toWebcamSource() = WebCamSource(
+private fun MovingObject.toWebcamSource(baseUrl: String) = WebCamSource(
     coordinates = CoordinateSource(
         x = this.x.toBigDecimal(),
         y = this.y.toBigDecimal()
     ),
     wikiInfo = "",
     active = true,
-    webCamImage = WebCamImageSource(
-        iconUrl = this.url,
-        thumbnailUrl = this.url,
-        previewUrl = this.url,
-        toenailUrlString = this.url
-    )
+    webCamImage = "${baseUrl}${this.uri}".let { url ->
+        WebCamImageSource(
+            iconUrl = url,
+            thumbnailUrl = url,
+            previewUrl = url,
+            toenailUrlString = url
+        )
+    }
 )
 

@@ -7,7 +7,7 @@ create table if not exists mos.moving_object(
     id UUID,
     code VARCHAR ( 50 ) NOT NULL,
     folder VARCHAR ( 255 ) UNIQUE NOT NULL,
-    url VARCHAR(255 ) UNIQUE NOT NULL,
+    uri VARCHAR(255 ) UNIQUE NOT NULL,
     x INT,
     y INT,
     PRIMARY KEY (id)

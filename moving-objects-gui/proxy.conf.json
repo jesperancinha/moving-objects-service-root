@@ -6,6 +6,13 @@
       "^/aggregator/webcams": "/aggregator/webcams"
     }
   },
+  "/aggregator/webcams/camera": {
+    "target": "http://localhost:8082",
+    "secure": false,
+    "pathRewrite": {
+      "^/aggregator/webcams": "/aggregator/webcams/camera"
+    }
+  },
   "/aggregator/objects": {
     "target": "http://localhost:8082",
     "secure": false,
