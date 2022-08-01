@@ -8,6 +8,6 @@ jobs:
         directories:
           - $HOME/.gradle/caches/
           - $HOME/.gradle/wrapper/
-      stage: International Airport Service
+      stage: Moving Objects Service
       jdk:
         - openjdk14

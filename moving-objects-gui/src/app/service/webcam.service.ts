@@ -4,6 +4,8 @@ import {catchError, Observable, of, retry} from 'rxjs';
 import {WebCam} from '../model/webcam';
 import {WebcamServiceInterface} from "../interface/webcam.service.interface";
 
+const webCamsRootPath = `/aggregator/webcams`;
+
 @Injectable({
     providedIn: "root"
 })
@@ -13,12 +15,12 @@ export class WebcamService implements WebcamServiceInterface {
     }
 
     public getWebCampsPerPageSizeAndOffSet(pageSize: number, pageOffSet: number): Observable<WebCam[]> {
-        return this.http.get<WebCam[]>(`/iairports/webcams/page/${pageSize}/${pageOffSet}`).pipe(
+        return this.http.get<WebCam[]>(`${webCamsRootPath}/page/${pageSize}/${pageOffSet}`).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
 
     public getWebCampsPerCoordinatesAndRadius(latitude: number, longitude: number, radius: number): Observable<WebCam[]> {
-        return this.http.get<WebCam[]>(`/iairports/webcams/location/${latitude}/${longitude}/${radius}`).pipe(
+        return this.http.get<WebCam[]>(`${webCamsRootPath}/location/${latitude}/${longitude}/${radius}`).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
 

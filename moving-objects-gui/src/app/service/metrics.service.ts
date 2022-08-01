@@ -6,6 +6,8 @@ import {MetricServiceInterface} from '../interface/metrics.service.interface';
 import {MetricTag} from '../model/metrics-tag';
 import {catchError, Observable, of, retry} from 'rxjs';
 
+const metricsRootPath = '/aggregator/actuator';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -16,7 +18,7 @@ export class MetricsService implements MetricServiceInterface {
     }
 
     public getSystemMetrics(errorCode?: MetricTag): Observable<Metrics> {
-        let url = '/iairports/actuator/metrics/http.server.requests';
+        let url = `${metricsRootPath}/metrics/http.server.requests`;
         if (errorCode && errorCode.value) {
             url += `?tag=status:${errorCode.value}`;
         }
@@ -25,7 +27,7 @@ export class MetricsService implements MetricServiceInterface {
     }
 
     public getHttpTraces(): Observable<Traces> {
-        return this.httpClient.get<Traces>('/iairports/actuator/httptrace', {headers: this.headers}).pipe(
+        return this.httpClient.get<Traces>(`${metricsRootPath}/httptrace`, {headers: this.headers}).pipe(
             retry(3), catchError(this.handleError<Traces>()));
     }
 

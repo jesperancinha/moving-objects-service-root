@@ -2,11 +2,14 @@ package org.jesperancinha.objects.rest;
 
 import org.jesperancinha.objects.dto.WebCamDto;
 import org.jesperancinha.objects.service.WebCamService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
 
@@ -40,5 +43,14 @@ public class MovingObjectsController {
             final long radius
     ) {
         return webCamService.getCamsByLocationAndRadius(x, y, radius);
+    }
+
+    @GetMapping(value = "/camera/{code}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public Mono<byte[]> getImageProtected(
+            @PathVariable("code")
+            String code
+    ) {
+        return webCamService.getImageFromCode(code);
     }
 }

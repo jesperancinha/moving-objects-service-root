@@ -46,7 +46,6 @@ data class InfoObject(
 )
 
 interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String> {
-
     suspend fun findByCode(code: String): MovingObject
 
     fun findAllBy(pageable: Pageable): Flux<MovingObject>

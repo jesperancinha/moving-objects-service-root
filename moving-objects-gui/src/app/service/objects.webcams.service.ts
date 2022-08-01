@@ -4,22 +4,23 @@ import {catchError, map, Observable, of, retry} from 'rxjs';
 import {Airport} from '../model/airport';
 import {AirportServiceInterface} from '../interface/airport.service.interface';
 
+const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 
 @Injectable({
     providedIn: 'root'
 })
-export class AirportCompleteService implements AirportServiceInterface {
+export class ObjectsWebcamsService implements AirportServiceInterface {
 
     constructor(private http: HttpClient) {
     }
 
     getAirportsPerTerm(term: string, radius: string): Observable<Airport[]> {
-        return this.http.get<Airport[]>(`/iairports/airportwebcams/term/${term}/${radius}`).pipe(
+        return this.http.get<Airport[]>(`${objectsWebcamsRootPath}/term/${term}/${radius}`).pipe(
             retry(3), catchError(this.handleError<Airport[]>()));
     }
 
     getAirportPerCode(code: string, radius: string): Observable<Airport> {
-        return this.http.get<Airport>(`/iairports/airportwebcams/code/${code}/${radius}`)
+        return this.http.get<Airport>(`${objectsWebcamsRootPath}/code/${code}/${radius}`)
             .pipe(retry(3), catchError(this.handleError<Airport[]>()))
             .pipe(map((airports: Airport[]) => airports[0]));
     }
