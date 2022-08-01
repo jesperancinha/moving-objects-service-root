@@ -43,7 +43,10 @@ export class WebCamsComponent implements OnInit {
             this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedObject.code, this.selectedRadius)
                 .subscribe((airport) => {
                     this.selectedObject.webCams = airport.webCams;
-                    this.selectedObject.webCams.forEach((webCam) => webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`);
+                    this.selectedObject.webCams.forEach((webCam) => {
+                        webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`
+                        webCam.webCamImage.previewUrl = `${webCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`
+                    });
                     this.loading = false;
                 });
         }
@@ -51,7 +54,7 @@ export class WebCamsComponent implements OnInit {
 
     public selectWebCam(webCam: WebCam) {
         this.selectedCam = webCam;
-
+        this.selectedCam.webCamImage.previewUrl = `${this.selectedCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`
     }
 
     public setCurrentAirport(airport: MovingObject) {
@@ -62,6 +65,10 @@ export class WebCamsComponent implements OnInit {
         this.searchTerm = searchTerm;
         this.loading = true;
         this.filteredOptions = this.validateAndRunLiveFilter();
+    }
+
+    public refresh() {
+        this.radiusChanged(this.selectedRadius);
     }
 
     private populateControls() {

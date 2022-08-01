@@ -18,9 +18,14 @@
                     {{option.name}}
                 </mat-option>
             </mat-autocomplete>
+
         </mat-form-field>
 
         <br/>
+
+        <mat-card>
+            <button mat-button (click)="refresh()">Refresh</button>
+        </mat-card>
 
         <mat-card *ngIf="selectedObject" class="double-card" style="width: 200px">
             <mat-label>{{selectedObject.name}} - {{selectedObject.code}}</mat-label>
@@ -38,6 +43,7 @@
         <mat-card *ngIf="selectedCam" class="double-card">
             <img alt="" src="{{selectedCam.webCamImage.previewUrl}}" style="width: 100%"/>
         </mat-card>
+
 
         <table>
             <tr>
