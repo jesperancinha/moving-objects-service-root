@@ -95,6 +95,6 @@ class ObjectsController(
         y: BigInteger,
         @PathVariable
         radius: BigInteger
-    ): Flow<WebCamSource> = movingObjectsService.getCamerasByLocation(x,y, radius)
+    ): Flow<WebCamSource> = movingObjectsService.getCamerasByLocation(x, y, radius)
 
 }

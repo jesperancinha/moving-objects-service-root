@@ -51,7 +51,7 @@ interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String>
 
     fun findAllBy(pageable: Pageable): Flux<MovingObject>
 
-    @Query("select mos.* from moving_object as mos where sqrt(pow(mos.x-:x, 2) + pow(mos.y-:y, 2))< :radius")
+    @Query("select mos.* from moving_object as mos where sqrt(pow(mos.x-:x, 2) + pow(mos.y-:y, 2)) <= :radius")
     fun findAllCamerasInRadiusFrom(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<MovingObject>
 }
 

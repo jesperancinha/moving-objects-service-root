@@ -18,12 +18,12 @@ public class ObjectsAggregatorService {
         this.webCamService = webCamService;
     }
 
-    public Flux<MovingObjectDto> getAirportsBySearchTerm(String term, Long radius) {
+    public Flux<MovingObjectDto> getObjectsAndCamsBySearchTermAndRadius(String term, Long radius) {
         return objectsService.getObjectsByTerm(term)
-                .map(airportDto -> {
-                    CoordinatesDto coordinates = airportDto.coordinates();
+                .map(objectDto -> {
+                    CoordinatesDto coordinates = objectDto.coordinates();
                     return webCamService.getCamsByLocationAndRadius(coordinates.x(), coordinates.y(), radius)
-                            .map(webCamDto -> Pair.of(airportDto, webCamDto));
+                            .map(webCamDto -> Pair.of(objectDto, webCamDto));
                 })
                 .flatMap(Flux::share)
                 .map(webCamDto -> {
@@ -33,7 +33,7 @@ public class ObjectsAggregatorService {
 
     }
 
-    public Flux<MovingObjectDto> getAirportByCode(String code, Long radius) {
+    public Flux<MovingObjectDto> getObjectsAndCamsByCodeAndRadius(String code, Long radius) {
         return Flux.from(objectsService.getObjectsByCode(code))
                 .map(airportDto -> {
                     CoordinatesDto coordinates = airportDto.coordinates();

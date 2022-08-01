@@ -19,6 +19,7 @@ import reactor.blockhound.BlockHound;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -55,12 +56,12 @@ public class MovingObjectsAggregatorServiceTestSource {
         configureFor("127.0.0.1", 8081);
         stubFor(get(urlEqualTo("/international/airports/live/airports/code/AMS"))
                 .willReturn(aResponse()
-                        .withBody(IOUtils.toString(MovingObjectsAggregatorServiceTestSource.class.getResourceAsStream("/airport-response-AMS.json")))
+                        .withBody(IOUtils.toString(Objects.requireNonNull(MovingObjectsAggregatorServiceTestSource.class.getResourceAsStream("/airport-response-AMS.json"))))
                         .withHeader("Content-Type", "application/json")
                 ));
         stubFor(get(urlEqualTo("/international/airports/live/webcams/location/52.308056/4.764167/10"))
                 .willReturn(aResponse()
-                        .withBody(IOUtils.toString(MovingObjectsAggregatorServiceTestSource.class.getResourceAsStream("/webcams-response-AMS-10.json")))
+                        .withBody(IOUtils.toString(Objects.requireNonNull(MovingObjectsAggregatorServiceTestSource.class.getResourceAsStream("/webcams-response-AMS-10.json"))))
                         .withHeader("Content-Type", "application/json")
                 ));
         BlockHound.install();
@@ -72,7 +73,7 @@ public class MovingObjectsAggregatorServiceTestSource {
     public void testGetAirportByCode_whenCode_Get10Cameras() {
         val testCode = "AMS";
         val testRadius = 10L;
-        val airportByCode = objectsAggregatorService.getAirportByCode(testCode, testRadius);
+        val airportByCode = objectsAggregatorService.getObjectsAndCamsByCodeAndRadius(testCode, testRadius);
         val airportDtos = airportByCode.toIterable();
         Assertions.assertThat(airportDtos).isNotNull();
         Assertions.assertThat(airportDtos).isNotEmpty();
@@ -88,7 +89,7 @@ public class MovingObjectsAggregatorServiceTestSource {
     public void testGetAirportByCode_whenMonoCode_Get1Camera() {
         val testCode = "AMS";
         val testRadius = 10L;
-        val airportByCode = Mono.from(objectsAggregatorService.getAirportByCode(testCode, testRadius));
+        val airportByCode = Mono.from(objectsAggregatorService.getObjectsAndCamsByCodeAndRadius(testCode, testRadius));
         val airportDto = airportByCode.block();
         assertThat(airportDto).isNotNull();
         val webCams = airportDto.webCams();

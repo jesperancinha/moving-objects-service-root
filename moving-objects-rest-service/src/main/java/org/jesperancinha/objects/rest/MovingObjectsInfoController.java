@@ -23,24 +23,24 @@ public class MovingObjectsInfoController {
             @PathVariable(required = false)
             Long radius
     ) {
-        return objectsAggregatorService.getAirportsBySearchTerm(term, radius);
+        return objectsAggregatorService.getObjectsAndCamsBySearchTermAndRadius(term, radius);
     }
 
     @GetMapping("/code/{code}/{radius}")
-    public Flux<MovingObjectDto> getAirportByCode(
+    public Flux<MovingObjectDto> getObjectsByCode(
             @PathVariable
             final String code,
             @PathVariable(required = false)
             final  Long radius
     ) {
-        return objectsAggregatorService.getAirportByCode(code, radius);
+        return objectsAggregatorService.getObjectsAndCamsByCodeAndRadius(code, radius);
     }
 
     @GetMapping("/code/{code}")
-    public Flux<MovingObjectDto> getAirportByCode(
+    public Flux<MovingObjectDto> getObjectsByCode(
             @PathVariable
             final  String code
     ) {
-        return this.getAirportByCode(code, 0L);
+        return this.getObjectsByCode(code, 0L);
     }
 }
