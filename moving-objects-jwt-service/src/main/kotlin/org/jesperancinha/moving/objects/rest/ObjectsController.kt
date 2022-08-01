@@ -60,7 +60,7 @@ class ObjectsController(
         pageOffSet: Int
     ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
-    @GetMapping("/webcams/{pageSize}/{pageOffSet}")
+    @GetMapping("/{pageSize}/{pageOffSet}")
     @ResponseBody
     fun getWebamsPageBySizeAndOffSetProtected(
         @PathVariable("pageSize")

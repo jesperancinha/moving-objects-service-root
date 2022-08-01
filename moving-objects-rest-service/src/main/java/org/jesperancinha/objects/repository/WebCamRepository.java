@@ -25,7 +25,7 @@ public class WebCamRepository {
 
     public Flux<WebCamSource> findCamsByPageSizeAndPageOffset(int pageSize, int pageOffSet) {
         return jwtClient.get()
-                .uri(webCamsEndpoint + "/webcams/{pageSize}/{pageOffSet}", pageSize, pageOffSet)
+                .uri(webCamsEndpoint + "/{pageSize}/{pageOffSet}", pageSize, pageOffSet)
                 .retrieve()
                 .bodyToFlux(WebCamSource.class);
     }

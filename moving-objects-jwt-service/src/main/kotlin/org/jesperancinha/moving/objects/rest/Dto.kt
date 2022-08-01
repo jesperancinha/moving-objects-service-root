@@ -16,7 +16,7 @@ data class WebCamImageSource(
 
 data class WebCamSource(
     val title: String? = null,
-    val coordinate: CoordinateSource,
+    val coordinates: CoordinateSource,
     val wikiInfo: String,
     val active: Boolean,
     val webCamImage: WebCamImageSource

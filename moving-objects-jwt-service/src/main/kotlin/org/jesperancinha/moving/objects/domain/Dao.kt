@@ -73,7 +73,6 @@ class MovingObjectService(
             .let { mo ->
                 "/${mo.folder}"
                     .let { resourcePath ->
-                        val root = javaClass.getResource("/")?.toURI()?.toPath()
                         val resource = javaClass.getResource(resourcePath)
                         print(resource)
                         val allImages =
@@ -181,7 +180,7 @@ val MovingObject.toMovingObjectSource
     )
 
 private fun MovingObject.toWebcamSource() = WebCamSource(
-    coordinate = CoordinateSource(
+    coordinates = CoordinateSource(
         x = this.x.toBigDecimal(),
         y = this.y.toBigDecimal()
     ),
