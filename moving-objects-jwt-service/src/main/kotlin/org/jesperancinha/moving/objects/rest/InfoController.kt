@@ -30,4 +30,9 @@ class InfoController(
         codeId: String
     ) = infoObjectService.getByCodeId(codeId)
 
+    @GetMapping("/search/{searchTerm}")
+    fun getAllBySearchItem(
+        @PathVariable("searchTerm")
+        searchTerm: String
+    ) = infoObjectService.getAllBySearchItem(searchTerm)
 }

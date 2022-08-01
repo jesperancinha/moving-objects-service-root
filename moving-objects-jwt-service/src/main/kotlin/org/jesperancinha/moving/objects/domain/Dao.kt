@@ -1,5 +1,6 @@
 package org.jesperancinha.moving.objects.domain
 
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.fold
 import org.jesperancinha.moving.objects.rest.*
 import org.springframework.data.annotation.Id
@@ -44,13 +45,18 @@ interface MovingObjectRepository : CoroutineCrudRepository<MovingObject, String>
     fun findAllBy(pageable: Pageable): Flux<MovingObject>
 }
 
+interface MovingObjectCoRepository : CoroutineCrudRepository<MovingObject, String> {
+    fun findAllBy(pageable: Pageable): Flow<MovingObject>
+}
+
 interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String> {
     suspend fun findByCode(code: String): InfoObject
 }
 
 @Service
 class MovingObjectService(
-    val movingObjectRepository: MovingObjectRepository
+    val movingObjectRepository: MovingObjectRepository,
+    val movingObjectCoRepository: MovingObjectCoRepository
 ) {
     fun getAll() = movingObjectRepository.findAll()
 
@@ -80,8 +86,8 @@ class MovingObjectService(
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 
-    fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Mono<Page> =
-        movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
+    suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Page =
+        movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet)
 }
 
 @Service
@@ -100,6 +106,10 @@ class InfoObjectService(
                 color = it.color
             )
         }
+
+    fun getAllBySearchItem(searchTerm: String): List<MovingObjectSource> {
+        TODO("Not yet implemented")
+    }
 }
 
 /**
@@ -122,7 +132,7 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
 /**
  * I had to use mutable to support kotlin function fold. There doesn't see to be a better way to use kotlin coroutines to go from a reactive list to a mono / suspend object.
  */
-suspend fun kotlinx.coroutines.flow.Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
+suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
     fold(
         Page(
             pageSize = pageSize,

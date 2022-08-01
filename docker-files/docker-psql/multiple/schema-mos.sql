@@ -1,5 +1,8 @@
 create schema if not exists mos;
 
+drop table if exists mos.moving_object;
+drop table if exists mos.info_object;
+
 create table if not exists mos.moving_object(
     id UUID,
     code VARCHAR ( 50 ) NOT NULL,

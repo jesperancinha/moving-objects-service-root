@@ -27,9 +27,8 @@ public class ObjectsRepository {
     }
 
     public Flux<MovingObjectSource> findObjectsBySearchTerm(final String searchTerm) {
-
         return jwtClient.get()
-                .uri(movingObjectsEndpoint + "/search/{codeId}", searchTerm)
+                .uri(movingObjectsEndpoint + "/search/{searchTerm}", searchTerm)
                 .retrieve()
                 .bodyToFlux(MovingObjectSource.class);
     }
