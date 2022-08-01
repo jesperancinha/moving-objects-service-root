@@ -31,6 +31,12 @@ class InfoController(
     ) = infoObjectService.getByCodeId(codeId)
 
     @GetMapping("/search/{searchTerm}")
+    fun getAllBySearchItemProtected(
+        @PathVariable("searchTerm")
+        searchTerm: String
+    ) = infoObjectService.getAllBySearchItem(searchTerm)
+
+    @GetMapping("/jwt/open/search/{searchTerm}")
     fun getAllBySearchItem(
         @PathVariable("searchTerm")
         searchTerm: String

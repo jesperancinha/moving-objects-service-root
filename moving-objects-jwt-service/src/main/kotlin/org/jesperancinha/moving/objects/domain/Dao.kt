@@ -2,10 +2,12 @@ package org.jesperancinha.moving.objects.domain
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.fold
+import kotlinx.coroutines.flow.map
 import org.jesperancinha.moving.objects.rest.*
 import org.springframework.data.annotation.Id
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
+import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
@@ -51,6 +53,9 @@ interface MovingObjectCoRepository : CoroutineCrudRepository<MovingObject, Strin
 
 interface InfoObjectRepository : CoroutineCrudRepository<InfoObject, String> {
     suspend fun findByCode(code: String): InfoObject
+
+    @Query("Select io.* from info_object as io where io.name like concat('%',:searchTerm,'%') or io.color like concat('%',:searchTerm,'%') or io.code like concat('%',:searchTerm,'%')")
+    fun findBySearchTerm(searchTerm: String): Flow<InfoObject>
 }
 
 @Service
@@ -97,20 +102,13 @@ class InfoObjectService(
     fun getAll() = infoObjectRepository.findAll()
 
     suspend fun getByCodeId(codeId: String): MovingObjectSource =
-        infoObjectRepository.findByCode(codeId).let {
-            MovingObjectSource(
-                name = it.name,
-                code = codeId,
-                city = "Olhão",
-                size = it.size,
-                color = it.color
-            )
-        }
+        infoObjectRepository.findByCode(codeId).toMovingObjectSource
 
-    fun getAllBySearchItem(searchTerm: String): List<MovingObjectSource> {
-        TODO("Not yet implemented")
-    }
+
+    fun getAllBySearchItem(searchTerm: String): Flow<MovingObjectSource> =
+        infoObjectRepository.findBySearchTerm(searchTerm).map { it.toMovingObjectSource }
 }
+
 
 /**
  * Looks better and more immutable than Kotlin Coroutines
@@ -148,6 +146,15 @@ suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int) =
         page.movingObjects.movingObjects.add(mo.toMovingObjectSource)
         page
     }
+
+private val InfoObject.toMovingObjectSource: MovingObjectSource
+    get() = MovingObjectSource(
+        name = name,
+        code = code,
+        city = "Olhão",
+        size = size,
+        color = color
+    )
 
 val MovingObject.toMovingObjectSource
     get() = MovingObjectSource(
