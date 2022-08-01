@@ -4,16 +4,16 @@ global:
 
 scrape_configs:
 
-  - job_name: airports-rest
+  - job_name: aggregator-reactive-rest
     honor_timestamps: true
-    metrics_path: /iairports/actuator/prometheus
+    metrics_path: /aggregator/actuator/prometheus
     static_configs:
       - targets:
           - airports:8082
 
-  - job_name: airports-sst
+  - job_name: objects-reacctive-service
     honor_timestamps: true
-    metrics_path: /international/airports/actuator/prometheus
+    metrics_path: /objects/actuator/prometheus
     static_configs:
       - targets:
           - airports:8081
