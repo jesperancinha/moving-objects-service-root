@@ -2,6 +2,6 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import "@testing-library/jest-dom";
-import "@babel/preset-env";
 import "@babel/core";
+import "@babel/preset-env";
+import "@testing-library/jest-dom";

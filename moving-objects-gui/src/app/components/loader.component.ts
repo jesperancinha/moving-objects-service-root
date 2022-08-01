@@ -14,6 +14,7 @@ export class LoaderComponent implements OnInit {
     private airportComponent: ObjectsComponent;
     private webCamComponent: WebCamsComponent;
 
+    // tslint:disable-next-line:no-empty
     public ngOnInit(): void {
     }
 

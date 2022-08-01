@@ -40,10 +40,13 @@ export class MetricsComponent implements OnInit {
                 this.options = [];
                 this.options.push(MetricsComponent.METRIC_TAG_ALL);
                 this.metrics = value;
-                this.metrics.availableTags.filter((tag) => tag.tag === "status").forEach((tag) => tag.values.forEach((name) => this.options.push({
-                    tag: name,
-                    value: name
-                })));
+                this.metrics.availableTags
+                    .filter((tag) => tag.tag === "status")
+                    .forEach((tag) => tag.values
+                        .forEach((name) => this.options.push({
+                            tag: name,
+                            value: name,
+                        })));
                 this.loadSelectedErrorMetrics();
             });
     }
@@ -65,7 +68,9 @@ export class MetricsComponent implements OnInit {
                 this.statMax = value.measurements.find((stat) => stat.statistic === "MAX").value;
                 this.statCount = value.measurements.find((stat) => stat.statistic === "COUNT").value;
                 this.statTotal = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value;
-                this.statAvg = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value.valueOf() / this.statCount.valueOf();
+                this.statAvg = value.measurements
+                    .find((stat) => stat.statistic === "TOTAL_TIME").value
+                    .valueOf() / this.statCount.valueOf();
             });
         this.metricService
             .getHttpTraces()

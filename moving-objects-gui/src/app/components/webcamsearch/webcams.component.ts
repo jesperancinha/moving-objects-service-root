@@ -5,6 +5,7 @@ import {MovingObject} from "../../model/moving.object";
 import {WebCam} from "../../model/webcam";
 import {ObjectsWebcamsService} from "../../service/objects.webcams.service";
 
+// tslint:disable-next-line:interface-name
 interface TreeNode<T> {
     data: T;
     children?: Array<TreeNode<T>>;
@@ -44,8 +45,8 @@ export class WebCamsComponent implements OnInit {
                 .subscribe((airport) => {
                     this.selectedObject.webCams = airport.webCams;
                     this.selectedObject.webCams.forEach((webCam) => {
-                        webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`
-                        webCam.webCamImage.previewUrl = `${webCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`
+                        webCam.webCamImage.iconUrl = `${webCam.webCamImage.iconUrl}?timestamp=${new Date().getTime()}`;
+                        webCam.webCamImage.previewUrl = `${webCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`;
                     });
                     this.loading = false;
                 });
@@ -54,7 +55,7 @@ export class WebCamsComponent implements OnInit {
 
     public selectWebCam(webCam: WebCam) {
         this.selectedCam = webCam;
-        this.selectedCam.webCamImage.previewUrl = `${this.selectedCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`
+        this.selectedCam.webCamImage.previewUrl = `${this.selectedCam.webCamImage.previewUrl}?timestamp=${new Date().getTime()}`;
     }
 
     public setCurrentAirport(airport: MovingObject) {
