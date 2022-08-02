@@ -30,11 +30,13 @@ buildw:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
+buildw-jwt-service:
+	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 generate-credentials:
 	bash generateCredentials.sh
 no-test: generate-credentials
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
-	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
+	make buildw-jwt-service
 upgrade:
 	gradle wrapper --gradle-version 7.4
 upgrade-mac-os:
@@ -103,4 +105,8 @@ build-nginx: build-npm
 	docker-compose stop nginx
 	docker-compose rm nginx
 	docker-compose build --no-cache nginx
+	docker-compose up -d
+build-jwt-service: buildw-jwt-service
+	docker-compose stop moving-objects-jwt-service
+	docker-compose build --no-cache moving-objects-jwt-service
 	docker-compose up -d
