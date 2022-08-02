@@ -174,55 +174,55 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Eden Space\",instance=\"airports:8081\",job=\"airports-sst\"}"
+          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Eden Space\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\"}"
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Eden Space\",instance=\"airports:8082\",job=\"airports-rest\"}"
+          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Eden Space\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}"
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Survivor Space\",instance=\"airports:8082\",job=\"airports-rest\"}",
+          "alias": "jvm_memory_used_bytes{area=\"heap\",id=\"Survivor Space\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\",instance=\"airports:8081\",job=\"airports-sst\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\",instance=\"airports:8082\",job=\"airports-rest\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\",instance=\"airports:8081\",job=\"airports-sst\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\",instance=\"airports:8082\",job=\"airports-rest\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\",instance=\"airports:8081\",job=\"airports-sst\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\",instance=\"airports:8082\",job=\"airports-rest\"}",
+          "alias": "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
@@ -329,126 +329,126 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "{exception=\"ClientAbortException\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
+          "alias": "{exception=\"ClientAbortException\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"ClientAbortException\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
+          "alias": "{exception=\"ClientAbortException\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"SocketTimeoutException\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/webcams/location/{latitude}/{longitude}/{radius}\"}",
+          "alias": "{exception=\"SocketTimeoutException\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/webcams/location/{latitude}/{longitude}/{radius}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"InternalServerError\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SERVER_ERROR\",status=\"500\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
+          "alias": "{exception=\"InternalServerError\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SERVER_ERROR\",status=\"500\",uri=\"/airportwebcams/term/{term}/{radius}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/**\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/**\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"SocketTimeoutException\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/airports/search/{searchWord}\"}",
+          "alias": "{exception=\"SocketTimeoutException\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/airports/search/{searchWord}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"SocketTimeoutException\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/webcams/location/{latitude}/{longitude}/{radius}\"}",
+          "alias": "{exception=\"SocketTimeoutException\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/live/webcams/location/{latitude}/{longitude}/{radius}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/httptrace\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/httptrace\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8081\",job=\"airports-sst\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/prometheus\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"CLIENT_ERROR\",status=\"404\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
           "lines": false
         },
         {
-          "alias": "{exception=\"None\",instance=\"airports:8082\",job=\"airports-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
+          "alias": "{exception=\"None\",instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\",method=\"GET\",outcome=\"SUCCESS\",status=\"200\",uri=\"/actuator/metrics/{requiredMetricName}\"}",
           "hiddenSeries": true,
           "hideTooltip": true,
           "legend": false,
@@ -761,12 +761,12 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "process_files_open_files{instance=\"airports:8081\",job=\"airports-sst\"}",
+          "alias": "process_files_open_files{instance=\"moving-objects-jwt-service:8081\",job=\"objects-jwt-reactive-rest\"}",
           "color": "#F2495C",
           "pointradius": 1
         },
         {
-          "alias": "process_files_open_files{instance=\"airports:8082\",job=\"airports-rest\"}",
+          "alias": "process_files_open_files{instance=\"moving-objects-rest-service:8082\",job=\"aggregator-reactive-rest\"}",
           "color": "#73BF69",
           "pointradius": 1
         }

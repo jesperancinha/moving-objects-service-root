@@ -9,21 +9,21 @@ scrape_configs:
     metrics_path: /aggregator/actuator/prometheus
     static_configs:
       - targets:
-          - airports:8082
+          - moving-objects-rest-service:8082
 
-  - job_name: objects-reacctive-service
+  - job_name: objects-jwt-reactive-rest
     honor_timestamps: true
     metrics_path: /objects/actuator/prometheus
     static_configs:
       - targets:
-          - airports:8081
+          - moving-objects-jwt-service:8081
 
-  - job_name: airports-gui
+  - job_name: moving-objects-gui
     honor_timestamps: true
     metrics_path: /metrics
     static_configs:
       - targets:
-          - airports:4000
+          - nginx:4000
 
 remote_write:
   - url: "http://influxdb:8086/api/v1/prom/write?db=prometheus"

@@ -1,4 +1,4 @@
-# international-airports-rest-service
+# international-aggregator-reactive-rest-service
 
 ## Build
 

@@ -4,23 +4,23 @@ global:
 
 scrape_configs:
 
-  - job_name: airports-rest
+  - job_name: aggregator-reactive-rest
     honor_timestamps: true
-    metrics_path: /iairports/actuator/prometheus
+    metrics_path: /aggregator/actuator/prometheus
     static_configs:
       - targets:
-          - airports:8082
+          - moving-objects-rest-service:8082
 
-  - job_name: airports-sst
+  - job_name: objects-jwt-reactive-rest
     honor_timestamps: true
-    metrics_path: /international/airports/actuator/prometheus
+    metrics_path: /objects/actuator/prometheus
     static_configs:
       - targets:
-          - airports:8081
+          - moving-objects-jwt-service:8081
 
-  - job_name: airports-gui
+  - job_name: moving-objects-gui
     honor_timestamps: true
     metrics_path: /metrics
     static_configs:
       - targets:
-          - airports:4000
+          - nginx:4000
