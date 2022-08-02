@@ -1,5 +1,5 @@
 describe('Influx DB Tests', () => {
-  const host = Cypress.env('host') ? Cypress.env('host') : 'localhost';
+  const host = Cypress.env('host') ? 'influxdb' : 'localhost';
   const port = 8086;
 
   it('show influx sb', () => {

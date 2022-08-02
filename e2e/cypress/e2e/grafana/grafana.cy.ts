@@ -1,5 +1,5 @@
 describe('Grafana Tests', () => {
-  const host = Cypress.env('host') ? Cypress.env('host') : 'localhost';
+  const host = Cypress.env('host') ? 'grafana' : 'localhost';
   const port = 3000
 
   it('show grafana', () => {

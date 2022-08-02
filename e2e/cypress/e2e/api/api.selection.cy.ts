@@ -13,8 +13,8 @@ describe('API Images test ', () => {
         filterInputField.should('not.have.value', 0);
         filterInputField.should('have.value', '');
         filterInputField.type("Garlic",{force: true});
-        cy.get('span[class="mat-option-text"]').contains('Garlic').click();
-        cy.get('span[class="mat-button-wrapper"]').click();
+        cy.get('span[class="mat-option-text"]').contains('Garlic').click({force: true});
+        cy.get('span[class="mat-button-wrapper"]').click({force: true});
 
     });
 })
