@@ -4,12 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve  --proxy-config=proxy.conf.json",
-    "build": "tsc metrics-server/server.ts && ng build",
+    "build": "build",
     "build-docker": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "tsc metrics-server/server.ts  && node server.js",
     "coverage": "jest --coverage"
   },
   "private": true,
