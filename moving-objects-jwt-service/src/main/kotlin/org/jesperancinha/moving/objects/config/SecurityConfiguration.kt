@@ -51,6 +51,8 @@ class SecurityConfiguration(
                 .permitAll()
                 .pathMatchers("/v3/**")
                 .permitAll()
+                .pathMatchers("/actuator/**")
+                .permitAll()
                 .anyExchange()
                 .authenticated()
         }
