@@ -66,6 +66,8 @@ update:
 	cd moving-objects-gui && npx browserslist && ncu -u && yarn
 audit:
 	cd moving-objects-gui && npm audit fix && yarn
+cypress-install:
+	cd e2e && make build
 cypress-open:
 	cd e2e && make cypress-open
 cypress-open-docker:
