@@ -26,3 +26,6 @@ function checkServiceByNameAndMessage() {
 checkServiceByNameAndMessage mosdb 'database system is ready to accept connections'
 checkServiceByNameAndMessage moving-objects-jwt-service 'Netty started on port'
 checkServiceByNameAndMessage moving-objects-rest-service 'Netty started on port'
+checkServiceByNameAndMessage grafana 'HTTP Server Listen" address=[::]:3000'
+checkServiceByNameAndMessage prometheus '"Start listening for connections" address=0.0.0.0:9090'
+checkServiceByNameAndMessage influxdb 'service=tcp-listener transport=http addr=:8086 port=8086'
