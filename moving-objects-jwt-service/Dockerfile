@@ -4,7 +4,9 @@ ENV runningFolder /usr/local/bin/
 
 WORKDIR ${runningFolder}
 
-COPY build/libs/moving-objects-jwt-service.jar ${runningFolder}
+COPY build/libs/moving-objects-jwt-service.jar ${runningFolder}/
+
+COPY cameras ${runningFolder}/
 
 COPY entrypoint.sh ${runningFolder}
 

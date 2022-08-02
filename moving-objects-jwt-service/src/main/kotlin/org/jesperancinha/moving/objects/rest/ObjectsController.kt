@@ -37,8 +37,7 @@ class ObjectsController(
         @PathVariable("code")
         code: String
     ): ByteArray? = withContext(Dispatchers.IO) {
-        javaClass
-            .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+        movingObjectsService.getImageByteArray(code)
     }
 
     @GetMapping(value = ["/jwt/open/camera/{code}"], produces = [MediaType.IMAGE_JPEG_VALUE])
@@ -47,8 +46,7 @@ class ObjectsController(
         @PathVariable("code")
         code: String
     ): ByteArray? = withContext(Dispatchers.IO) {
-        javaClass
-            .getResourceAsStream(movingObjectsService.getImagePathByCode(code).toString())?.readAllBytes()
+        movingObjectsService.getImageByteArray(code)
     }
 
     @GetMapping("/page/{pageSize}/{pageOffSet}")

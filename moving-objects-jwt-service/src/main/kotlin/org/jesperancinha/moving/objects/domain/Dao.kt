@@ -17,10 +17,11 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import java.math.BigInteger
 import java.nio.file.Files.walk
+import java.nio.file.Path
 import java.time.LocalDateTime
 import java.util.*
 import kotlin.io.path.name
-import kotlin.io.path.toPath
+import kotlin.io.path.readBytes
 import kotlin.math.absoluteValue
 
 @Table
@@ -75,14 +76,13 @@ class MovingObjectService(
 ) {
     fun getAll() = movingObjectRepository.findAll()
 
-    suspend fun getImagePathByCode(code: String) =
+    suspend fun getImageByteArray(code: String) =
         movingObjectRepository.findByCode(code)
             .let { mo ->
-                "/${mo.folder}"
-                    .let { resourcePath ->
-                        val resource = javaClass.getResource(resourcePath)
+                Path.of(System.getProperty("user.dir"), "cameras", mo.folder)
+                    .let { resource ->
                         val allImages =
-                            walk(resource?.toURI()?.toPath()).use { paths ->
+                            walk(resource).use { paths ->
                                 val filter = paths
                                     .sorted()
                                     .filter { it.name.endsWith("jpg") }
@@ -93,9 +93,9 @@ class MovingObjectService(
                             val delta = (10 / countImages.toDouble())
                             val currentMinute = LocalDateTime.now().second.toString().last().digitToInt()
                             val index = (((currentMinute + 1) / delta).toInt()).absoluteValue - 1
-                            allImages?.get(if (index == -1) 0 else index)?.let { "/${mo.folder}/${it.name}" }
+                            allImages?.get(if (index == -1) 0 else index)?.let { resource.resolve(it.name) }
                         } else null
-                    }
+                    }?.readBytes()
             }
 
     fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
