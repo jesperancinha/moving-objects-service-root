@@ -1,9 +1,15 @@
 package org.jesperancinha.objects.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.Base64;
 import java.util.Objects;
 
 /**
@@ -11,6 +17,7 @@ import java.util.Objects;
  */
 @Service
 public class JwtClient {
+    private final RestTemplate restClient;
     private String token;
 
     private final WebClient webClient;
@@ -30,14 +37,17 @@ public class JwtClient {
         this.password = password;
         this.webClient = WebClient.builder()
                 .build();
+        this.restClient = new  RestTemplate();
         refreshToken(objectsTokenEndpoint, username, password);
     }
 
-    private void refreshToken(String objectsTokenEndpoint, String username, String password) {
-        webClient.post()
-                .uri(objectsTokenEndpoint)
-                .headers(headers -> headers.setBasicAuth(username, password))
-                .retrieve().bodyToMono(String.class).subscribe(token -> this.token = token);
+    private void refreshToken(String url, String username, String password) {
+        final var authStr = String.format("%s:%s",username, password);
+        final var base64Creds = Base64.getEncoder().encodeToString(authStr.getBytes());
+        final var headers = new HttpHeaders();
+        headers.add("Authorization", "Basic " + base64Creds);
+        final var response = new RestTemplate().exchange(url, HttpMethod.POST, new HttpEntity<>(headers), String.class);
+        this.token= response.getBody();
     }
 
     public Get get() {
