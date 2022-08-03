@@ -1,4 +1,4 @@
-describe('Influx DB Tests', () => {
+describe('Influx Onboarding DB Tests', () => {
     const host = Cypress.env('host') ? 'influxdb' : 'localhost';
     const port = 8086;
 
