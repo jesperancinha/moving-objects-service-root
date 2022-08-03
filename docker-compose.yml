@@ -14,9 +14,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 350M
         reservations:
-          memory: 400M
+          memory: 350M
     networks:
       mos_net:
         ipv4_address: ${MOS_OBJECTS_JWT_IP}
@@ -33,9 +33,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 350M
         reservations:
-          memory: 400M
+          memory: 350M
       restart_policy:
         condition: on-failure
         max_attempts: 3
@@ -54,9 +54,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 100M
+          memory: 50M
         reservations:
-          memory: 100M
+          memory: 50M
 
   grafana:
     hostname: grafana

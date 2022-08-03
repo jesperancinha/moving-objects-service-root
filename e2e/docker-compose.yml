@@ -7,9 +7,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 800M
+          memory: 700M
         reservations:
-          memory: 800M
+          memory: 700M
     volumes:
       - ./e2e:/e2e
     networks:
@@ -22,9 +22,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 800M
+          memory: 700M
         reservations:
-          memory: 800M
+          memory: 700M
     volumes:
       - ./e2e:/e2e
     networks:
@@ -37,9 +37,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 800M
+          memory: 700M
         reservations:
-          memory: 800M
+          memory: 700M
     volumes:
       - ./e2e:/e2e
     networks:
@@ -52,9 +52,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 800M
+          memory: 700M
         reservations:
-          memory: 800M
+          memory: 700M
     volumes:
       - ./e2e:/e2e
     networks:
