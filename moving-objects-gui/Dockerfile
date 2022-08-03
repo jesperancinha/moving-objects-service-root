@@ -6,6 +6,7 @@ WORKDIR ${runningFolder}
 
 RUN apt update -y
 RUN apt install nodejs npm -y
+RUN npm i -g pm2
 
 COPY entrypoint.sh ${runningFolder}
 
