@@ -81,9 +81,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 150M
+          memory: 400M
         reservations:
-          memory: 150M
+          memory: 400M
 
   nginx:
     hostname: nginx
