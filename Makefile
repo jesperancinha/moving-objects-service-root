@@ -112,3 +112,8 @@ build-jwt-service: buildw-jwt-service
 	docker-compose stop moving-objects-jwt-service
 	docker-compose build --no-cache moving-objects-jwt-service
 	docker-compose up -d
+build-influxdb:
+	docker-compose stop influxdb
+	docker-compose rm influxdb
+	docker-compose build --no-cache influxdb
+	docker-compose up -d
