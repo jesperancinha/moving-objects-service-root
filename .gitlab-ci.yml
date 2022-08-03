@@ -191,4 +191,9 @@ update-dependencies:
     - renovate
   only:
     - main
-  needs: []
+  needs:
+    - mos-electron-e2e
+    - mos-chrome-e2e
+    - mos-firefox-e2e
+    - mos-edge-e2e
+
