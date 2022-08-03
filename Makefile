@@ -117,3 +117,8 @@ build-influxdb:
 	docker-compose rm influxdb
 	docker-compose build --no-cache influxdb
 	docker-compose up -d
+build-grafana:
+	docker-compose stop grafana
+	docker-compose rm grafana
+	docker-compose build --no-cache grafana
+	docker-compose up -d

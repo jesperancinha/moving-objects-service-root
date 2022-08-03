@@ -13,7 +13,8 @@ describe('Grafana Tests', () => {
             cy.get('input[name="confirmNew"]').type('admin');
         });
         cy.get('button[type = "submit"]').click();
-        cy.visit(`http://${host}:${port}/dashboards`);
+        cy.reload()
+        cy.get('a[aria-label="Dashboards"]').click();
         cy.wait(500);
         cy.get('div').contains(/(.*)Java(.*)/).should('exist');
         cy.get('div').contains(/(.*)Node(.*)/).should('exist');
@@ -24,7 +25,7 @@ describe('Grafana Tests', () => {
         cy.wait(200);
         cy.wait(200);
         cy.wait(200);
-        cy.visit(`http://${host}:${port}/dashboards`);
+        cy.get('a[aria-label="Dashboards"]').click();
         cy.wait(200);
         cy.wait(200);
         cy.wait(200);
