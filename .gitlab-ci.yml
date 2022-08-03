@@ -112,6 +112,8 @@ mos-firefox-e2e:
     - make cypress-firefox
   needs:
     - qa
+    - mos-electron-e2e
+    - mos-chrome-e2e
   cache:
       paths:
         - moving-objects-jwt-service/build/
@@ -129,6 +131,8 @@ mos-edge-e2e:
     - make cypress-edge
   needs:
     - qa
+    - mos-electron-e2e
+    - mos-chrome-e2e
   cache:
       paths:
         - moving-objects-jwt-service/build/
