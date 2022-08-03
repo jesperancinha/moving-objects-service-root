@@ -23,6 +23,7 @@ services:
   nginx:
     ports:
       - "8080:80"
+      - "4000:4000"
 
   mosdb:
     ports:

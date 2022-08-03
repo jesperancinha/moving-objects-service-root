@@ -15,7 +15,3 @@ COPY entrypoint.sh ${runningFolder}
 ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 8081
-
-EXPOSE 8082
-
-EXPOSE 4000
