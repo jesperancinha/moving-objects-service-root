@@ -84,7 +84,6 @@ mos-electron-e2e:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   allow_failure: true
-  timeout: 10m
   retry: 2
 
 mos-chrome-e2e:
