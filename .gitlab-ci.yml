@@ -53,7 +53,7 @@ build:
 
 qa:
   image: gradle:7.5.0-jdk17
-  stage: build
+  stage: qa
   cache:
       paths:
         - moving-objects-jwt-service/build/
