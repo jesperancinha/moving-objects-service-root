@@ -42,7 +42,7 @@ export class WebCamsComponent implements OnInit {
         this.selectedObject.webCams.forEach((webCam) => webCam.webCamImage.iconUrl = null);
         this.selectedCam = null;
         if (this.selectedObject) {
-            this.objectsWebcamsService.getAirportPerCodeAndRadius(this.selectedObject.code, this.selectedRadius)
+            this.objectsWebcamsService.getObjectsPerCodeAndRadius(this.selectedObject.code, this.selectedRadius)
                 .subscribe((movingObject) => {
                     this.selectedObject.webCams = movingObject.webCams;
                     this.selectedObject.webCams.forEach((webCam) => {

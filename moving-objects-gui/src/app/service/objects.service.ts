@@ -15,11 +15,11 @@ export class ObjectsService implements ObjectsServiceInterface {
     }
 
     public getObjectsPerTermAndRadius(term: string, radius: string): Observable<MovingObject[]> {
-        return this.http.get<MovingObject[]>(`${objectsRootPath}/code/${term}/${radius}`).pipe(
+        return this.http.get<MovingObject[]>(`${objectsRootPath}/code/${term.trim()}/${radius}`).pipe(
             retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
-    public getAirportPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
+    public getObjectsPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
         return this.http.get<MovingObject>(`${objectsRootPath}/${code}/${radius}`).pipe(
             retry(3), catchError(this.handleError<MovingObject>()));
     }

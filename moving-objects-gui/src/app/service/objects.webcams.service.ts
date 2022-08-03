@@ -15,11 +15,11 @@ export class ObjectsWebcamsService implements ObjectsServiceInterface {
     }
 
     public getObjectsPerTermAndRadius(term: string, radius: string): Observable<MovingObject[]> {
-        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term}/${radius}`).pipe(
+        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term.trim()}/${radius}`).pipe(
             retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
-    public getAirportPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
+    public getObjectsPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
         return this.http.get<MovingObject>(`${objectsWebcamsRootPath}/code/${code}/${radius}`)
             .pipe(retry(3), catchError(this.handleError<MovingObject[]>()))
             .pipe(map((airports: MovingObject[]) => airports[0]));
