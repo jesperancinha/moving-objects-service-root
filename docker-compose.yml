@@ -51,9 +51,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 150M
         reservations:
-          memory: 400M
+          memory: 150M
 
   grafana:
     hostname: grafana
@@ -66,9 +66,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 150M
         reservations:
-          memory: 400M
+          memory: 150M
 
   influxdb:
     hostname: influxdb
@@ -81,9 +81,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 150M
         reservations:
-          memory: 400M
+          memory: 150M
 
   nginx:
     hostname: nginx
@@ -99,9 +99,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 150M
         reservations:
-          memory: 400M
+          memory: 150M
 
   mosdb:
     hostname: mosdb
@@ -119,9 +119,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 400M
+          memory: 150M
         reservations:
-          memory: 400M
+          memory: 150M
     networks:
       mos_net:
         ipv4_address: ${MOS_DB_IP}
