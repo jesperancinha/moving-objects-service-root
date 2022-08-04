@@ -93,9 +93,9 @@ mos-chrome-e2e:
   script:
     - make dcup-action
     - make cypress-chrome
-    - mos-electron-e2e
   needs:
     - qa
+    - mos-electron-e2e
   cache:
       paths:
         - moving-objects-jwt-service/build/
