@@ -25,9 +25,11 @@ describe('Influx Create Scraper DB Tests', () => {
     function performSwitch(bucket, testMetric) {
         cy.wait(waitStep);
         cy.reload()
+        cy.wait(waitStep);
         cy.get('a[data-testid="nav-item-data-explorer"]').eq(0).click({force: true});
         cy.wait(10000);
         cy.reload()
+        cy.wait(waitStep);
         cy.get('div').contains(bucket).click()
         cy.get('div[data-testid="list--contents"]').children().should('not.be.empty')
         cy.get('div').contains(testMetric).should('exist')
