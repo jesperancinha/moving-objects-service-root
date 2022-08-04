@@ -26,7 +26,7 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.wait(waitStep);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('a[data-testid="nav-item-data-explorer"]').eq(0).click({force: true});
+        cy.get('div[class="cf-tree-nav--item"] > a').eq(0).click({force: true});
         cy.wait(10000);
         cy.reload()
         cy.wait(waitStep);

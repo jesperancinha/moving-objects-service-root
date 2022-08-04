@@ -1,7 +1,7 @@
 describe('Influx Create Scraper DB Tests', () => {
     const waitStep = 1;
 
-    it('should creaate scraper', () => {
+    it('should create bucket', () => {
         cy.signIn();
         cy.wait(waitStep);
         cy.get('button[aria-label="Show sub menu"]').eq(0).click();
@@ -27,7 +27,7 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.wait(waitStep);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('a[data-testid="nav-item-data-explorer"]').eq(0).click({force: true});
+        cy.get('div[class="cf-tree-nav--item"] > a').eq(0).click({force: true});
         cy.wait(waitStep);
         cy.reload()
         cy.wait(waitStep);
