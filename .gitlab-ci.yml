@@ -84,7 +84,7 @@ mos-electron-e2e:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   allow_failure: true
-  timeout: 60m
+  timeout: 120m
   retry: 2
 
 mos-chrome-e2e:
@@ -102,7 +102,7 @@ mos-chrome-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
-  timeout: 60m
+  timeout: 120m
   retry: 2
 
 mos-firefox-e2e:
@@ -122,7 +122,7 @@ mos-firefox-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
-  timeout: 60m
+  timeout: 120m
   retry: 2
 
 mos-edge-e2e:
@@ -142,7 +142,7 @@ mos-edge-e2e:
         - moving-objects-gui/dist/
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
-  timeout: 60m
+  timeout: 120m
   retry: 2
 
 coverage:
