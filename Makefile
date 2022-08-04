@@ -122,3 +122,8 @@ build-grafana:
 	docker-compose rm grafana
 	docker-compose build --no-cache grafana
 	docker-compose up -d
+node:
+	sudo npm install -g n
+	sudo n lts
+shared-docker:
+	sudo chmod 666 /var/run/docker.sock
