@@ -1,35 +1,38 @@
 describe('Influx Create Scraper DB Tests', () => {
+    const waitStep = 1;
+
     it('should creaate scraper', () => {
         cy.signIn();
-        const waitStep = 1;
         cy.wait(waitStep);
         cy.get('button[aria-label="Show sub menu"]').eq(0).click();
         cy.get('div[id="buckets"] > a').eq(0).click({force: true});
         cy.wait(waitStep);
 
-        cy.get('button[title="Click to create a bucket"]').eq(0).click();
-        cy.get('input[name="name"]').eq(0).clear().type('mos-influxDB');
-        cy.get('button[title="Create"').eq(0).click();
-        cy.wait(waitStep);
-
-        cy.get('button[title="Click to create a bucket"]').eq(0).click();
-        cy.get('input[name="name"]').eq(0).clear().type('mos-influxDB2');
-        cy.get('button[title="Create"').eq(0).click();
-        cy.wait(waitStep);
-
-        cy.get('button[title="Click to create a bucket"').eq(0).click();
-        cy.get('input[name="name"]').eq(0).clear().type('mos-gui');
-        cy.get('button[title="Create"').eq(0).click();
-        cy.wait(waitStep);
-
-        cy.get('button[title="Click to create a bucket"').eq(0).click();
-        cy.get('input[name="name"]').eq(0).clear().type('mos-rest');
-        cy.get('button[title="Create"').eq(0).click();
-        cy.wait(waitStep);
-
-        cy.get('button[title="Click to create a bucket"').eq(0).click();
-        cy.get('input[name="name"]').eq(0).clear().type('mos-jwt');
-        cy.get('button[title="Create"').eq(0).click();
-        cy.wait(waitStep);
+        createBucket('mos-influxDB');
+        createBucket('mos-influxDB2');
+        createBucket('mos-gui');
+        createBucket('mos-rest');
+        createBucket('mos-jwt');
     });
+
+    function createBucket(bucketName: string) {
+        cy.get('button[title="Click to create a bucket"]').eq(0).click();
+        cy.get('input[name="name"]').eq(0).clear().type(bucketName);
+        cy.get('button[title="Create"').eq(0).click();
+        cy.wait(waitStep);
+        performSwitch(bucketName)
+    }
+
+    function performSwitch(bucketName) {
+        cy.wait(waitStep);
+        cy.reload()
+        cy.wait(waitStep);
+        cy.get('a[data-testid="nav-item-data-explorer"]').eq(0).click({force: true});
+        cy.wait(waitStep);
+        cy.reload()
+        cy.wait(waitStep);
+        cy.get('div').contains(bucketName).click()
+        cy.wait(waitStep);
+        cy.get('div[id="buckets"] > a').eq(0).click({force: true});
+    }
 });
