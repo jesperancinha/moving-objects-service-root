@@ -1,7 +1,7 @@
 describe('Influx Create Scraper DB Tests', () => {
     const waitStep = 1000;
 
-    it('should creaate scraper', () => {
+    it('should create scraper', () => {
         cy.signIn();
         cy.get('div[id="scrapers"] > a').eq(0).click({force: true});
         addScraper('Influx DB Scraper', 'http://localhost:8086/metrics', 'mos-influxDB', 'go_info');
@@ -17,13 +17,14 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.get('input[title="Name"]').eq(0).clear().type(name);
         cy.get('input[title="Target URL"]').eq(0).clear().type(url);
         cy.get('button[data-testid="bucket-dropdown--button"]').eq(0).click()
-        cy.get('div').contains(bucket).eq(0).click()
+        cy.get('div').contains(bucket).eq(0).click({force: true})
         cy.get('button[title="Create"').eq(0).click();
         performSwitch(bucket, testMetric)
     }
 
     function performSwitch(bucket, testMetric) {
         cy.wait(waitStep);
+        cy.reload()
         cy.get('a[data-testid="nav-item-data-explorer"]').eq(0).click({force: true});
         cy.wait(10000);
         cy.reload()
