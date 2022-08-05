@@ -132,3 +132,6 @@ node:
 	sudo n lts
 shared-docker:
 	sudo chmod 666 /var/run/docker.sock
+end-logs:
+	docker-compose logs --tail 1000 moving-objects-jwt-service
+	docker-compose logs --tail 1000 moving-objects-rest-service

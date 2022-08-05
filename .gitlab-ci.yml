@@ -74,6 +74,7 @@ mos-electron-e2e:
   script:
     - make dcup-action
     - make cypress-electron
+    - make end-logs
   needs:
     - qa
   cache:
@@ -93,6 +94,7 @@ mos-chrome-e2e:
   script:
     - make dcup-action
     - make cypress-chrome
+    - make end-logs
   needs:
     - qa
     - mos-electron-e2e
@@ -112,6 +114,7 @@ mos-firefox-e2e:
   script:
     - make dcup-action
     - make cypress-firefox
+    - make end-logs
   needs:
     - qa
     - mos-electron-e2e
@@ -132,6 +135,7 @@ mos-edge-e2e:
   script:
     - make dcup-action
     - make cypress-edge
+    - make end-logs
   needs:
     - qa
     - mos-electron-e2e

@@ -22,7 +22,7 @@ describe('API Image Selection test', () => {
         cy.reload();
         const filterInputFieldTake2 = testAndFetchFilterInputField();
         filterInputFieldTake2.type(object);
-        cy.get('span[class="mat-option-text"]').contains(object).click({force: true});
+        cy.get('span[class="mat-option-text"]').contains(object, {timeout: 10000}).click({force: true});
         cy.get('span[class="mat-button-wrapper"]').click({force: true});
     }
 
