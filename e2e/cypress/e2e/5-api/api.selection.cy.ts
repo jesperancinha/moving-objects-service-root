@@ -1,6 +1,7 @@
 describe('API Image Selection test', () => {
     const host = Cypress.env('host') ? Cypress.env('host') : 'localhost';
     const port = Cypress.env('port') ? Cypress.env('port') : '8081';
+    const shortWait = 1000;
 
     function performTestByName(object) {
         cy.visit(`http://${host}:${port}`);
@@ -12,7 +13,8 @@ describe('API Image Selection test', () => {
         filterInputField.should('exist');
         filterInputField.should('not.have.value', 0);
         filterInputField.should('have.value', '');
-        filterInputField.type(object, {force: true});
+        filterInputField.type(object);
+        cy.wait(shortWait);
         cy.get('span[class="mat-option-text"]').contains(object).click({force: true});
         cy.get('span[class="mat-button-wrapper"]').click({force: true});
     }
