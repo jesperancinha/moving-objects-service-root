@@ -110,7 +110,7 @@ services:
     hostname: mosdb
     container_name: mosdb
     image: postgres:14.4
-    command: -c 'max_connections=200' -c 'shared_buffers=80MB'
+    command: -c 'max_connections=300' -c 'shared_buffers=80MB'
     volumes:
       - ./docker-files/docker-psql:/docker-entrypoint-initdb.d
       - ./docker-files/docker-psql/multiple:/docker-entrypoint-initdb.d/multiple
