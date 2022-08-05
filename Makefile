@@ -122,6 +122,11 @@ build-grafana:
 	docker-compose rm grafana
 	docker-compose build --no-cache grafana
 	docker-compose up -d
+build-mosdb:
+	docker-compose stop mosdb
+	docker-compose rm mosdb
+	docker-compose build --no-cache mosdb
+	docker-compose up -d
 node:
 	sudo npm install -g n
 	sudo n lts
