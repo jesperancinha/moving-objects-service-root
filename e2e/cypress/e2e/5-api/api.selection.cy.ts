@@ -22,8 +22,8 @@ describe('API Image Selection test', () => {
         cy.reload();
         const filterInputFieldTake2 = testAndFetchFilterInputField();
         filterInputFieldTake2.type(object);
-        cy.get('span[class="mat-option-text"]').contains(object, {timeout: 10000}).click({force: true});
-        cy.get('span[class="mat-button-wrapper"]').click({force: true});
+        cy.get('span[class="mat-option-text"]', {timeout: 10000}).contains(object, {timeout: 10000}).click({force: true});
+        cy.get('span[class="mat-button-wrapper"]', {timeout: 10000}).click({force: true});
     }
 
     it('show 1 element 0 radius garlic', () => {
