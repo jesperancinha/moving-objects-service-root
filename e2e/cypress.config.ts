@@ -6,5 +6,6 @@ export default defineConfig({
       // implement node event listeners here
     },
     includeShadowDom: true,
+    video: false,
   },
 });
