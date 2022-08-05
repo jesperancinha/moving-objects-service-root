@@ -23,14 +23,13 @@ class TokenController(
     @PostMapping("/token")
     fun token(authentication: Authentication): String {
         val now: Instant = Instant.now()
-        val expiry = 36000L
         val scope: String = authentication.authorities
             .map { obj: GrantedAuthority -> obj.authority }
             .joinToString { " " }
         val claims = JwtClaimsSet.builder()
-            .issuer("self")
+            .issuer("mos-jwt")
             .issuedAt(now)
-            .expiresAt(now.plusSeconds(expiry))
+            .expiresAt(now.plusSeconds(36000L))
             .subject(authentication.name)
             .claim("scope", scope)
             .build()
