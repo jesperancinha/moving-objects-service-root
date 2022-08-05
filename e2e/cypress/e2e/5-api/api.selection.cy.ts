@@ -3,18 +3,25 @@ describe('API Image Selection test', () => {
     const port = Cypress.env('port') ? Cypress.env('port') : '8081';
     const shortWait = 1000;
 
-    function performTestByName(object) {
-        cy.visit(`http://${host}:${port}`);
-        cy.get('div > div > div > input').should('exist');
-        cy.get('div > div > div > input').should('have.value', 0);
+    function testAndFetchFilterInputField() {
         const secondFormField = cy.get('app-webcams-selector > div > div > mat-form-field').eq(1);
         secondFormField.should('exist');
         const filterInputField = secondFormField.get('div > div > div > input').eq(1);
         filterInputField.should('exist');
         filterInputField.should('not.have.value', 0);
         filterInputField.should('have.value', '');
+        return filterInputField;
+    }
+
+    function performTestByName(object) {
+        cy.visit(`http://${host}:${port}`);
+        cy.get('div > div > div > input').should('exist');
+        cy.get('div > div > div > input').should('have.value', 0);
+        const filterInputField = testAndFetchFilterInputField();
         filterInputField.type(object);
-        cy.wait(shortWait);
+        cy.reload();
+        const filterInputFieldTake2 = testAndFetchFilterInputField();
+        filterInputFieldTake2.type(object);
         cy.get('span[class="mat-option-text"]').contains(object).click({force: true});
         cy.get('span[class="mat-button-wrapper"]').click({force: true});
     }
