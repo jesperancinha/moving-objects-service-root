@@ -7,5 +7,6 @@ export default defineConfig({
     },
     includeShadowDom: true,
     video: false,
+    screenshotOnRunFailure: false
   },
 });
