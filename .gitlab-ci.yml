@@ -128,6 +128,7 @@ mos-firefox-e2e:
         - moving-objects-gui/coverage/
   timeout: 120m
   retry: 2
+  allow_failure: true
 
 mos-edge-e2e:
   image: node:18
