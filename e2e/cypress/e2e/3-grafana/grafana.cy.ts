@@ -16,7 +16,7 @@ describe('Grafana Tests', () => {
         });
         cy.get('button[type = "submit"]').click();
         cy.reload()
-        cy.get('a[aria-label="Dashboards"]').click({force: true});
+        cy.get('a[aria-label="Dashboards"]', {timeout: 10000}).click({force: true});
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
@@ -30,10 +30,11 @@ describe('Grafana Tests', () => {
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
+        cy.reload();
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.get('a[aria-label="Dashboards"]').click();
+        cy.get('div > a[aria-label="Dashboards"]').click();
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
