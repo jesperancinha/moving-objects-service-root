@@ -31,7 +31,7 @@ describe('Influx Create Bucket DB Tests', () => {
         cy.wait(waitStep);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('div').contains(bucketName).click()
+        cy.get('div').contains(bucketName, {timeout:10000}).click()
         cy.wait(waitStep);
         cy.get('div[id="buckets"] > a').eq(0).click({force: true});
     }
