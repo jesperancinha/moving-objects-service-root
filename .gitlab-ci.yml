@@ -127,7 +127,7 @@ mos-firefox-e2e:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   timeout: 120m
-  retry: 2
+  retry: 1
   allow_failure: true
 
 mos-edge-e2e:
