@@ -30,7 +30,7 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.wait(10000);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('div').contains(bucket).click()
+        cy.get('div', {timeout:10000}).contains(bucket, {timeout:10000}).click()
         cy.get('div[data-testid="list--contents"]').children().should('not.be.empty')
         cy.get('div').contains(testMetric).should('exist')
         cy.wait(waitStep);
