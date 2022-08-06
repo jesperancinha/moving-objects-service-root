@@ -36,12 +36,23 @@
 //   }
 // }
 
+
+import stringify = Mocha.utils.stringify;
+
 const host = Cypress.env('host') ? 'influxdb' : 'localhost';
 const port = 8086;
 
-Cypress.Commands.add('signIn',() => {
+Cypress.Commands.add('signIn', () => {
     cy.visit(`http://${host}:${port}`);
     cy.get('input[name="username').type('admin');
     cy.get('input[name="password').type('adminadmin');
     cy.get('span').contains('Sign In').click();
+})
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    if (err.message.indexOf('TypeError: setting getter-only property "data"') >= 0) {
+        cy.log(stringify(err));
+        return false;
+    }
+    return true;
 })
