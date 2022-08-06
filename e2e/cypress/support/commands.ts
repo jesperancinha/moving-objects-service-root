@@ -50,7 +50,7 @@ Cypress.Commands.add('signIn', () => {
 })
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    if (err.message && err.message.trim().length > 0) {
+    if (err.message && err.message.trim().length > 0 && err.name && err.name.trim().length > 0) {
         if (err.message.indexOf('setting getter-only property "data"') >= 0) {
             return false;
         }
