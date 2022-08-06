@@ -27,6 +27,15 @@ services:
     networks:
       - mos_net
 
+  e2e-firefox-full:
+    image: "cypress/included:10.3.1"
+    working_dir: /e2e
+    command: "--config-file full.cypress.config.ts --browser firefox --env host=192.168.0.15,port=80"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - mos_net
+
   e2e-edge:
     image: "cypress/included:10.3.1"
     working_dir: /e2e

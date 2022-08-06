@@ -58,11 +58,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.log(stringify(err));
         return false;
     }
-    if (err.message.indexOf('Cannot read properties of null') >= 0) {
+    if (err.message.indexOf('too much recursion') >= 0) {
         cy.log(stringify(err));
         return false;
     }
-    if (err.message.indexOf('too much recursion') >= 0) {
+    if (err.message.indexOf('The operation was aborted') >= 0) {
         cy.log(stringify(err));
         return false;
     }

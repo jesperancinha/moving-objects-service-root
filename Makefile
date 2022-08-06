@@ -78,6 +78,8 @@ cypress-chrome:
 	cd e2e && make cypress-chrome
 cypress-firefox:
 	cd e2e && make cypress-firefox
+cypress-firefox-full:
+	cd e2e && make cypress-firefox-full
 cypress-edge:
 	cd e2e && make cypress-edge
 objects-wait:
