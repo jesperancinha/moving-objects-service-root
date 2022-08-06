@@ -1,4 +1,4 @@
-describe('Influx Create Scraper DB Tests', () => {
+describe('Influx Create Bucket DB Tests', () => {
     const waitStep = 1;
 
     it('should create bucket', () => {
