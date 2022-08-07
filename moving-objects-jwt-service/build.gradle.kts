@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.7.10"
     id("jacoco")
     id("maven-publish")
-    id("org.springdoc.openapi-gradle-plugin") version "1.3.4"
+    id("org.springdoc.openapi-gradle-plugin") version "1.4.0"
 }
 
 group = "org.jesperancinha"
