@@ -2,17 +2,37 @@
 
 ## Build
 
+---
+
 1. With OAuth2.0:
+
+- Make the build
 
 ```shell
 gradle -Pprod build
 ```
+
+- Create environment variables with your own okta config:
+
+```shell
+. ./exportVars.sh
+```
+
+- Run the application on the same shell:
+
+```shell
+java -jar build/libs/moving-objects-rest-service.jar
+```
+
+---
 
 2. Without OAuth2.0:
 
 ```shell
 gradle build
 ```
+
+---
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
