@@ -14,7 +14,7 @@ plugins {
 }
 
 version '1.0.0'
-group 'org.jesperancinha.airports'
+group 'org.jesperancinha.objects'
 
 apply plugin: 'application'
 apply plugin: 'java'
@@ -76,6 +76,8 @@ dependencies {
         implementation("com.okta.spring:okta-spring-boot-starter:2.1.5")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("me.paulschwarz:spring-dotenv:2.5.4")
+        implementation("org.springframework.security:spring-security-web:5.7.2")
+        implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.2')
     implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.9")

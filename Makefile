@@ -26,8 +26,10 @@ wrapper:
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw:
-	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
-	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build && gradle assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-security-dsl && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
 	gradle test jacocoTestReport publishToMavenLocal
 buildw-jwt-service:
