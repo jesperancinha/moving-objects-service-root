@@ -37,7 +37,7 @@ before_script:
   - apt-get install build-essential -y
   - bash latest-compose.sh
 
-build:
+build maven:
   image: gradle:7.5.0-jdk17
   stage: build
   cache:
@@ -49,6 +49,18 @@ build:
         - moving-objects-gui/coverage/
   script:
     - make no-test
+
+build npm:
+  image: gradle:7.5.0-jdk17
+  stage: build
+  cache:
+      paths:
+        - moving-objects-jwt-service/build/
+        - moving-objects-rest-service/build/
+        - moving-objects-gui/dist/
+        - moving-objects-gui/node_modules/
+        - moving-objects-gui/coverage/
+  script:
     - make build-npm-docker
 
 qa:
@@ -65,7 +77,8 @@ qa:
     - make generate-credentials
     - make test
   needs:
-    - build
+    - build maven
+    - build npm
   retry: 2
 
 mos-electron-e2e:
