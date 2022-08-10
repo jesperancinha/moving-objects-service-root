@@ -56,11 +56,11 @@ logs
 objects.private.key
 objects.public.key
 
-# cypress
+# Cypress
 videos
 screenshots
 
-#VSCode
+# VSCode
 bin
 .VSCode
 .vscode

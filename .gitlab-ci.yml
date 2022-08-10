@@ -174,7 +174,8 @@ coverage:
   only:
     - main
   needs:
-    - build
+    - build maven
+    - build npm
     - mos-edge-e2e
     - mos-chrome-e2e
     - mos-firefox-e2e
