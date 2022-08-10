@@ -1,8 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@angular",
+      "./src/typings.d.ts"
+    ],
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [
+      "node", "material"
+    ]
   },
   "include": [
     "src/**/*.ts"

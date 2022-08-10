@@ -92,24 +92,24 @@ This tutorial makes use of the following docker images:
 
 #### Direct
 
-- [Actuator](http://localhost:8082/objects/actuator/)
-- [All Requests](http://localhost:8082/objects/actuator/metrics/http.server.requests)
-- [Ok Requests 200](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:200)
-- [Ok Requests 400](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:400)
-- [Ok Requests 500](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:500)
-- [Grafana Login](http://localhost:3000/login)
-- [Prometheus](http://localhost:9090/graph)
-- [Influx DB Onboarding](http://localhost:8086/onboarding)
-- [Objects API Swagger UI](http://localhost:8082/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
+-   [Actuator](http://localhost:8082/objects/actuator/)
+-   [All Requests](http://localhost:8082/objects/actuator/metrics/http.server.requests)
+-   [Ok Requests 200](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:200)
+-   [Ok Requests 400](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:400)
+-   [Ok Requests 500](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:500)
+-   [Grafana Login](http://localhost:3000/login)
+-   [Prometheus](http://localhost:9090/graph)
+-   [Influx DB Onboarding](http://localhost:8086/onboarding)
+-   [Objects API Swagger UI](http://localhost:8082/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
 
 #### Via NGINX
 
-- [Actuator](http://localhost:8080/objects/actuator/)
-- [All Requests](http://localhost:8080/objects/actuator/metrics/http.server.requests)
-- [Ok Requests 200](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:200)
-- [Ok Requests 400](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:400)
-- [Ok Requests 500](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:500)
-- [Objects API Swagger UI](http://localhost:8080/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
+-   [Actuator](http://localhost:8080/objects/actuator/)
+-   [All Requests](http://localhost:8080/objects/actuator/metrics/http.server.requests)
+-   [Ok Requests 200](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:200)
+-   [Ok Requests 400](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:400)
+-   [Ok Requests 500](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:500)
+-   [Objects API Swagger UI](http://localhost:8080/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
 
 #### Over Actuator
 

@@ -6,9 +6,17 @@
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": [
+      "node", "material"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@angular",
+      "./src/typings.d.ts"
+    ]
   },
   "lib": [
-    "es2015"
+    "es2020"
   ]
 }
