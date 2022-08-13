@@ -58,6 +58,13 @@
         "org.assertj"
       ],
       "automerge": true
+    },
+    {
+      "groupName": "Okta",
+      "matchPackagePrefixes": [
+        "@okta/"
+      ],
+      "automerge": true
     }
   ]
 }
