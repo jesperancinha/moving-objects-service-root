@@ -18,7 +18,7 @@ build-npm-docker:
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up gui-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up gui-builder --exit-code-from gui-builder gui-builder
 test-gradle:
 	 ./gradlew test
 test: test-node test-gradle

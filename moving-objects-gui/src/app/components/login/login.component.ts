@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {OKTA_AUTH} from "@okta/okta-angular";
-import {OktaAuth, Tokens} from "@okta/okta-auth-js";
+import {Tokens} from "@okta/okta-auth-js";
 import OktaSignIn from "@okta/okta-signin-widget";
 import {config} from "../../app.config";
 
@@ -14,7 +14,7 @@ const DEFAULT_ORIGINAL_URI = window.location.origin;
 export class LoginComponent implements OnInit {
     public signIn: any;
 
-    constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth) {
+    constructor(@Inject(OKTA_AUTH) public oktaAuth) {
         this.signIn = new OktaSignIn({
             authClient: oktaAuth,
             baseUrl: config.oidc.issuer.split("/oauth2")[0],
