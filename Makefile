@@ -19,8 +19,14 @@ build-npm-docker:
 	chmod 777 e2e/yarn.lock
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up gui-builder
-test:
+test-gradle:
 	 ./gradlew test
+test: test-node test-gradle
+test-node:
+	cd moving-objects-gui ;\
+	yarn install ;\
+	npm run test ;\
+	cd ..
 wrapper:
 	gradle wrapper
 build-app:
