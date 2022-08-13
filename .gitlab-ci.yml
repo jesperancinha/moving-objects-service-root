@@ -48,7 +48,7 @@ build gradle:
   script:
     - make no-test
 
-build npm:
+build node:
   image: gradle:7.5.0-jdk17
   stage: build
   cache:
