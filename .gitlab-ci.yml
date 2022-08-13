@@ -216,7 +216,7 @@ coverage:
     - main
   needs:
     - build gradle
-    - build npm
+    - build node
     - mos-edge-e2e
     - mos-chrome-e2e
     - mos-firefox-e2e
