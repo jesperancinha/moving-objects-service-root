@@ -73,6 +73,7 @@ qa:
   script:
     - make generate-credentials
     - make test
+    - make no-test
   needs:
     - build maven
     - build npm
