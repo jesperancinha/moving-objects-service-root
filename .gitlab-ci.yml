@@ -74,7 +74,6 @@ qa:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   script:
-    - export CODACY_PROJECT_TOKEN=
     - make generate-credentials
     - make test
   needs:
