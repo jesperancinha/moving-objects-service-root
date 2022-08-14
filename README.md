@@ -88,6 +88,26 @@ This tutorial makes use of the following docker images:
 
 [![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
 
+## How to run
+
+```shell
+make dcup-full-action
+```
+
+## Run Cypress
+
+#### Against Nginx
+
+```shell
+make cypress-open-docker
+```
+
+#### Directly against the service ports
+
+```shell
+make cypress-open
+```
+
 ## Endpoint list
 
 #### Direct
