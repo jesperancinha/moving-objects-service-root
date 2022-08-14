@@ -10,7 +10,7 @@ RUN chown -R root:1000 /usr/local/lib/node_modules/
 
 RUN chmod -R 777 /usr/local/lib/node_modules/
 
-RUN mkdir -p /opt/moving-objects-gui/node_modules/@angular-builders/custom-webpack/node_modules/babel-loader
+RUN mkdir -p /opt/moving-objects-gui/node_modules/@angular-builders/custom-webpack/node_modules
 
 RUN chown -R root:1000 /opt/moving-objects-gui
 
