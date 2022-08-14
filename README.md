@@ -62,6 +62,7 @@ This project is also the official support project of my article on medium:
 
 > Please read the first paragraph to be up-to-date with the complete changes this repo is undergoing
 
+[![alt img](./docs/images/articles.international.airports.intro..png)](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
 ## Setup
 
 In order to run this project we need to fulfill some requirements:
@@ -77,16 +78,6 @@ sdk install java 17-open
 sdk use java 17-open
 sdk install gradle 7.3.3
 ```
-
-## Docker images
-
-This tutorial makes use of the following docker images:
-
-[![dockeri.co](https://dockeri.co/image/grafana/grafana)](https://hub.docker.com/r/grafana/grafana)
-
-[![dockeri.co](https://dockeri.co/image/influxdb)](https://hub.docker.com/r/influxdb)
-
-[![dockeri.co](https://dockeri.co/image/prom/prometheus)](https://hub.docker.com/r/prom/prometheus)
 
 ## How to run
 
