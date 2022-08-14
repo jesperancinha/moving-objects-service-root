@@ -4,7 +4,7 @@
 
 export const environment = {
   APIKeys: {
-    CLIENT_ID: $ENV.CLIENT_ID,
+    CLIENT_ID: 'CLIENT_ID',
     CLIENT_SECRET: "CLIENT_SECRET",
     ISSUER: "http://localhost:8080",
     OKTA_TESTING_DISABLEHTTPSCHECK: "OKTA_TESTING_DISABLEHTTPSCHECK",
