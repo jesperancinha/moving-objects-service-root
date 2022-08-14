@@ -52,8 +52,8 @@ build node:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   script:
-    - sudo make build-npm-cypress-docker
-    - sudo make build-npm-docker
+    - make build-npm-cypress-docker
+    - make build-npm-docker
 
 build cypress:
   image: gradle:7.5.0-jdk17
