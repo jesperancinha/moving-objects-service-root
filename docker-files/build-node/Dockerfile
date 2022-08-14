@@ -16,6 +16,8 @@ RUN chown -R root:1000 /opt/moving-objects-gui
 
 RUN chmod -R 777 /opt/moving-objects-gui
 
+RUN npm install -g eslint --unsafe-perm=true --allow-root
+
 ENV runningFolder /usr/local/bin/
 
 WORKDIR ${runningFolder}
