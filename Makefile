@@ -12,7 +12,6 @@ build-npm-docker:
 	touch moving-objects-gui/yarn.lock
 	chmod 777 moving-objects-gui
 	chmod 777 moving-objects-gui/yarn.lock
-	chown root:1000 moving-objects-gui
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
 build-npm-cypress-docker:
