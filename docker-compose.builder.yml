@@ -3,12 +3,20 @@ services:
   gui-builder:
     container_name: moving-objects-gui-build
     build:
-      context: .
+      context: ./docker-files/build-node/.
     volumes:
       - ./moving-objects-gui:/opt/moving-objects-gui
       - ./e2e:/opt/e2e
-      - ./moving-objects-gui/node_modules:/opt/moving-objects-gui/node_modules
-      - ./e2e/node_modules:/opt/e2e/node_modules
+    user: "1000:1000"
+    networks:
+      - mos_net
+
+  cypress-builder:
+    container_name: news-cast-cypress-build
+    build:
+      context: ./docker-files/build-cypress/.
+    volumes:
+      - ./e2e:/opt/e2e
     user: "1000:1000"
     networks:
       - mos_net

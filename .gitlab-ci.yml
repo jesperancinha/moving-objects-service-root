@@ -63,6 +63,7 @@ build node:
         - moving-objects-gui/coverage/
         - e2e/node_modules/
   script:
+    - make build-npm-cypress-docker
     - make build-npm-docker
 
 qa gradle:

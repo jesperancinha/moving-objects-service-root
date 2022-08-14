@@ -9,16 +9,19 @@ build-npm-dist: build-npm
 build-npm-docker:
 	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
 	cd moving-objects-gui && chmod 777 node_modules
-	cd e2e && [ -d node_modules ] || mkdir node_modules
-	cd e2e && chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
 	chmod 777 moving-objects-gui
 	chmod 777 moving-objects-gui/yarn.lock
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up gui-builder --exit-code-from gui-builder gui-builder
+build-npm-cypress-docker:
+	cd e2e && [ -d node_modules ] || mkdir node_modules
+	cd e2e && chmod 777 node_modules
 	touch e2e/yarn.lock
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up gui-builder --exit-code-from gui-builder gui-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from cypress-builder cypress-builder
 test-gradle:
 	 ./gradlew test
 test: test-node test-gradle
