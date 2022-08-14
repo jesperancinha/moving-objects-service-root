@@ -7,7 +7,7 @@ services:
     volumes:
       - ./moving-objects-gui:/opt/moving-objects-gui
       - ./e2e:/opt/e2e
-    user: "1000:1000"
+    user: "root:1000"
     networks:
       - mos_net
 
