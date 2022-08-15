@@ -41,13 +41,15 @@ export class MetricsComponent implements OnInit {
                 this.options = [];
                 this.options.push(MetricsComponent.METRIC_TAG_ALL);
                 this.metrics = value;
-                this.metrics.availableTags
-                    .filter((tag) => tag.tag === "status")
-                    .forEach((tag) => tag.values
-                        .forEach((name) => this.options.push({
-                            tag: name,
-                            value: name,
-                        })));
+                if (this.metrics) {
+                    this.metrics.availableTags
+                        .filter((tag) => tag.tag === "status")
+                        .forEach((tag) => tag.values
+                            .forEach((name) => this.options.push({
+                                tag: name,
+                                value: name,
+                            })));
+                }
                 this.loadSelectedErrorMetrics();
             });
     }
@@ -65,13 +67,15 @@ export class MetricsComponent implements OnInit {
             .subscribe((value) => {
                 // tslint:disable-next-line:no-console
                 console.log("async-task-" + uuid.v4());
-                this.statistics = value.measurements;
-                this.statMax = value.measurements.find((stat) => stat.statistic === "MAX").value;
-                this.statCount = value.measurements.find((stat) => stat.statistic === "COUNT").value;
-                this.statTotal = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value;
-                let totalTimeValue = value.measurements
-                    .find((stat) => stat.statistic === "TOTAL_TIME").value;
-                this.statAvg = totalTimeValue ? totalTimeValue.valueOf() / this.statCount.valueOf() : 0;
+                if (value) {
+                    this.statistics = value.measurements;
+                    this.statMax = value.measurements.find((stat) => stat.statistic === "MAX").value;
+                    this.statCount = value.measurements.find((stat) => stat.statistic === "COUNT").value;
+                    this.statTotal = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value;
+                    let totalTimeValue = value.measurements
+                        .find((stat) => stat.statistic === "TOTAL_TIME").value;
+                    this.statAvg = totalTimeValue ? totalTimeValue.valueOf() / this.statCount.valueOf() : 0;
+                }
             });
         this.metricService
             .getHttpTraces()
