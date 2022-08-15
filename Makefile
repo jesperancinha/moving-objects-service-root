@@ -4,6 +4,8 @@ b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
 	cd moving-objects-gui && yarn && npm run build-docker
+build-npm-secure:
+	cd moving-objects-gui && yarn && npm run build-prod
 build-npm-dist: build-npm
 	cd moving-objects-gui && npm run build
 build-npm-docker:
@@ -47,6 +49,10 @@ generate-credentials:
 	bash generateCredentials.sh
 no-test: generate-credentials
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
+	make buildw-jwt-service
+no-test-secure: generate-credentials
+	cd moving-objects-security-dsl && make buildw
+	cd moving-objects-rest-service && gradle wrapper && gradle -Pprod clean build -x test
 	make buildw-jwt-service
 upgrade:
 	gradle wrapper --gradle-version 7.4
@@ -104,6 +110,8 @@ dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
 dcup-action: dcp docker-action objects-wait
 dcup-light: dcd
 	docker-compose up -d mosdb
+dcup-full-action-secure: dcd docker-clean no-test-secure build-npm-secure docker objects-wait
+
 report:
 	apt update -y
 	apt install npm -y
