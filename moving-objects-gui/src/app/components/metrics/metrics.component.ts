@@ -69,20 +69,21 @@ export class MetricsComponent implements OnInit {
                 this.statMax = value.measurements.find((stat) => stat.statistic === "MAX").value;
                 this.statCount = value.measurements.find((stat) => stat.statistic === "COUNT").value;
                 this.statTotal = value.measurements.find((stat) => stat.statistic === "TOTAL_TIME").value;
-                this.statAvg = value.measurements
-                    .find((stat) => stat.statistic === "TOTAL_TIME").value
-                    .valueOf() / this.statCount.valueOf();
+                let totalTimeValue = value.measurements
+                    .find((stat) => stat.statistic === "TOTAL_TIME").value;
+                this.statAvg = totalTimeValue ? totalTimeValue.valueOf() / this.statCount.valueOf() : 0;
             });
         this.metricService
             .getHttpTraces()
             .pipe(finalize(() => this.countLoaders--))
             .subscribe((response?: Traces) => {
                 if (response) {
-                    this.statMin = response.traces
+                    let firstStatsMin = response.traces
                         .filter((trace) => trace)
                         .map((trace) => trace.timeTaken ? 1000000 : trace.timeTaken)
-                        .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0]
-                        .valueOf() / 1000;
+                        .sort((x1, x2) => x2.valueOf() - x1.valueOf())[0];
+                    this.statMin = firstStatsMin ? firstStatsMin
+                        .valueOf() / 1000 : 0;
                 }
             });
 

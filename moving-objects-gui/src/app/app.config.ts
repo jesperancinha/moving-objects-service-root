@@ -1,9 +1,8 @@
-const {CLIENT_ID, ISSUER, REDIRECT_URL, CLIENT_SECRET}  = require( "../environments/environment");
+import {environment} from "../environments/environment";
 
 export const config = {
-    clientSecret: `${CLIENT_SECRET}`,
-    clientId: `${CLIENT_ID}`,
-    issuer: `${ISSUER}`,
-    redirectUri: `${REDIRECT_URL}`,
+    clientSecret: `${environment.CLIENT_SECRET}`,
+    clientId: `${environment.CLIENT_ID}`,
+    issuer: `${environment.ISSUER}`,
+    redirectUri: `${environment.REDIRECT_URL}`,
 };
-
