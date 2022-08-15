@@ -29,7 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:2.7.2")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator:2.7.2")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("io.r2dbc:r2dbc-postgresql:0.8.12.RELEASE")
     implementation("io.micrometer:micrometer-registry-prometheus:1.9.3")
