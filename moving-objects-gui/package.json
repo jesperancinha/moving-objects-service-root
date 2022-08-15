@@ -2,6 +2,11 @@
   "name": "moving-objects-gui",
   "version": "1.0.0",
   "scripts": {
+    "prestart-prod": "npm run create-credentials",
+    "prestart": "npm run create-credentials",
+    "prebuild": "npm run create-credentials",
+    "prebuild-prod": "npm run create-credentials",
+    "prebuild-docker": "npm run create-credentials",
     "ng": "ng",
     "create-credentials": "./create-credentials.sh",
     "start-prod": "ng serve --configuration production --proxy-config=proxy.conf.json",
