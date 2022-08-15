@@ -36,8 +36,8 @@ const routes = environment.production ? [
         path: "",
     },
     {
-        path: "aggregator/oauth2/authorization/okta",
-        redirectTo: "oauth2/authorization/okta"
+        component: OktaCallbackComponent,
+        path: "callback",
     }
 ] : [{
     component: AppComponent,

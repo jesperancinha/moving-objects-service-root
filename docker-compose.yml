@@ -98,8 +98,6 @@ services:
     container_name: nginx
     build:
       context: ./moving-objects-gui/.
-    ports:
-      - "8080:80"
     restart: on-failure
     networks:
       mos_net:
