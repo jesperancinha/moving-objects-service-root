@@ -6,4 +6,7 @@ import {Component} from "@angular/core";
     templateUrl: "./app.component.html",
 })
 export class AppComponent {
+    constructor() {
+        window.open("http://localhost:8082/aggregator/objectswebcams/code/PUM")
+    }
 }

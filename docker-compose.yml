@@ -24,6 +24,11 @@ services:
   moving-objects-rest-service:
     env_file:
       - .env
+    environment:
+      - ISSUER=$ISSUER
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - REDIRECT_URL=${REDIRECT_URL}
     hostname: moving-objects-rest-service
     container_name: moving-objects-rest-service
     build:

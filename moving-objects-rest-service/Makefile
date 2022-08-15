@@ -9,3 +9,4 @@ var-export:
 	bash exportVars.sh
 run-prod:
 	java -jar build/libs/moving-objects-rest-service.jar
+build-run-prod: buildw-prod run-prod

@@ -2,12 +2,14 @@
   "/aggregator/webcams": {
     "target": "http://localhost:8082",
     "secure": false,
+    "cookieDomainRewrite": "localhost",
     "pathRewrite": {
       "^/aggregator/webcams": "/aggregator/webcams"
     }
   },
   "/aggregator/webcams/camera": {
     "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
     "secure": false,
     "pathRewrite": {
       "^/aggregator/webcams": "/aggregator/webcams/camera"
@@ -15,6 +17,7 @@
   },
   "/aggregator/objects": {
     "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
     "secure": false,
     "pathRewrite": {
       "^/aggregator/objects": "/aggregator/objects"
@@ -22,6 +25,7 @@
   },
   "/aggregator/objectswebcams": {
     "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
     "secure": false,
     "pathRewrite": {
       "^/aggregator/objectswebcams": "/aggregator/objectswebcams"
@@ -29,6 +33,7 @@
   },
   "/aggregator/actuator": {
     "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
     "secure": false,
     "pathRewrite": {
       "^/aggregator/actuator": "/aggregator/actuator"

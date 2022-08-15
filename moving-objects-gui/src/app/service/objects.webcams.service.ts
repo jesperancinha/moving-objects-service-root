@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {catchError, map, Observable, of, retry} from "rxjs";
 import {ObjectsServiceInterface} from "../interface/objects.service.interface";
 import {MovingObject} from "../model/moving.object";
+import {CookieService} from "ngx-cookie-service";
 
 const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 
@@ -11,12 +12,12 @@ const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 })
 export class ObjectsWebcamsService implements ObjectsServiceInterface {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private cookieService: CookieService) {
     }
 
     public getObjectsPerTermAndRadius(term: string, radius: string): Observable<MovingObject[]> {
-        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term.trim()}/${radius}`).pipe(
-            retry(3), catchError(this.handleError<MovingObject[]>()));
+        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term.trim()}/${radius}`)
+            .pipe(retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
     public getObjectsPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {

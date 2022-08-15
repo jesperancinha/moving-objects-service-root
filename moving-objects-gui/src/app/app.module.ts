@@ -1,5 +1,5 @@
 import {HttpClientModule} from "@angular/common/http";
-import {NgModule} from "@angular/core";
+import {Injectable, NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatButtonModule} from "@angular/material/button";
@@ -23,6 +23,7 @@ import {ObjectsComponent} from "./components/objects/objects.component";
 import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
 import {config} from "./app.config";
 import {environment} from "../environments/environment";
+import {CookieService} from "ngx-cookie-service";
 
 const routes = environment.production ? [
     {
@@ -34,6 +35,10 @@ const routes = environment.production ? [
         component: AppComponent,
         path: "",
     },
+    {
+        path: "aggregator/oauth2/authorization/okta",
+        redirectTo: "oauth2/authorization/okta"
+    }
 ] : [{
     component: AppComponent,
     path: "",
@@ -47,11 +52,12 @@ function prodProviders() {
         {
             provide: OKTA_CONFIG,
             useValue: {oktaAuth}
-        }
+        },
+        CookieService
     ];
 }
 
-const providers = environment.production ? prodProviders() : [];
+const providers = environment.production ? prodProviders() : [ CookieService];
 
 let declarations = [
     AppComponent,
