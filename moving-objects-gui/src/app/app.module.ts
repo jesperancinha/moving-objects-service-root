@@ -1,5 +1,5 @@
 import {HttpClientModule} from "@angular/common/http";
-import {Injector, NgModule} from "@angular/core";
+import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatButtonModule} from "@angular/material/button";
@@ -13,80 +13,90 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {Router, RouterModule} from "@angular/router";
-import {OKTA_CONFIG, OktaAuthGuard, OktaCallbackComponent} from "@okta/okta-angular";
+import {RouterModule} from "@angular/router";
+import {OKTA_CONFIG, OktaAuthGuard, OktaAuthModule, OktaCallbackComponent} from "@okta/okta-angular";
 import {OktaAuth} from "@okta/okta-auth-js";
 import {AppComponent} from "./app.component";
-import {config} from "./app.config";
 import {LoaderComponent} from "./components/loader.component";
-import {LoginComponent} from "./components/login/login.component";
 import {MetricsComponent} from "./components/metrics/metrics.component";
 import {ObjectsComponent} from "./components/objects/objects.component";
 import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
+import {config} from "./app.config";
+import {environment} from "../environments/environment";
 
-const routes = [
-    {
-        canActivate: [ OktaAuthGuard ],
-        component: AppComponent,
-        path: "",
-    },
+const routes = environment.production ? [
     {
         component: OktaCallbackComponent,
         path: "login/callback",
     },
+    {
+        canActivate: [OktaAuthGuard],
+        component: AppComponent,
+        path: "",
+    },
+] : [{
+    component: AppComponent,
+    path: "",
+},
 ];
 
-@NgModule({
-    bootstrap: [
-        AppComponent,
-    ],
-    declarations: [
-        AppComponent,
-        LoaderComponent,
-        MetricsComponent,
-        ObjectsComponent,
-        LoaderComponent,
-        ObjectsComponent,
-        WebCamsComponent,
-        LoginComponent,
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        RouterModule.forRoot(routes, {useHash: true}),
-        HttpClientModule,
-        MatTabsModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatCardModule,
-        BrowserAnimationsModule,
-        MatButtonToggleModule,
-        MatAutocompleteModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatListModule,
-        MatIconModule,
-        MatButtonModule,
-    ],
-    providers: [
+
+function prodProviders() {
+    const oktaAuth = new OktaAuth(config)
+    return [
         {
             provide: OKTA_CONFIG,
-            useFactory: () => {
-                return {
-                    oktaAuth: new OktaAuth(config.oidc),
-                    onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
-                        const triggerLogin = () => {
-                            const router = injector.get(Router);
-                            router.navigate(["/login"]).then((_) => { });
-                        };
-                        if (!oktaAuth.authStateManager.getPreviousAuthState()?.isAuthenticated) {
-                            triggerLogin();
-                        }
-                    },
-                };
-            },
-        },
-    ],
+            useValue: {oktaAuth}
+        }
+    ];
+}
+
+const providers = environment.production ? prodProviders() : [];
+
+let declarations = [
+    AppComponent,
+    LoaderComponent,
+    MetricsComponent,
+    ObjectsComponent,
+    LoaderComponent,
+    ObjectsComponent,
+    WebCamsComponent,
+];
+
+let imports: any[] = [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes, {useHash: false}),
+    HttpClientModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+];
+
+let bootstrap: any[] = [
+    AppComponent,
+];
+
+if (environment.production) {
+    bootstrap.push(OktaCallbackComponent)
+    imports.push(OktaAuthModule)
+}
+
+@NgModule({
+    bootstrap: bootstrap,
+    declarations: declarations,
+    imports: imports,
+    providers: providers,
 })
+
 export class AppModule {
 }

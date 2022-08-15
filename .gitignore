@@ -65,3 +65,5 @@ bin
 .VSCode
 .vscode
 
+# Generated Files
+okta.config.ts
