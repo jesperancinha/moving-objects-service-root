@@ -20,7 +20,7 @@ describe('Grafana Tests', () => {
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.reload()
+        cy.get('div > span').contains('General').click();
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
