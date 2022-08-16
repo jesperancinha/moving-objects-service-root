@@ -6,13 +6,13 @@ describe('Grafana Tests', () => {
 
     it('show grafana', () => {
         cy.visit(`http://${host}:${port}`);
-        cy.get('h1').contains("Grafana").should('exist');
-        cy.get('input[aria-label="Username input field"]').type('admin');
-        cy.get('input[aria-label="Password input field"]').type('admin');
+        cy.get("h1").contains("Grafana").should('exist');
+        cy.get('input[aria-label="Username input field"]').type("admin");
+        cy.get('input[aria-label="Password input field"]').type("admin");
         cy.get('button[aria-label="Login button"]').click();
         cy.get('input[name="newPassword"]').then($body => {
-            cy.get('input[name="newPassword"]').type('admin');
-            cy.get('input[name="confirmNew"]').type('admin');
+            cy.get('input[name="newPassword"]').type("admin");
+            cy.get('input[name="confirmNew"]').type("admin");
         });
         cy.get('button[type = "submit"]').click();
         cy.reload()
@@ -20,13 +20,13 @@ describe('Grafana Tests', () => {
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.get('div > span').contains('General').click();
+        cy.get("div > span").contains('General').click();
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.get('div').contains(/(.*)Java(.*)/).should('exist');
-        cy.get('div').contains(/(.*)Node(.*)/).should('exist');
-        cy.get('div').contains(/(.*)Java(.*)/).click()
+        cy.get("div").contains(/(.*)Java(.*)/).should('exist');
+        cy.get("div").contains(/(.*)Node(.*)/).should('exist');
+        cy.get("div").contains(/(.*)Java(.*)/).click()
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
