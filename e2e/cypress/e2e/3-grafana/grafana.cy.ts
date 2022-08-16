@@ -20,12 +20,12 @@ describe('Grafana Tests', () => {
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.get("div > span").contains('General').click();
+        cy.get("div > span").contains("General").click();
         cy.wait(smallWait);
         cy.wait(smallWait);
         cy.wait(smallWait);
-        cy.get("div").contains(/(.*)Java(.*)/).should('exist');
-        cy.get("div").contains(/(.*)Node(.*)/).should('exist');
+        cy.get("div").contains(/(.*)Java(.*)/).should("exist");
+        cy.get("div").contains(/(.*)Node(.*)/).should("exist");
         cy.get("div").contains(/(.*)Java(.*)/).click()
         cy.wait(smallWait);
         cy.wait(smallWait);
