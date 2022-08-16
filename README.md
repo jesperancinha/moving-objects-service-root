@@ -83,8 +83,19 @@ sdk install gradle 7.3.3
 
 ## How to run
 
+#### Open Version
+
 ```shell
 make dcup-full-action
+```
+
+#### Secure version
+
+>Does not work with Cypress, and it needs to be configured. Check the [Okta manual](./OktaManual.md) of this project for more details.
+
+
+```shell
+make dcup-full-action-secure
 ```
 
 ## Run Cypress
