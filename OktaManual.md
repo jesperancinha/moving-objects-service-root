@@ -9,7 +9,7 @@ REDIRECT_URL: "http://localhost:8080/login/callback",
 CLIENT_SECRET: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 ```
 
-To get these values, please visit [Okta Dev](https://developer.okta.com/), create and account and an application.
+To get these values, please visit [Okta Dev](https://developer.okta.com/), create an account and an application.
 
 In you application make sure to have the following values configured for the callbacks:
 

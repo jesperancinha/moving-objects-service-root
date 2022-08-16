@@ -1,6 +1,6 @@
 cypress-open-docker:
 	npm run cypress:docker
- cypress-open:
+cypress-open:
 	npm run cypress
 cypress-electron: build
 	docker-compose -f ../docker-compose.yml -f docker-compose.yml up --exit-code-from e2e-electron e2e-electron
