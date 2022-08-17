@@ -98,16 +98,16 @@ class MovingObjectService(
                     }?.readBytes()
             }
 
-    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<Page> =
+    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<PageDto> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
-    fun getWebcamsPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<WebCamSource> =
+    fun getWebcamsPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<WebCamSourceDto> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).map { it.toWebcamSource(baseUrl) }
 
-    suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): Page =
+    suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): PageDto =
         movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
-    fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSource> =
+    fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSourceDto> =
         movingObjectRepository.findAllCamerasInRadiusFrom(x, y, radius).map { it.toWebcamSource(baseUrl) }
 }
 
@@ -117,12 +117,12 @@ class InfoObjectService(
 ) {
     fun getAll() = infoObjectRepository.findAll()
 
-    suspend fun getByCodeId(codeId: String): MovingObjectSource =
-        infoObjectRepository.findByCode(codeId).toMovingObjectSource
+    suspend fun getByCodeId(codeId: String): MovingObjectSourceDto =
+        infoObjectRepository.findByCode(codeId).toObjectSourceDto
 
 
-    fun getAllBySearchItem(searchTerm: String): Flow<MovingObjectSource> =
-        infoObjectRepository.findBySearchTerm(searchTerm).map { it.toMovingObjectSource }
+    fun getAllBySearchItem(searchTerm: String): Flow<MovingObjectSourceDto> =
+        infoObjectRepository.findBySearchTerm(searchTerm).map { it.toObjectSourceDto }
 }
 
 
@@ -131,12 +131,12 @@ class InfoObjectService(
  */
 fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     collectSortedList().map {
-        Page(
+        PageDto(
             pageSize = pageSize,
             totalElements = it.size,
             pageNumber = pageOffSet,
             totalPages = 10000,
-            movingObjects = MovingObjects(
+            movingObjects = MovingObjectsDto(
                 movingObjects = it.map { mo -> mo.toMovingObjectSource(baseUrl) }.toMutableList()
             )
         )
@@ -148,12 +148,12 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
  */
 suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     fold(
-        Page(
+        PageDto(
             pageSize = pageSize,
             totalElements = 0,
             pageNumber = pageOffSet,
             totalPages = 10000,
-            movingObjects = MovingObjects(
+            movingObjects = MovingObjectsDto(
                 movingObjects = mutableListOf()
             )
         )
@@ -163,8 +163,8 @@ suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: S
         page
     }
 
-private val InfoObject.toMovingObjectSource: MovingObjectSource
-    get() = MovingObjectSource(
+private val InfoObject.toObjectSourceDto: MovingObjectSourceDto
+    get() = MovingObjectSourceDto(
         name = name,
         code = code,
         city = "Olhão",
@@ -173,7 +173,7 @@ private val InfoObject.toMovingObjectSource: MovingObjectSource
         coordinates = CoordinateSource(x.toBigDecimal(), y.toBigDecimal())
     )
 
-fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSource(
+fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSourceDto(
     code = this.code,
     city = "Olhão",
     themeList = emptyList(),
@@ -185,7 +185,7 @@ fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSource(
     webCamSources = listOf(toWebcamSource(baseUrl))
 )
 
-private fun MovingObject.toWebcamSource(baseUrl: String) = WebCamSource(
+private fun MovingObject.toWebcamSource(baseUrl: String) = WebCamSourceDto(
     coordinates = CoordinateSource(
         x = this.x.toBigDecimal(),
         y = this.y.toBigDecimal()

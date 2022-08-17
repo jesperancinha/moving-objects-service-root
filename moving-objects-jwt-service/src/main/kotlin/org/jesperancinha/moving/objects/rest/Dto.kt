@@ -14,7 +14,7 @@ data class WebCamImageSource(
     val toenailUrlString: String
 )
 
-data class WebCamSource(
+data class WebCamSourceDto(
     val title: String? = null,
     val coordinates: CoordinateSource,
     val wikiInfo: String,
@@ -22,7 +22,7 @@ data class WebCamSource(
     val webCamImage: WebCamImageSource
 )
 
-data class MovingObjectSource(
+data class MovingObjectSourceDto(
     val code: String,
     val name: String? = null,
     val city: String,
@@ -31,15 +31,15 @@ data class MovingObjectSource(
     val themeList: List<String> = emptyList(),
     val coordinates: CoordinateSource? = null,
     val pointsOfSale: List<String> = emptyList(),
-    val webCamSources: List<WebCamSource> = emptyList()
+    val webCamSources: List<WebCamSourceDto> = emptyList()
 )
 
-data class MovingObjects(val movingObjects: MutableList<MovingObjectSource>)
+data class MovingObjectsDto(val movingObjects: MutableList<MovingObjectSourceDto>)
 
-data class Page(
+data class PageDto(
     val pageSize: Int,
     val totalElements: Int,
     val pageNumber: Int,
     var totalPages: Int,
-    val movingObjects: MovingObjects
+    val movingObjects: MovingObjectsDto
 )

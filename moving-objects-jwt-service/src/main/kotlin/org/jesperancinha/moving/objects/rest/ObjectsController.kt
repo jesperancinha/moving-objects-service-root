@@ -56,7 +56,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<PageDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -65,7 +65,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Flux<WebCamSource> = movingObjectsService.getWebcamsPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Flux<WebCamSourceDto> = movingObjectsService.getWebcamsPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/jwt/open/page/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -74,7 +74,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Mono<Page> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<PageDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/jwt/open/page/coroutines/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -83,7 +83,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Page = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
+    ): PageDto = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
 
     @GetMapping("/location/{x}/{y}/{radius}")
     fun getCamerasByLocation(
@@ -93,6 +93,6 @@ class ObjectsController(
         y: BigInteger,
         @PathVariable
         radius: BigInteger
-    ): Flow<WebCamSource> = movingObjectsService.getCamerasByLocation(x, y, radius)
+    ): Flow<WebCamSourceDto> = movingObjectsService.getCamerasByLocation(x, y, radius)
 
 }
