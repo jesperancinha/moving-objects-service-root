@@ -1,6 +1,8 @@
 describe('Influx Generic DB Tests', () => {
+    const TIMEOUT_CONFIG = Cypress.env('TIMEOUT_CONFIG');
+
     function clickSubMenu() {
-        cy.get('button[aria-label="Show sub menu"]').eq(0, {timeout: 10000}).click();
+        cy.get('button[aria-label="Show sub menu"]').eq(0, TIMEOUT_CONFIG).click();
     }
 
     it('all menus check', () => {
@@ -8,22 +10,22 @@ describe('Influx Generic DB Tests', () => {
         cy.wait(1000);
         clickSubMenu();
         cy.reload();
-        cy.get('div[id="sources"] > a').eq(0).click({force: true});
+        cy.get('div[id="sources"] > a', TIMEOUT_CONFIG).eq(0, TIMEOUT_CONFIG).click({force: true});
         cy.reload();
         clickSubMenu();
         cy.reload();
-        cy.get('div[id="buckets"] > a').eq(0).click({force: true});
+        cy.get('div[id="buckets"] > a', TIMEOUT_CONFIG).eq(0, TIMEOUT_CONFIG).click({force: true});
         cy.reload();
         clickSubMenu();
         cy.reload();
-        cy.get('div[id="telegrafs"] > a').eq(0).click({force: true});
+        cy.get('div[id="telegrafs"] > a', TIMEOUT_CONFIG).eq(0, TIMEOUT_CONFIG).click({force: true});
         cy.reload();
         clickSubMenu();
         cy.reload();
-        cy.get('div[id="scrapers"] > a').eq(0).click({force: true});
+        cy.get('div[id="scrapers"] > a', TIMEOUT_CONFIG).eq(0, TIMEOUT_CONFIG).click({force: true});
         cy.reload();
         clickSubMenu();
         cy.reload();
-        cy.get('div[id="tokens"] > a').eq(0).click({force: true});
+        cy.get('div[id="tokens"] > a', TIMEOUT_CONFIG).eq(0, TIMEOUT_CONFIG).click({force: true});
     });
 });

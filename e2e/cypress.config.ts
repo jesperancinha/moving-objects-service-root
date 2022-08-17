@@ -5,6 +5,11 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    env: {
+      TIMEOUT_CONFIG: {
+        timeout: 10000
+      }
+    },
     includeShadowDom: true,
     video: false,
     screenshotOnRunFailure: false,
