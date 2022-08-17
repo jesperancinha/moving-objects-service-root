@@ -20,8 +20,6 @@ build-npm-cypress-docker:
 	cd e2e && [ -d node_modules ] || mkdir node_modules
 	cd e2e && chmod 777 node_modules
 	touch e2e/yarn.lock
-	cd e2e && [ -f node_modules/.bin/acorn ] || touch node_modules/.bin/acorn
-	chmod 777 e2e/node_modules/.bin/acorn
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
