@@ -65,6 +65,7 @@ build cypress:
   script:
     - make build-npm-cypress-docker
     - make build-npm-docker
+  retry: 2
 
 qa gradle:
   image: gradle:7.5.0-jdk17
