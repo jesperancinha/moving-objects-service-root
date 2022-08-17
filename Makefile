@@ -12,17 +12,16 @@ build-npm-docker:
 	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
 	cd moving-objects-gui && chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
-	cd moving-objects-gui && [ -d node_modules ] || mkdir -p node_modules/.bin/acorn
-	touch moving-objects-gui/node_modules/.bin/acorn
 	chmod 777 moving-objects-gui
 	chmod 777 moving-objects-gui/yarn.lock
-	chmod 777 moving-objects-gui/node_modules/.bin/acorn
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
 build-npm-cypress-docker:
 	cd e2e && [ -d node_modules ] || mkdir node_modules
 	cd e2e && chmod 777 node_modules
 	touch e2e/yarn.lock
+	cd e2e && [ -d node_modules/.bin/acorn ] || mkdir -p node_modules/.bin/acorn
+	chmod 777 e2e/node_modules/.bin/acorn
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
