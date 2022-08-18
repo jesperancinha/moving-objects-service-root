@@ -1692,17 +1692,17 @@
     compare-versions "^4.1.2"
     tslib "^1.9.0"
 
-"@okta/okta-auth-js@6.5.1":
-  version "6.5.1"
-  resolved "https://registry.npmjs.org/@okta/okta-auth-js/-/okta-auth-js-6.5.1.tgz"
-  integrity sha512-mBzg+EH1Ey7skxHiimSN/ZYraB3l8ZXZlBi8RXNmRLwPMbFlZkQoKrrQu357S5YSEckF59Lqbb/r9Y3cXBNQBQ==
+"@okta/okta-auth-js@6.7.4":
+  version "6.7.4"
+  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-6.7.4.tgz#7605f178b8bac357d2907d99c159047a94d58cfb"
+  integrity sha512-8F0M7nYOtp8HDa7J/wnDT9/NWPH/rZyYd6SjBu/kiLCGr6Gv20PehzqxgHLsvmG5ndVfpMrsU8u7TqfByYch3Q==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@babel/runtime-corejs3" "^7.17.0"
-    "@peculiar/webcrypto" "1.1.6"
+    "@peculiar/webcrypto" "^1.4.0"
     Base64 "1.1.0"
     atob "^2.1.2"
-    broadcast-channel "^4.10.0"
+    broadcast-channel "4.13.0"
     btoa "^1.2.1"
     core-js "^3.6.5"
     cross-fetch "^3.1.5"
@@ -1738,12 +1738,12 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@6.6.1":
-  version "6.6.1"
-  resolved "https://registry.npmjs.org/@okta/okta-signin-widget/-/okta-signin-widget-6.6.1.tgz"
-  integrity sha512-H0OnQzQQOTGKpFK0imT+aatS0Qrg7m0uuW9GHbHeFTU4Usq0tsD2TsswHEDhJx+YOJr/6TbX2zTfnPLBskgXYQ==
+"@okta/okta-signin-widget@6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-6.6.2.tgz#d8d7f632afa23631bf5f3a3a150baebb00a64864"
+  integrity sha512-/MJUr3HbN7AFkUlnwEjoyx+9w6lxNDulLjXaMEFBNCbAoV/rYV3PW6hPIczxsMaSxNIZE9DdMTu9Hv6dE6UOHg==
   dependencies:
-    "@okta/okta-auth-js" "6.5.1"
+    "@okta/okta-auth-js" "6.7.4"
     "@sindresorhus/to-milliseconds" "^1.0.0"
     "@types/backbone" "^1.4.15"
     "@types/jquery" "^3.5.14"
@@ -1761,7 +1761,7 @@
   optionalDependencies:
     fsevents "*"
 
-"@peculiar/asn1-schema@^2.0.27", "@peculiar/asn1-schema@^2.1.6":
+"@peculiar/asn1-schema@^2.1.6":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@peculiar/asn1-schema/-/asn1-schema-2.3.0.tgz"
   integrity sha512-DtNLAG4vmDrdSJFPe7rypkcj597chNQL7u+2dBtYo5mh7VW2+im6ke+O0NVr8W1f4re4C3F71LhoMb0Yxqa48Q==
@@ -1776,17 +1776,6 @@
   integrity sha512-coUfuoMeIB7B8/NMekxaDzLhaYmp0HZNPEjYRm9goRou8UZIC3z21s0sL9AWoCw4EG876QyO3kYrc61WNF9B/w==
   dependencies:
     tslib "^2.0.0"
-
-"@peculiar/webcrypto@1.1.6":
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/@peculiar/webcrypto/-/webcrypto-1.1.6.tgz"
-  integrity sha512-xcTjouis4Y117mcsJslWAGypwhxtXslkVdRp7e3tHwtuw0/xCp1te8RuMMv/ia5TsvxomcyX/T+qTbRZGLLvyA==
-  dependencies:
-    "@peculiar/asn1-schema" "^2.0.27"
-    "@peculiar/json-schema" "^1.1.12"
-    pvtsutils "^1.1.2"
-    tslib "^2.1.0"
-    webcrypto-core "^1.2.0"
 
 "@peculiar/webcrypto@^1.4.0":
   version "1.4.0"
@@ -2883,19 +2872,6 @@ broadcast-channel@4.13.0:
     "@babel/runtime" "^7.16.0"
     detect-node "^2.1.0"
     microtime "3.0.0"
-    oblivious-set "1.1.1"
-    p-queue "6.6.2"
-    rimraf "3.0.2"
-    unload "2.3.1"
-
-broadcast-channel@^4.10.0:
-  version "4.14.0"
-  resolved "https://registry.npmjs.org/broadcast-channel/-/broadcast-channel-4.14.0.tgz"
-  integrity sha512-uNzxOgBQ+boWCRDESLNg3zZWQ3iz/X7j/uD8pAfr4/S7wQerXVvJI/SBKd9J6ckaPt2jil0gq+7l+3b+kuxJYw==
-  dependencies:
-    "@babel/runtime" "^7.16.0"
-    detect-node "^2.1.0"
-    microtime "3.1.0"
     oblivious-set "1.1.1"
     p-queue "6.6.2"
     rimraf "3.0.2"
@@ -5637,14 +5613,6 @@ microtime@3.0.0:
     node-addon-api "^1.2.0"
     node-gyp-build "^3.8.0"
 
-microtime@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/microtime/-/microtime-3.1.0.tgz"
-  integrity sha512-GcjhfC2y/DF2znac8IRwri7+YUIy34QRHz/iZK3bHrh74qrNNOpAJQwiOMnIG+v1J0K4eiqd+RiGzN3F1eofTQ==
-  dependencies:
-    node-addon-api "^5.0.0"
-    node-gyp-build "^4.4.0"
-
 mime-db@1.51.0, "mime-db@>= 1.43.0 < 2":
   version "1.51.0"
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.51.0.tgz"
@@ -5880,11 +5848,6 @@ node-addon-api@^3.0.0:
   resolved "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
   integrity sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==
 
-node-addon-api@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/node-addon-api/-/node-addon-api-5.0.0.tgz"
-  integrity sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA==
-
 node-cache@^5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/node-cache/-/node-cache-5.1.2.tgz"
@@ -5909,7 +5872,7 @@ node-gyp-build@^3.8.0:
   resolved "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-3.9.0.tgz"
   integrity sha512-zLcTg6P4AbcHPq465ZMFNXx7XpKKJh+7kkN699NiQWisR2uWYOWNWqRHAmbnmKiL4e9aLSlmy5U7rEMUXV59+A==
 
-node-gyp-build@^4.2.2, node-gyp-build@^4.4.0:
+node-gyp-build@^4.2.2:
   version "4.5.0"
   resolved "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.5.0.tgz"
   integrity sha512-2iGbaQBV+ITgCz76ZEjmhUKAKVf7xfY1sRl4UiKQspfZMH2h06SyhNsnSVy50cwkFQDGLyif6m/6uFXHkOZ6rg==
@@ -6846,7 +6809,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-pvtsutils@^1.1.2, pvtsutils@^1.3.2:
+pvtsutils@^1.3.2:
   version "1.3.2"
   resolved "https://registry.npmjs.org/pvtsutils/-/pvtsutils-1.3.2.tgz"
   integrity sha512-+Ipe2iNUyrZz+8K/2IOo+kKikdtfhRKzNpQbruF2URmqPtoqAs8g3xS7TJvFF2GcPXjh7DkqMnpVveRFq4PgEQ==
@@ -8240,7 +8203,7 @@ wcwidth@^1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-webcrypto-core@^1.2.0, webcrypto-core@^1.7.4:
+webcrypto-core@^1.7.4:
   version "1.7.5"
   resolved "https://registry.npmjs.org/webcrypto-core/-/webcrypto-core-1.7.5.tgz"
   integrity sha512-gaExY2/3EHQlRNNNVSrbG2Cg94Rutl7fAaKILS1w8ZDhGxdFOaw6EbCfHIxPy9vt/xwp5o0VQAx9aySPF6hU1A==
