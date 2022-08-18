@@ -252,6 +252,7 @@ reporting:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   script:
+    - make generate-credentials
     - make report
   only:
     - main
