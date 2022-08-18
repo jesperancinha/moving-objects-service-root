@@ -2,12 +2,12 @@ package org.jesperancinha.moving.objects.rest
 
 import java.math.BigDecimal
 
-data class CoordinateSource(
+data class CoordinateSourceDto(
     val x: BigDecimal,
     val y: BigDecimal
 );
 
-data class WebCamImageSource(
+data class WebCamImageSourceDto(
     val iconUrl: String,
     val thumbnailUrl: String,
     val previewUrl: String,
@@ -16,10 +16,10 @@ data class WebCamImageSource(
 
 data class WebCamSourceDto(
     val title: String? = null,
-    val coordinates: CoordinateSource,
+    val coordinates: CoordinateSourceDto,
     val wikiInfo: String,
     val active: Boolean,
-    val webCamImage: WebCamImageSource
+    val webCamImage: WebCamImageSourceDto
 )
 
 data class MovingObjectSourceDto(
@@ -29,7 +29,7 @@ data class MovingObjectSourceDto(
     val color: String? = null,
     val size: Int = -1,
     val themeList: List<String> = emptyList(),
-    val coordinates: CoordinateSource? = null,
+    val coordinates: CoordinateSourceDto? = null,
     val pointsOfSale: List<String> = emptyList(),
     val webCamSources: List<WebCamSourceDto> = emptyList()
 )

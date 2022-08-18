@@ -170,14 +170,14 @@ private val InfoObject.toObjectSourceDto: MovingObjectSourceDto
         city = "Olhão",
         size = size,
         color = color,
-        coordinates = CoordinateSource(x.toBigDecimal(), y.toBigDecimal())
+        coordinates = CoordinateSourceDto(x.toBigDecimal(), y.toBigDecimal())
     )
 
 fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSourceDto(
     code = this.code,
     city = "Olhão",
     themeList = emptyList(),
-    coordinates = CoordinateSource(
+    coordinates = CoordinateSourceDto(
         x = this.x.toBigDecimal(),
         y = this.y.toBigDecimal()
     ),
@@ -186,14 +186,14 @@ fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSourceDto(
 )
 
 private fun MovingObject.toWebcamSource(baseUrl: String) = WebCamSourceDto(
-    coordinates = CoordinateSource(
+    coordinates = CoordinateSourceDto(
         x = this.x.toBigDecimal(),
         y = this.y.toBigDecimal()
     ),
     wikiInfo = "",
     active = true,
     webCamImage = "${baseUrl}${this.uri}".let { url ->
-        WebCamImageSource(
+        WebCamImageSourceDto(
             iconUrl = url,
             thumbnailUrl = url,
             previewUrl = url,
