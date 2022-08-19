@@ -74,7 +74,7 @@ class MovingObjectService(
     @Value("\${objects.jwt.webcams.baseUrl}")
     val baseUrl: String
 ) {
-    fun getAll() = movingObjectRepository.findAll()
+    fun getAll() = movingObjectRepository.findAll().map { it.toWebcamSource(baseUrl) }
 
     suspend fun getImageByteArray(code: String) =
         movingObjectRepository.findByCode(code)
@@ -98,13 +98,13 @@ class MovingObjectService(
                     }?.readBytes()
             }
 
-    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<PageDto> =
+    fun getPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Mono<PageLocationDto> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
     fun getWebcamsPageBySizeAndOffSet(pageSize: Int, pageOffSet: Int): Flux<WebCamSourceDto> =
         movingObjectRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).map { it.toWebcamSource(baseUrl) }
 
-    suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): PageDto =
+    suspend fun getPageBySizeAndOffSetWithCoroutines(pageSize: Int, pageOffSet: Int): PageLocationDto =
         movingObjectCoRepository.findAllBy(PageRequest.of(pageOffSet, pageSize)).toPage(pageSize, pageOffSet, baseUrl)
 
     fun getCamerasByLocation(x: BigInteger, y: BigInteger, radius: BigInteger): Flow<WebCamSourceDto> =
@@ -117,11 +117,11 @@ class InfoObjectService(
 ) {
     fun getAll() = infoObjectRepository.findAll().map { it.toObjectSourceDto }
 
-    suspend fun getByCodeId(codeId: String): MovingObjectSourceDto =
+    suspend fun getByCodeId(codeId: String): InfoObjectSourceDto =
         infoObjectRepository.findByCode(codeId).toObjectSourceDto
 
 
-    fun getAllBySearchItem(searchTerm: String): Flow<MovingObjectSourceDto> =
+    fun getAllBySearchItem(searchTerm: String): Flow<InfoObjectSourceDto> =
         infoObjectRepository.findBySearchTerm(searchTerm).map { it.toObjectSourceDto }
 }
 
@@ -131,12 +131,12 @@ class InfoObjectService(
  */
 fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     collectSortedList().map {
-        PageDto(
+        PageLocationDto(
             pageSize = pageSize,
             totalElements = it.size,
             pageNumber = pageOffSet,
             totalPages = 10000,
-            movingObjects = MovingObjectsDto(
+            movingObjects = LocationObjectSourcesDto(
                 movingObjects = it.map { mo -> mo.toMovingObjectSource(baseUrl) }.toMutableList()
             )
         )
@@ -148,12 +148,12 @@ fun Flux<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
  */
 suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: String) =
     fold(
-        PageDto(
+        PageLocationDto(
             pageSize = pageSize,
             totalElements = 0,
             pageNumber = pageOffSet,
             totalPages = 10000,
-            movingObjects = MovingObjectsDto(
+            movingObjects = LocationObjectSourcesDto(
                 movingObjects = mutableListOf()
             )
         )
@@ -163,15 +163,16 @@ suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: S
         page
     }
 
-private val InfoObject.toObjectSourceDto: MovingObjectSourceDto
-    get() = MovingObjectSourceDto(
+private val InfoObject.toObjectSourceDto: InfoObjectSourceDto
+    get() = InfoObjectSourceDto(
+        name = name,
         code = code,
-        city = "Olhão",
         size = size,
+        color = color,
         coordinates = CoordinateSourceDto(x.toBigDecimal(), y.toBigDecimal())
     )
 
-fun MovingObject.toMovingObjectSource(baseUrl: String) = MovingObjectSourceDto(
+fun MovingObject.toMovingObjectSource(baseUrl: String) = LocationObjectSourceDto(
     code = this.code,
     city = "Olhão",
     themeList = emptyList(),

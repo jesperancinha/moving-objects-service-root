@@ -16,7 +16,7 @@ import java.math.BigInteger
  */
 @RestController
 @RequestMapping("/webcams")
-class ObjectsController(
+class LocationObjectsController(
     val movingObjectsService: MovingObjectService
 ) {
     @GetMapping("/jwt/open")
@@ -56,7 +56,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Mono<PageDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<PageLocationDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -74,7 +74,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): Mono<PageDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
+    ): Mono<PageLocationDto> = movingObjectsService.getPageBySizeAndOffSet(pageSize, pageOffSet)
 
     @GetMapping("/jwt/open/page/coroutines/{pageSize}/{pageOffSet}")
     @ResponseBody
@@ -83,7 +83,7 @@ class ObjectsController(
         pageSize: Int,
         @PathVariable("pageOffSet")
         pageOffSet: Int
-    ): PageDto = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
+    ): PageLocationDto = movingObjectsService.getPageBySizeAndOffSetWithCoroutines(pageSize, pageOffSet)
 
     @GetMapping("/location/{x}/{y}/{radius}")
     fun getCamerasByLocation(
