@@ -9,6 +9,7 @@ import org.jesperancinha.objects.dto.MovingObjectDto;
 import org.jesperancinha.objects.dto.WebCamDto;
 import org.jesperancinha.objects.dto.WebCamImageDto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +44,9 @@ public class TravelConverter {
     }
 
     private static List<WebCamDto> toWebCamDtoList(final List<WebCamSource> webCamSources) {
+        if (webCamSources == null) {
+            return new ArrayList<>();
+        }
         return webCamSources.stream().map(TravelConverter::toWebCamDto).collect(Collectors.toList());
     }
 
