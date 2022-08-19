@@ -115,7 +115,7 @@ class MovingObjectService(
 class InfoObjectService(
     val infoObjectRepository: InfoObjectRepository
 ) {
-    fun getAll() = infoObjectRepository.findAll()
+    fun getAll() = infoObjectRepository.findAll().map { it.toObjectSourceDto }
 
     suspend fun getByCodeId(codeId: String): MovingObjectSourceDto =
         infoObjectRepository.findByCode(codeId).toObjectSourceDto
@@ -165,11 +165,9 @@ suspend fun Flow<MovingObject>.toPage(pageSize: Int, pageOffSet: Int, baseUrl: S
 
 private val InfoObject.toObjectSourceDto: MovingObjectSourceDto
     get() = MovingObjectSourceDto(
-        name = name,
         code = code,
         city = "Olhão",
         size = size,
-        color = color,
         coordinates = CoordinateSourceDto(x.toBigDecimal(), y.toBigDecimal())
     )
 

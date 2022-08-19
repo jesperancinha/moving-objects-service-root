@@ -24,9 +24,7 @@ data class WebCamSourceDto(
 
 data class MovingObjectSourceDto(
     val code: String,
-    val name: String? = null,
     val city: String,
-    val color: String? = null,
     val size: Int = -1,
     val themeList: List<String> = emptyList(),
     val coordinates: CoordinateSourceDto? = null,
