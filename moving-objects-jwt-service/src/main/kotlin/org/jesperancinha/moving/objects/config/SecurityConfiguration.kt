@@ -74,12 +74,6 @@ class SecurityConfiguration(
             .csrf().disable()
             .httpBasic(Customizer.withDefaults())
             .oauth2ResourceServer { oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec.jwt() }
-            .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
-            .exceptionHandling { exceptions ->
-                exceptions.authenticationEntryPoint(BearerTokenServerAuthenticationEntryPoint())
-                    .accessDeniedHandler(BearerTokenServerAccessDeniedHandler())
-
-            }
             .build()
 
     @Bean
