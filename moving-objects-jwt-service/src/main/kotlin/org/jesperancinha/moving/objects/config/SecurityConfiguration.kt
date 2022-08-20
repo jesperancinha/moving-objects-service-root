@@ -6,6 +6,7 @@ import com.nimbusds.jose.jwk.source.ImmutableJWKSet
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager
 import org.springframework.security.config.Customizer
@@ -22,6 +23,7 @@ import org.springframework.security.oauth2.server.resource.web.access.server.Bea
 import org.springframework.security.oauth2.server.resource.web.server.BearerTokenServerAuthenticationEntryPoint
 import org.springframework.security.web.server.SecurityWebFilterChain
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository
+import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 
@@ -49,30 +51,36 @@ class SecurityConfiguration(
 
     @Bean
     fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain =
-        http.authorizeExchange { authorize ->
-            authorize
-                .pathMatchers("/webjars/**")
-                .permitAll()
-                .pathMatchers("/info/jwt/open/**")
-                .permitAll()
-                .pathMatchers("/webcams/jwt/open/**")
-                .permitAll()
-                .pathMatchers("/v3/**")
-                .permitAll()
-                .pathMatchers("/actuator/**")
-                .permitAll()
-                .anyExchange()
-                .authenticated()
-        }
+        http
+            .logout { logout ->
+                logout
+                    .requiresLogout(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/logoff"))
+            }
+            .authorizeExchange { authorize ->
+                authorize
+                    .pathMatchers("/webjars/**")
+                    .permitAll()
+                    .pathMatchers("/info/jwt/open/**")
+                    .permitAll()
+                    .pathMatchers("/webcams/jwt/open/**")
+                    .permitAll()
+                    .pathMatchers("/v3/**")
+                    .permitAll()
+                    .pathMatchers("/actuator/**")
+                    .permitAll()
+                    .anyExchange()
+                    .authenticated()
+            }
             .csrf().disable()
             .httpBasic(Customizer.withDefaults())
-            .oauth2ResourceServer { obj -> obj.jwt() }
+            .oauth2ResourceServer { oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec.jwt() }
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
             .exceptionHandling { exceptions ->
                 exceptions.authenticationEntryPoint(BearerTokenServerAuthenticationEntryPoint())
                     .accessDeniedHandler(BearerTokenServerAccessDeniedHandler())
 
-            }.build()
+            }
+            .build()
 
     @Bean
     fun authenticationManager(): ReactiveAuthenticationManager {
