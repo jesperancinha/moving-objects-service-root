@@ -70,3 +70,4 @@ okta.config.ts
 
 # Draw.IO
 *.bkp
+*.dtmp

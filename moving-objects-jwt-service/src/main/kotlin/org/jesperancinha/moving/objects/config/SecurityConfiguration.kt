@@ -35,7 +35,16 @@ class SecurityConfiguration(
     var rsaPublicKey: RSAPublicKey,
 
     @Value("\${objects.jwt.private.key}")
-    var rsaPrivateKey: RSAPrivateKey
+    var rsaPrivateKey: RSAPrivateKey,
+
+    @Value("\${objects.jwt.username}")
+    var username: String,
+
+    @Value("\${objects.jwt.password}")
+    var password: String,
+
+    @Value("\${objects.jwt.roles}")
+    var roles: Array<String>,
 ) {
 
     @Bean
@@ -78,16 +87,16 @@ class SecurityConfiguration(
         NimbusJwtEncoder(ImmutableJWKSet(JWKSet(RSAKey.Builder(rsaPublicKey).privateKey(rsaPrivateKey).build())))
 
     @Bean
-    fun passwordEncoder(): PasswordEncoder{
+    fun passwordEncoder(): PasswordEncoder {
         return BCryptPasswordEncoder()
     }
 
     @Bean
     fun userDetailsService(): MapReactiveUserDetailsService? {
         val user = User.withDefaultPasswordEncoder()
-            .username("admin")
-            .password("admin")
-            .roles("USER")
+            .username(username)
+            .password(password)
+            .roles(*roles)
             .build()
         return MapReactiveUserDetailsService(user)
     }
