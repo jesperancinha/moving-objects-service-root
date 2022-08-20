@@ -183,6 +183,7 @@ mos-firefox-e2e:
         - e2e/node_modules/
   timeout: 120m
   allow_failure: true
+  retry: 2
 
 mos-edge-e2e:
   image: node:18
