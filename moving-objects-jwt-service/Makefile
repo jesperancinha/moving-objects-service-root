@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 buildw:
 	cd .. && make generateCredentials.sh
 	gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
@@ -7,3 +9,5 @@ get-token:
 	curl -i -XPOST admin:admin@localhost:8081/objects/token
 request-all:
 	curl -H 'Authorization: Bearer ${TOKEN}' localhost:8081/objects/webcams/all && echo
+request-all-auto:
+	curl -H 'Authorization: Bearer $(shell curl -XPOST admin:admin@localhost:8081/objects/token)' localhost:8081/objects/webcams/all && echo
