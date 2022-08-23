@@ -38,10 +38,6 @@
 
 ---
 
-🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧 !!! [Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md) !!! 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
- 
-> This project is again under construction due to changes in RapidAPI. After careful consideration, rapidAPI will be decommissioned.
-
 ## Introduction
 
 The goal of this mini-project is to introduce you to two important monitoring tools in the software landscape
