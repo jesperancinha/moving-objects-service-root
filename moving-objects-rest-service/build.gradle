@@ -80,7 +80,7 @@ dependencies {
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.3')
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.10")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.11")
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompile('org.projectlombok:lombok:1.18.24')
