@@ -38,6 +38,8 @@ public class TravelConverter {
         return MovingObjectDto.builder()
                 .code(movingObjectSource.code())
                 .name(movingObjectSource.name())
+                .color(movingObjectSource.color())
+                .size(movingObjectSource.size())
                 .coordinates(toCoordinatesDto(movingObjectSource.coordinates()))
                 .webCams(toWebCamDtoList(movingObjectSource.webCamSources()))
                 .build();
