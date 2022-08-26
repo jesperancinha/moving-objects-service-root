@@ -13,9 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Repository
 public class CustomTraceRepository implements HttpTraceRepository {
-
     private final AtomicReference<Queue<HttpTrace>> lastTrace = new AtomicReference<>(new LinkedList<>());
-
 
     @Override
     public List<HttpTrace> findAll() {
@@ -38,5 +36,4 @@ public class CustomTraceRepository implements HttpTraceRepository {
             httpTraces.add(trace);
         }
     }
-
 }

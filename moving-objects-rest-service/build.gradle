@@ -67,11 +67,6 @@ bootJar {
 }
 
 dependencies {
-    implementation('org.springframework.data:spring-data-commons:2.7.2')
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.7.3')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.3')
-    implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
-    implementation('io.micrometer:micrometer-core:1.9.3')
     if (project.hasProperty('prod')) {
         implementation("com.okta.spring:okta-spring-boot-starter:2.1.6")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
@@ -79,7 +74,14 @@ dependencies {
         implementation("org.springframework.security:spring-security-web:5.7.3")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
+
+    implementation('org.springframework.boot:spring-boot-starter-actuator:2.7.3')
+    implementation('io.micrometer:micrometer-core:1.9.3')
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.3')
+
+    implementation('org.springframework.data:spring-data-commons:2.7.2')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.3')
+    implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.11")
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor 'org.projectlombok:lombok:1.18.24'

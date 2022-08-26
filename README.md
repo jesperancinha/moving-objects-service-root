@@ -122,6 +122,11 @@ make cypress-open
 -   [Influx DB Onboarding](http://localhost:8086/onboarding)
 -   [Objects API Swagger UI](http://localhost:8082/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
 
+-   [Prometheus for JWT REST](http://localhost:8081/objects/actuator/prometheus)
+-   [Prometheus for Okta REST](http://localhost:8082/aggregator/actuator/prometheus)
+
+-   [Trace for JWT REST](http://localhost:8081/objects/actuator/metrics/http.server.requests)
+
 #### Via NGINX
 
 -   [Actuator](http://localhost:8080/objects/actuator/)
@@ -130,6 +135,11 @@ make cypress-open
 -   [Ok Requests 400](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:400)
 -   [Ok Requests 500](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:500)
 -   [Objects API Swagger UI](http://localhost:8080/objects/webjars/swagger-ui/index.html) - `/objects/v3/api-docs`
+
+-   [Prometheus for JWT REST](http://localhost:8080/objects/actuator/prometheus)
+-   [Prometheus for Okta REST](http://localhost:8080/aggregator/actuator/prometheus)
+
+-   [Trace for JWT REST](http://localhost:8080/objects/actuator/metrics/http.server.requests)
 
 #### Over Actuator
 
