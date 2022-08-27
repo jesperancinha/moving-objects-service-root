@@ -6,7 +6,6 @@ function replaceIp() {
     sed -i 's/'"$service"'/'"$ip"'/g' /etc/nginx/conf.d/default.conf
 }
 
-replaceIp nginx
 replaceIp moving-objects-rest-service
 replaceIp moving-objects-jwt-service
 
