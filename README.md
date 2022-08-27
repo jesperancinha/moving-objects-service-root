@@ -124,6 +124,7 @@ make cypress-open
 
 -   [Prometheus for JWT REST](http://localhost:8081/objects/actuator/prometheus)
 -   [Prometheus for Okta REST](http://localhost:8082/aggregator/actuator/prometheus)
+-   [Prometheus for NGINX](http://localhost:4000/metrics)
 
 -   [Trace for JWT REST](http://localhost:8081/objects/actuator/metrics/http.server.requests)
 
@@ -138,6 +139,7 @@ make cypress-open
 
 -   [Prometheus for JWT REST](http://localhost:8080/objects/actuator/prometheus)
 -   [Prometheus for Okta REST](http://localhost:8080/aggregator/actuator/prometheus)
+-   [Prometheus for NGINX](http://localhost:8080/metrics)
 
 -   [Trace for JWT REST](http://localhost:8080/objects/actuator/metrics/http.server.requests)
 

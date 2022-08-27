@@ -1,4 +1,5 @@
 describe('Influx Create Scraper DB Tests', () => {
+    const LONG_TIMEOUT = {timeout: 10000};
     const waitStep = 1000;
 
     it('should create scraper', () => {
@@ -26,11 +27,11 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.wait(waitStep);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('div[class="cf-tree-nav--item"] > a', {timeout: 10000}).eq(0, {timeout: 10000}).click({force: true});
+        cy.get('div[class="cf-tree-nav--item"] > a', LONG_TIMEOUT).eq(0, LONG_TIMEOUT).click({force: true});
         cy.wait(10000);
         cy.reload()
         cy.wait(waitStep);
-        cy.get('div', {timeout:10000}).contains(bucket, {timeout:10000}).click()
+        cy.get('div', LONG_TIMEOUT).contains(bucket, LONG_TIMEOUT).click()
         cy.get('div[data-testid="list--contents"]').children().should('not.be.empty')
         cy.get('div').contains(testMetric).should('exist')
         cy.wait(waitStep);

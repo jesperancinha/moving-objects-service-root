@@ -172,7 +172,9 @@ renovate:
 influx-db-example:
 	curl -i --request POST \
     "http://localhost:8086/api/v2/write?org=Moving%20Objects&bucket=mos&precision=ns" \
-      --header "Authorization: Token ${INFLUX_DB_API_TOKEN}" \
+      --header "Authorization: Token ${INFLUX_TOKEN}" \
       --header "Content-Type: text/plain; charset=utf-8" \
       --header "Accept: application/json" \
       --data-binary 'objects,sensor_group=GR1 temperature=$(shell date +%s%n | cut -b7-8),humidity=$(shell date +%s%n | cut -b8-9) $(shell date -u +%s000000000)'
+start-telegraf:
+	cd docker-files/telegraf && make start-telegraf

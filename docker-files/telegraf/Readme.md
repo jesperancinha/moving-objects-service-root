@@ -1,4 +1,10 @@
-# MOS InfluxDB notes
+# MOS Telegraf InfluxDB notes
+
+## Cypress Tests and the token
+
+If you run the cypress tests, a file named `token` will be generated in this directory.
+
+This file contains the token necessary to send data previously collected from [telegraf](https://github.com/influxdata/telegraf) to InfluxDB.
 
 ## References
 
