@@ -23,7 +23,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:8081/objects/actuator"]
       interval: 5s
-      timeout: 120s
+      timeout: 180s
       retries: 60
 
   moving-objects-rest-service:
@@ -56,7 +56,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http:/127.0.0.1:8082/aggregator/actuator"]
       interval: 5s
-      timeout: 120s
+      timeout: 180s
       retries: 60
 
   prometheus:
