@@ -20,8 +20,6 @@ COPY metrics-server ${runningFolder}/metrics-server
 
 RUN cd metrics-server && npm i && cd ..
 
-RUN nginx -t
-
 ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 8081
