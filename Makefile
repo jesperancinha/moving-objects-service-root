@@ -156,3 +156,11 @@ shared-docker:
 end-logs:
 	docker-compose logs --tail 1000 moving-objects-jwt-service
 	docker-compose logs --tail 1000 moving-objects-rest-service
+renovate:
+	docker run \
+		--rm \
+		-e LOG_LEVEL="debug" \
+		-e RENOVATE_CONFIG_FILE="/usr/src/app/renovate.json" \
+		-e RENOVATE_TOKEN=${RENOVATE_TOKEN} \
+		-v "${PWD}/renovate.json:/usr/src/app/renovate.json" \
+		renovate/renovate:latest
