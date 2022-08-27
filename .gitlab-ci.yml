@@ -41,6 +41,8 @@ build gradle:
         - moving-objects-rest-service/build/
   script:
     - make no-test
+  except:
+    - schedules
 
 build node:
   image: gradle:7.5.0-jdk17
@@ -54,6 +56,8 @@ build node:
   script:
     - make build-npm-cypress-docker
     - make build-npm-docker
+  except:
+    - schedules
 
 build cypress:
   image: gradle:7.5.0-jdk17
@@ -66,6 +70,8 @@ build cypress:
     - make build-npm-cypress-docker
     - make build-npm-docker
   retry: 2
+  except:
+    - schedules
 
 qa gradle:
   image: gradle:7.5.0-jdk17
@@ -82,6 +88,8 @@ qa gradle:
   needs:
     - build gradle
   retry: 2
+  except:
+    - schedules
 
 qa node:
   image: node:18
@@ -98,6 +106,8 @@ qa node:
   needs:
     - build node
   retry: 2
+  except:
+    - schedules
 
 mos-electron-e2e:
   image: node:18
@@ -127,6 +137,8 @@ mos-electron-e2e:
   allow_failure: true
   timeout: 120m
   retry: 2
+  except:
+    - schedules
 
 mos-chrome-e2e:
   image: node:18
@@ -155,6 +167,8 @@ mos-chrome-e2e:
         - e2e/node_modules/
   timeout: 120m
   retry: 2
+  except:
+    - schedules
 
 mos-firefox-e2e:
   image: node:18
@@ -184,6 +198,8 @@ mos-firefox-e2e:
   timeout: 120m
   allow_failure: true
   retry: 2
+  except:
+    - schedules
 
 mos-edge-e2e:
   image: node:18
@@ -212,6 +228,8 @@ mos-edge-e2e:
         - e2e/node_modules/
   timeout: 120m
   retry: 2
+  except:
+    - schedules
 
 coverage:
   image: gradle:7.5.0-jdk17
@@ -238,6 +256,8 @@ coverage:
     - mos-chrome-e2e
     - mos-firefox-e2e
     - mos-electron-e2e
+  except:
+    - schedules
 
 reporting:
   image: gradle:7.5.0-jdk17
@@ -259,6 +279,8 @@ reporting:
     - main
   needs:
     - coverage
+  except:
+    - schedules
 
 update-dependencies:
   image: renovate/renovate
@@ -270,9 +292,3 @@ update-dependencies:
     - renovate
   only:
     - schedules
-  needs:
-    - mos-electron-e2e
-    - mos-chrome-e2e
-    - mos-firefox-e2e
-    - mos-edge-e2e
-
