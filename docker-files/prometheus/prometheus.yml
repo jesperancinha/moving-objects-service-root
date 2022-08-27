@@ -26,7 +26,17 @@ scrape_configs:
           - nginx:4000
 
 remote_write:
-  - url: "http://influxdb:8086/api/v1/prom/write?db=prometheus"
+  - url: "http://influxdb:8086/api/v2/write?org=Moving%20Objects&bucket=mos&precision=ns"
+    headers:
+      Accept: "application/json"
+    authorization:
+      type: Bearer
+      credentials: "{{API_TOKEN}}"
 
 remote_read:
-  - url: "http://influxdb:8086/api/v1/prom/read?db=prometheus"
+  - url: "http://influxdb:8086/api/v2/read?org=Moving%20Objects&bucket=mos&precision=ns"
+    headers:
+      Accept: "application/json"
+    authorization:
+      type: Bearer
+      credentials: "{{API_TOKEN}}"

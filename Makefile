@@ -148,6 +148,11 @@ build-mosdb:
 	docker-compose rm mosdb
 	docker-compose build --no-cache mosdb
 	docker-compose up -d
+build-prometheus:
+	docker-compose stop prometheus
+	docker-compose rm prometheus
+	docker-compose build --no-cache prometheus
+	docker-compose up -d
 node:
 	sudo npm install -g n
 	sudo n lts
