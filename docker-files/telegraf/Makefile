@@ -14,4 +14,4 @@ start-telegraf:
 	telegraf --config telegraf.conf; \
 	fi
 start-telegraf-container:
-	docker-compose -f ../../docker-compose.yml -f docker-compose.yml --env-file .env up telegraf
+	docker-compose -f ../../docker-compose.yml -f docker-compose.yml --env-file .env up -d telegraf

@@ -181,3 +181,5 @@ start-telegraf:
 	cd docker-files/telegraf && make start-telegraf
 start-telegraf-container:
 	cd docker-files/telegraf && make start-telegraf-container
+start-demo: dcup-full-action cypress-electron start-telegraf-container
+#start-demo-secure: dcup-full-action cypress-electron start-telegraf-container
