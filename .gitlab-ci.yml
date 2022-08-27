@@ -269,7 +269,7 @@ update-dependencies:
     - export RENOVATE_CONFIG=$(< renovate.json)
     - renovate
   only:
-    - main
+    - schedules
   needs:
     - mos-electron-e2e
     - mos-chrome-e2e
