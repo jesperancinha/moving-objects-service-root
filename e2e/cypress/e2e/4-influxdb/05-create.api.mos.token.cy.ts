@@ -12,6 +12,9 @@ describe('Influx Create API Token Tests', () => {
         cy.get('span').contains('Mos Bucket Full Access API Token').eq(0).click();
         cy.get('code').then(control => {
             cy.writeFile("../docker-files/telegraf/token", control.html());
+            cy.readFile("../.env").then(str => {
+                cy.writeFile("../docker-files/telegraf/.env", `${str}\nINFLUX_TOKEN=${control.html()}`);
+            })
         })
     });
 

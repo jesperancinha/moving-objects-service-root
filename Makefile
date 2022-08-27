@@ -84,6 +84,7 @@ update:
 audit:
 	cd moving-objects-gui && npm audit fix && yarn
 cypress-install:
+	npm i -g cypress
 	cd e2e && make build
 cypress-open:
 	cd e2e && make cypress-open
@@ -178,3 +179,5 @@ influx-db-example:
       --data-binary 'objects,sensor_group=GR1 temperature=$(shell date +%s%n | cut -b7-8),humidity=$(shell date +%s%n | cut -b8-9) $(shell date -u +%s000000000)'
 start-telegraf:
 	cd docker-files/telegraf && make start-telegraf
+start-telegraf-container:
+	cd docker-files/telegraf && make start-telegraf-container

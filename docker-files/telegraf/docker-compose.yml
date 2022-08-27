@@ -1,0 +1,11 @@
+services:
+  telegraf:
+    image: telegraf
+    volumes:
+      - ${PWD}/telegraf-docker.conf:/etc/telegraf/telegraf.conf:ro
+    env_file:
+      - .env
+    environment:
+      - INFLUX_TOKEN=${INFLUX_TOKEN}
+    networks:
+      - mos_net
