@@ -8,6 +8,10 @@ COPY build/libs/moving-objects-rest-service.jar ${runningFolder}
 
 COPY entrypoint.sh ${runningFolder}
 
+RUN apt-get update
+
+RUN apt-get install curl -y
+
 ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 8082

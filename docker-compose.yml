@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   moving-objects-jwt-service:
     env_file:
@@ -10,7 +9,8 @@ services:
     build:
       context: moving-objects-jwt-service/.
     depends_on:
-      - mosdb
+      mosdb:
+        condition: service_healthy
     deploy:
       resources:
         limits:
@@ -20,6 +20,11 @@ services:
     networks:
       mos_net:
         ipv4_address: ${MOS_OBJECTS_JWT_IP}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8081/objects/actuator"]
+      interval: 5s
+      timeout: 120s
+      retries: 60
 
   moving-objects-rest-service:
     env_file:
@@ -34,7 +39,8 @@ services:
     build:
       context: moving-objects-rest-service/.
     depends_on:
-      - mosdb
+      mosdb:
+        condition: service_healthy
     deploy:
       resources:
         limits:
@@ -47,6 +53,11 @@ services:
     networks:
       mos_net:
         ipv4_address: ${MOS_OBJECTS_IP}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http:/127.0.0.1:8082/aggregator/actuator"]
+      interval: 5s
+      timeout: 120s
+      retries: 60
 
   prometheus:
     hostname: prometheus
@@ -102,6 +113,11 @@ services:
     networks:
       mos_net:
         ipv4_address: ${MOS_NGINX_IP}
+    depends_on:
+      moving-objects-jwt-service:
+        condition: service_healthy
+      moving-objects-rest-service:
+        condition: service_healthy
     deploy:
       resources:
         limits:
