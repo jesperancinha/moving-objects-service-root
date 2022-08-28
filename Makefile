@@ -132,18 +132,20 @@ build-nginx: build-npm
 	docker-compose rm nginx
 	docker-compose build --no-cache nginx
 	docker-compose up -d
-build-nginx-secure: build-npm-secure
+build-nginx-secure:
 	docker-compose stop nginx
-	docker-compose rm -f nginx
+	docker-compose rm -fsv nginx
+	make build-npm-secure
 	docker-compose build --no-cache nginx
 	docker-compose up -d
 build-jwt-service: buildw-jwt-service
 	docker-compose stop moving-objects-jwt-service
 	docker-compose build --no-cache moving-objects-jwt-service
 	docker-compose up -d
-build-rest-service-secure: no-test-secure
+build-rest-service-secure:
 	docker-compose stop moving-objects-rest-service
-	docker-compose rm -f moving-objects-rest-service
+	docker-compose rm -fsv moving-objects-rest-service
+	make no-test-secure
 	docker-compose build --no-cache moving-objects-rest-service
 	docker-compose up -d
 build-influxdb:

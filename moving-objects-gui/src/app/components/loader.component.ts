@@ -1,7 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {MatTabChangeEvent} from "@angular/material/tabs";
 import {MetricsComponent} from "./metrics/metrics.component";
-// import {ObjectsComponent} from "./objects/objects.component";
 import {WebCamsComponent} from "./webcamsearch/webcams.component";
 
 @Component({
@@ -9,24 +8,16 @@ import {WebCamsComponent} from "./webcamsearch/webcams.component";
     styleUrls: ["./loader.component.css"],
     templateUrl: "./loader.component.html",
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent {
     private metricsComponent: MetricsComponent;
-    // private airportComponent: ObjectsComponent;
     private webCamComponent: WebCamsComponent;
-
-    // tslint:disable-next-line:no-empty
-    public ngOnInit(): void {
-    }
 
     public tabChanged(
         $event: MatTabChangeEvent,
         faresComponent: WebCamsComponent,
         metricsComponent: MetricsComponent,
-        // airportComponent: ObjectsComponent
     ): void {
         this.webCamComponent = faresComponent;
         this.metricsComponent = metricsComponent;
-        // this.airportComponent = airportComponent;
     }
-
 }

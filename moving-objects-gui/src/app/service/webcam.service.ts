@@ -15,12 +15,15 @@ export class WebcamService implements WebcamServiceInterface {
     }
 
     public getWebCampsPerPageSizeAndOffSet(pageSize: number, pageOffSet: number): Observable<WebCam[]> {
-        return this.http.get<WebCam[]>(`${webCamsRootPath}/page/${pageSize}/${pageOffSet}`).pipe(
+        return this.http.get<WebCam[]>
+        (`${webCamsRootPath}/page/${pageSize}/${pageOffSet}`, {withCredentials: true}).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
 
-    public getWebCampsPerCoordinatesAndRadius(latitude: number, longitude: number, radius: number): Observable<WebCam[]> {
-        return this.http.get<WebCam[]>(`${webCamsRootPath}/location/${latitude}/${longitude}/${radius}`).pipe(
+    public getWebCampsPerCoordinatesAndRadius(latitude: number, longitude: number, radius: number):
+        Observable<WebCam[]> {
+        return this.http.get<WebCam[]>
+        (`${webCamsRootPath}/location/${latitude}/${longitude}/${radius}`, {withCredentials: true}).pipe(
             retry(3), catchError(this.handleError<WebCam[]>()));
     }
 

@@ -1,5 +1,5 @@
-import {HttpClientModule} from "@angular/common/http";
-import {Injectable, NgModule} from "@angular/core";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatButtonModule} from "@angular/material/button";
@@ -16,14 +16,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule} from "@angular/router";
 import {OKTA_CONFIG, OktaAuthGuard, OktaAuthModule, OktaCallbackComponent} from "@okta/okta-angular";
 import {OktaAuth} from "@okta/okta-auth-js";
+import {environment} from "../environments/environment";
 import {AppComponent} from "./app.component";
+import {config} from "./app.config";
 import {LoaderComponent} from "./components/loader.component";
 import {MetricsComponent} from "./components/metrics/metrics.component";
 import {ObjectsComponent} from "./components/objects/objects.component";
 import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
-import {config} from "./app.config";
-import {environment} from "../environments/environment";
-import {CookieService} from "ngx-cookie-service";
+import {AuthInterceptor} from "./service/interceptors";
 
 const routes = environment.production ? [
     {
@@ -38,28 +38,27 @@ const routes = environment.production ? [
     {
         component: OktaCallbackComponent,
         path: "callback",
-    }
+    },
 ] : [{
     component: AppComponent,
     path: "",
 },
 ];
 
-
 function prodProviders() {
-    const oktaAuth = new OktaAuth(config)
+    const oktaAuth = new OktaAuth(config);
     return [
         {
             provide: OKTA_CONFIG,
-            useValue: {oktaAuth}
+            useValue: {oktaAuth},
         },
-        CookieService
+        // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     ];
 }
 
-const providers = environment.production ? prodProviders() : [ CookieService];
+const providers = environment.production ? prodProviders() : [];
 
-let declarations = [
+const declarations = [
     AppComponent,
     LoaderComponent,
     MetricsComponent,
@@ -69,7 +68,7 @@ let declarations = [
     WebCamsComponent,
 ];
 
-let imports: any[] = [
+const imports: any[] = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes, {useHash: false}),
@@ -88,20 +87,20 @@ let imports: any[] = [
     MatButtonModule,
 ];
 
-let bootstrap: any[] = [
+const bootstrap: any[] = [
     AppComponent,
 ];
 
 if (environment.production) {
-    bootstrap.push(OktaCallbackComponent)
-    imports.push(OktaAuthModule)
+    bootstrap.push(OktaCallbackComponent);
+    imports.push(OktaAuthModule);
 }
 
 @NgModule({
-    bootstrap: bootstrap,
-    declarations: declarations,
-    imports: imports,
-    providers: providers,
+    bootstrap,
+    declarations,
+    imports,
+    providers,
 })
 
 export class AppModule {

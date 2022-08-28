@@ -3,7 +3,6 @@ import {Injectable} from "@angular/core";
 import {catchError, map, Observable, of, retry} from "rxjs";
 import {ObjectsServiceInterface} from "../interface/objects.service.interface";
 import {MovingObject} from "../model/moving.object";
-import {CookieService} from "ngx-cookie-service";
 
 const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 
@@ -12,16 +11,17 @@ const objectsWebcamsRootPath = `/aggregator/objectswebcams`;
 })
 export class ObjectsWebcamsService implements ObjectsServiceInterface {
 
-    constructor(private http: HttpClient, private cookieService: CookieService) {
+    constructor(private http: HttpClient) {
     }
 
     public getObjectsPerTermAndRadius(term: string, radius: string): Observable<MovingObject[]> {
-        return this.http.get<MovingObject[]>(`${objectsWebcamsRootPath}/term/${term.trim()}/${radius}`)
+        return this.http.get<MovingObject[]>
+        (`${objectsWebcamsRootPath}/term/${term.trim()}/${radius}`, {withCredentials: true})
             .pipe(retry(3), catchError(this.handleError<MovingObject[]>()));
     }
 
     public getObjectsPerCodeAndRadius(code: string, radius: string): Observable<MovingObject> {
-        return this.http.get<MovingObject>(`${objectsWebcamsRootPath}/code/${code}/${radius}`)
+        return this.http.get<MovingObject>(`${objectsWebcamsRootPath}/code/${code}/${radius}`, {withCredentials: true})
             .pipe(retry(3), catchError(this.handleError<MovingObject[]>()))
             .pipe(map((airports: MovingObject[]) => airports[0]));
     }

@@ -41,6 +41,8 @@ services:
     depends_on:
       mosdb:
         condition: service_healthy
+      moving-objects-jwt-service:
+        condition: service_healthy
     deploy:
       resources:
         limits:
