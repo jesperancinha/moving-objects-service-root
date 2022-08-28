@@ -8,6 +8,8 @@ COPY build/libs/moving-objects-rest-service.jar ${runningFolder}
 
 COPY entrypoint.sh ${runningFolder}
 
+RUN apt-get clean
+
 RUN apt-get update
 
 RUN apt-get install curl -y

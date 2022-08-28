@@ -12,6 +12,8 @@ COPY cameras ${runningFolder}/cameras/
 
 COPY entrypoint.sh ${runningFolder}
 
+RUN apt-get clean
+
 RUN apt-get update
 
 RUN apt-get install curl -y

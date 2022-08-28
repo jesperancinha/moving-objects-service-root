@@ -132,9 +132,18 @@ build-nginx: build-npm
 	docker-compose rm nginx
 	docker-compose build --no-cache nginx
 	docker-compose up -d
+build-nginx-secure: build-npm-secure
+	docker-compose stop nginx
+	docker-compose rm nginx
+	docker-compose build --no-cache nginx
+	docker-compose up -d
 build-jwt-service: buildw-jwt-service
 	docker-compose stop moving-objects-jwt-service
 	docker-compose build --no-cache moving-objects-jwt-service
+	docker-compose up -d
+build-rest-service-secure: no-test-secure
+	docker-compose stop moving-objects-rest-service
+	docker-compose build --no-cache moving-objects-rest-service
 	docker-compose up -d
 build-influxdb:
 	docker-compose stop influxdb
@@ -183,9 +192,15 @@ start-telegraf:
 	cd docker-files/telegraf && make start-telegraf
 start-telegraf-container:
 	cd docker-files/telegraf && make start-telegraf-container
-continue-demo: cypress-electron start-telegraf-container
+logs-telegraf-container:
+	cd docker-files/telegraf && make logs-telegraf-container
+up:
+	docker-compose up -d
+continue-demo: up cypress-electron start-telegraf-container
 start-demo: dcup-full-action continue-demo
-#start-demo-secure: dcup-full-action cypress-electron start-telegraf-container
+create-demo-secure-credentials:
+	cd moving-objects-rest-service && make var-export
+start-demo-secure: dcup-full-action continue-demo build-rest-service-secure build-nginx-secure
 analysis:
 	df -hi
 	df -h

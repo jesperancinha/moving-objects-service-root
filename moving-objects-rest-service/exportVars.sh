@@ -6,6 +6,9 @@ echo '║------------------------------------------------║'
 echo -e '║-- \033[1;31mOr run the export command shown at the end\033[0m --║'
 echo '║------------------------------------------------║'
 echo '╚════════════════════════════════════════════════╝'
+echo 'Log into your https://developer.okta.com/ Dev account  and fill in the following fields'
+echo 'Be sure to have your user available with a user/password combination in Okta'
+echo 'At the end of this form, export command manually in the command line in order to start the start-demo-secure script'
 echo '- Set your ISSUER'
 printf "$ >"
 read -r issuer

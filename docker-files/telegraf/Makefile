@@ -18,3 +18,5 @@ start-telegraf-container:
 stop-telegraf-container:
 	docker-compose -f ../../docker-compose.yml -f docker-compose.yml --env-file .env stop telegraf
 	docker-compose -f ../../docker-compose.yml -f docker-compose.yml --env-file .env rm telegraf
+logs-telegraf-container:
+	docker-compose -f ../../docker-compose.yml -f docker-compose.yml logs telegraf
