@@ -1,10 +1,10 @@
 export const environment = {
-  environment: "dev",
-  production: false,
   CLIENT_ID: "TEST",
+  CLIENT_SECRET: "TEST",
   ISSUER: "http://localhost:4200",
   REDIRECT_URL: "http://localhost:4200/login/callback",
-  CLIENT_SECRET: "TEST"
+  environment: "dev",
+  production: false,
 };
 
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import "zone.js/dist/zone-error";  // Included with Angular CLI.

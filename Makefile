@@ -134,7 +134,7 @@ build-nginx: build-npm
 	docker-compose up -d
 build-nginx-secure: build-npm-secure
 	docker-compose stop nginx
-	docker-compose rm nginx
+	docker-compose rm -f nginx
 	docker-compose build --no-cache nginx
 	docker-compose up -d
 build-jwt-service: buildw-jwt-service
@@ -143,6 +143,7 @@ build-jwt-service: buildw-jwt-service
 	docker-compose up -d
 build-rest-service-secure: no-test-secure
 	docker-compose stop moving-objects-rest-service
+	docker-compose rm -f moving-objects-rest-service
 	docker-compose build --no-cache moving-objects-rest-service
 	docker-compose up -d
 build-influxdb:
@@ -200,7 +201,8 @@ continue-demo: up cypress-electron start-telegraf-container
 start-demo: dcup-full-action continue-demo
 create-demo-secure-credentials:
 	cd moving-objects-rest-service && make var-export
-start-demo-secure: dcup-full-action continue-demo build-rest-service-secure build-nginx-secure
+continue-secure-build: build-rest-service-secure build-nginx-secure
+start-demo-secure: dcup-full-action continue-demo continue-secure-build
 analysis:
 	df -hi
 	df -h
