@@ -6,6 +6,8 @@ services:
     command: "--browser electron --env host=192.168.0.15,port=8080"
     volumes:
       - ./e2e:/e2e
+      - .env:/.env
+      - ./docker-files/telegraf:/docker-files/telegraf
     networks:
       - mos_net
 

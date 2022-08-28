@@ -4,7 +4,7 @@ services:
     volumes:
       - ${PWD}/telegraf-docker.conf:/etc/telegraf/telegraf.conf:ro
     env_file:
-      - .env
+      - ${PWD}/.env
     environment:
       - INFLUX_TOKEN=${INFLUX_TOKEN}
     networks:
