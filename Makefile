@@ -105,6 +105,7 @@ objects-wait:
 dcd:
 	docker-compose down --remove-orphans
 	docker-compose rm -fsva
+	docker volume rm $(docker volume ls -qf dangling=true)
 dcp:
 	docker-compose stop
 dcup: dcd docker-clean docker objects-wait
@@ -185,3 +186,6 @@ start-telegraf-container:
 continue-demo: cypress-electron start-telegraf-container
 start-demo: dcup-full-action continue-demo
 #start-demo-secure: dcup-full-action cypress-electron start-telegraf-container
+analysis:
+	df -hi
+	df -h
