@@ -105,7 +105,7 @@ objects-wait:
 dcd:
 	docker-compose down --remove-orphans
 	docker-compose rm -fsva
-	docker volume rm $(docker volume ls -qf dangling=true)
+	docker volume ls -qf dangling=true | xargs -I {} docker volume rm  {}
 dcp:
 	docker-compose stop
 dcup: dcd docker-clean docker objects-wait
