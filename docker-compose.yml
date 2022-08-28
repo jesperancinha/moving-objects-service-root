@@ -21,7 +21,7 @@ services:
       mos_net:
         ipv4_address: ${MOS_OBJECTS_JWT_IP}
     healthcheck:
-      test: ["CMD", "curl", "-f", "-sS", "http://127.0.0.1:8081/objects/actuator"]
+      test: ["CMD", "curl", "-sS", "http://127.0.0.1:8081/objects/actuator"]
       interval: 5s
       timeout: 240s
       retries: 60
@@ -54,7 +54,7 @@ services:
       mos_net:
         ipv4_address: ${MOS_OBJECTS_IP}
     healthcheck:
-      test: ["CMD", "curl", "-f", "-sS", "http:/127.0.0.1:8082/aggregator/actuator"]
+      test: ["CMD", "curl", "-sS", "http:/127.0.0.1:8082/aggregator/actuator"]
       interval: 5s
       timeout: 240s
       retries: 60
