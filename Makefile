@@ -104,6 +104,7 @@ objects-wait:
 	bash objects_wait.sh
 dcd:
 	docker-compose down --remove-orphans
+	docker-compose rm -fsva
 dcp:
 	docker-compose stop
 dcup: dcd docker-clean docker objects-wait
