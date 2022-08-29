@@ -38,5 +38,13 @@
     "pathRewrite": {
       "^/aggregator/actuator": "/aggregator/actuator"
     }
+  },
+  "/aggregator/oauth2/authorization/okta": {
+    "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
+    "secure": false,
+    "pathRewrite": {
+      "^/aggregator/actuator": "/aggregator/oauth2/authorization/okta"
+    }
   }
 }
