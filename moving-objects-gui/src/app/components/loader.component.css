@@ -43,3 +43,7 @@ input {
 .spinner {
     min-height: 50px;
 }
+
+a:hover {
+    cursor: pointer;
+}

@@ -44,7 +44,31 @@
     "cookieDomainRewrite": "localhost",
     "secure": false,
     "pathRewrite": {
-      "^/aggregator/actuator": "/aggregator/oauth2/authorization/okta"
+      "^/aggregator/oauth2/authorization/okta": "/aggregator/oauth2/authorization/okta"
+    }
+  },
+  "/aggregator/logout": {
+    "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
+    "secure": false,
+    "pathRewrite": {
+      "^/aggregator/logout": "/aggregator/logout"
+    }
+  },
+  "/aggregator/signout": {
+    "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
+    "secure": false,
+    "pathRewrite": {
+      "^/aggregator/signout": "/aggregator/signout"
+    }
+  },
+  "/aggregator/login": {
+    "target": "http://localhost:8082",
+    "cookieDomainRewrite": "localhost",
+    "secure": false,
+    "pathRewrite": {
+      "^/aggregator/login": "/aggregator/login"
     }
   }
 }

@@ -91,6 +91,7 @@ make dcup-full-action
 
 
 ```shell
+export REDIRECT_PORT=8080
 make dcup-full-action-secure
 ```
 

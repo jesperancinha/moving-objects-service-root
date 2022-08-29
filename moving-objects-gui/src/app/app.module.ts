@@ -25,6 +25,8 @@ import {ObjectsComponent} from "./components/objects/objects.component";
 import {WebCamsComponent} from "./components/webcamsearch/webcams.component";
 import {AuthInterceptor} from "./service/interceptors";
 
+const oktaAuth = new OktaAuth(config);
+
 const routes = environment.production ? [
     {
         component: OktaCallbackComponent,
@@ -34,6 +36,11 @@ const routes = environment.production ? [
         canActivate: [OktaAuthGuard],
         component: AppComponent,
         path: "",
+    },
+    {
+        canActivate: [OktaAuthGuard],
+        component: AppComponent,
+        path: "signout",
     },
     {
         component: OktaCallbackComponent,
@@ -46,13 +53,16 @@ const routes = environment.production ? [
 ];
 
 function prodProviders() {
-    const oktaAuth = new OktaAuth(config);
     return [
         {
             provide: OKTA_CONFIG,
             useValue: {oktaAuth},
         },
-        // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        {
+            multi: true,
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+        },
     ];
 }
 
@@ -85,6 +95,7 @@ const imports: any[] = [
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    OktaAuthModule,
 ];
 
 const bootstrap: any[] = [

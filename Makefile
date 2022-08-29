@@ -208,7 +208,9 @@ start-demo-secure: dcup-full-action continue-demo continue-secure-build
 analysis:
 	df -hi
 	df -h
-okta-restart: no-test-secure
+okta-restart:
+	ps -fx | grep "java -jar moving-objects-rest-service/build/libs/moving-objects-rest-service.jar" | head -n 1 | cut -d' ' -f4 | xargs kill &
+	make no-test-secure
 	java -jar moving-objects-rest-service/build/libs/moving-objects-rest-service.jar &
 	cd moving-objects-gui && npm run start-prod
 

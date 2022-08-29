@@ -2,6 +2,7 @@
     <mat-card>
         <div class="card">
             <div>Please select an option from below</div>
+            <div><a *ngIf="c === 'prod'" (click)="logout()">Logout</a></div>
         </div>
     </mat-card>
 
@@ -10,9 +11,6 @@
             <mat-tab label="WebCams Listings">
                 <app-webcams-selector #webCamsComponent></app-webcams-selector>
             </mat-tab>
-<!--            <mat-tab label="Objects Info">-->
-<!--                <moving-objects-selector #airportsComponent></moving-objects-selector>-->
-<!--            </mat-tab>-->
             <mat-tab label="Metrics">
                 <app-metrics-selector #metricsComponent></app-metrics-selector>
             </mat-tab>
