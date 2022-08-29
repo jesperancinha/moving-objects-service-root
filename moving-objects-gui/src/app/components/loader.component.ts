@@ -3,6 +3,7 @@ import {Component} from "@angular/core";
 import {MatTabChangeEvent} from "@angular/material/tabs";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
+import {oktaConfig} from "../../environments/okta.config";
 import {OktaService} from "../service/okta.service";
 import {MetricsComponent} from "./metrics/metrics.component";
 import {WebCamsComponent} from "./webcamsearch/webcams.component";
@@ -30,9 +31,14 @@ export class LoaderComponent {
     }
 
     public logout() {
-        // this.httpClient.get("http://localhost:4200/aggregator/signout").subscribe();
-        // this.httpClient.get("http://localhost:4200/signout").subscribe();
-        // this.router.navigateByUrl("/").then();
+        window.location.href = `${oktaConfig.ISSUER}/login/signout?fromURI=http://localhost:${window.location.port}`;
+    }
+
+    // ts-ignore
+    public superLogout() {
+        this.httpClient.get("http://localhost:4200/aggregator/signout").subscribe();
+        this.httpClient.get("http://localhost:4200/signout").subscribe();
+        this.router.navigateByUrl("/").then();
         this.oktaService.logout().then();
     }
 }

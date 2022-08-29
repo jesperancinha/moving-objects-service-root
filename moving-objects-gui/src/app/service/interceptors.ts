@@ -1,8 +1,7 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Inject, Injectable} from "@angular/core";
-import {OktaAuth} from "@okta/okta-auth-js";
-import {Observable} from "rxjs";
 import {OKTA_CONFIG, OktaConfig} from "@okta/okta-angular";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: "root",
@@ -32,6 +31,8 @@ export class AuthInterceptor implements HttpInterceptor {
         //     });
         // }
 
-        return next.handle(request);
+        return next.handle(request = request.clone({
+            withCredentials: true,
+        }));
     }
 }

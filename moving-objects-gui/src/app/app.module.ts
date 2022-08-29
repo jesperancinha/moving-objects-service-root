@@ -33,18 +33,13 @@ const routes = environment.production ? [
         path: "login/callback",
     },
     {
+        component: OktaCallbackComponent,
+        path: "callback",
+    },
+    {
         canActivate: [OktaAuthGuard],
         component: AppComponent,
         path: "",
-    },
-    {
-        canActivate: [OktaAuthGuard],
-        component: AppComponent,
-        path: "signout",
-    },
-    {
-        component: OktaCallbackComponent,
-        path: "callback",
     },
 ] : [{
     component: AppComponent,

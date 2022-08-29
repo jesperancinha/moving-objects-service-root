@@ -15,11 +15,12 @@ export class OktaService {
         console.log(`Is User Authenticated ${await this.oktaConfig.oktaAuth.isAuthenticated()}`);
         // tslint:disable-next-line:no-console
         console.log(`Origin: ${this.oktaConfig.oktaAuth.getIssuerOrigin()}`);
-        this.oktaConfig.oktaAuth.signOut(config)
-            .then((_) => {
-                // tslint:disable-next-line:no-console
-                console.log("Logging out!...Bye!");
-            },
-        );
+        // tslint:disable-next-line:no-console
+        console.log(`TokenId: ${this.oktaConfig.oktaAuth.getIdToken()}`);
+        this.oktaConfig.oktaAuth.signOut({
+            revokeAccessToken: true,
+        }).then();
+        this.oktaConfig.oktaAuth.tokenManager.clear();
+        await this.oktaConfig.oktaAuth.revokeAccessToken();
     }
 }
