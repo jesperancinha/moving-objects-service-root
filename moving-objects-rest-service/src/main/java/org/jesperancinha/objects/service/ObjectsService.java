@@ -9,19 +9,19 @@ import reactor.core.publisher.Mono;
 @Service
 public class ObjectsService {
 
-    private final ObjectsRepository airportsRepository;
+    private final ObjectsRepository objectsRepository;
 
-    public ObjectsService(ObjectsRepository airportsRepository) {
-        this.airportsRepository = airportsRepository;
+    public ObjectsService(ObjectsRepository objectsRepository) {
+        this.objectsRepository = objectsRepository;
     }
 
     public Flux<MovingObjectDto> getObjectsByTerm(String searchTerm) {
-        return airportsRepository.findObjectsBySearchTerm(searchTerm)
+        return objectsRepository.findObjectsBySearchTerm(searchTerm)
                 .map(TravelConverter::toMovingObjectDto);
     }
 
     public Mono<MovingObjectDto> getObjectsByCode(String code) {
-        return airportsRepository.findObjectsByCode(code)
+        return objectsRepository.findObjectsByCode(code)
                 .map(TravelConverter::toMovingObjectDto);
     }
 }

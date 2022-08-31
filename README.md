@@ -132,6 +132,7 @@ make cypress-open
 #### Direct
 
 -   [Actuator](http://localhost:8082/objects/actuator/)
+-   [Actuator Trace Requests](http://localhost:8082/aggregator/actuator/httptrace)
 -   [All Requests](http://localhost:8082/objects/actuator/metrics/http.server.requests)
 -   [Ok Requests 200](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:200)
 -   [Ok Requests 400](http://localhost:8082/objects/actuator/metrics/http.server.requests?tag=status:400)
@@ -150,6 +151,7 @@ make cypress-open
 #### Via NGINX
 
 -   [Actuator](http://localhost:8080/objects/actuator/)
+-   [Actuator Trace Requests](http://localhost:8080/aggregator/actuator/httptrace)
 -   [All Requests](http://localhost:8080/objects/actuator/metrics/http.server.requests)
 -   [Ok Requests 200](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:200)
 -   [Ok Requests 400](http://localhost:8080/objects/actuator/metrics/http.server.requests?tag=status:400)
