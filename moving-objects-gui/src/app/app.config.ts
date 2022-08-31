@@ -5,5 +5,6 @@ export const config = {
     clientId: `${environment.CLIENT_ID}`,
     issuer: `${environment.ISSUER}`,
     postLogoutRedirectUri: `${environment.REDIRECT_LOGOUT}`,
+    redirectServiceUrl: `${environment.REDIRECT_SERVICE_URL}`,
     redirectUri: `${environment.REDIRECT_URL}`,
 };

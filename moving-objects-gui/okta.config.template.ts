@@ -3,5 +3,6 @@ export const oktaConfig = {
     CLIENT_SECRET: "",
     ISSUER: "${ISSUER}",
     REDIRECT_LOGOUT: "${REDIRECT_LOGOUT}",
+    REDIRECT_SERVICE_URL: "${REDIRECT_SERVICE_URL}",
     REDIRECT_URL: "${REDIRECT_URL}",
 };

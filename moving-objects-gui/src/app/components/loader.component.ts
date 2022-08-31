@@ -4,6 +4,7 @@ import {MatTabChangeEvent} from "@angular/material/tabs";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {oktaConfig} from "../../environments/okta.config";
+import { config } from "../app.config";
 import {OktaService} from "../service/okta.service";
 import {MetricsComponent} from "./metrics/metrics.component";
 import {WebCamsComponent} from "./webcamsearch/webcams.component";
@@ -24,7 +25,7 @@ export class LoaderComponent implements OnInit {
 
     public ngOnInit() {
         if (window.location.href.indexOf("localhost") >= 0) {
-            this.w = window.open("http://localhost:4200/aggregator/webcams/camera/GAR", "_blank");
+            this.w = window.open(`${config.redirectServiceUrl}`, "_blank");
             this.w.addEventListener("load", () => this.w.close(), true);
         }
     }
