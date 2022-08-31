@@ -1,5 +1,11 @@
 SHELL=/bin/bash
 
+.EXPORT_ALL_VARIABLES:
+ISSUER_MF = $(shell echo $${ISSUER})
+CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
+CLIENT_SECRET_MF = $(shell echo $${CLIENT_SECRET})
+REDIRECT_PORT_MF = $(shell echo $${REDIRECT_PORT})
+
 b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
@@ -113,7 +119,7 @@ dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
 dcup-action: dcp docker-action objects-wait
 dcup-light: dcd
 	docker-compose up -d mosdb
-dcup-full-action-secure: dcd docker-clean no-test-secure build-npm-secure docker objects-wait
+dcup-full-action-secure: dcd docker-clean credential-check no-test-secure build-npm-secure docker objects-wait
 
 report:
 	apt update -y
@@ -204,7 +210,7 @@ start-demo: dcup-full-action continue-demo
 create-demo-secure-credentials:
 	cd moving-objects-rest-service && make var-export
 continue-secure-build: build-rest-service-secure build-nginx-secure
-start-demo-secure: dcup-full-action continue-demo continue-secure-build
+start-demo-secure: dcup-full-action credential-check continue-demo continue-secure-build
 analysis:
 	df -hi
 	df -h
@@ -216,5 +222,9 @@ okta-restart: stop-jars
 	make no-test-secure
 	java -jar moving-objects-rest-service/build/libs/moving-objects-rest-service.jar &
 	cd moving-objects-gui && npm run start-prod
-
-
+credential-check:
+	if [ -z "$(ISSUER_MF)" ] || [ -z "$(CLIENT_ID_MF)" ] || [ -z "$(CLIENT_SECRET_MF)" ] || [ -z "$(REDIRECT_PORT_MF)" ]; then \
+	echo -e "\033[1;31m--- Configuration Failure ---, you need to configure ISSUER, CLIENT_ID, CLIENT_SECRET and REDIRECT_PORT\033[0m"; \
+	make create-demo-secure-credentials; \
+	exit 1; \
+	fi

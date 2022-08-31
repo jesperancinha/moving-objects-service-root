@@ -6,7 +6,7 @@ echo '║------------------------------------------------║'
 echo -e '║-- \033[1;31mOr run the export command shown at the end\033[0m --║'
 echo '║------------------------------------------------║'
 echo '╚════════════════════════════════════════════════╝'
-echo '- Set your ISSUER'
+echo '- Set your ISSUER (https://...)'
 printf "$ >"
 read -r issuer
 export ISSUER=$issuer
