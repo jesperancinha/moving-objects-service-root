@@ -48,7 +48,7 @@ export class LoaderComponent implements OnInit {
     }
 
     public logout() {
-        const logout = window.open("http://localhost:4200/aggregator/signout", "_blank");
+        const logout = window.open(`${config.redirectServiceLogoutUrl}`, "_blank");
         logout.addEventListener("load", () => logout.close(), true);
         setTimeout(() => {
             logout.close();
