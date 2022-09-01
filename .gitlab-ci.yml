@@ -69,7 +69,7 @@ build cypress:
   script:
     - make build-npm-cypress-docker
     - make build-npm-docker
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -87,7 +87,7 @@ qa gradle:
     - make no-test
   needs:
     - build gradle
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -105,7 +105,7 @@ qa node:
     - make test-node
   needs:
     - build node
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -136,7 +136,7 @@ mos-electron-e2e:
         - e2e/node_modules/
   allow_failure: true
   timeout: 120m
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -166,7 +166,7 @@ mos-chrome-e2e:
         - moving-objects-gui/coverage/
         - e2e/node_modules/
   timeout: 120m
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -197,7 +197,7 @@ mos-firefox-e2e:
         - e2e/node_modules/
   timeout: 120m
   allow_failure: true
-  retry: 2
+  retry: 1
   except:
     - schedules
 
@@ -227,7 +227,7 @@ mos-edge-e2e:
         - moving-objects-gui/coverage/
         - e2e/node_modules/
   timeout: 120m
-  retry: 2
+  retry: 1
   except:
     - schedules
 
