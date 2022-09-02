@@ -1,14 +1,10 @@
-FROM openjdk:20-slim-buster
+FROM openjdk:17-alpine
 
 ENV runningFolder /usr/local/bin/
 
 WORKDIR ${runningFolder}
 
-RUN apt-get clean
-
-RUN apt-get update
-
-RUN apt-get install curl -y
+RUN apk --no-cache add curl
 
 COPY build/libs/moving-objects-rest-service.jar ${runningFolder}
 
