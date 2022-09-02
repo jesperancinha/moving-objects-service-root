@@ -11,6 +11,6 @@ replaceIp moving-objects-jwt-service
 
 cat /etc/nginx/conf.d/default.conf
 
-pm2 start metrics-server/src/server.js
+/usr/local/bin/pm2 start metrics-server/src/server.js
 nginx
 tail -f /dev/null
