@@ -59,7 +59,7 @@ build node:
     - schedules
 
 build cypress:
-  image: gradle:7.5.0-jdk17
+  image: node:18
   stage: build
   cache:
     - key: CYPRESS
