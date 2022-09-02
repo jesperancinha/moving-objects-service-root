@@ -17,6 +17,8 @@ services:
     command: "--browser chrome --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
+      - .env:/.env
+      - ./docker-files/telegraf:/docker-files/telegraf
     networks:
       - mos_net
 
@@ -26,6 +28,8 @@ services:
     command: "--browser firefox --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
+      - .env:/.env
+      - ./docker-files/telegraf:/docker-files/telegraf
     networks:
       - mos_net
 
@@ -35,6 +39,8 @@ services:
     command: "--config-file full.cypress.config.ts --browser firefox --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
+      - .env:/.env
+      - ./docker-files/telegraf:/docker-files/telegraf
     networks:
       - mos_net
 
@@ -44,5 +50,7 @@ services:
     command: "--browser edge --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
+      - .env:/.env
+      - ./docker-files/telegraf:/docker-files/telegraf
     networks:
       - mos_net
