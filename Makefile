@@ -35,8 +35,7 @@ test-gradle:
 test: test-node test-gradle
 test-node:
 	cd moving-objects-gui ;\
-	yarn install ;\
-	npm run test ;\
+	npm run jest ;\
 	cd ..
 wrapper:
 	gradle wrapper
