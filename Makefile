@@ -9,7 +9,9 @@ REDIRECT_PORT_MF = $(shell echo $${REDIRECT_PORT})
 b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
-	cd moving-objects-gui && yarn && npm run build-docker
+	cd moving-objects-gui && yarn && npm run build
+build-npm-cypress:
+	cd e2e && yarn
 build-npm-secure:
 	cd moving-objects-gui && yarn && npm run build-prod
 build-npm-dist: build-npm
