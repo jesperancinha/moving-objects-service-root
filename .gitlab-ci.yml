@@ -45,7 +45,7 @@ build gradle:
     - schedules
 
 build node:
-  image: gradle:7.5.0-jdk17
+  image: node:18
   stage: build
   cache:
     - key: NODE
@@ -54,8 +54,7 @@ build node:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   script:
-    - make build-npm-cypress-docker
-    - make build-npm-docker
+    - make build-npm
   except:
     - schedules
 
@@ -67,8 +66,7 @@ build cypress:
       paths:
         - e2e/node_modules/
   script:
-    - make build-npm-cypress-docker
-    - make build-npm-docker
+    - make build-npm-cypress
   retry: 1
   except:
     - schedules

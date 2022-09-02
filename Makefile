@@ -10,6 +10,8 @@ b: buildw build-app build-npm
 build-gradle: buildw
 build-npm:
 	cd moving-objects-gui && yarn && npm run build-docker
+build-npm-cypress:
+	cd e2e && yarn && npm run build-docker
 build-npm-secure:
 	cd moving-objects-gui && yarn && npm run build-prod
 build-npm-dist: build-npm
