@@ -36,9 +36,7 @@ test-gradle:
 	 ./gradlew test
 test: test-node test-gradle
 test-node:
-	cd moving-objects-gui ;\
-	npm run jest ;\
-	cd ..
+	cd moving-objects-gui && npm run jest
 wrapper:
 	gradle wrapper
 build-app:
@@ -49,7 +47,6 @@ buildw:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 	gradle clean build
-	gradle test jacocoTestReport publishToMavenLocal
 buildw-jwt-service:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 generate-credentials:
@@ -76,7 +73,7 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
 docker:
 	docker-compose up -d --build --remove-orphans
-docker-action: build-npm-docker
+docker-action:
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d moving-objects-rest-service moving-objects-jwt-service mosdb influxdb prometheus nginx grafana
 prune-all: docker-delete
 	docker network prune
@@ -131,6 +128,7 @@ report:
 	cd moving-objects-gui && yarn && yarn add jest && npm run coverage
 	make buildw && gradle -i
 report-coverage:
+	#gradle test jacocoTestReport publishToMavenLocal
 	 ./gradlew clean build test jacocoTestReport -i
 docker-stats:
 	docker stats --all
@@ -229,3 +227,4 @@ credential-check:
 	make create-demo-secure-credentials; \
 	exit 1; \
 	fi
+local-pipeline: build-gradle build-npm test-gradle test-node report-coverage
