@@ -3,7 +3,7 @@ services:
   e2e-electron:
     image: "cypress/included:10.6.0"
     working_dir: /e2e
-    command: "--browser electron --env host=192.168.0.15,port=8080"
+    command: "--browser electron --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
       - .env:/.env
@@ -14,7 +14,7 @@ services:
   e2e-chrome:
     image: "cypress/included:10.6.0"
     working_dir: /e2e
-    command: "--browser chrome --env host=192.168.0.15,port=8080"
+    command: "--browser chrome --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
     networks:
@@ -23,7 +23,7 @@ services:
   e2e-firefox:
     image: "cypress/included:10.6.0"
     working_dir: /e2e
-    command: "--browser firefox --env host=192.168.0.15,port=8080"
+    command: "--browser firefox --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
     networks:
@@ -32,7 +32,7 @@ services:
   e2e-firefox-full:
     image: "cypress/included:10.6.0"
     working_dir: /e2e
-    command: "--config-file full.cypress.config.ts --browser firefox --env host=192.168.0.15,port=8080"
+    command: "--config-file full.cypress.config.ts --browser firefox --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
     networks:
@@ -41,7 +41,7 @@ services:
   e2e-edge:
     image: "cypress/included:10.6.0"
     working_dir: /e2e
-    command: "--browser edge --env host=192.168.0.15,port=8080"
+    command: "--browser edge --env host=192.168.0.15,port=8080 --config defaultCommandTimeout=15000,requestTimeout=15000"
     volumes:
       - ./e2e:/e2e
     networks:
