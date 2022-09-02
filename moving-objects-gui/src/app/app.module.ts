@@ -61,7 +61,10 @@ function prodProviders() {
     ];
 }
 
-const providers = environment.production ? prodProviders() : [];
+const providers = environment.production ? prodProviders() : [{
+    provide: OKTA_CONFIG,
+    useValue: {oktaAuth},
+}];
 
 const declarations = [
     AppComponent,

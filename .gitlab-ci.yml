@@ -81,8 +81,7 @@ qa gradle:
         - moving-objects-rest-service/build/
   script:
     - make generate-credentials
-    - make test
-    - make no-test
+    - make test-gradle
   needs:
     - build gradle
   retry: 1
@@ -99,7 +98,7 @@ qa node:
         - moving-objects-gui/node_modules/
         - moving-objects-gui/coverage/
   script:
-    - docker-compose ps
+    - yarn global add jest
     - make test-node
   needs:
     - build node
