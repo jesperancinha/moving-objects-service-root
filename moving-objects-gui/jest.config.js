@@ -14,5 +14,6 @@ module.exports = {
     testEnvironment: "jsdom",
     setupFilesAfterEnv: [
         "<rootDir>/src/setuptests.ts"
-    ]
+    ],
+    modulePathIgnorePatterns: ["src/test.ts"]
 }
