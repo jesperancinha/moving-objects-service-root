@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM openjdk:19-alpine
 
 ENV runningFolder /usr/local/bin
 
