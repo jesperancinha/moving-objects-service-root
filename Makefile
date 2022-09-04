@@ -74,7 +74,7 @@ docker-delete: stop
 docker:
 	docker-compose up -d --build --remove-orphans
 docker-action:
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d moving-objects-rest-service moving-objects-jwt-service mosdb influxdb prometheus nginx grafana
+	docker-compose -f docker-compose.yml up -d moving-objects-rest-service moving-objects-jwt-service mosdb influxdb prometheus nginx grafana
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
