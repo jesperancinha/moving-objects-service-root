@@ -56,11 +56,9 @@ We will use the free restservices provided by the [RapidAPI](https://rapidapi.co
 
 This project is also the official support project of my article on medium:
 
-[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6) [Monitoring with Grafana, Prometheus and InfluxDB — An airport webcams example](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b) [Monitoring Secure Coroutines and WebFlux Reactive applications with Prometheus, Grafana, and InfluxDB — A webcams example](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
 
-> Please read the first paragraph to be up-to-date with the complete changes this repo is undergoing
-
-[![alt img](./docs/images/articles.international.airports.intro..png)](https://medium.com/swlh/monitoring-with-grafana-prometheus-and-influxdb-an-airport-webcams-example-508c04b226b6)
+[![alt img](./docs/images/articles.international.airports.intro..png)](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
 ## Setup
 
 In order to run this project we need to fulfill some requirements:
