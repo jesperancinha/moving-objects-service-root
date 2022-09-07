@@ -1647,10 +1647,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-auth-js@6.7.7":
-  version "6.7.7"
-  resolved "https://registry.npmjs.org/@okta/okta-auth-js/-/okta-auth-js-6.7.7.tgz"
-  integrity sha512-9Jijce2GQLlhQaHb7zhOGDCyL4J602e5uWQa5WYHIGE7agqctEjdE/XB+9wF5qI/z6Qc3xBKTWwL1Q6YpdKuxg==
+"@okta/okta-auth-js@6.8.0":
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-6.8.0.tgz#99f62ffc05505035239c4dca0e02be0791787034"
+  integrity sha512-dn0IiBlzC+PVw1kvXer7FiCP1jQ3fbvDpiRdff3sYpWoxoP6x8V2FIa6Dtaea0cu+R0n8oqXSals8d5tdn5i8Q==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@babel/runtime-corejs3" "^7.17.0"
