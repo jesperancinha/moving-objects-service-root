@@ -39,7 +39,8 @@
         "typescript",
         "rxjs",
         "codelyzer",
-        "d3-color"
+        "d3-color",
+        "core-js"
       ],
       "automerge": true
     },
