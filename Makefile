@@ -227,4 +227,4 @@ credential-check:
 	make create-demo-secure-credentials; \
 	exit 1; \
 	fi
-local-pipeline: build-gradle build-npm test-gradle test-node report-coverage
+local-pipeline: generate-credentials build-gradle build-npm test-gradle test-node report-coverage
