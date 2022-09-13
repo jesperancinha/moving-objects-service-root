@@ -76,8 +76,8 @@ dependencies {
     }
 
     implementation('org.springframework.boot:spring-boot-starter-actuator:2.7.3')
-    implementation('io.micrometer:micrometer-core:1.9.3')
-    implementation('io.micrometer:micrometer-registry-prometheus:1.9.3')
+    implementation('io.micrometer:micrometer-core:1.9.4')
+    implementation('io.micrometer:micrometer-registry-prometheus:1.9.4')
 
     implementation('org.springframework.data:spring-data-commons:2.7.2')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.3')
