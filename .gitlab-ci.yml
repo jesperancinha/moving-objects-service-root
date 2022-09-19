@@ -225,6 +225,7 @@ mos-edge-e2e:
         - e2e/node_modules/
   timeout: 120m
   retry: 1
+  allow_failure: true
   except:
     - schedules
 
