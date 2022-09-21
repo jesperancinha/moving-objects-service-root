@@ -5,6 +5,7 @@
   ],
   "platform": "gitlab",
   "username": "jesperancinha",
+  "extends": ["github>whitesource/merge-confidence:beta"],
   "packageRules": [
     {
       "matchPackageNames": [
