@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "http://192.168.0.15:8080"
+    "baseUrl": "http://nginx:8080"
   },
   "include": ["**/*.ts"]
 }
