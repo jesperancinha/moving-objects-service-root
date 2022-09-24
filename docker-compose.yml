@@ -18,8 +18,7 @@ services:
         reservations:
           memory: 350M
     networks:
-      mos_net:
-        ipv4_address: ${MOS_OBJECTS_JWT_IP}
+      - mos_net
     healthcheck:
       test: ["CMD", "curl", "--silent", "http://127.0.0.1:8081/objects/actuator"]
       interval: 5s
@@ -53,8 +52,7 @@ services:
         condition: on-failure
         max_attempts: 3
     networks:
-      mos_net:
-        ipv4_address: ${MOS_OBJECTS_IP}
+      - mos_net
     healthcheck:
       test: ["CMD", "curl", "--silent", "http:/127.0.0.1:8082/aggregator/actuator"]
       interval: 5s
@@ -67,8 +65,7 @@ services:
     build:
       context: docker-files/prometheus/.
     networks:
-      mos_net:
-        ipv4_address: ${MOS_PROMETHEUS_IP}
+      - mos_net
     deploy:
       resources:
         limits:
@@ -82,8 +79,7 @@ services:
     build:
       context: docker-files/grafana/.
     networks:
-      mos_net:
-        ipv4_address: ${MOS_GRAFANA_IP}
+      - mos_net
     deploy:
       resources:
         limits:
@@ -97,8 +93,7 @@ services:
     build:
       context: docker-files/influxdb/.
     networks:
-      mos_net:
-        ipv4_address: ${MOS_INFLUX_IP}
+      - mos_net
     deploy:
       resources:
         limits:
@@ -113,8 +108,7 @@ services:
       context: ./moving-objects-gui/.
     restart: on-failure
     networks:
-      mos_net:
-        ipv4_address: ${MOS_NGINX_IP}
+      - mos_net
     depends_on:
       moving-objects-jwt-service:
         condition: service_healthy
@@ -148,8 +142,7 @@ services:
         reservations:
           memory: 100M
     networks:
-      mos_net:
-        ipv4_address: ${MOS_DB_IP}
+      - mos_net
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 30s
@@ -159,9 +152,3 @@ services:
 
 networks:
   mos_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: ${NETWORK_SUBNET}
-
