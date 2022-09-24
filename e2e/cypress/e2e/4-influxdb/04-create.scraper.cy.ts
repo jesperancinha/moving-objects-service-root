@@ -6,9 +6,9 @@ describe('Influx Create Scraper DB Tests', () => {
         cy.signIn();
         cy.get('div[id="scrapers"] > a').eq(0).click({force: true});
         addScraper('Influx DB Scraper', 'http://localhost:8086/metrics', 'mos-influxDB', 'go_info');
-        addScraper('Moving Objects JWT Backend REST Service', 'http://192.168.0.17:8081/objects/actuator/prometheus', 'mos-jwt', 'application_started_time_seconds');
+        addScraper('Moving Objects JWT Backend REST Service', 'http://moving-objects-jwt-service:8081/objects/actuator/prometheus', 'mos-jwt', 'application_started_time_seconds');
         addScraper('GUI Node Scraper', 'http://nginx:4000/metrics', 'mos-gui', 'app_version');
-        addScraper('Moving Objects Okta REST Service', 'http://192.168.0.11:8082/aggregator/actuator/prometheus', 'mos-rest', 'application_started_time_seconds');
+        addScraper('Moving Objects Okta REST Service', 'http://moving-objects-rest-service:8082/aggregator/actuator/prometheus', 'mos-rest', 'application_started_time_seconds');
         addScraper('Influx DB Scraper 2', 'http://localhost:8086/metrics', 'mos-influxDB2', 'go_info');
         cy.wait(waitStep);
     });
