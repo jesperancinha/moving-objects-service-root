@@ -1893,10 +1893,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-auth-js@6.8.1":
-  version "6.8.1"
-  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-6.8.1.tgz#af0c6f6603f7b00272ef13656fff9601b21555ad"
-  integrity sha512-XaXyuyA4pdIB3deoT+oACJAWduCbQfFJhHqLEPfnrANfr1nVu8mPYwlExRxVG1hJLABxEiSuPv9b9sFjKU3TZw==
+"@okta/okta-auth-js@6.9.0":
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-6.9.0.tgz#2b568234f1c2ef203160faa4f4697bb02038ab83"
+  integrity sha512-IAh9mh2iGT4bsGeRMSSGBYoeEJ4f3ABTO+Jf9mYr0MbKgyU+X+7RwYAo/z8JHJ9AW0ynmjERTMOgDJ7/H/N+Dw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@babel/runtime-corejs3" "^7.17.0"
@@ -1916,10 +1916,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@6.7.0":
-  version "6.7.0"
-  resolved "https://registry.npmjs.org/@okta/okta-signin-widget/-/okta-signin-widget-6.7.0.tgz"
-  integrity sha512-hqQLr7sStcmnKJ+WFqgfgFpWOxFynIK48PrOxub+PCBHmjWL20KXCvnetT4zaParSpwP0nLOhgfZLemBPCnsvw==
+"@okta/okta-signin-widget@6.7.1":
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-6.7.1.tgz#d9bf00ca4498cb60041dcc725d618e6f50cf36fc"
+  integrity sha512-81OManicMpSqXJ0L4fLuniZx8G10Fmo6xDEKeKVeO7QM3GyFfyFTJtxcd6rn0P6OCnAUZ5yfVnI5xceO4YfWTA==
   dependencies:
     "@okta/okta-auth-js" "6.5.4"
     "@sindresorhus/to-milliseconds" "^1.0.0"
