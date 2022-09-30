@@ -79,6 +79,12 @@
         "@okta/"
       ],
       "automerge": true
+    },
+    {
+      "groupName": "Kotlin",
+      "matchPackagePrefixes": [
+        "org.jetbrains.kotlin"
+      ]
     }
   ]
 }
