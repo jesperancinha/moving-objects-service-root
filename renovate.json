@@ -84,7 +84,8 @@
       "groupName": "Kotlin",
       "matchPackagePrefixes": [
         "org.jetbrains.kotlin"
-      ]
+      ],
+      "automerge": true
     }
   ]
 }
