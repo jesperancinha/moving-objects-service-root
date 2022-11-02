@@ -97,19 +97,19 @@ make dcup-full-action-secure
 
 These Cypress tests not only perform tests, but they also generate token files necessary to allow [Telegraf](https://github.com/influxdata/telegraf) to access InfluxDB. These are:
 
-1. [docker-files/telegraf/.env](./docker-files/telegraf/.env)
-2. [docker-files/telegraf/token](./docker-files/telegraf/token)
+1.  [docker-files/telegraf/.env](./docker-files/telegraf/.env)
+2.  [docker-files/telegraf/token](./docker-files/telegraf/token)
 
 The full demo Makefile script ensures that:
 
-1. The services start
-2. Cypress tests run
-3. Telegraf runs on a separate container
+1.  The services start
+2.  Cypress tests run
+3.  Telegraf runs on a separate container
 
 It can take anything between 5 and 10 minutes to get all the containers going, but then you'll get:
 
-1. Working InfluxDB scrappers: Pull from prometheus endpoints directly to InfluxDB
-2. Working [Telegraf](https://github.com/influxdata/telegraf) scrappers: Pull from prometheus and pushes data to Influx DB 
+1.  Working InfluxDB scrappers: Pull from prometheus endpoints directly to InfluxDB
+2.  Working [Telegraf](https://github.com/influxdata/telegraf) scrappers: Pull from prometheus and pushes data to Influx DB 
 
 ## Run Cypress
 
