@@ -18,6 +18,8 @@ jobs:
         distribution: 'temurin'
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 7.6
 
     - name: Build and Test
       run:  make build-gradle
