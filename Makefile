@@ -42,11 +42,13 @@ wrapper:
 	gradle wrapper
 build-app:
 	gradle clean build test publishToMavenLocal
-buildw:
+buildw-security:
 	cd moving-objects-security-dsl && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+buildw-jwt-service:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
-	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+buildw-rest-service:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+buildw: buildw-security build-jwt-service buildw-rest-service
 	gradle clean build
 buildw-jwt-service:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
