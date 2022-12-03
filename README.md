@@ -40,19 +40,10 @@
 
 ## Introduction
 
-The goal of this mini-project is to introduce you to two important monitoring tools in the software landscape
-These are prometheus and grafana.
+The goal of this mini-project is to introduce you to three important monitoring tools and data stores used in the software landscape.
+These are prometheus, grafana and influxDB.
 In this project you will find implementations using micrometer and a store for metrics.
-This application consists of an option to calculate the distance between airports. It calculates:
-
--   The distance between airports
--   The price you are paying per ticket
--   A filtered table that provides you with all airport details
--   A list of the webcams nearby
-
-These applications have been implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
-And that's awesome!
-We will use the free restservices provided by the [RapidAPI](https://rapidapi.com/) end points and then convert them to our proprietary format.
+These modules have been implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
 
 This project is also the official support project of my article on medium:
 
@@ -65,8 +56,9 @@ In order to run this project we need to fulfill some requirements:
 
 1.  Have an IDE
 2.  Have JDK17 installed (Details on how to do that in this [manual](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md))
-3.  Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
+3.  Have [Docker desktop](https://www.docker.com/products/docker-desktop) installed or just use a Linux machine with docker-compose.
 
+##### MAC-OS Installation
 
 ```bash
 brew upgrade gradle
