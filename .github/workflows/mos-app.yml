@@ -21,8 +21,14 @@ jobs:
       with:
         gradle-version: 7.6
 
-    - name: Build and Test
+    - name: Generate credentials
+      run:  make generate-credentials
+
+    - name: Build Gradle
       run:  make build-gradle
+
+    - name: Test Gradle
+      run:  make test-gradle
 
     - name: Use Node.js
       uses: actions/setup-node@v1
