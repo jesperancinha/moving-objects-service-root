@@ -19,10 +19,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoder
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder
 import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder
-import org.springframework.security.oauth2.server.resource.web.access.server.BearerTokenServerAccessDeniedHandler
-import org.springframework.security.oauth2.server.resource.web.server.BearerTokenServerAuthenticationEntryPoint
 import org.springframework.security.web.server.SecurityWebFilterChain
-import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
