@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/moving-objects-gui"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/e2e"
+    schedule:
+      interval: "daily"

@@ -12,7 +12,7 @@ services:
       - mos_net
 
   cypress-builder:
-    container_name: news-cast-cypress-build
+    container_name: mos-cypress-build
     build:
       context: ./docker-files/build-cypress/.
     volumes:

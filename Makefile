@@ -1,4 +1,5 @@
 SHELL=/bin/bash
+GITHUB_RUN_ID ?=123
 
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
@@ -72,9 +73,9 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=mos_" | xargs -I {}  docker rm {}
 docker:
-	docker-compose up -d --build --remove-orphans
+	docker-compose -p ${GITHUB_RUN_ID} up -d --build --remove-orphans
 docker-action:
-	docker-compose -f docker-compose.yml up -d moving-objects-rest-service moving-objects-jwt-service mosdb influxdb prometheus nginx grafana
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml up -d moving-objects-rest-service moving-objects-jwt-service mosdb influxdb prometheus nginx grafana
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
@@ -108,16 +109,16 @@ cypress-edge:
 objects-wait:
 	bash objects_wait.sh
 dcd:
-	docker-compose down --remove-orphans
-	docker-compose rm -fsva
+	docker-compose -p ${GITHUB_RUN_ID} down --remove-orphans
+	docker-compose -p ${GITHUB_RUN_ID} rm -fsva
 	docker volume ls -qf dangling=true | xargs -I {} docker volume rm  {}
 dcp:
-	docker-compose stop
+	docker-compose -p ${GITHUB_RUN_ID} stop
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker objects-wait
 dcup-action: dcp docker-action objects-wait
 dcup-light: dcd
-	docker-compose up -d mosdb
+	docker-compose -p ${GITHUB_RUN_ID} up -d mosdb
 dcup-full-action-secure: dcd docker-clean credential-check no-test-secure build-npm-secure docker objects-wait
 
 report:
@@ -134,54 +135,54 @@ report-coverage:
 docker-stats:
 	docker stats --all
 build-nginx: build-npm
-	docker-compose stop nginx
-	docker-compose rm nginx
-	docker-compose build --no-cache nginx
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop nginx
+	docker-compose -p ${GITHUB_RUN_ID} rm nginx
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache nginx
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-nginx-secure:
-	docker-compose stop nginx
-	docker-compose rm -fsv nginx
+	docker-compose -p ${GITHUB_RUN_ID} stop nginx
+	docker-compose -p ${GITHUB_RUN_ID} rm -fsv nginx
 	make build-npm-secure
-	docker-compose build --no-cache nginx
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache nginx
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-jwt-service: buildw-jwt-service
-	docker-compose stop moving-objects-jwt-service
-	docker-compose build --no-cache moving-objects-jwt-service
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop moving-objects-jwt-service
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache moving-objects-jwt-service
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-rest-service-secure:
-	docker-compose stop moving-objects-rest-service
-	docker-compose rm -fsv moving-objects-rest-service
+	docker-compose -p ${GITHUB_RUN_ID} stop moving-objects-rest-service
+	docker-compose -p ${GITHUB_RUN_ID} rm -fsv moving-objects-rest-service
 	make no-test-secure
-	docker-compose build --no-cache moving-objects-rest-service
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache moving-objects-rest-service
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-influxdb:
-	docker-compose stop influxdb
-	docker-compose rm influxdb
-	docker-compose build --no-cache influxdb
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop influxdb
+	docker-compose -p ${GITHUB_RUN_ID} rm influxdb
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache influxdb
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-grafana:
-	docker-compose stop grafana
-	docker-compose rm grafana
-	docker-compose build --no-cache grafana
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop grafana
+	docker-compose -p ${GITHUB_RUN_ID} rm grafana
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache grafana
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-mosdb:
-	docker-compose stop mosdb
-	docker-compose rm mosdb
-	docker-compose build --no-cache mosdb
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop mosdb
+	docker-compose -p ${GITHUB_RUN_ID} rm mosdb
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache mosdb
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-prometheus:
-	docker-compose stop prometheus
-	docker-compose rm prometheus
-	docker-compose build --no-cache prometheus
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop prometheus
+	docker-compose -p ${GITHUB_RUN_ID} rm prometheus
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache prometheus
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 node:
 	sudo npm install -g n
 	sudo n lts
 shared-docker:
 	sudo chmod 666 /var/run/docker.sock
 end-logs:
-	docker-compose logs --tail 1000 moving-objects-jwt-service
-	docker-compose logs --tail 1000 moving-objects-rest-service
+	docker-compose -p ${GITHUB_RUN_ID} logs --tail 1000 moving-objects-jwt-service
+	docker-compose -p ${GITHUB_RUN_ID} logs --tail 1000 moving-objects-rest-service
 renovate:
 	docker run \
 		--rm \
@@ -204,7 +205,7 @@ start-telegraf-container:
 logs-telegraf-container:
 	cd docker-files/telegraf && make logs-telegraf-container
 up:
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 continue-demo: up cypress-electron start-telegraf-container
 start-demo: dcup-full-action continue-demo
 create-demo-secure-credentials:
