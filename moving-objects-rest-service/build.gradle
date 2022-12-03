@@ -75,7 +75,7 @@ dependencies {
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
 
-    implementation('org.springframework.boot:spring-boot-starter-actuator:2.7.4')
+    implementation('org.springframework.boot:spring-boot-starter-actuator:3.0.0')
     implementation('io.micrometer:micrometer-core:1.9.4')
     implementation('io.micrometer:micrometer-registry-prometheus:1.9.4')
 
