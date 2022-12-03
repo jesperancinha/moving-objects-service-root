@@ -86,7 +86,7 @@ prune-all: docker-delete
 update-snyk: update
 	npm i -g snyk
 update:
-	gradle wrapper --gradle-version 7.5.1
+	gradle wrapper --gradle-version 7.6
 	npm install -g npm-check-updates
 	cd moving-objects-gui && npx browserslist && ncu -u && yarn
 audit:
