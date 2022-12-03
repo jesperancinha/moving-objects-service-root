@@ -48,19 +48,19 @@ buildw-jwt-service:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-rest-service:
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
-buildw: buildw-security build-jwt-service buildw-rest-service
+buildw: buildw-security buildw-jwt-service buildw-rest-service
 	gradle clean build
-buildw-jwt-service:
+buildw-jwt-service-no-test:
 	cd moving-objects-jwt-service && gradle wrapper && ./gradlew clean build -x test
 generate-credentials:
 	bash generateCredentials.sh
 no-test: generate-credentials
 	cd moving-objects-rest-service && gradle wrapper && ./gradlew clean build -x test
-	make buildw-jwt-service
+	make buildw-jwt-service-no-test
 no-test-secure: generate-credentials
 	cd moving-objects-security-dsl && make buildw
 	cd moving-objects-rest-service && gradle wrapper && gradle -Pprod clean build -x test
-	make buildw-jwt-service
+	make buildw-jwt-service-no-test
 upgrade:
 	gradle wrapper --gradle-version 7.4
 upgrade-mac-os:
