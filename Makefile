@@ -46,7 +46,7 @@ build-app:
 buildw-security:
 	cd moving-objects-security-dsl && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-jwt-service:
-	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew --info clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-rest-service:
 	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 buildw: buildw-security buildw-jwt-service buildw-rest-service
