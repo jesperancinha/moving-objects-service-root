@@ -12,7 +12,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b968dd9bada749e59b30125dba38f97e)](https://www.codacy.com/gh/jesperancinha/moving-objects-service-root/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-service-root&amp;utm_campaign=Badge_Grade)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b968dd9bada749e59b30125dba38f97e)](https://www.codacy.com/gh/jesperancinha/moving-objects-service-root/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/moving-objects-service-root&utm_campaign=Badge_Coverage)
-[![codecov](https://codecov.io/gl/jesperancinha/moving-objects-service-root/branch/main/graph/badge.svg?token=6XDAT2GXGI)](https://codecov.io/gl/jesperancinha/moving-objects-service-root)
+[![codecov](https://codecov.io/gh/jesperancinha/moving-objects-service-root/branch/main/graph/badge.svg?token=rtZSBWhccP)](https://codecov.io/gh/jesperancinha/moving-objects-service-root)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/moving-objects-service-root/badge.svg?branch=main)](https://coveralls.io/github/jesperancinha/moving-objects-service-root?branch=main)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/moving-objects-service-root.svg)](#)
