@@ -2,16 +2,22 @@
 
 ---
 
-[![Generic badge](https://img.shields.io/static/v1.svg?label=GitLab&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://gitlab.com/jesperancinha/moving-objects-service-root)
+[![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=Checkout%20this%20@github%20repo%20by%20@joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB:%20https://github.com/jesperancinha/moving-objects-service-root)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Moving%20Objects%20Cams%20Service%20💎&color=informational)](https://github.com/jesperancinha/moving-objects-service-root)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[![Gitlab pipeline status (branch)](https://img.shields.io/gitlab/pipeline/jesperancinha/video-series-app/master)](https://gitlab.com/jesperancinha/video-series-app/-/pipelines)
+[![mos-app](https://github.com/jesperancinha/moving-objects-service-root/actions/workflows/mos-app.yml/badge.svg)](https://github.com/jesperancinha/moving-objects-service-root/actions/workflows/mos-app.yml)
+[![e2e-mos-app](https://github.com/jesperancinha/moving-objects-service-root/actions/workflows/mos-app-e2e.yml/badge.svg)](https://github.com/jesperancinha/moving-objects-service-root/actions/workflows/mos-app-e2e.yml)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7ab2df0b62f74416ab97d2da2bf31013)](https://www.codacy.com/gl/jesperancinha/moving-objects-service-root/dashboard?utm_source=gitlab.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-service-root&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b968dd9bada749e59b30125dba38f97e)](https://www.codacy.com/gh/jesperancinha/moving-objects-service-root/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/moving-objects-service-root&amp;utm_campaign=Badge_Grade)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/7ab2df0b62f74416ab97d2da2bf31013)](https://www.codacy.com/gl/jesperancinha/moving-objects-service-root/dashboard?utm_source=gitlab.com&utm_medium=referral&utm_content=jesperancinha/moving-objects-service-root&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/gitlab/jesperancinha/moving-objects-service-root/badge.svg?branch=main)](https://coveralls.io/gitlab/jesperancinha/moving-objects-service-root?branch=main)
 [![codecov](https://codecov.io/gl/jesperancinha/moving-objects-service-root/branch/main/graph/badge.svg?token=6XDAT2GXGI)](https://codecov.io/gl/jesperancinha/moving-objects-service-root)
+
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/moving-objects-service-root.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/moving-objects-service-root.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/moving-objects-service-root.svg)](#)
 
 ---
 
