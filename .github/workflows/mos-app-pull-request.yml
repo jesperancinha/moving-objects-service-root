@@ -22,8 +22,14 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
 
-    - name: Build with Maven
+    - name: Generate credentials
+      run:  make generate-credentials
+
+    - name: Build Gradle
       run:  make build-gradle
+
+    - name: Test Gradle
+      run:  make test-gradle
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -45,14 +51,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Generate credentials
-        run:  make generate-credentials
-
-      - name: Build Gradle
-        run:  make build-gradle
-
-      - name: Test Gradle
-        run:  make test-gradle
+      - name: Start Docker
+        run: make dcup-full-action
 
       - name: Run Cypress
         run: make cypress-electron
