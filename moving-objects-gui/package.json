@@ -64,7 +64,7 @@
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.7.18",
     "codelyzer": "^6.0.2",
-    "jasmine-core": "~4.4.0",
+    "jasmine-core": "~4.5.0",
     "jasmine-spec-reporter": "~7.0.0",
     "jest-environment-jsdom": "^29.0.3",
     "karma": "~6.4.1",
