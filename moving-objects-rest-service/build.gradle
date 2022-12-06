@@ -82,7 +82,7 @@ dependencies {
     implementation('org.springframework.data:spring-data-commons:2.7.3')
     implementation('org.springframework.boot:spring-boot-starter-webflux:2.7.4')
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.11")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.13")
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompile('org.projectlombok:lombok:1.18.24')
