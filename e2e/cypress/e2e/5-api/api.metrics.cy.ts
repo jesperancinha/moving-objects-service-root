@@ -5,9 +5,9 @@ describe('API Metrics test', () => {
 
     it("should show metrics", () => {
         cy.visit(`http://${host}:${port}`);
-        cy.get('div').contains('Metrics').click();
-        cy.get('span').contains('Refresh').click()
+        cy.get('div', {includeShadowDom: true}).contains('Metrics', {includeShadowDom: true}).click({force: true});
+        cy.get('span', {includeShadowDom: true}).contains('Refresh').click()
         cy.wait(shortWait)
-        cy.get('span').contains('Refresh').click()
+        cy.get('span', {includeShadowDom: true}).contains('Refresh').click()
     })
 });

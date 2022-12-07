@@ -1,8 +1,8 @@
 package org.jesperancinha.objects.repository;
 
 import lombok.val;
-import org.springframework.boot.actuate.trace.http.HttpTrace;
-import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
+import org.springframework.boot.actuate.web.exchanges.HttpExchange;
+import org.springframework.boot.actuate.web.exchanges.HttpExchangeRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Repository
-public class CustomTraceRepository implements HttpTraceRepository {
-    private final AtomicReference<Queue<HttpTrace>> lastTrace = new AtomicReference<>(new LinkedList<>());
+public class CustomTraceRepository implements HttpExchangeRepository {
+    private final AtomicReference<Queue<HttpExchange>> lastTrace = new AtomicReference<>(new LinkedList<>());
 
     @Override
-    public List<HttpTrace> findAll() {
+    public List<HttpExchange> findAll() {
         try {
             return new ArrayList<>(lastTrace.get());
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class CustomTraceRepository implements HttpTraceRepository {
     }
 
     @Override
-    public void add(HttpTrace trace) {
+    public void add(HttpExchange trace) {
         val httpTraces = lastTrace.get();
         if (httpTraces.size() > 10) {
             while (httpTraces.size() > 10) {

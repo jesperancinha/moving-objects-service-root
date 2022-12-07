@@ -12,7 +12,7 @@ import org.springframework.security.authentication.UserDetailsRepositoryReactive
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.web.server.ServerHttpSecurity
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
-import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.oauth2.jwt.JwtEncoder
@@ -90,9 +90,16 @@ class SecurityConfiguration(
         return BCryptPasswordEncoder()
     }
 
+    /**
+     * This deprecated usage is here because this is a test application.
+     * This should not be used in a production environment.
+     * What this does is to allow us to loging to an application with a fixed username/password combination, which is never, ever advised to do.
+     * So this is here purely for demonstration purposes.
+     */
     @Bean
+    @SuppressWarnings("deprecated")
     fun userDetailsService(): MapReactiveUserDetailsService? {
-        val user = User.withDefaultPasswordEncoder()
+        val user = withDefaultPasswordEncoder()
             .username(username)
             .password(password)
             .roles(*roles)
