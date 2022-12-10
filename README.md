@@ -56,6 +56,11 @@ This project is also the official support project of my article on medium:
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b) [Monitoring Secure Coroutines and WebFlux Reactive applications with Prometheus, Grafana, and InfluxDB — A webcams example](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
 
 [![alt img](./docs/images/articles.international.airports.intro..png)](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
+
+#### Stable releases
+
+[1.0.0](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0)
+
 ## Setup
 
 In order to run this project we need to fulfill some requirements:
