@@ -35,9 +35,9 @@ describe('API Image Selection test', () => {
     it('show 1 element 0 radius lemon', () => {
         performTestByName('Lemon');
     });
-    it('show 1 element 0 radius onion', () => {
-        performTestByName('Onion');
-    });
+    // it('show 1 element 0 radius onion', () => {
+    //     performTestByName('Onion');
+    // });
     it('show 1 element 0 radius pumpkin', () => {
         performTestByName('Pumpkin');
     });
