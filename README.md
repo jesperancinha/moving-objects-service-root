@@ -59,7 +59,7 @@ This project is also the official support project of my article on medium:
 
 #### Stable releases
 
-[1.0.0](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0)
+- [1.0.0](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0) - [8af14c9c60c9275cac1814238b9c9b0a73a427f2](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0)
 
 ## Setup
 
