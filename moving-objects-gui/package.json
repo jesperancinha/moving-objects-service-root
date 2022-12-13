@@ -62,7 +62,7 @@
     "@types/jasminewd2": "~2.0.10",
     "@types/jest": "^29.2.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.13",
+    "@types/node": "^18.11.15",
     "codelyzer": "^6.0.2",
     "jasmine-core": "~4.5.0",
     "jasmine-spec-reporter": "~7.0.0",
