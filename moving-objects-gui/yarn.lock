@@ -7336,10 +7336,10 @@ rxjs@6.6.7, rxjs@^6.5.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@7.6.0, rxjs@^7.5.5:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.6.0.tgz#361da5362b6ddaa691a2de0b4f2d32028f1eb5a2"
-  integrity sha512-DDa7d8TFNUalGC9VqXvQ1euWNN7sc63TrUCuM9J998+ViviahMIjKSOU7rfcgFOF+FCD71BhDRv4hrFz+ImDLQ==
+rxjs@7.7.0, rxjs@^7.5.5:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.7.0.tgz#61b4727c1533fbab1f31c1a35741d7929dd9ae98"
+  integrity sha512-SYVdj/JRf+CtYTBV+Nx1bIAl3iI7GL7kawWEmcNAdHVJMGacOPkuWBfd8QYSx3hDa6Y3Hoaqri4jYZ6jbUW5kw==
   dependencies:
     tslib "^2.1.0"
 
