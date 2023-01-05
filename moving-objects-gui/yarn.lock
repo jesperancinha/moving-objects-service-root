@@ -1857,10 +1857,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@7.1.3":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.1.3.tgz#91bf728c5ad5f2f2f7d7ba66867dd82e111a988c"
-  integrity sha512-5xTURhqmES77/5th8ID6TLclwvHxzryfUvqduv6hSeiHNz1RgAFMpu44zDWeQfBWGghPajCKs0+UsHKb8plrMQ==
+"@okta/okta-signin-widget@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.2.0.tgz#ca08564261d7cf976e27034e0d5b89366942a60c"
+  integrity sha512-2m4ocmw5OjDF8+r3yJ6ytW8cVQDDN2VbwsnPqqmXyib6cuMMsaXfQO9XJ5aC2TqjgGLGbeclNiq1h5E3H1wX2A==
   dependencies:
     "@okta/okta-auth-js" "~7.0.0"
     "@sindresorhus/to-milliseconds" "^1.0.0"
