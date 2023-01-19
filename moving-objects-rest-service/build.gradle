@@ -68,7 +68,7 @@ bootJar {
 
 dependencies {
     if (project.hasProperty('prod')) {
-        implementation("com.okta.spring:okta-spring-boot-starter:2.1.6")
+        implementation("com.okta.spring:okta-spring-boot-starter:3.0.0")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
         implementation("me.paulschwarz:spring-dotenv:2.5.4")
         implementation("org.springframework.security:spring-security-web:6.0.1")
