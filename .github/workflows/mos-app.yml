@@ -3,6 +3,9 @@ name: mos-app
 on:
   push:
     branches: [ main ]
+  pull_request_target:
+    types:
+      - closed
 
 jobs:
   build:
