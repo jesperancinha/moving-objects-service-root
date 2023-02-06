@@ -47,7 +47,7 @@ jacocoTestReport {
 
 dependencies {
     api 'org.apache.commons:commons-math3:3.6.1'
-    implementation("com.okta.spring:okta-spring-boot-starter:3.0.1")
+    implementation("com.okta.spring:okta-spring-boot-starter:3.0.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
     implementation("me.paulschwarz:spring-dotenv:3.0.0")
     implementation("org.springframework.security:spring-security-web:6.0.1")
