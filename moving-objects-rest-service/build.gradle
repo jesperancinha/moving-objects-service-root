@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.0.2")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.0.3")
     }
 }
 
@@ -71,7 +71,7 @@ dependencies {
         implementation("com.okta.spring:okta-spring-boot-starter:3.0.2")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
         implementation("me.paulschwarz:spring-dotenv:3.0.0")
-        implementation("org.springframework.security:spring-security-web:6.0.1")
+        implementation("org.springframework.security:spring-security-web:6.0.2")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
 
@@ -80,18 +80,18 @@ dependencies {
     implementation('io.micrometer:micrometer-registry-prometheus:1.10.4')
 
     implementation('org.springframework.data:spring-data-commons:3.0.2')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.2')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.3')
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
     compileOnly('org.projectlombok:lombok:1.18.26')
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testCompile('org.projectlombok:lombok:1.18.24')
-    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
-    testImplementation('org.projectlombok:lombok:1.18.24')
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testCompile('org.projectlombok:lombok:1.18.26')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.26')
+    testImplementation('org.projectlombok:lombok:1.18.26')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.24.2')
     testImplementation('org.springframework:spring-test:6.0.5')
-    testImplementation('org.springframework.boot:spring-boot-starter-test:3.0.2')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:3.0.3')
     testImplementation('com.github.tomakehurst:wiremock:2.27.2')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.7.RELEASE')
     testImplementation('org.mockito:mockito-junit-jupiter:5.1.1')
