@@ -84,10 +84,10 @@ dependencies {
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
     compileOnly('org.projectlombok:lombok:1.18.26')
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testCompile('org.projectlombok:lombok:1.18.24')
-    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
-    testImplementation('org.projectlombok:lombok:1.18.24')
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testCompile('org.projectlombok:lombok:1.18.26')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.26')
+    testImplementation('org.projectlombok:lombok:1.18.26')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.24.2')
     testImplementation('org.springframework:spring-test:6.0.5')
