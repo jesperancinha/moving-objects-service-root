@@ -1812,10 +1812,10 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@okta/okta-angular@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/@okta/okta-angular/-/okta-angular-6.0.0.tgz"
-  integrity sha512-zRklU+i+kmuB+IXXnGDNOryzKU4V2/sqK7ADxssYr7rVCYDISHAL50/TCHAQtBZd3d+MXVivmPjoPOW96eEhdQ==
+"@okta/okta-angular@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-angular/-/okta-angular-6.1.0.tgz#6bd0c699a0b17d1d9801a9906d340682b0979675"
+  integrity sha512-5OXrBkyfvsodAtY/qCx07uxi2RiNYEvrgaXRcOjIg592pgTJIM+z+TlNdiASjIJ2meW9Wer5qXNxSH9TufOmkw==
   dependencies:
     compare-versions "^5.0.1"
     tslib "^2.4.0"
