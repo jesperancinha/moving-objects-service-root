@@ -80,7 +80,7 @@ dependencies {
     implementation('io.micrometer:micrometer-registry-prometheus:1.10.4')
 
     implementation('org.springframework.data:spring-data-commons:3.0.3')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.3')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.4')
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
     compileOnly('org.projectlombok:lombok:1.18.26')
