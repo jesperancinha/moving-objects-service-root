@@ -79,7 +79,7 @@ dependencies {
     implementation('io.micrometer:micrometer-core:1.10.5')
     implementation('io.micrometer:micrometer-registry-prometheus:1.10.5')
 
-    implementation('org.springframework.data:spring-data-commons:3.0.3')
+    implementation('org.springframework.data:spring-data-commons:3.0.4')
     implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.4')
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.4")
@@ -90,7 +90,7 @@ dependencies {
     testImplementation('org.projectlombok:lombok:1.18.26')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.24.2')
-    testImplementation('org.springframework:spring-test:6.0.6')
+    testImplementation('org.springframework:spring-test:6.0.7')
     testImplementation('org.springframework.boot:spring-boot-starter-test:3.0.4')
     testImplementation('com.github.tomakehurst:wiremock:2.27.2')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.7.RELEASE')
