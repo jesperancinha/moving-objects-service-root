@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 GITHUB_RUN_ID ?=123
-GRADLE_WRAPPER ?=7.6
+GRADLE_VERSION := 8.0.2
 
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
@@ -40,30 +40,30 @@ test: test-node test-gradle
 test-node:
 	cd moving-objects-gui && npm run jest
 wrapper:
-	gradle wrapper --gradle-version ${GRADLE_WRAPPER}
+	gradle wrapper --gradle-version ${GRADLE_VERSION}
 build-app:
 	gradle clean build test publishToMavenLocal
 buildw-security:
-	cd moving-objects-security-dsl && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-security-dsl && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-jwt-service:
-	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew --info clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew --info clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-rest-service:
-	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
+	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
 buildw: buildw-security buildw-jwt-service buildw-rest-service
 	gradle clean build
 buildw-jwt-service-no-test:
-	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build -x test
+	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build -x test
 generate-credentials:
 	bash generateCredentials.sh
 no-test: generate-credentials
-	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && ./gradlew clean build -x test
+	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build -x test
 	make buildw-jwt-service-no-test
 no-test-secure: generate-credentials
 	cd moving-objects-security-dsl && make buildw
-	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_WRAPPER} && gradle -Pprod clean build -x test
+	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && gradle -Pprod clean build -x test
 	make buildw-jwt-service-no-test
 upgrade:
-	gradle wrapper --gradle-version ${GRADLE_WRAPPER}
+	gradle wrapper --gradle-version ${GRADLE_VERSION}
 upgrade-mac-os:
 	brew upgrade gradle
 	sdk install gradle
@@ -87,7 +87,7 @@ prune-all: docker-delete
 update-snyk: update
 	npm i -g snyk
 update:
-	gradle wrapper --gradle-version ${GRADLE_WRAPPER}
+	gradle wrapper --gradle-version ${GRADLE_VERSION}
 	npm install -g npm-check-updates
 	cd moving-objects-gui && npx browserslist && ncu -u && yarn
 audit:
@@ -235,3 +235,10 @@ credential-check:
 install:
 	npm i -g jest
 local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-node report-coverage
+upgrade-gradle:
+	sudo apt upgrade
+	sudo apt update
+	export SDKMAN_DIR="$(HOME)/.sdkman"
+	[[ -s "$(HOME)/.sdkman/bin/sdkman-init.sh" ]] && source "$(HOME)/.sdkman/bin/sdkman-init.sh" &&	sdk update
+	[[ -s "$(HOME)/.sdkman/bin/sdkman-init.sh" ]] && source "$(HOME)/.sdkman/bin/sdkman-init.sh" &&	sdk install gradle $(GRADLE_VERSION)
+	[[ -s "$(HOME)/.sdkman/bin/sdkman-init.sh" ]] && source "$(HOME)/.sdkman/bin/sdkman-init.sh" &&	sdk use gradle $(GRADLE_VERSION)
