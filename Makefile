@@ -235,6 +235,11 @@ credential-check:
 install:
 	npm i -g jest
 local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-node report-coverage
+upgrade:
+	gradle wrapper --gradle-version $(GRADLE_VERSION)
+	cd moving-objects-jwt-service && gradle wrapper --gradle-version $(GRADLE_VERSION)
+	cd moving-objects-rest-service && gradle wrapper --gradle-version $(GRADLE_VERSION)
+	cd moving-objects-security-dsl && gradle wrapper --gradle-version $(GRADLE_VERSION)
 upgrade-gradle:
 	sudo apt upgrade
 	sudo apt update
