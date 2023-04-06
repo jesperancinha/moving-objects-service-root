@@ -1895,10 +1895,10 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@okta/okta-angular@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@okta/okta-angular/-/okta-angular-6.1.0.tgz#6bd0c699a0b17d1d9801a9906d340682b0979675"
-  integrity sha512-5OXrBkyfvsodAtY/qCx07uxi2RiNYEvrgaXRcOjIg592pgTJIM+z+TlNdiASjIJ2meW9Wer5qXNxSH9TufOmkw==
+"@okta/okta-angular@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-angular/-/okta-angular-6.2.0.tgz#f1420af28d9a1b3046c95954b12248839433e397"
+  integrity sha512-CpYTdmMWNxsJSgRDKLWVRi6iLHh67PiWsrkdm3loEUYoX42iiU4vOTwjrcJ3C/x/eizAenRgGtnsXGnsw0EnCw==
   dependencies:
     compare-versions "^5.0.1"
     tslib "^2.4.0"
