@@ -23,7 +23,13 @@ jobs:
       run:  make generate-credentials
 
     - name: Build Gradle
-      run:  make build-gradle
+      uses: nick-fields/retry@v2
+      with:
+        max_attempts: 2
+        retry_on: error
+        timeout_seconds: 2400
+        command: |
+          make build-gradle
 
     - name: Test Gradle
       run:  make test-gradle
