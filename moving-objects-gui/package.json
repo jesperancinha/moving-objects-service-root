@@ -43,7 +43,7 @@
     "ngx-perfect-scrollbar": "^10.1.1",
     "prom-client": "14.2.0",
     "prometheus-api-metrics": "3.2.2",
-    "rxjs": "7.8.0",
+    "rxjs": "7.8.1",
     "tslib": "2.5.0",
     "typescript": "~4.8.4",
     "yarn": "1.22.19",
