@@ -2019,10 +2019,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@7.5.2":
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.5.2.tgz#be44b6e98720577b4ddd322ec16550db756a462b"
-  integrity sha512-Pcx3sJNwZPmNS3zdfDqLIAFRmpSHT+p2Rl1Kj1rWD9N1rXlyK1/jo8H36Jy55bB29CorTJwYNfGdsUrpdQiFcg==
+"@okta/okta-signin-widget@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.6.0.tgz#2be6256630b5d303724ed82f160c309e2e0b7c94"
+  integrity sha512-Mp0UZ5a8AuY6IoI+QC67ZJyvUuxL/LrWs7cKtY4Ee5NdzAtmrHf+X0Y4OA7vIRBWQm8z6+YTwxFtAyOK1KNPTw==
   dependencies:
     "@okta/okta-auth-js" "~7.0.0"
     "@sindresorhus/to-milliseconds" "^1.0.0"
