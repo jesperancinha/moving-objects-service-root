@@ -1,13 +1,14 @@
-SHELL=/bin/bash
-GITHUB_RUN_ID ?=123
 SHELL := /bin/bash
+GITHUB_RUN_ID ?=123
 GRADLE_VERSION ?= 8.1.1
-
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
 CLIENT_SECRET_MF = $(shell echo $${CLIENT_SECRET})
 REDIRECT_PORT_MF = $(shell echo $${REDIRECT_PORT})
+MODULE_LOCATIONS := moving-objects-jwt-service \
+					moving-objects-rest-service \
+					moving-objects-security-dsl
 
 b: buildw build-app build-npm
 build-gradle: buildw
@@ -237,10 +238,14 @@ install:
 	npm i -g jest
 local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-node report-coverage
 upgrade:
+	@for location in $(MODULE_LOCATIONS); do \
+		export CURRENT=$(shell pwd); \
+		echo "Upgrading $$location..."; \
+		cd $$location; \
+		gradle wrapper --gradle-version $(GRADLE_VERSION); \
+		cd $$CURRENT; \
+	done
 	gradle wrapper --gradle-version $(GRADLE_VERSION)
-	cd moving-objects-jwt-service && gradle wrapper --gradle-version $(GRADLE_VERSION)
-	cd moving-objects-rest-service && gradle wrapper --gradle-version $(GRADLE_VERSION)
-	cd moving-objects-security-dsl && gradle wrapper --gradle-version $(GRADLE_VERSION)
 upgrade-gradle:
 	sudo apt upgrade
 	sudo apt update
@@ -256,7 +261,7 @@ upgrade-gradle:
 		sdk install gradle $$gradleOnlineVersion; \
 		sdk use gradle $$gradleOnlineVersion; \
 		export GRADLE_VERSION=$$gradleOnlineVersion; \
-	fi; \
+	fi;
 	make upgrade
 install-linux:
 	sudo apt-get install jq
