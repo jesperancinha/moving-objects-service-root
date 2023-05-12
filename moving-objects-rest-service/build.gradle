@@ -70,7 +70,7 @@ dependencies {
     if (project.hasProperty('prod')) {
         implementation("com.okta.spring:okta-spring-boot-starter:3.0.3")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.0")
-        implementation("me.paulschwarz:spring-dotenv:3.0.0")
+        implementation("me.paulschwarz:spring-dotenv:4.0.0")
         implementation("org.springframework.security:spring-security-web:6.0.3")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
@@ -88,7 +88,7 @@ dependencies {
     testImplementation('org.projectlombok:lombok:1.18.26')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.24.2')
-    testImplementation('org.springframework:spring-test:6.0.8')
+    testImplementation('org.springframework:spring-test:6.0.9')
     testImplementation('org.springframework.boot:spring-boot-starter-test:3.0.6')
     testImplementation('com.github.tomakehurst:wiremock:2.27.2')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.8.RELEASE')
