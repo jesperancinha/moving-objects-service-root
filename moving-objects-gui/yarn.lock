@@ -2286,10 +2286,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@7.7.0":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.7.0.tgz#701c70ab11340c541709d5e4748166069d292628"
-  integrity sha512-XN9ZYQK4pUf+5aagumTH/bynAM4sCMazkOa9C71DUCk2aNL07l1VMHRrr1O0GVLUNyKXK9RdPuGx2UVB97Nh1Q==
+"@okta/okta-signin-widget@7.7.1":
+  version "7.7.1"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.7.1.tgz#d962bd8ec5fa17d93716ccea5dbea2a394dd6a1f"
+  integrity sha512-0NB36Qo4E7djI2qUOrQZBk/MWrurrYz8W/xKoqw2/77ZLbHozqqZIGuFT2yl+404T7mo9oJkhyhY4WC1EuBRpg==
   dependencies:
     "@okta/okta-auth-js" "~7.0.0"
     "@sindresorhus/to-milliseconds" "^1.0.0"
