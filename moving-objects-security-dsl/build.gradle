@@ -51,7 +51,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
     implementation("me.paulschwarz:spring-dotenv:4.0.0")
     implementation("org.springframework.security:spring-security-web:6.1.0")
-    implementation("org.springframework:spring-webflux:6.0.9")
+    implementation("org.springframework:spring-webflux:6.0.10")
 }
 
 testing {
