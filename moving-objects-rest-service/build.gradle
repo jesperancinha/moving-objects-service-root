@@ -93,7 +93,7 @@ dependencies {
     testImplementation('com.github.tomakehurst:wiremock:2.27.2')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.8.RELEASE')
     testImplementation('org.mockito:mockito-junit-jupiter:5.4.0')
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.9.3')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.10.0')
     testImplementation 'org.junit.platform:junit-platform-launcher:1.10.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.9.3'
