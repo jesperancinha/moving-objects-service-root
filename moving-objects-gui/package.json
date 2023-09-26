@@ -34,7 +34,7 @@
     "@okta/okta-angular": "^6.2.0",
     "@okta/okta-auth-js": "7.4.2",
     "@okta/okta-signin-widget": "7.10.1",
-    "@types/express": "^4.17.17",
+    "@types/express": "^4.17.18",
     "@types/express-serve-static-core": "^4.17.37",
     "core-js": "3.32.2",
     "es6-shim": "0.35.8",
