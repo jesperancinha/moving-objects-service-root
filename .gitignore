@@ -71,3 +71,6 @@ okta.config.ts
 # Draw.IO
 *.bkp
 *.dtmp
+
+# Makefile
+.Makefile.swp

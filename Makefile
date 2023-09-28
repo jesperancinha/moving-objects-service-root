@@ -10,17 +10,17 @@ MODULE_LOCATIONS := moving-objects-jwt-service \
 					moving-objects-rest-service \
 					moving-objects-security-dsl
 
-b: buildw build-app build-npm
+b: buildw build-app build-node
 build-gradle: buildw
-build-npm:
+build-node:
 	cd moving-objects-gui && yarn && npm run build
-build-npm-cypress:
+build-node-cypress:
 	cd e2e && yarn
-build-npm-secure:
+build-node-secure:
 	cd moving-objects-gui && yarn && npm run build-prod
-build-npm-dist: build-npm
+build-node-dist: build-node
 	cd moving-objects-gui && npm run build
-build-npm-docker:
+build-node-docker:
 	cd moving-objects-gui && [ -d node_modules ] || mkdir node_modules
 	cd moving-objects-gui && chmod 777 node_modules
 	touch moving-objects-gui/yarn.lock
@@ -28,7 +28,7 @@ build-npm-docker:
 	chmod 777 moving-objects-gui/yarn.lock
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
-build-npm-cypress-docker:
+build-node-cypress-docker:
 	cd e2e && [ -d node_modules ] || mkdir node_modules
 	cd e2e && chmod 777 node_modules
 	touch e2e/yarn.lock
@@ -120,11 +120,11 @@ dcd:
 dcp:
 	docker-compose -p ${GITHUB_RUN_ID} stop
 dcup: dcd docker-clean docker objects-wait
-dcup-full-action: dcd docker-clean no-test build-npm docker-action objects-wait
+dcup-full-action: dcd docker-clean no-test build-node docker-action objects-wait
 dcup-action: dcp docker objects-wait
 dcup-light: dcd
 	docker-compose -p ${GITHUB_RUN_ID} up -d mosdb
-dcup-full-action-secure: dcd docker-clean credential-check no-test-secure build-npm-secure docker objects-wait
+dcup-full-action-secure: dcd docker-clean credential-check no-test-secure build-node-secure docker objects-wait
 
 report:
 	apt update -y
@@ -139,7 +139,7 @@ report-coverage:
 	 ./gradlew clean build test jacocoTestReport -i
 docker-stats:
 	docker stats --all
-build-nginx: build-npm
+build-nginx: build-node
 	docker-compose -p ${GITHUB_RUN_ID} stop nginx
 	docker-compose -p ${GITHUB_RUN_ID} rm nginx
 	docker-compose -p ${GITHUB_RUN_ID} build --no-cache nginx
@@ -147,7 +147,7 @@ build-nginx: build-npm
 build-nginx-secure:
 	docker-compose -p ${GITHUB_RUN_ID} stop nginx
 	docker-compose -p ${GITHUB_RUN_ID} rm -fsv nginx
-	make build-npm-secure
+	make build-node-secure
 	docker-compose -p ${GITHUB_RUN_ID} build --no-cache nginx
 	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-jwt-service: buildw-jwt-service
@@ -236,7 +236,7 @@ credential-check:
 	fi
 install:
 	npm i -g jest
-local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-node report-coverage
+local-pipeline: install generate-credentials build-gradle build-node test-gradle test-node report-coverage
 upgrade:
 	@for location in $(MODULE_LOCATIONS); do \
 		export CURRENT=$(shell pwd); \
