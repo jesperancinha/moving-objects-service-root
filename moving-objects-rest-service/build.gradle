@@ -88,7 +88,7 @@ dependencies {
     testImplementation('org.projectlombok:lombok:1.18.30')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     testImplementation('org.assertj:assertj-core:3.24.2')
-    testImplementation('org.springframework:spring-test:6.0.12')
+    testImplementation('org.springframework:spring-test:6.0.13')
     testImplementation('org.springframework.boot:spring-boot-starter-test:3.1.4')
     testImplementation('com.github.tomakehurst:wiremock:3.0.1')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.8.RELEASE')
