@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@testing-library/jest-dom": "^6.1.4",
-    "@types/jasmine": "~5.1.1",
+    "@types/jasmine": "~5.1.2",
     "@types/jasminewd2": "~2.0.13",
     "@types/jest": "^29.5.8",
     "@types/mocha": "^10.0.4",
