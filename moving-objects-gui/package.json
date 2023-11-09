@@ -56,7 +56,7 @@
     "@angular/core": "14.2.4",
     "@angular/language-service": "16.2.9",
     "@babel/preset-env": "^7.23.2",
-    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-react": "^7.23.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@types/jasmine": "~5.1.2",
     "@types/jasminewd2": "~2.0.13",
