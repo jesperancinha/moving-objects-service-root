@@ -10,7 +10,7 @@ MODULE_LOCATIONS := moving-objects-jwt-service \
 					moving-objects-rest-service \
 					moving-objects-security-dsl
 
-b: buildw build-app build-npm
+b: generate-credentials buildw build-app build-npm
 build-gradle: buildw
 build-npm:
 	cd moving-objects-gui && yarn && npm run build
