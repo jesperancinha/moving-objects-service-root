@@ -2377,10 +2377,10 @@
     webcrypto-shim "^0.1.5"
     xhr2 "0.1.3"
 
-"@okta/okta-signin-widget@7.12.2":
-  version "7.12.2"
-  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.12.2.tgz#fa5b8217f971c0271f21990b4470b68605f44026"
-  integrity sha512-dyaNSWTcNo8rmzMR2OvKR49SHo9RD+SvzJpysrzc5zKN9ACT3h63u4Nsgm+oFOoadAQsG23fMVsXhNPXDXeFpg==
+"@okta/okta-signin-widget@7.13.0":
+  version "7.13.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-signin-widget/-/okta-signin-widget-7.13.0.tgz#3f1bd3983cb50cddf545f67258df9ccf8d96204d"
+  integrity sha512-/51ncZE1F5rZ3UoBAFblXGMNLwl3vOXMVb83PE+XdK1G3zhdvHHYL6vJSDsifUipPdYajHDtVvvapyy2k9kpmA==
   dependencies:
     "@okta/okta-auth-js" "~7.0.0"
     "@sindresorhus/to-milliseconds" "^1.0.0"
@@ -2790,10 +2790,10 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-10.0.6.tgz#818551d39113081048bdddbef96701b4e8bb9d1b"
   integrity sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==
 
-"@types/node@*", "@types/node@>=10.0.0", "@types/node@^20.10.1":
-  version "20.10.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.1.tgz#d2c96f356c3125fedc983d74c424910c3767141c"
-  integrity sha512-T2qwhjWwGH81vUEx4EXmBKsTJRXFXNZTL4v0gi01+zyBmCwzE6TyHszqX01m+QHTEq+EZNo13NeJIdEqf+Myrg==
+"@types/node@*", "@types/node@>=10.0.0", "@types/node@^20.10.2":
+  version "20.10.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.2.tgz#32a5e8228357f57714ad28d52229ab04880c2814"
+  integrity sha512-37MXfxkb0vuIlRKHNxwCkb60PNBpR94u4efQuN4JgIAm66zfCDXGSAFCef9XUWFovX2R1ok6Z7MHhtdVXXkkIw==
   dependencies:
     undici-types "~5.26.4"
 
