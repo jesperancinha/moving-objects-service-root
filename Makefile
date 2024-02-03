@@ -41,7 +41,7 @@ build-npm-cypress-docker:
 test-gradle:
 	 ./gradlew test
 test: test-npm test-gradle
-test-node:
+test-npm:
 	cd moving-objects-gui && npm run jest
 wrapper:
 	gradle wrapper --gradle-version ${GRADLE_VERSION}
@@ -238,7 +238,7 @@ credential-check:
 	fi
 install:
 	npm i -g jest
-local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-node report-coverage
+local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-npm report-coverage
 upgrade:
 	@for location in $(MODULE_LOCATIONS); do \
 		export CURRENT=$(shell pwd); \

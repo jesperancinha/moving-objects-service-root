@@ -1,4 +1,7 @@
 {
+  "include": [
+    "./jest-setup.ts"
+  ],
   "compilerOptions": {
     "experimentalDecorators": true,
     "module": "commonjs",
