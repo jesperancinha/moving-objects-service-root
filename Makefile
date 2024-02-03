@@ -12,9 +12,18 @@ MODULE_LOCATIONS := moving-objects-jwt-service \
 
 b: generate-credentials buildw build-app build-npm
 build-gradle: buildw
+build-force-npm:
+	if [ -d  moving-objects-gui/node_modules ]; then rm -r moving-objects-gui/node_modules; fi;
+	if [ -d  moving-objects-gui/coverage ]; then rm -r moving-objects-gui/coverage; fi;
+	if [ -d  moving-objects-gui/.angular ]; then rm -r moving-objects-gui/.angular; fi;
+	if [ -d  moving-objects-gui/dist ]; then rm -r moving-objects-gui/dist; fi;
+	if [ -f  moving-objects-gui/yarn.lock ]; then rm moving-objects-gui/yarn.lock; fi;
+	make build-npm
 build-npm:
 	cd moving-objects-gui && yarn && npm run build
 build-test-npm: build-npm
+	npm i -g jest && make test-npm
+build-test-force-npm: build-force-npm
 	npm i -g jest && make test-npm
 build-npm-cypress:
 	cd e2e && yarn
