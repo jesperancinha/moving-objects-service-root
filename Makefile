@@ -128,6 +128,8 @@ dcd:
 	docker-compose -p ${GITHUB_RUN_ID} down --remove-orphans
 	docker-compose -p ${GITHUB_RUN_ID} rm -fsva
 	docker volume ls -qf dangling=true | xargs -I {} docker volume rm  {}
+dcd-compose:
+	docker-compose -p ${GITHUB_RUN_ID} down --volumes --rmi all --remove-orphans
 dcp:
 	docker-compose -p ${GITHUB_RUN_ID} stop
 dcup: dcd docker-clean docker objects-wait
