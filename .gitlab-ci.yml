@@ -99,7 +99,7 @@ qa node:
         - moving-objects-gui/coverage/
   script:
     - yarn global add jest
-    - make test-node
+    - make test-npm
   needs:
     - build node
   retry: 1

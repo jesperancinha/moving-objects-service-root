@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "ES2022",
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@angular",
