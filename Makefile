@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 GITHUB_RUN_ID ?=123
-GRADLE_VERSION ?= 8.1.1
+GRADLE_VERSION ?= 8.5
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
@@ -14,6 +14,8 @@ b: generate-credentials buildw build-app build-npm
 build-gradle: buildw
 build-npm:
 	cd moving-objects-gui && yarn && npm run build
+build-test-npm: build-npm
+	npm i -g jest && make test-npm
 build-npm-cypress:
 	cd e2e && yarn
 build-npm-secure:
@@ -38,7 +40,7 @@ build-npm-cypress-docker:
 	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from cypress-builder cypress-builder
 test-gradle:
 	 ./gradlew test
-test: test-node test-gradle
+test: test-npm test-gradle
 test-node:
 	cd moving-objects-gui && npm run jest
 wrapper:

@@ -16,7 +16,10 @@ jobs:
           distribution: 'adopt'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Start Docker
         uses: nick-fields/retry@v2
         with:
@@ -40,7 +43,10 @@ jobs:
           distribution: 'adopt'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Start Docker
         uses: nick-fields/retry@v2
         with:
@@ -64,7 +70,10 @@ jobs:
           distribution: 'adopt'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Start Docker
         uses: nick-fields/retry@v2
         with:
@@ -88,7 +97,10 @@ jobs:
           distribution: 'adopt'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Start Docker
         uses: nick-fields/retry@v2
         with:
