@@ -16,7 +16,7 @@ plugins {
     kotlin("plugin.spring") version kotlinVersion
     id("jacoco")
     id("maven-publish")
-    id("org.springdoc.openapi-gradle-plugin") version "1.6.0"
+    id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
 }
 
 group = "org.jesperancinha"
