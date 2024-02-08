@@ -1,8 +1,6 @@
 describe('API Image Selection test', () => {
     const host = Cypress.env('host') ? Cypress.env('host') : 'localhost';
     const port = Cypress.env('port') ? Cypress.env('port') : '4200';
-    const shortWait = 1000;
-
     function testAndFetchFilterInputField() {
         const secondFormField = cy.get('app-webcams-selector > div > div > mat-form-field').eq(1);
         secondFormField.should('exist');
