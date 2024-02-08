@@ -9,14 +9,14 @@ buildscript {
 
 
 plugins {
-    val kotlinVersion = "1.7.20"
-    id("org.springframework.boot") version "2.7.4"
-    id("io.spring.dependency-management") version "1.0.14.RELEASE"
+    val kotlinVersion = "1.9.22"
+    id("org.springframework.boot") version "3.2.2"
+    id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     id("jacoco")
     id("maven-publish")
-    id("org.springdoc.openapi-gradle-plugin") version "1.4.0"
+    id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
 }
 
 group = "org.jesperancinha"
@@ -46,7 +46,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.13")
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.3.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 }
