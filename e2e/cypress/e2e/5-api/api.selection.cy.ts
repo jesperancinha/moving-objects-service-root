@@ -1,8 +1,6 @@
 describe('API Image Selection test', () => {
     const host = Cypress.env('host') ? Cypress.env('host') : 'localhost';
     const port = Cypress.env('port') ? Cypress.env('port') : '4200';
-    const shortWait = 1000;
-
     function testAndFetchFilterInputField() {
         const secondFormField = cy.get('app-webcams-selector > div > div > mat-form-field').eq(1);
         secondFormField.should('exist');
@@ -22,8 +20,8 @@ describe('API Image Selection test', () => {
         cy.reload();
         const filterInputFieldTake2 = testAndFetchFilterInputField();
         filterInputFieldTake2.type(object);
-        cy.get('span[class="mat-option-text"]', {timeout: 10000}).contains(object, {timeout: 10000}).click({force: true});
-        cy.get('span[class="mat-button-wrapper"]', {timeout: 10000}).click({force: true});
+        cy.get('mat-option', {timeout: 10000}).contains(object, {timeout: 10000}).click({force: true});
+        cy.get('mat-card', {timeout: 10000}).click({force: true, multiple: true});
     }
 
     it('show 1 element 0 radius garlic', () => {
