@@ -134,6 +134,7 @@ dcp:
 	docker-compose -p ${GITHUB_RUN_ID} stop
 dcup: dcd docker-clean docker objects-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker-action objects-wait
+dcup-full-local: dcd docker-clean no-test build-npm docker objects-wait
 dcup-action: dcp docker objects-wait
 dcup-light: dcd
 	docker-compose -p ${GITHUB_RUN_ID} up -d mosdb
