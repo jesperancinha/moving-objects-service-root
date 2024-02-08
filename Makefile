@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 GITHUB_RUN_ID ?=123
-GRADLE_VERSION ?= 8.5
+GRADLE_VERSION ?= 8.6
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
