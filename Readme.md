@@ -35,7 +35,7 @@ These modules have been implemented in a Reactive way with WebFlux and the Front
 
 This project is also the official support project of my article on medium:
 
-[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b) [Monitoring Secure Coroutines and WebFlux Reactive applications with Prometheus, Grafana, and InfluxDB — A webcams example](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
+[![](https://img.shields.io/badge/Monitoring%20Secure%20Coroutines%20and%20WebFlux%20Reactive%20applications%20with%20Prometheus,%20Grafana,%20and%20InfluxDB%20—%20A%20webcams%20example-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
 
 #### Stable releases
 
