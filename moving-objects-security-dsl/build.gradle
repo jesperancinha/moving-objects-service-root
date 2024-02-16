@@ -59,7 +59,7 @@ dependencies {
     implementation("com.okta.spring:okta-spring-boot-starter:3.0.6")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.1")
     implementation("me.paulschwarz:spring-dotenv:4.0.0")
-    implementation("org.springframework.security:spring-security-web:6.2.1")
+    implementation("org.springframework.security:spring-security-web:6.2.2")
     implementation("org.springframework:spring-webflux:6.1.4")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.2.2")
 }
