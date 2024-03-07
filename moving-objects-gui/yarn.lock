@@ -2599,10 +2599,10 @@
     node-gyp "^10.0.0"
     which "^4.0.0"
 
-"@okta/okta-angular@^6.3.2":
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/@okta/okta-angular/-/okta-angular-6.3.2.tgz#54b6e7e10ba56c857ad06091b40ec12bb24c8224"
-  integrity sha512-8iMlrXaQmMtTzk3aXoy1peucRXVtDdaKRjgVbe0zsJjHheCyADi5UtGK94dpdfsjFIHBCnVv8qOzcX87ZBqFkQ==
+"@okta/okta-angular@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-angular/-/okta-angular-6.4.0.tgz#380c9a09da1935f18a251e6d9c506bef95c41348"
+  integrity sha512-/m2PjzKxIqlB9L4o8o+Pb3DocRJjpqXE1Yx3adN4tSjLUP/IKd5FwV+UIQADw+EbDjwTu7r9VEwEgt2LdHVBzQ==
   dependencies:
     compare-versions "^5.0.1"
     tslib "^2.4.0"
