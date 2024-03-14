@@ -303,10 +303,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@17.2.4":
-  version "17.2.4"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-17.2.4.tgz#06733dbbd49c3b28f77be142dc6b0dbb7be07638"
-  integrity sha512-A1jkx4ApIx76VDxm8UZLKEq+gwpKZb4qjzCTBDfjOpXB0MJQ5IaYdCrV0E/vPCKZhIfjbEHK+9H1vHRYDCcXtA==
+"@angular/platform-browser@17.3.0":
+  version "17.3.0"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-17.3.0.tgz#5b6e14d5db76a9a96dd0a1ec9360d4a4c7a6091e"
+  integrity sha512-sIquvbq04KMOdpk1VdVFt7kVhOk/Rk+hI3M4raarMK5EbZ16nLYzpqjc2OZetUpKy6LB/FemClgNUShj9NlrqA==
   dependencies:
     tslib "^2.3.0"
 
