@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.3")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.4")
     }
 }
 
@@ -78,7 +78,7 @@ dependencies {
     implementation('io.micrometer:micrometer-core:1.12.4')
     implementation('io.micrometer:micrometer-registry-prometheus:1.12.3')
     implementation('org.springframework.data:spring-data-commons:3.2.4')
-    implementation('org.springframework.boot:spring-boot-starter-webflux:3.2.3')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:3.2.4')
     implementation('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.4.0")
     compileOnly('org.projectlombok:lombok:1.18.32')
@@ -87,7 +87,7 @@ dependencies {
     testAnnotationProcessor('org.projectlombok:lombok:1.18.32')
     testImplementation('org.projectlombok:lombok:1.18.32')
     testCompile('jakarta.json.bind:jakarta.json.bind-api:3.0.0')
-    testImplementation('org.springframework.boot:spring-boot-starter-test:3.2.3')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:3.2.4')
     testImplementation('com.github.tomakehurst:wiremock:3.0.1')
     testImplementation('io.projectreactor.tools:blockhound-junit-platform:1.0.8.RELEASE')
 }
