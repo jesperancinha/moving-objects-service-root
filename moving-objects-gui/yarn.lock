@@ -283,10 +283,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@17.3.8":
-  version "17.3.8"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-17.3.8.tgz#a13d8efb82714c1d8ae8af602102a4d4daaf5b8d"
-  integrity sha512-UMGSV3TdJqMtf2xvhbW6fx8TKJLOoHQgFxohhy3y8GvxHBu+PUyrwhovb7r03bs+muY6u4ygGCMm7Mt1TFVwfQ==
+"@angular/platform-browser@17.3.9":
+  version "17.3.9"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-17.3.9.tgz#99e0f1ef26a654703f6134d17b39a62f04ef52a8"
+  integrity sha512-vMwHO76rnkz7aV3KHKy23KUFAo/+b0+yHPa6AND5Lee8z5C1J/tA2PdetFAsghlQQsX61JeK4MFJV/f3dFm2dw==
   dependencies:
     tslib "^2.3.0"
 
@@ -3331,10 +3331,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@>=10.0.0", "@types/node@^20.12.11":
-  version "20.12.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.11.tgz#c4ef00d3507000d17690643278a60dc55a9dc9be"
-  integrity sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==
+"@types/node@*", "@types/node@>=10.0.0", "@types/node@^20.12.12":
+  version "20.12.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.12.tgz#7cbecdf902085cec634fdb362172dfe12b8f2050"
+  integrity sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -4562,10 +4562,10 @@ core-js-compat@^3.31.0, core-js-compat@^3.34.0, core-js-compat@^3.36.1:
   dependencies:
     browserslist "^4.23.0"
 
-core-js@3.37.0, core-js@^3.6.5:
-  version "3.37.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.37.0.tgz#d8dde58e91d156b2547c19d8a4efd5c7f6c426bb"
-  integrity sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==
+core-js@3.37.1, core-js@^3.6.5:
+  version "3.37.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.37.1.tgz#d21751ddb756518ac5a00e4d66499df981a62db9"
+  integrity sha512-Xn6qmxrQZyB0FFY8E3bgRXei3lWDJHhvI+u0q9TKIYM49G8pAr0FgnnrFRAmsbptZL1yxRADVXn+x5AGsbBfyw==
 
 core-util-is@1.0.2:
   version "1.0.2"
