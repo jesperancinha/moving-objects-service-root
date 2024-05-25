@@ -71,3 +71,7 @@ okta.config.ts
 # Draw.IO
 *.bkp
 *.dtmp
+
+# NPM
+package-lock.json
+yarn.lock
