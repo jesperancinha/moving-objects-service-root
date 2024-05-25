@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 GITHUB_RUN_ID ?=123
-GRADLE_VERSION ?= 8.6
+GRADLE_VERSION ?= 8.7
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
@@ -99,7 +99,10 @@ prune-all: docker-delete
 	docker system prune --all --volumes
 update-snyk: update
 	npm i -g snyk
-update:
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
+update: remove-lock-files
 	gradle wrapper --gradle-version ${GRADLE_VERSION}
 	npm install -g npm-check-updates
 	cd moving-objects-gui && npx browserslist && ncu -u && yarn
