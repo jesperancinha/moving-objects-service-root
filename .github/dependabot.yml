@@ -9,6 +9,11 @@ updates:
     directory: "/moving-objects-gui"
     schedule:
       interval: "daily"
+    groups:
+      angular:
+        patterns:
+          - "@angular*"
+          - "angular*"
 
   - package-ecosystem: "npm"
     directory: "/e2e"
