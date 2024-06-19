@@ -15,13 +15,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 3
           retry_on: error
@@ -42,13 +42,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 3
           retry_on: error
@@ -69,13 +69,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 3
           retry_on: error
@@ -96,13 +96,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 3
           retry_on: error

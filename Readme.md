@@ -33,10 +33,6 @@ These are prometheus, grafana and influxDB.
 In this project you will find implementations using micrometer and a store for metrics.
 These modules have been implemented in a Reactive way with WebFlux and the Front End is implemented with Angular Materials.
 
-This project is also the official support project of my article on medium:
-
-[![](https://img.shields.io/badge/Monitoring%20Secure%20Coroutines%20and%20WebFlux%20Reactive%20applications%20with%20Prometheus,%20Grafana,%20and%20InfluxDB%20—%20A%20webcams%20example-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://itnext.io/monitoring-secure-coroutines-and-webflux-reactive-applications-with-prometheus-grafana-and-b99dafb59a4b)
-
 #### Stable releases
 
 -   [1.0.0](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0) - [8af14c9c60c9275cac1814238b9c9b0a73a427f2](https://github.com/jesperancinha/moving-objects-service-root/tree/1.0.0)
