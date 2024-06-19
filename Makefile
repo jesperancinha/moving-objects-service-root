@@ -294,3 +294,4 @@ deps-cypress-update:
 deps-plugins-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
 deps-update: update
+deps-quick-update: deps-cypress-update deps-plugins-update
