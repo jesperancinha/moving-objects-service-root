@@ -102,10 +102,14 @@ update-snyk: update
 remove-lock-files:
 	find . -name "package-lock.json" | xargs -I {} rm {}; \
 	find . -name "yarn.lock" | xargs -I {} rm {};
-update: remove-lock-files
+update-npm:
+	cd moving-objects-gui;\
+	npm install -g npm-check-updates; \
+	npx browserslist;\
+	ncu -u;\
+	yarn
+update: remove-lock-files update-npm
 	gradle wrapper --gradle-version ${GRADLE_VERSION}
-	npm install -g npm-check-updates
-	cd moving-objects-gui && npx browserslist && ncu -u && yarn
 audit:
 	cd moving-objects-gui && npm audit fix && yarn
 cypress-install:
@@ -293,5 +297,5 @@ deps-cypress-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/cypressUpdateOne.sh | bash
 deps-plugins-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
-deps-update: update
+deps-update: update-npm
 deps-quick-update: deps-cypress-update deps-plugins-update
