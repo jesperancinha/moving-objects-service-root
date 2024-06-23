@@ -3,8 +3,7 @@ name: mos-app-pull-request
 on:
   pull_request:
     branches: 
-      - main
-      - '!main'
+      - '**'
   push:
     branches:
       - '**'
