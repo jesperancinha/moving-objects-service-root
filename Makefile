@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 GITHUB_RUN_ID ?=123
-GRADLE_VERSION ?= 8.7
+GRADLE_VERSION ?= 8.8
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
@@ -75,8 +75,6 @@ no-test-secure: generate-credentials
 	cd moving-objects-security-dsl && make buildw
 	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && gradle -Pprod clean build -x test
 	make buildw-jwt-service-no-test
-upgrade:
-	gradle wrapper --gradle-version ${GRADLE_VERSION}
 upgrade-mac-os:
 	brew upgrade gradle
 	sdk install gradle
@@ -259,6 +257,7 @@ install:
 	npm i -g jest
 local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-npm report-coverage
 upgrade:
+	gradle wrapper --gradle-version ${GRADLE_VERSION}
 	@for location in $(MODULE_LOCATIONS); do \
 		export CURRENT=$(shell pwd); \
 		echo "Upgrading $$location..."; \
@@ -298,4 +297,6 @@ deps-cypress-update:
 deps-plugins-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
 deps-update: update-npm
-deps-quick-update: deps-cypress-update deps-plugins-update
+deps-java-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/javaUpdatesOne.sh | bash
+deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update
