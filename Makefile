@@ -283,6 +283,9 @@ upgrade-gradle:
 		export GRADLE_VERSION=$$gradleOnlineVersion; \
 	fi;
 	make upgrade
+docker-logs:
+	cd e2e; \
+	make docker-logs
 install-linux:
 	sudo apt-get install jq
 	sudo apt-get install curl

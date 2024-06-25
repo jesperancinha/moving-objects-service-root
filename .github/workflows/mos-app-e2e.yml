@@ -28,7 +28,10 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-
+      - name: Cypress Fail!
+        if: failure()
+        run: |
+          make docker-logs
       - name: Run Cypress
         run: make cypress-electron
 
@@ -55,7 +58,10 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-
+      - name: Cypress Fail!
+        if: failure()
+        run: |
+          make docker-logs
       - name: Run Cypress
         run: make cypress-chrome
 
@@ -82,7 +88,10 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-
+      - name: Cypress Fail!
+        if: failure()
+        run: |
+          make docker-logs
       - name: Run Cypress
         run: make cypress-firefox
 
@@ -109,6 +118,9 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-
+      - name: Cypress Fail!
+        if: failure()
+        run: |
+          make docker-logs
       - name: Run Cypress
         run: make cypress-edge
