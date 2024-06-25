@@ -69,6 +69,7 @@ buildw-jwt-service-no-test:
 generate-credentials:
 	bash generateCredentials.sh
 no-test: generate-credentials
+	java -version
 	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build -x test
 	make buildw-jwt-service-no-test
 no-test-secure: generate-credentials

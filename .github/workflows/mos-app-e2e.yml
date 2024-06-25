@@ -28,7 +28,7 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-      - name: Cypress Fail!
+      - name: Docker Startup Fail!
         if: failure()
         run: |
           make docker-logs
@@ -58,7 +58,7 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-      - name: Cypress Fail!
+      - name: Docker Startup Fail!
         if: failure()
         run: |
           make docker-logs
@@ -88,7 +88,7 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-      - name: Cypress Fail!
+      - name: Docker Startup Fail!
         if: failure()
         run: |
           make docker-logs
@@ -118,7 +118,7 @@ jobs:
           timeout_seconds: 2400
           command: |
             make dcup-full-action
-      - name: Cypress Fail!
+      - name: Docker Startup Fail!
         if: failure()
         run: |
           make docker-logs
