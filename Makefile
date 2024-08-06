@@ -130,7 +130,7 @@ cypress-edge:
 	cd e2e && make cypress-edge
 objects-wait:
 	bash objects_wait.sh
-dcd:
+dcd: dc-migration
 	docker-compose -p ${GITHUB_RUN_ID} down --remove-orphans
 	docker-compose -p ${GITHUB_RUN_ID} rm -fsva
 	docker volume ls -qf dangling=true | xargs -I {} docker volume rm  {}
@@ -306,3 +306,5 @@ deps-java-update:
 deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+dc-migration:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
