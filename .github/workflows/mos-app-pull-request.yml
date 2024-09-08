@@ -1,9 +1,6 @@
 name: mos-app-pull-request
 
 on:
-  pull_request_target:
-    branches:
-      - '**'
   create:
     branches:
       - '**'
