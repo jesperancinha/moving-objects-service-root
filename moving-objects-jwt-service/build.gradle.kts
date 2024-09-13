@@ -34,11 +34,12 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-actuator:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE")
