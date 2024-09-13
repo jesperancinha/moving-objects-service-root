@@ -1,6 +1,6 @@
-SHELL := /bin/bash
+include Makefile.mk
+
 GITHUB_RUN_ID ?=123
-GRADLE_VERSION ?= 8.8
 .EXPORT_ALL_VARIABLES:
 ISSUER_MF = $(shell echo $${ISSUER})
 CLIENT_ID_MF = $(shell echo $${CLIENT_ID})
@@ -303,7 +303,9 @@ deps-plugins-update:
 deps-update: update-npm
 deps-java-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/javaUpdatesOne.sh | bash
-deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update
+deps-gradle-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/gradleUpdatesOne.sh | bash
+deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update deps-gradle-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
 dc-migration:
