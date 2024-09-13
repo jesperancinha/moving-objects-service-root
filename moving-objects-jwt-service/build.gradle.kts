@@ -10,14 +10,13 @@ buildscript {
 
 
 plugins {
-    val kotlinVersion = "1.9.22"
-    id("org.springframework.boot") version "3.2.2"
-    id("io.spring.dependency-management") version "1.1.4"
-    kotlin("jvm") version kotlinVersion
-    kotlin("plugin.spring") version kotlinVersion
-    id("jacoco")
-    id("maven-publish")
-    id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.spring)
+    alias(libs.plugins.openapi.gradle.plugin)
+    jacoco
+    `maven-publish`
 }
 
 group = "org.jesperancinha"
