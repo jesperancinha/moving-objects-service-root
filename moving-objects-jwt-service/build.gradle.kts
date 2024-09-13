@@ -34,19 +34,20 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-actuator:3.0.0")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation(libs.jackson.module.kotlin)
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    implementation("io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.10.2")
+    implementation(libs.r2dbc.postgresql)
+    implementation(libs.micrometer.registry.prometheus)
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.3.0")
+    implementation(libs.springdoc.openapi.starter.webflux.ui)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 }
