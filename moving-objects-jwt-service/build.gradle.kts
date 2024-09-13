@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -51,6 +52,10 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -61,3 +66,11 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+val gradleSysVersion = System.getenv("GRADLE_VERSION")
+
+tasks.register<Wrapper>("wrapper") {
+    gradleVersion = gradleSysVersion
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}
