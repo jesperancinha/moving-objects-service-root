@@ -65,10 +65,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.3.3")
 }
 
-val gradleSysVersion = System.getenv("GRADLE_VERSION")
-
-tasks.register<Wrapper>("wrapper") {
-    gradleVersion = gradleSysVersion
-}
+tasks.register<Wrapper>("wrapper")
 
 tasks.register("prepareKotlinBuildScriptModel"){}
