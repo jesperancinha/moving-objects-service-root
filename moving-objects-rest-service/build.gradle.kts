@@ -81,7 +81,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator:3.3.3")
     implementation("io.micrometer:micrometer-core:1.13.4")
     implementation("io.micrometer:micrometer-registry-prometheus:1.13.4")
-    implementation("org.springframework.data:spring-data-commons:3.3.3")
+    implementation("org.springframework.data:spring-data-commons:3.3.4")
     implementation("org.springframework.boot:spring-boot-starter-webflux:3.3.3")
     implementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0")
