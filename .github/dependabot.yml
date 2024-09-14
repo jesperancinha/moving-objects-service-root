@@ -14,6 +14,9 @@ updates:
       spring:
         patterns:
           - "*spring*"
+      micrometer:
+        patterns:
+          - "*micrometer*"
 
   - package-ecosystem: "npm"
     directory: "/moving-objects-gui"
