@@ -1,7 +1,8 @@
-SHELL=/bin/bash
+include ../Makefile.mk
 
 buildw:
-	gradle wrapper && ./gradlew clean build && gradle assemble test publishToMavenLocal
+	gradle wrapper --gradle-version $(GRADLE_VERSION)
+	./gradlew clean build && gradle assemble test publishToMavenLocal
 buildw-prod:
 	cd ../moving-objects-security-dsl && make buildw
 	gradle -Pprod build
