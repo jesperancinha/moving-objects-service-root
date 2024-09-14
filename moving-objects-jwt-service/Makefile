@@ -1,3 +1,5 @@
+include ../Makefile.mk
+
 SHELL=/bin/bash
 
 buildw:
