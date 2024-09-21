@@ -62,8 +62,12 @@ buildw-jwt-service:
 	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew --info clean build assemble test jacocoTestReport publishToMavenLocal
 buildw-rest-service:
 	cd moving-objects-rest-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build assemble test jacocoTestReport publishToMavenLocal
-buildw: buildw-security buildw-jwt-service buildw-rest-service
-	gradle clean build
+buildw:
+	gradle wrapper --gradle-version ${GRADLE_VERSION}; \
+	./gradlew --stop; \
+	./gradlew --info clean build assemble test jacocoTestReport publishToMavenLocal; \
+	./gradlew --stop; \
+	./gradlew clean build
 buildw-jwt-service-no-test:
 	cd moving-objects-jwt-service && gradle wrapper --gradle-version ${GRADLE_VERSION} && ./gradlew clean build -x test
 generate-credentials:
@@ -263,6 +267,7 @@ upgrade:
 		export CURRENT=$(shell pwd); \
 		echo "Upgrading $$location..."; \
 		cd $$location; \
+		./gradlew --stop \
 		gradle wrapper --gradle-version $(GRADLE_VERSION); \
 		cd $$CURRENT; \
 	done
