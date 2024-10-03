@@ -78,8 +78,8 @@ dependencies {
     }
     implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("io.micrometer:micrometer-core:1.13.4")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.13.4")
+    implementation("io.micrometer:micrometer-core:1.13.5")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.13.5")
     implementation("org.springframework.data:spring-data-commons")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
