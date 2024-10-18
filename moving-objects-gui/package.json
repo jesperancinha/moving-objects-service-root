@@ -33,7 +33,7 @@
     "@angular/platform-browser-dynamic": "18.2.8",
     "@angular/router": "18.2.8",
     "@okta/okta-angular": "^6.4.0",
-    "@okta/okta-auth-js": "7.8.0",
+    "@okta/okta-auth-js": "7.8.1",
     "@okta/okta-signin-widget": "7.24.2",
     "@types/express": "^5.0.0",
     "@types/express-serve-static-core": "^5.0.0",
