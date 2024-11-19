@@ -73,7 +73,7 @@ dependencies {
         implementation("com.okta.spring:okta-spring-boot-starter:3.0.7")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.1")
         implementation("me.paulschwarz:spring-dotenv:4.0.0")
-        implementation("org.springframework.security:spring-security-web:6.3.4")
+        implementation("org.springframework.security:spring-security-web:6.4.0")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
     implementation(kotlin("stdlib"))
