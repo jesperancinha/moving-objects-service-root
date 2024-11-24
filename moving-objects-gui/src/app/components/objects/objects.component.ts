@@ -6,6 +6,7 @@ import {MovingObject} from "../../model/moving.object";
     selector: "moving-objects-selector",
     styleUrls: ["./objects.component.scss"],
     templateUrl: "./objects.component.html",
+    standalone: false
 })
 export class ObjectsComponent implements OnInit {
 
