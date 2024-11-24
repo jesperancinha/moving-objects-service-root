@@ -16,6 +16,7 @@ interface TreeNode<T> {
     selector: "app-webcams-selector",
     styleUrls: ["./webcams.component.scss"],
     templateUrl: "./webcams.component.html",
+    standalone: false
 })
 export class WebCamsComponent implements OnInit {
 
