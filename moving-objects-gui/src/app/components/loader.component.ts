@@ -13,6 +13,7 @@ import {WebCamsComponent} from "./webcamsearch/webcams.component";
     selector: "app-loader-selector",
     styleUrls: ["./loader.component.css"],
     templateUrl: "./loader.component.html",
+    standalone: false
 })
 export class LoaderComponent implements OnInit {
     public c = environment.environment;
