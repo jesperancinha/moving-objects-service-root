@@ -11,6 +11,7 @@ import {MetricsService} from "../../service/metrics.service";
     selector: "app-metrics-selector",
     styleUrls: ["./metrics.component.scss"],
     templateUrl: "./metrics.component.html",
+    standalone: false
 })
 export class MetricsComponent implements OnInit {
     private static METRIC_TAG_ALL: MetricTag = {tag: "All", value: null};
