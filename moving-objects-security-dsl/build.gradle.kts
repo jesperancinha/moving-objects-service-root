@@ -58,7 +58,7 @@ tasks.named<Test>("test") {
 dependencies {
     api("org.apache.commons:commons-math3:3.6.1")
     implementation("com.okta.spring:okta-spring-boot-starter:3.0.7")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.2")
     implementation("me.paulschwarz:spring-dotenv:4.0.0")
     implementation("org.springframework.security:spring-security-web:6.4.1")
     implementation("org.springframework:spring-webflux:6.2.0")
