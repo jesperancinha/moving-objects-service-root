@@ -74,6 +74,7 @@ okta.config.ts
 
 # NPM
 package-lock.json
+/package.json
 yarn.lock
 
 ## Automation
