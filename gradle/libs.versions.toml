@@ -12,7 +12,7 @@ openapi-gradle-plugin = { id = "org.springdoc.openapi-gradle-plugin", version = 
 
 [libraries]
 arrow-core = { group = "io.arrow-kt", name = "arrow-core", version = "2.0.0" }
-arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version = "2.0.0" }
+arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version = "2.0.1" }
 arrow-optics-ksp-plugin = { group = "io.arrow-kt", name = "arrow-optics-ksp-plugin", version = "2.0.1" }
 arrow-stack = { group = "io.arrow-kt", name = "arrow-stack", version = "2.0.1" }
 javalin = { group = "io.javalin", name = "javalin", version = "6.4.0" }
