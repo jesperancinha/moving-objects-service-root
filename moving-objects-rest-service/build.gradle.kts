@@ -78,8 +78,8 @@ dependencies {
     }
     implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("io.micrometer:micrometer-core:1.14.3")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.14.3")
+    implementation("io.micrometer:micrometer-core:1.14.4")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.14.4")
     implementation("org.springframework.data:spring-data-commons")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
@@ -92,7 +92,7 @@ dependencies {
     testImplementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.github.tomakehurst:wiremock:3.0.1")
-    testImplementation("io.projectreactor.tools:blockhound-junit-platform:1.0.10.RELEASE")
+    testImplementation("io.projectreactor.tools:blockhound-junit-platform:1.0.11.RELEASE")
 }
 
 tasks.register<Wrapper>("wrapper")
