@@ -35,30 +35,19 @@ public class SecurityConfiguration {
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity httpSecurity) {
         return httpSecurity
-                .logout()
-                .logoutUrl("/logout").requiresLogout(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/signout"))
-                .logoutSuccessHandler(oidcLogoutSuccessHandler())
-                .and()
-                .csrf().disable()
-                .authorizeExchange(authorize ->
-                authorize
-                        .pathMatchers("/webjars/**")
-                        .permitAll()
-                        .pathMatchers("/logout")
-                        .permitAll()
-                        .pathMatchers("/logout/**")
-                        .permitAll()
-                        .pathMatchers("/info/jwt/open/**")
-                        .permitAll()
-                        .pathMatchers("/webcams/jwt/open/**")
-                        .permitAll()
-                        .pathMatchers("/v3/**")
-                        .permitAll()
-                        .pathMatchers("/actuator/**")
-                        .permitAll()
-                        .anyExchange()
-                        .authenticated()
-                        .and().oauth2ResourceServer().jwt()).build();
-
+                .logout(logout -> logout
+                        .requiresLogout(ServerWebExchangeMatchers.pathMatchers(HttpMethod.GET, "/signout"))
+                        .logoutSuccessHandler(oidcLogoutSuccessHandler()))
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .authorizeExchange(auth -> auth
+                        .pathMatchers(
+                                "/webjars/**", "/logout", "/logout/**",
+                                "/info/jwt/open/**", "/webcams/jwt/open/**",
+                                "/v3/**", "/actuator/**"
+                        ).permitAll()
+                        .anyExchange().authenticated()
+                        .and().oauth2ResourceServer().jwt()
+                )
+                .build();
     }
 }
