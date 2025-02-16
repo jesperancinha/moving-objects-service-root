@@ -14,7 +14,7 @@ import org.springframework.web.reactive.config.EnableWebFlux
 @EnableWebFluxSecurity
 @OpenAPIDefinition(
 	info = Info(title = "OpenAPI definition"),
-	servers = [Server(url = "http://localhost:\${server.port}/objects", description = "Server URL")]
+	servers = [Server(url = "http://localhost:\${objects.endpoint.port}/objects", description = "Server URL")]
 )
 class MovingObjectsJWTServiceApplication
 
