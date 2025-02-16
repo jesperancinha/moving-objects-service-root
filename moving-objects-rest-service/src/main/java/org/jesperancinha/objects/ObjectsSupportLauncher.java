@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @OpenAPIDefinition(
         info = @Info(title = "OpenAPI definition"),
         servers = {
-                @Server(url = "${objects.okta.server.url}/aggregator",
+                @Server(url = "http://localhost:${objects.endpoint.port}/aggregator",
                         description = "Server URL")
         }
 )

@@ -12,10 +12,9 @@ import org.springframework.web.reactive.config.EnableWebFlux
 @SpringBootApplication
 @EnableR2dbcRepositories
 @EnableWebFluxSecurity
-@EnableWebFlux
 @OpenAPIDefinition(
 	info = Info(title = "OpenAPI definition"),
-	servers = [Server(url = "\${objects.jwt.server.url}/objects", description = "Server URL")]
+	servers = [Server(url = "http://localhost:\${objects.endpoint.port}/objects", description = "Server URL")]
 )
 class MovingObjectsJWTServiceApplication
 

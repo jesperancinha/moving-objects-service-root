@@ -6,6 +6,7 @@ import com.nimbusds.jose.jwk.source.ImmutableJWKSet
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.io.ClassPathResource
 import org.springframework.http.HttpMethod
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager
@@ -21,6 +22,9 @@ import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder
 import org.springframework.security.web.server.SecurityWebFilterChain
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers
+import org.springframework.web.reactive.function.server.RouterFunction
+import org.springframework.web.reactive.function.server.RouterFunctions
+import org.springframework.web.reactive.function.server.ServerResponse
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 
@@ -68,9 +72,13 @@ class SecurityConfiguration(
                     .anyExchange()
                     .authenticated()
             }
-            .csrf().disable()
+            .csrf(ServerHttpSecurity.CsrfSpec::disable)
             .httpBasic(Customizer.withDefaults())
-            .oauth2ResourceServer { oAuth2ResourceServerSpec -> oAuth2ResourceServerSpec.jwt() }
+            .oauth2ResourceServer { oauth2 ->
+                oauth2.jwt { jwt ->
+                    jwt.jwtDecoder(jwtDecoder())
+                }
+            }
             .build()
 
     @Bean
@@ -105,5 +113,13 @@ class SecurityConfiguration(
             .roles(*roles)
             .build()
         return MapReactiveUserDetailsService(user)
+    }
+}
+
+@Configuration
+class SwaggerConfig {
+    @Bean
+    fun staticResources(): RouterFunction< ServerResponse> {
+        return RouterFunctions.resources("/webjars/**", ClassPathResource("META-INF/resources/webjars/"))
     }
 }
