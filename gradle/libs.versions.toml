@@ -15,7 +15,7 @@ arrow-core = { group = "io.arrow-kt", name = "arrow-core", version = "2.0.1" }
 arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version = "2.0.1" }
 arrow-optics-ksp-plugin = { group = "io.arrow-kt", name = "arrow-optics-ksp-plugin", version = "2.0.1" }
 arrow-stack = { group = "io.arrow-kt", name = "arrow-stack", version = "2.0.1" }
-javalin = { group = "io.javalin", name = "javalin", version = "6.4.0" }
+javalin = { group = "io.javalin", name = "javalin", version = "6.5.0" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version = "5.12.0" }
 junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.12.0" }
 junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.12.0" }
