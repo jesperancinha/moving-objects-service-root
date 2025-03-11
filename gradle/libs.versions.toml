@@ -33,4 +33,4 @@ resilience4j-kotlin = { group = "io.github.resilience4j", name = "resilience4j-k
 slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.17" }
 slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version = "2.0.17" }
 r2dbc-postgresql = { group = "io.r2dbc", name = "r2dbc-postgresql", version = "0.8.13.RELEASE" }
-micrometer-registry-prometheus = { group = "io.micrometer", name = "micrometer-registry-prometheus", version = "1.14.4" }
+micrometer-registry-prometheus = { group = "io.micrometer", name = "micrometer-registry-prometheus", version = "1.14.5" }
