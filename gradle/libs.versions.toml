@@ -11,7 +11,7 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 openapi-gradle-plugin = { id = "org.springdoc.openapi-gradle-plugin", version = "1.9.0" }
 
 [libraries]
-arrow-core = { group = "io.arrow-kt", name = "arrow-core", version = "2.0.1" }
+arrow-core = { group = "io.arrow-kt", name = "arrow-core", version = "2.1.0" }
 arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version = "2.0.1" }
 arrow-optics-ksp-plugin = { group = "io.arrow-kt", name = "arrow-optics-ksp-plugin", version = "2.0.1" }
 arrow-stack = { group = "io.arrow-kt", name = "arrow-stack", version = "2.1.0" }
