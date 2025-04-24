@@ -62,7 +62,7 @@ dependencies {
     implementation("me.paulschwarz:spring-dotenv:4.0.0")
     implementation("org.springframework.security:spring-security-web:6.4.5")
     implementation("org.springframework:spring-webflux:6.2.6")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
 }
 
 tasks.register<Wrapper>("wrapper")
