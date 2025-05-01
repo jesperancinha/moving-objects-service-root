@@ -34,7 +34,7 @@
     "@angular/router": "19.2.9",
     "@okta/okta-angular": "^6.5.1",
     "@okta/okta-auth-js": "7.12.1",
-    "@okta/okta-signin-widget": "7.30.3",
+    "@okta/okta-signin-widget": "7.31.0",
     "@types/express": "^5.0.1",
     "@types/express-serve-static-core": "^5.0.6",
     "ajv-formats": "^3.0.1",
