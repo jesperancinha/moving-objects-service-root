@@ -57,14 +57,14 @@
     "@angular/compiler-cli": "19.2.10",
     "@angular/core": "19.2.10",
     "@angular/language-service": "19.2.10",
-    "@babel/preset-env": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@testing-library/jest-dom": "6.6.3",
-    "@types/jasmine": "~5.1.7",
+    "@types/jasmine": "~5.1.8",
     "@types/jasminewd2": "~2.0.13",
     "@types/jest": "^29.5.14",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.17",
     "codelyzer": "^6.0.2",
     "jasmine-core": "~5.7.1",
     "jasmine-spec-reporter": "~7.0.0",
@@ -79,6 +79,6 @@
     "ts-jest": "^29.3.2",
     "ts-node": "~10.9.2",
     "tslint": "~6.1.3",
-    "webpack": "^5.99.7"
+    "webpack": "^5.99.8"
   }
 }
