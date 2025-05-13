@@ -8,7 +8,7 @@ buildscript {
 
 plugins {
     jacoco
-    id("org.jesperancinha.plugins.omni") version "0.3.1"
+    id("org.jesperancinha.plugins.omni") version "0.4.5"
     id("java")
     id("idea")
     id("maven-publish")
