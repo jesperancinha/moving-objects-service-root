@@ -1,9 +1,9 @@
 [plugins]
 jesperancinha-omni = { id = "org.jesperancinha.plugins.omni", version = "0.4.5" }
 kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version = "2.2.0" }
-kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version = "2.1.21" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version = "2.2.0" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.2.0" }
-ksp = { id = "com.google.devtools.ksp", version = "2.1.21-2.0.2" }
+ksp = { id = "com.google.devtools.ksp", version = "2.2.0-2.0.2" }
 ktor = { id = "io.ktor.plugin", version = "3.2.0" }
 protobuf = { id = "com.google.protobuf", version = "0.9.5" }
 spring-boot = { id = "org.springframework.boot", version = "3.4.5" }
