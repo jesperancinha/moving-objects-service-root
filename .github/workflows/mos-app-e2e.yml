@@ -1,7 +1,6 @@
 name: e2e-mos-app
 
 on:
-  push:
   pull_request:
 
 jobs:
