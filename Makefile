@@ -263,7 +263,7 @@ install:
 local-pipeline: install generate-credentials build-gradle build-npm test-gradle test-npm report-coverage
 upgrade:
 	gradle wrapper --gradle-version ${GRADLE_VERSION}
-	@for location in $(MODULE_LOCATIONS); do \
+	for location in $(MODULE_LOCATIONS); do \
 		export CURRENT=$(shell pwd); \
 		echo "Upgrading $$location..."; \
 		cd $$location; \
