@@ -1,2 +1,2 @@
 SHELL := /bin/bash
-GRADLE_VERSION ?= 8.12.1
+GRADLE_VERSION ?= 8.14.2
