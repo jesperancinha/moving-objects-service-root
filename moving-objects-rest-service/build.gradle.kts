@@ -12,8 +12,8 @@ plugins {
     alias(libs.plugins.spring.dependency.management)
 }
 
-version "1.0.0"
-group "org.jesperancinha.objects"
+version = "1.0.0"
+group = "org.jesperancinha.objects"
 
 apply(plugin = "application")
 apply(plugin = "java")
@@ -70,29 +70,31 @@ tasks.bootJar {
 
 dependencies {
     if (project.hasProperty("prod")) {
-        implementation("com.okta.spring:okta-spring-boot-starter:3.0.7")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.19.2")
-        implementation("me.paulschwarz:spring-dotenv:4.0.0")
-        implementation("org.springframework.security:spring-security-web:6.4.5")
+        implementation(libs.okta.spring.boot.starter)
+        implementation(libs.jackson.module.kotlin)
+        implementation(libs.spring.dotenv)
+        implementation(libs.spring.security.web)
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
     implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("io.micrometer:micrometer-core:1.15.2")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.15.2")
+    implementation(libs.micrometer.core)
+    implementation(libs.micrometer.registry.prometheus)
     implementation("org.springframework.data:spring-data-commons")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
+    implementation(libs.jakarta.json.bind.api)
     implementation(libs.springdoc.openapi.starter.webflux.ui)
-    compileOnly("org.projectlombok:lombok:1.18.38")
-    annotationProcessor("org.projectlombok:lombok:1.18.38")
-    testImplementation("org.projectlombok:lombok:1.18.38")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
-    testImplementation("org.projectlombok:lombok:1.18.38")
-    testImplementation("jakarta.json.bind:jakarta.json.bind-api:3.0.1")
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+    testImplementation(libs.lombok)
+    testAnnotationProcessor(libs.lombok)
+    testImplementation(libs.jakarta.json.bind.api)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("com.github.tomakehurst:wiremock:3.0.1")
-    testImplementation("io.projectreactor.tools:blockhound-junit-platform:1.0.13.RELEASE")
+    testImplementation(libs.wiremock)
+    testImplementation(platform("org.junit:junit-bom:5.13.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.platform:junit-platform-suite")
+    testImplementation(libs.blockhound.junit.platform)
 }
 
 tasks.register<Wrapper>("wrapper")
