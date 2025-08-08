@@ -56,13 +56,16 @@ tasks.named<Test>("test") {
 }
 
 dependencies {
-    api("org.apache.commons:commons-math3:3.6.1")
-    implementation("com.okta.spring:okta-spring-boot-starter:3.0.7")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.19.2")
-    implementation("me.paulschwarz:spring-dotenv:4.0.0")
-    implementation("org.springframework.security:spring-security-web:6.4.5")
-    implementation("org.springframework:spring-webflux:6.2.6")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
+    api(libs.commons.math3)
+    implementation(libs.okta.spring.boot.starter)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.spring.dotenv)
+    implementation(libs.spring.security.web)
+    implementation(libs.spring.webflux)
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.junit.platform.launcher)
 }
 
 tasks.register<Wrapper>("wrapper")

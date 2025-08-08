@@ -83,3 +83,5 @@ docker-composetmp.yml
 packagetmp.json
 pluginUpdatesOne.sh
 javaUpdatesOne.sh
+.output.txt
+.kotlin
