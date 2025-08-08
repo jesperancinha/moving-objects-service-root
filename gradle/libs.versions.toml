@@ -2,19 +2,19 @@
 kotlin = "2.2.0"
 junit-jupiter = "5.13.1"
 junit-platform = "1.13.4"
-springdoc = "2.8.6"
+springdoc = "2.8.9"
 jackson = "2.19.2"
 micrometer = "1.15.2"
 lombok = "1.18.38"
 jakarta-json = "3.0.1"
 okta = "3.0.7"
-spring-security = "6.4.5"
+spring-security = "6.5.2"
 spring-dotenv = "4.0.0"
 wiremock = "3.0.1"
 blockhound = "1.0.13.RELEASE"
 commons-math3 = "3.6.1"
-spring-webflux = "6.2.6"
-spring-boot = "3.4.5"
+spring-webflux = "6.2.9"
+spring-boot = "3.5.4"
 reactor-kotlin-extensions = "1.2.3"
 kotlinx-coroutines-reactor = "1.10.2"
 
@@ -26,7 +26,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version = "${kotlin}-2.0.2" }
 ktor = { id = "io.ktor.plugin", version = "3.2.3" }
 protobuf = { id = "com.google.protobuf", version = "0.9.5" }
-spring-boot = { id = "org.springframework.boot", version = "3.4.5" }
+spring-boot = { id = "org.springframework.boot", version = "3.5.4" }
 spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.7" }
 openapi-gradle-plugin = { id = "org.springdoc.openapi-gradle-plugin", version = "1.9.0" }
 
@@ -72,7 +72,7 @@ spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spr
 spring-boot-starter-data-r2dbc = { group = "org.springframework.boot", name = "spring-boot-starter-data-r2dbc", version.ref = "spring-boot" }
 spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring-boot" }
 spring-boot-starter-oauth2-resource-server = { group = "org.springframework.boot", name = "spring-boot-starter-oauth2-resource-server", version.ref = "spring-boot" }
-spring-data-commons = { group = "org.springframework.data", name = "spring-data-commons", version = "3.4.5" }
+spring-data-commons = { group = "org.springframework.data", name = "spring-data-commons", version = "3.5.2" }
 junit-platform-suite = { group = "org.junit.platform", name = "junit-platform-suite", version.ref = "junit-platform" }
 reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
 reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.8" }
