@@ -15,7 +15,7 @@ blockhound = "1.0.13.RELEASE"
 commons-math3 = "3.6.1"
 spring-webflux = "6.2.9"
 spring-boot = "3.5.4"
-reactor-kotlin-extensions = "1.2.2"
+reactor-kotlin-extensions = "1.2.3"
 kotlinx-coroutines-reactor = "1.10.2"
 
 [plugins]
