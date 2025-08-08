@@ -1,9 +1,29 @@
+[versions]
+kotlin = "2.0.0"
+junit-jupiter = "5.13.1"
+junit-platform = "1.13.3"
+springdoc = "2.8.6"
+jackson = "2.19.2"
+micrometer = "1.15.2"
+lombok = "1.18.38"
+jakarta-json = "3.0.1"
+okta = "3.0.7"
+spring-security = "6.4.5"
+spring-dotenv = "4.0.0"
+wiremock = "3.0.1"
+blockhound = "1.0.13.RELEASE"
+commons-math3 = "3.6.1"
+spring-webflux = "6.2.6"
+spring-boot = "3.4.5"
+reactor-kotlin-extensions = "1.2.2"
+kotlinx-coroutines-reactor = "1.10.2"
+
 [plugins]
 jesperancinha-omni = { id = "org.jesperancinha.plugins.omni", version = "0.4.5" }
-kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version = "2.2.0" }
-kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version = "2.1.21" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.2.0" }
-ksp = { id = "com.google.devtools.ksp", version = "2.2.0-2.0.2" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version = "${kotlin}-2.0.2" }
 ktor = { id = "io.ktor.plugin", version = "3.2.3" }
 protobuf = { id = "com.google.protobuf", version = "0.9.5" }
 spring-boot = { id = "org.springframework.boot", version = "3.4.5" }
@@ -16,15 +36,17 @@ arrow-fx-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", ver
 arrow-optics-ksp-plugin = { group = "io.arrow-kt", name = "arrow-optics-ksp-plugin", version = "2.1.2" }
 arrow-stack = { group = "io.arrow-kt", name = "arrow-stack", version = "2.1.2" }
 javalin = { group = "io.javalin", name = "javalin", version = "6.7.0" }
-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version = "5.13.4" }
-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.13.4" }
-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.13.4" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit-jupiter" }
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit-jupiter" }
+junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit-platform" }
+junit-platform-suite-engine = { group = "org.junit.platform", name = "junit-platform-suite-engine", version.ref = "junit-platform" }
 kotest-core = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "5.9.1" }
 kotest-assertions-core-jvm = { group = "io.kotest", name = "kotest-assertions-core-jvm", version = "5.9.1" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.10.2" }
-springdoc-openapi-starter-webflux-ui = { group = "org.springdoc", name = "springdoc-openapi-starter-webflux-ui", version = "2.8.6" }
-springdoc-openapi-starter-common = { group = "org.springdoc", name = "springdoc-openapi-starter-common", version = "2.8.6" }
-jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version = "2.19.2" }
+springdoc-openapi-starter-webflux-ui = { group = "org.springdoc", name = "springdoc-openapi-starter-webflux-ui", version.ref = "springdoc" }
+springdoc-openapi-starter-common = { group = "org.springdoc", name = "springdoc-openapi-starter-common", version.ref = "springdoc" }
+jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jackson" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.18" }
 log4j-slf4j2-impl = { group = "org.apache.logging.log4j", name = "log4j-slf4j2-impl", version = "2.25.1" }
 resilience4j = { group = "io.github.resilience4j", name = "resilience4j-retry", version = "2.3.0" }
@@ -33,4 +55,27 @@ resilience4j-kotlin = { group = "io.github.resilience4j", name = "resilience4j-k
 slf4j-api = { group = "org.slf4j", name = "slf4j-api", version = "2.0.17" }
 slf4j-simple = { group = "org.slf4j", name = "slf4j-simple", version = "2.0.17" }
 r2dbc-postgresql = { group = "io.r2dbc", name = "r2dbc-postgresql", version = "0.8.13.RELEASE" }
-micrometer-registry-prometheus = { group = "io.micrometer", name = "micrometer-registry-prometheus", version = "1.15.2" }
+micrometer-registry-prometheus = { group = "io.micrometer", name = "micrometer-registry-prometheus", version.ref = "micrometer" }
+micrometer-core = { group = "io.micrometer", name = "micrometer-core", version.ref = "micrometer" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+jakarta-json-bind-api = { group = "jakarta.json.bind", name = "jakarta.json.bind-api", version.ref = "jakarta-json" }
+okta-spring-boot-starter = { group = "com.okta.spring", name = "okta-spring-boot-starter", version.ref = "okta" }
+spring-security-web = { group = "org.springframework.security", name = "spring-security-web", version.ref = "spring-security" }
+spring-dotenv = { group = "me.paulschwarz", name = "spring-dotenv", version.ref = "spring-dotenv" }
+wiremock = { group = "com.github.tomakehurst", name = "wiremock", version.ref = "wiremock" }
+blockhound-junit-platform = { group = "io.projectreactor.tools", name = "blockhound-junit-platform", version.ref = "blockhound" }
+commons-math3 = { group = "org.apache.commons", name = "commons-math3", version.ref = "commons-math3" }
+spring-webflux = { group = "org.springframework", name = "spring-webflux", version.ref = "spring-webflux" }
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot" }
+spring-boot-starter-webflux = { group = "org.springframework.boot", name = "spring-boot-starter-webflux", version.ref = "spring-boot" }
+spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator", version.ref = "spring-boot" }
+spring-boot-starter-data-r2dbc = { group = "org.springframework.boot", name = "spring-boot-starter-data-r2dbc", version.ref = "spring-boot" }
+spring-boot-starter-data-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+spring-boot-starter-oauth2-resource-server = { group = "org.springframework.boot", name = "spring-boot-starter-oauth2-resource-server", version.ref = "spring-boot" }
+spring-data-commons = { group = "org.springframework.data", name = "spring-data-commons", version = "3.4.5" }
+junit-platform-suite = { group = "org.junit.platform", name = "junit-platform-suite", version.ref = "junit-platform" }
+reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
+reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.5" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines-reactor" }
