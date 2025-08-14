@@ -75,7 +75,7 @@ spring-boot-starter-oauth2-resource-server = { group = "org.springframework.boot
 spring-data-commons = { group = "org.springframework.data", name = "spring-data-commons", version = "3.4.5" }
 junit-platform-suite = { group = "org.junit.platform", name = "junit-platform-suite", version.ref = "junit-platform" }
 reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
-reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.8" }
+reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.9" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines-reactor" }
