@@ -7,7 +7,7 @@ jobs:
   e2e-electron:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
       - name: Use Node.js
@@ -37,7 +37,7 @@ jobs:
   e2e-chrome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
       - name: Use Node.js
@@ -67,7 +67,7 @@ jobs:
   e2e-firefox:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
       - name: Use Node.js
@@ -97,7 +97,7 @@ jobs:
   e2e-edge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
       - name: Use Node.js
