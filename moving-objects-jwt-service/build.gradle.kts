@@ -46,7 +46,7 @@ dependencies {
     implementation(libs.r2dbc.postgresql)
     implementation(libs.micrometer.registry.prometheus)
     implementation(libs.kotlin.reflect)
-    implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.reactor)
     implementation(libs.springdoc.openapi.starter.webflux.ui)
     implementation(libs.springdoc.openapi.starter.common)
