@@ -167,7 +167,7 @@ build-nginx: build-npm
 	docker-compose -p ${GITHUB_RUN_ID} stop nginx
 	docker-compose -p ${GITHUB_RUN_ID} rm nginx
 	docker-compose -p ${GITHUB_RUN_ID} build --no-cache nginx
-	docker-compose -p ${GITHUB_RUN_ID} up -d
+	docker-compose -p ${GITHUB_RUN_ID} up -d --remove-orphans
 build-nginx-secure:
 	docker-compose -p ${GITHUB_RUN_ID} stop nginx
 	docker-compose -p ${GITHUB_RUN_ID} rm -fsv nginx
