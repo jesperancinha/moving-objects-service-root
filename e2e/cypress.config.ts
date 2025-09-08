@@ -10,11 +10,13 @@ module.exports = defineConfig({
         timeout: 10000
       }
     },
-    includeShadowDom: true,
-    video: false,
-    screenshotOnRunFailure: false,
-    supportFile: `${__dirname}/cypress/support/e2e.ts`,
-    specPattern: `${__dirname}/cypress/e2e/**/*.cy.{js,jsx,ts,tsx}`,
-    retries: 9
+      includeShadowDom: true,
+      video: true,
+      screenshotOnRunFailure: true,
+      screenshotsFolder: "cypress/screenshots",
+      videosFolder: "cypress/videos",
+      supportFile: `${__dirname}/cypress/support/e2e.ts`,
+      specPattern: `${__dirname}/cypress/e2e/**/*.cy.{js,jsx,ts,tsx}`,
+      retries: 9
   },
 });
