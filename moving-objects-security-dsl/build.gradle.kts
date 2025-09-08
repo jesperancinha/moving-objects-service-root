@@ -59,7 +59,7 @@ dependencies {
     api(libs.commons.math3)
     implementation(platform(libs.spring.boot.bom))
     implementation(libs.okta.spring.boot.starter)
-    implementation(libs.jackson.module.kotlin)
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation(libs.spring.dotenv)
     implementation("org.springframework.security:spring-security-web")
     implementation("org.springframework:spring-webflux")
