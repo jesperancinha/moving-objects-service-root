@@ -55,7 +55,7 @@ class SecurityConfiguration(
             }
             .authorizeExchange { authorize ->
                 authorize
-                    .pathMatchers("/ui/swagger-ui.html")
+                    .pathMatchers("/ui/**")
                     .permitAll()
                     .pathMatchers("/info/jwt/open/**")
                     .permitAll()
