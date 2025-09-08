@@ -79,7 +79,7 @@ public class MovingObjectsAggregatorServiceTestSource {
         Assertions.assertThat(airportDtos).isNotEmpty();
         val airportDtoList = StreamSupport.stream(airportDtos.spliterator(), false).collect(Collectors.toList());
         assertThat(airportDtoList).hasSize(10);
-        val webCams = (airportDtoList.get(0).webCams());
+        val webCams = (airportDtoList.getFirst().webCams());
         Assertions.assertThat(webCams).isNotEmpty();
         Assertions.assertThat(webCams).hasSize(10);
     }
