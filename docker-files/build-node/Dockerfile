@@ -18,7 +18,7 @@ RUN chmod -R 777 /opt/moving-objects-gui
 
 RUN npm install -g eslint --unsafe-perm=true --allow-root
 
-ENV runningFolder /usr/local/bin/
+ENV runningFolder=/usr/local/bin/
 
 WORKDIR ${runningFolder}
 

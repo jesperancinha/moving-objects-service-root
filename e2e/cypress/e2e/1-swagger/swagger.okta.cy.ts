@@ -3,7 +3,7 @@ describe('Swagger Tests', () => {
     const port = Cypress.env('port') ? Cypress.env('port') : '8082';
 
     it('shows swagger', () => {
-        cy.visit(`http://${host}:${port}/aggregator/webjars/swagger-ui/index.html`);
+        cy.visit(`http://${host}:${port}/aggregator/swagger-ui.html`);
         cy.get("input").clear();
         cy.get("input").type("/aggregator/v3/api-docs{enter}");
         cy.get('h2', {timeout: 10000}).contains('OpenAPI definition', {timeout: 10000}).should('not.be.null');

@@ -6,7 +6,7 @@ RUN npm install typescript -g
 
 RUN npm install -g @angular/cli
 
-ENV runningFolder /usr/local/bin/
+ENV runningFolder=/usr/local/bin/
 
 WORKDIR ${runningFolder}
 
