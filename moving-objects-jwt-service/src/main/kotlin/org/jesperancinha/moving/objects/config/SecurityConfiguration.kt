@@ -28,10 +28,6 @@ import org.springframework.web.reactive.function.server.ServerResponse
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 
-
-/**
- * Created by jofisaes on 27/07/2022
- */
 @Configuration
 class SecurityConfiguration(
     @Value("\${objects.jwt.public.key}")
@@ -59,7 +55,7 @@ class SecurityConfiguration(
             }
             .authorizeExchange { authorize ->
                 authorize
-                    .pathMatchers("/webjars/**")
+                    .pathMatchers("/swagger-ui.html")
                     .permitAll()
                     .pathMatchers("/info/jwt/open/**")
                     .permitAll()
