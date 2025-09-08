@@ -75,7 +75,7 @@ tasks.bootJar {
 dependencies {
     if (project.hasProperty("prod")) {
         implementation(libs.okta.spring.boot.starter)
-        implementation(libs.jackson.module.kotlin)
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation(libs.spring.dotenv)
         implementation("rg.springframework.security:spring-security-web")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
