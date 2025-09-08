@@ -77,14 +77,14 @@ dependencies {
         implementation(libs.okta.spring.boot.starter)
         implementation(libs.jackson.module.kotlin)
         implementation(libs.spring.dotenv)
-        implementation(libs.spring.security.web)
+        implementation("rg.springframework.security:spring-security-web")
         implementation("org.jesperancinha.objects:moving-objects-security-dsl:1.0.0")
     }
-    implementation(libs.spring.boot.starter.actuator)
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation(libs.micrometer.core)
     implementation(libs.micrometer.registry.prometheus)
-    implementation(libs.spring.data.commons)
-    implementation(libs.spring.boot.starter.webflux)
+    implementation("org.springframework.data:spring-data-commons")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation(libs.jakarta.json.bind.api)
     implementation(libs.springdoc.openapi.starter.webflux.ui)
     compileOnly(libs.lombok)
@@ -92,7 +92,7 @@ dependencies {
     testImplementation(libs.lombok)
     testAnnotationProcessor(libs.lombok)
     testImplementation(libs.jakarta.json.bind.api)
-    testImplementation(libs.spring.boot.starter.test) {
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.platform", module = "junit-platform-commons")
         exclude(group = "org.junit.platform", module = "junit-platform-engine")
     }

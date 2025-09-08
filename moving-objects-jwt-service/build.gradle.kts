@@ -35,11 +35,12 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(libs.spring.boot.starter.data.r2dbc)
-    implementation(libs.spring.boot.starter.data.jpa)
-    implementation(libs.spring.boot.starter.oauth2.resource.server)
-    implementation(libs.spring.boot.starter.webflux)
-    implementation(libs.spring.boot.starter.actuator)
+    implementation(platform(libs.spring.boot.bom))
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation(libs.jackson.module.kotlin)
     implementation(libs.reactor.kotlin.extensions)
     implementation(libs.r2dbc.postgresql)
@@ -49,7 +50,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.reactor)
     implementation(libs.springdoc.openapi.starter.webflux.ui)
     implementation(libs.springdoc.openapi.starter.common)
-    testImplementation(libs.spring.boot.starter.test) {
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         exclude(group = "org.junit.platform", module = "junit-platform-commons")
         exclude(group = "org.junit.platform", module = "junit-platform-engine")
