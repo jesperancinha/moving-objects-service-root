@@ -57,12 +57,13 @@ tasks.named<Test>("test") {
 
 dependencies {
     api(libs.commons.math3)
+    implementation(platform(libs.spring.boot.bom))
     implementation(libs.okta.spring.boot.starter)
     implementation(libs.jackson.module.kotlin)
     implementation(libs.spring.dotenv)
-    implementation(libs.spring.security.web)
-    implementation(libs.spring.webflux)
-    testImplementation(libs.spring.boot.starter.test)
+    implementation("org.springframework.security:spring-security-web")
+    implementation("org.springframework:spring-webflux")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(libs.junit.platform.launcher)
