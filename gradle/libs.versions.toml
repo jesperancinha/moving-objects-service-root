@@ -12,7 +12,7 @@ wiremock = "3.0.1"
 blockhound = "1.0.13.RELEASE"
 commons-math3 = "3.6.1"
 spring-boot = "3.5.5"
-reactor-kotlin-extensions = "1.2.3"
+reactor-kotlin-extensions = "1.2.4"
 kotlinx-coroutines-reactor = "1.10.2"
 
 [plugins]
