@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.2.20"
-junit-jupiter = "5.13.4"
+junit-jupiter = "6.0.0"
 junit-platform = "1.13.4"
 springdoc = "2.8.13"
 micrometer = "1.15.4"
