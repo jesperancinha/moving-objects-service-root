@@ -97,11 +97,12 @@ dependencies {
         exclude(group = "org.junit.platform", module = "junit-platform-engine")
     }
     testImplementation(libs.wiremock)
-    testImplementation(platform("org.junit:junit-bom:${libs.versions.junit.jupiter.get()}"))
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly("org.junit.platform:junit-platform-commons:${libs.versions.junit.platform.get()}")
-    testRuntimeOnly("org.junit.platform:junit-platform-engine:${libs.versions.junit.platform.get()}")
     testImplementation(libs.blockhound.junit.platform)
+    testImplementation(platform(libs.junit.jupiter.bom))
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("org.junit.platform:junit-platform-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-commons")
 }
 
 tasks.register<Wrapper>("wrapper")

@@ -64,9 +64,11 @@ dependencies {
     implementation("org.springframework.security:spring-security-web")
     implementation("org.springframework:spring-webflux")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation(libs.junit.jupiter.api)
-    testImplementation(libs.junit.jupiter.engine)
-    testImplementation(libs.junit.platform.launcher)
+    testImplementation(platform(libs.junit.jupiter.bom))
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("org.junit.platform:junit-platform-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-commons")
 }
 
 tasks.register<Wrapper>("wrapper")
