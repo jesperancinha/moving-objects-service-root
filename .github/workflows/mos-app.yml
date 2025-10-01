@@ -22,7 +22,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v3
       with:
-        gradle-version: 9.0.0
+        gradle-version: 9.1.0
 
     - name: Generate credentials
       run:  make generate-credentials

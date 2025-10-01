@@ -270,7 +270,7 @@ upgrade:
 		./gradlew --stop \
 		gradle wrapper --gradle-version $(GRADLE_VERSION); \
 		cd $$CURRENT; \
-	done
+	done ; \
 	gradle wrapper --gradle-version $(GRADLE_VERSION)
 upgrade-gradle:
 	sudo apt upgrade
