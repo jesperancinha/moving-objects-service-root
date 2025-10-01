@@ -21,7 +21,7 @@ plugins {
 
 group = "org.jesperancinha"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_25
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 tasks {
     bootJar {
@@ -31,11 +31,11 @@ tasks {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(platform(libs.spring.boot.bom))
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
@@ -56,11 +56,11 @@ dependencies {
         exclude(group = "org.junit.platform", module = "junit-platform-engine")
     }
     testImplementation(libs.reactor.test)
-    testImplementation(platform("org.junit:junit-bom:${libs.versions.junit.jupiter.get()}"))
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly(libs.junit.platform.launcher)
-    testRuntimeOnly("org.junit.platform:junit-platform-engine:${libs.versions.junit.platform.get()}")
-    testRuntimeOnly("org.junit.platform:junit-platform-commons:${libs.versions.junit.platform.get()}")
+    testImplementation(platform(libs.junit.jupiter.bom))
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("org.junit.platform:junit-platform-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-commons")
 }
 
 kotlin {
