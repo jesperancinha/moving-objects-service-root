@@ -2,13 +2,13 @@
 kotlin = "2.2.20"
 junit-jupiter = "6.0.0"
 springdoc = "2.8.13"
-micrometer = "1.15.4"
+micrometer = "1.15.5"
 lombok = "1.18.42"
 jakarta-json = "3.0.1"
 okta = "3.0.7"
 spring-dotenv = "4.0.0"
 wiremock = "3.0.1"
-blockhound = "1.0.14.RELEASE"
+blockhound = "1.0.15.RELEASE"
 commons-math3 = "3.6.1"
 spring-boot = "3.5.6"
 reactor-kotlin-extensions = "1.2.4"
@@ -38,7 +38,7 @@ blockhound-junit-platform = { group = "io.projectreactor.tools", name = "blockho
 commons-math3 = { group = "org.apache.commons", name = "commons-math3", version.ref = "commons-math3" }
 spring-boot-bom = { group = "org.springframework.boot", name ="spring-boot-starter-parent", version.ref = "spring-boot" }
 reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
-reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.11" }
+reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.12" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines-reactor" }
