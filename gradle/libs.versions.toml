@@ -10,7 +10,7 @@ spring-dotenv = "4.0.0"
 wiremock = "3.0.1"
 blockhound = "1.0.15.RELEASE"
 commons-math3 = "3.6.1"
-spring-boot = "3.5.6"
+spring-boot = "3.5.7"
 reactor-kotlin-extensions = "1.2.4"
 kotlinx-coroutines-reactor = "1.10.2"
 
@@ -18,7 +18,7 @@ kotlinx-coroutines-reactor = "1.10.2"
 jesperancinha-omni = { id = "org.jesperancinha.plugins.omni", version = "0.4.5" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-spring-boot = { id = "org.springframework.boot", version = "3.5.6" }
+spring-boot = { id = "org.springframework.boot", version = "3.5.7" }
 spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.7" }
 openapi-gradle-plugin = { id = "org.springdoc.openapi-gradle-plugin", version = "1.9.0" }
 
