@@ -21,7 +21,7 @@ plugins {
 
 group = "org.jesperancinha"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_21
+java.sourceCompatibility = JavaVersion.VERSION_25
 
 tasks {
     bootJar {
@@ -64,13 +64,13 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(25)
 }
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         freeCompilerArgs.add("-Xjsr305=strict")
-        jvmTarget.set(JVM_21)
+        jvmTarget.set(JVM_25)
     }
 }
 
