@@ -38,7 +38,7 @@ blockhound-junit-platform = { group = "io.projectreactor.tools", name = "blockho
 commons-math3 = { group = "org.apache.commons", name = "commons-math3", version.ref = "commons-math3" }
 spring-boot-bom = { group = "org.springframework.boot", name ="spring-boot-starter-parent", version.ref = "spring-boot" }
 reactor-kotlin-extensions = { group = "io.projectreactor.kotlin", name = "reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
-reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.7.12" }
+reactor-test = { group = "io.projectreactor", name = "reactor-test", version = "3.8.0" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 kotlinx-coroutines-reactor = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines-reactor" }
