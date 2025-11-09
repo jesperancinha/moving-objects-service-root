@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.2.21"
 junit-jupiter = "6.0.1"
-springdoc = "2.8.13"
+springdoc = "2.8.14"
 micrometer = "1.16.0"
 lombok = "1.18.42"
 jakarta-json = "3.0.1"
