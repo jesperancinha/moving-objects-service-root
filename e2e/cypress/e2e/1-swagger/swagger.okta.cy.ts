@@ -6,7 +6,7 @@ describe('Swagger Tests', () => {
         cy.visit(`http://${host}:${port}/aggregator/swagger-ui.html`);
         cy.get("form > input").clear();
         cy.get("form > input").type("/aggregator/v3/api-docs{enter}");
-        cy.get('h2', {timeout: 10000}).contains('OpenAPI definition', {timeout: 10000}).should('not.be.null');
+        cy.contains('OpenAPI definition', {timeout: 10000}).should('not.be.null');
         cy.wait(1000);
 
         cy.get('div[class="servers"] > label > select > option').should('have.value', `http://localhost:${port}/aggregator`)
