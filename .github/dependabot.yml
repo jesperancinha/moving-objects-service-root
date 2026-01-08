@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: gradle
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "yearly"
     groups:
       kotlin:
         patterns:
@@ -21,7 +21,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/moving-objects-gui"
     schedule:
-      interval: "daily"
+      interval: "yearly"
     groups:
       angular:
         patterns:
@@ -31,4 +31,4 @@ updates:
   - package-ecosystem: "npm"
     directory: "/e2e"
     schedule:
-      interval: "daily"
+      interval: "yearly"
